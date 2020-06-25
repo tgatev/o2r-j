@@ -1,0 +1,406 @@
+/*----------------------------------------------------------------------------------|  www.vdm.io  |----/
+				Delta Flip 
+/-------------------------------------------------------------------------------------------------------/
+
+	@version		1.0.21
+	@build			26th November, 2019
+	@created		5th July, 2019
+	@package		Offers
+	@subpackage		site.css
+	@author			SMIG <http://fuckitall.info>	
+	@copyright		Copyright (C) 2019. All Rights Reserved
+	@license		GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html
+  ____  _____  _____  __  __  __      __       ___  _____  __  __  ____  _____  _  _  ____  _  _  ____ 
+ (_  _)(  _  )(  _  )(  \/  )(  )    /__\     / __)(  _  )(  \/  )(  _ \(  _  )( \( )( ___)( \( )(_  _)
+.-_)(   )(_)(  )(_)(  )    (  )(__  /(__)\   ( (__  )(_)(  )    (  )___/ )(_)(  )  (  )__)  )  (   )(  
+\____) (_____)(_____)(_/\/\_)(____)(__)(__)   \___)(_____)(_/\/\_)(__)  (_____)(_)\_)(____)(_)\_) (__) 
+
+/------------------------------------------------------------------------------------------------------*/
+/* Responsive Classes */
+@media (max-width: 991px ) {
+    .pagination-box {
+        text-align: center;
+    }
+}
+
+@media (min-width: 992px ) {
+    .pagination-box {
+        text-align: right;
+    }
+}
+
+
+/*.pagination-line > #order_definitions >div:nth-child(1) {*/
+/*    margin-left: -30px;*/
+/*}*/
+/* CSS Document */
+.no-click {
+    pointer-events: none;
+}
+
+/* Variables
+================================== */
+/* Tables
+================================== */
+.Rtable {
+    display: block;
+    flex-wrap: wrap;
+    margin: 0 0 3em 0;
+    padding: 0;
+}
+
+.Rtable-row {
+    border: solid 1px #f4f8f9;
+    box-shadow: 5px 3px 2px 0px #f4f8f9;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 18px 0px 18px 0px;
+    overflow: hidden;
+    list-style: none;
+    margin: 0 0 10px 0;
+}
+
+.Rtable-row:hover {
+    border: solid 1px #e3eaec;
+    box-shadow: 5px 3px 2px 0px #e3eaec;
+}
+
+.Rtable-cell {
+    flex-grow: 1;
+    background-color: white;
+    overflow: hidden;
+    list-style: none;
+    vertical-align: middle;
+}
+
+.Rtable-cell > h1,
+.Rtable-cell > h2,
+.Rtable-cell > h3,
+.Rtable-cell > h4,
+.Rtable-cell > h5,
+.Rtable-cell > h6 {
+    margin: 0;
+}
+
+/* Table column sizing
+================================== */
+.Rtable--2cols > .Rtable-cell {
+    width: 50%;
+}
+
+.Rtable--3cols > .Rtable-cell {
+    width: 33.33%;
+}
+
+.Rtable--4cols > .Rtable-cell {
+    width: 25%;
+}
+
+.Rtable--5cols > .Rtable-cell {
+    width: 20%;
+}
+
+.Rtable--6cols > .Rtable-cell {
+    width: 16.6%;
+}
+
+/* Page styling
+================================== */
+/* @font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Josefin Sans Regular'), local('JosefinSans-Regular'), url(https://fonts.gstatic.com/s/josefinsans/v14/Qw3aZQNVED7rKGKxtqIqX5EUDXx9.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Josefin Sans Bold'), local('JosefinSans-Bold'), url(https://fonts.gstatic.com/s/josefinsans/v14/Qw3FZQNVED7rKGKxtqIqX5Ectllte10k.ttf) format('truetype');
+}
+ */
+/* html {
+ height: 100%;
+ background-color: #EEE;
+}
+body {
+ box-sizing: border-box;
+ min-height: 100%;
+ margin: 0 auto;
+ padding: 2em;
+ max-width: 800px;
+ font-family: 'Josefin Sans', sans-serif;
+ font-size: 1.2em;
+ background-color: white;
+ border: double 3px #DDD;
+ border-top: none;
+ border-bottom: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+ margin-top: 0;
+}
+h3 {
+ font-size: 1.2em;
+}
+h4 {
+ font-size: 1em;
+}
+strong {
+ color: #434d57;
+} */
+
+/* Apply styles
+================================== */
+.Rtable {
+    position: relative;
+    top: 3px;
+    left: 3px;
+}
+
+/* Cell styles
+================================== */
+.Rtable-cell--dark {
+    background-color: slategrey;
+    border-color: #5a6673;
+    color: white;
+}
+
+.Rtable-cell--dark > h1,
+.Rtable-cell--dark > h2,
+.Rtable-cell--dark > h3,
+.Rtable-cell--dark > h4,
+.Rtable-cell--dark > h5,
+.Rtable-cell--dark > h6 {
+    color: white;
+}
+
+.Rtable-cell--medium {
+    background-color: #b8c0c8;
+    border-color: #a9b3bc;
+}
+
+.Rtable-cell--light {
+    background-color: white;
+    border-color: #e2e6e9;
+}
+
+.Rtable-cell--highlight {
+    background-color: lightgreen;
+    border-color: #64e764;
+}
+
+.Rtable-cell--alert {
+    background-color: darkorange;
+    border-color: #cc7000;
+    color: white;
+}
+
+.Rtable-cell--alert > h1,
+.Rtable-cell--alert > h2,
+.Rtable-cell--alert > h3,
+.Rtable-cell--alert > h4,
+.Rtable-cell--alert > h5,
+.Rtable-cell--alert > h6 {
+    color: white;
+}
+
+.table-header.sort-btn {
+    cursor: pointer;
+}
+
+.Rtable-cell--foot {
+    background-color: #b8c0c8;
+    border-color: #a9b3bc;
+}
+
+/* Responsive
+==================================== */
+@media all and (max-width: 500px) {
+    .Rtable--collapse {
+        display: block;
+    }
+
+    .Rtable--collapse > .Rtable-cell {
+        width: 100% !important;
+    }
+
+    .Rtable--collapse > .Rtable-cell--foot {
+        margin-bottom: 1em;
+    }
+}
+
+.no-flexbox .Rtable {
+    display: block;
+}
+
+.no-flexbox .Rtable > .Rtable-cell {
+    width: 100%;
+}
+
+.no-flexbox .Rtable > .Rtable-cell--foot {
+    margin-bottom: 1em;
+}
+
+/* -------------------- */
+
+.ofrs-table-header {
+    color: #c4cacf;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 1rem 0px;
+    /* margin: 0 0 0 0; */
+}
+
+.ofrs-table-header-mini {
+    color: #c4cacf;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 0px 0px 0px 0px;
+}
+
+.ofrs-title-space {
+    padding: 60px 0 30px 0;
+    border-bottom: 1px solid #ced8dc;
+}
+
+
+.ofrs-content-title {
+    font-weight: bold;
+    font-size: 24px;
+    color: #224160;
+    border-left: 3px solid #ee405c;
+    padding: 0 0 0 7px;
+
+}
+
+.ofrs-profile-left {
+    display: flex;
+    flex-direction: column;
+    grid-area: content-left;
+}
+
+.ofrs-profile-right {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    justify-content: start;
+    /* display: flex;
+    flex-direction: column;
+    grid-area: content-right; */
+
+}
+
+.ofrs-content-table {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+}
+
+
+.ofrs-content-subtitle {
+    font-weight: bold;
+    font-size: 18px;
+    color: #224160;
+    margin: 32px 0 0 0;
+}
+
+.ofrs-content-bold {
+    font-weight: bold;
+    font-size: 14px;
+    color: #224160;
+    padding: 0 0 0 0;
+}
+
+.ofrs-content-normal {
+    padding: 0 0 0 0;
+    font-size: 14px;
+    color: #757f8a;
+}
+
+.adnet-button,
+.ofrs-button {
+    padding: 1rem 1.6rem 1rem 1.6rem;
+    color: #ffffff;
+    background-color: #224160;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+/*preview eye icon*/
+.ofrs-preview-icon {
+    padding: 8px 8px !important;
+    color: #ee405c;
+    max-width: 51px;
+    border-radius: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    background: #f4f8f9;
+}
+
+/*.ofrs-preview-icon {*/
+/*    padding: 0px !important;*/
+/*    color: #ee405c;*/
+/*    max-width: 46px;*/
+/*    border-radius: 50px;*/
+/*    margin-left: 15px;*/
+/*    margin-right: 15px;*/
+/*    background: #f4f8f9;*/
+/*}*/
+
+.ofrs-preview-icon:hover {
+    background-color: #224160;
+    color: #f4f8f9;
+}
+
+.eye-icon {
+    background: url("/images/Eye3.png") no-repeat center center;
+    background-size: contain;
+    height: 35px !important;
+    width: 35px !important;
+    overflow: hidden;
+}
+
+.offer-network-box {
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-flex;
+    margin-left: 15px;
+}
+
+ul.pagination {
+    padding-inline-start: 0px;
+    margin-top: 2rem;
+    margin-bottom: 0rem;
+}
+
+.col-no-gutters {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+/* Offers article row content */
+/*section.ofrs-article-content {*/
+/*    text-align: center;*/
+/*}*/
+/** SORT BUTTONS */
+.sort-btn:hover {
+    text-decoration: underline;
+}
+
+.sort-btn > i.fa-sort,
+.sort-btn > i.fa-sort-asc,
+.sort-btn > i.fa-sort-desc {
+    margin-right: 0.5rem;
+}
+
+#order_definitions {
+    margin-top: 2rem;
+}

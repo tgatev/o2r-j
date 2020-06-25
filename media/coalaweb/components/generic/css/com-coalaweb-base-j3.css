@@ -1,0 +1,428 @@
+/**
+ * @author              Steven Palmer
+ * @author url          https://coalaweb.com
+ * @author email        support@coalaweb.com
+ * @copyright           Copyright (c) 2020 Steven Palmer All rights reserved.
+*/
+
+/* Header icons 
+------------------------------------------------------------------------------*/
+.icon-48-cw-cpanel {
+    background-image: url(../images/icons/icon-48-cw-cpanel.png);
+}
+
+/* Search Box 
+------------------------------------------------------------------------------*/
+.cw-filter-search {
+    margin-right: 5px;
+    background: #fff;
+    border: 1px solid #CCC;
+    padding: 5px;
+    font-size: 1.3em;
+    margin-top: 8px;
+}
+
+/* Powered By Styling
+------------------------------------------------------------------------------*/
+
+.cw-powerby-back a:link,
+.cw-powerbyfront a:visited,
+.cw-powerby-back a:hover {
+    text-decoration: none;
+}
+
+.cw-powerby-back {
+    display: block;
+    clear: both;
+    text-align: center;
+    padding: 5px;
+    margin-top:5px;
+}
+
+/* END Powered By
+------------------------------------------------------------------------------*/
+/* Slider and Options styling Admin Minimum 
+------------------------------------------------------------------------------*/
+::-moz-selection {
+    background: #fec23d;
+    color: #fff;
+}
+
+::selection {
+    background: #fec23d;
+    color: #fff;
+}
+
+#jform-params-tabs-data-lbl,#jform-params---field1-lbl,#invisible {
+    display: none;
+}
+
+.unit {
+    line-height: 34px;
+}
+
+togglers .pane-sliders .panel {
+    border: none !important;
+    margin-right: 10px !important;
+}
+
+#tabs {
+    margin-top: -4px !important;
+}
+
+.panel > h3 {
+    height: 43px;
+    border: 1px solid #d8d8d8;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font: bold 12px/43px Arial,Helvetica,sans-serif;
+    text-transform: uppercase;
+    margin: 2px;
+    overflow: hidden;
+}
+
+.panel > h3 a {
+    color: #333;
+}
+
+.panel > h3 a:hover,.panel > h3 a:active,.panel > h3 a:focus,.panel h3.pane-toggler-down a {
+    color: #1272A5;
+    text-decoration: none;
+}
+
+.panel h3.pane-toggler-down {
+    border-bottom: 4px solid #1272A5 !important;
+}
+
+.pane-toggler span {
+    background: transparent url(../images/icons/cw-panel-arrow.png) no-repeat 7px 50% !important;
+    padding-left: 20px;
+}
+
+.pane-toggler-down span {
+    background: transparent url(../images/icons/cw-panel-arrow-down.png) no-repeat 7px 50% !important;
+    padding-left: 20px;
+}
+
+.pane-sliders .content {
+    margin: 4px auto;
+    width: 99%;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.panel .panelform > ul > li > label {
+    color: #444;
+    font-size: 11px;
+    font-weight: 700;
+    height: 24px;
+    padding: 0 20px 0 10px;
+    text-align: right;
+    max-width: 30% !important;
+    min-width: 30% !important;
+}
+
+.pane-sliders .panel {
+    border: medium none !important;
+}
+
+/* END Admin Minimum 
+------------------------------------------------------------------------------*/
+/* Admin Config Style
+------------------------------------------------------------------------------*/
+.current label,div.current .faux-label {
+    color: #444;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 0 20px 0 10px;
+    text-align: right;
+}
+
+.current .radio label {
+    text-align: left;
+}
+
+.current select {
+    height: auto;
+    color: #555;
+    line-height: 24px;
+    padding: 4px;
+    font-size: 11px;
+    border-radius: 2px;
+}
+
+.current input {
+    height: 16px;
+    color: #555;
+    line-height: 16px;
+    padding: 4px;
+}
+
+.spacer label {
+    color: #1272A5;
+    font: bold 14px/30px Arial,Helvetica,sans-serif;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+/* Permissions */
+#rules table.group-rules td label {
+    min-width: 0 !important;
+}
+
+/* END Admin Config
+------------------------------------------------------------------------------*/
+/* Header Custom Field
+------------------------------------------------------------------------------*/
+.cwclr {
+    clear: both;
+    height: 0;
+    line-height: 0;
+    border: none;
+    float: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+.paramHeaderContainer {
+    clear: both;
+    padding: 0;
+    font-weight: 400;
+    border-bottom: 4px solid #1272A5 !important;
+    margin: 2px 0 2px -180px;
+    font: bold 14px/30px Arial,Helvetica,sans-serif;
+    text-transform: uppercase;
+}
+
+.paramHeaderContent {
+    color: #1272A5;
+    text-shadow: 0 1px 1px #FFF;
+    padding: 2px 2px 2px 15px;
+}
+
+/* END Header Custom 
+------------------------------------------------------------------------------*/
+/* Slider Content Styling
+------------------------------------------------------------------------------*/
+.cw-slider {
+    padding: 10px;
+    font-family: "Trebuchet MS",Helvetica,sans-serif;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #4d4d4d;
+}
+
+.cw-slider h1 {
+    clear: both;
+    font-family: "Trebuchet MS",Helvetica,sans-serif;
+    font-size: 34px;
+    margin: 10px 15px;
+    padding: 0 0 5px;
+    color: #333;
+    font-weight: 400;
+    line-height: 30px;
+    background: none !important;
+}
+
+.cw-slider h3 {
+    clear: both;
+    font-family: "Trebuchet MS",Helvetica,sans-serif;
+    font-size: 22px;
+    margin:15px 5px 10px 5px; 
+    padding: 0;
+    color: #333;
+    font-weight: 400;
+    background: none !important;
+}
+
+.cw-slider h4 {
+    font: bold 14px Arial,Helvetica,sans-serif;
+    text-transform: uppercase;
+    color: #1272A5;
+    margin: 10px 15px;
+    padding: 0;
+    background: none !important;
+}
+
+.cw-slider p {
+    margin: 10px 20px;
+}
+
+.cw-slider p a,.cw-slider ul a {
+    color: #1272A5;
+    text-decoration: none;
+}
+
+.cw-slider p a:hover,.cw-slider ul a:hover {
+    color: #419EC9;
+    text-decoration: none;
+}
+
+.cw-slider p a:hover,.cw-slider ul a:hover {
+    -webkit-transition: color .2s ease-out;
+    -moz-transition: color .2s ease-out;
+    -o-transition: color .2s ease-out;
+    transition: color .2s ease-out;
+}
+
+.cw-slider ul li {
+    margin-left: 10px;
+    background: transparent url(../images/icons/cw-panel-arrow.png) no-repeat 5px 50% !important;
+    padding-left: 20px;
+    list-style: none outside none;
+}
+
+.cw-slider em,.cw-slider strong {
+    color: #1272A5;
+    font-weight: 700;
+}
+
+/* END Slider
+------------------------------------------------------------------------------*/
+/* Cpanel Icon Styling 
+------------------------------------------------------------------------------*/
+#cpanel img,.cpanel img {
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.cpanel div.icon,#cpanel div.icon {
+    float: left;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    text-align: center;
+}
+
+.cpanel div.icon a,#cpanel div.icon a {
+    background-color: #fff;
+    background-position: -30px center;
+    border: 1px solid #CCC;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: -5px -5px 10px rgba(0,0,0,0.1) inset,5px 5px 10px rgba(0,0,0,0.05) inset;
+    display: block;
+    float: left;
+    height: 97px;
+    padding: 5px;
+    text-decoration: none;
+    transition-property: none;
+    width: 108px;
+    color: #333 !important;
+    text-shadow: 0 1px 1px #FFF;
+    font: bold 12px Arial,Helvetica,sans-serif;
+    text-transform: uppercase;
+}
+
+#cpanel div.icon a:hover,#cpanel div.icon a:focus,#cpanel div.icon a:active,.cpanel div.icon a:hover,.cpanel div.icon a:focus,.cpanel div.icon a:active {
+    background-position: 0 center !important;
+    border-radius: 5px 5px 5px 5px !important;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.1) inset,-5px -5px 10px rgba(0,0,0,0.05) inset !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.cpanel div.icon span,#cpanel div.icon span {
+    display: block;
+    text-align: center;
+}
+
+/* END Cpanel
+------------------------------------------------------------------------------*/
+
+/* Buttons
+------------------------------------------------------------------------------*/
+.button-blue,.button-green,.button-red {
+    border: none;
+    color: #FFF;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 400;
+    height: 36px;
+    line-height: 36px;
+    margin: 5px;
+    padding: 0 15px !important;
+    text-transform: uppercase;
+}
+
+.button-blue:active,.button-blue:focus,.button-blue:hover,.button-green:active,.button-green:focus,.button-green:hover,.button-red:active,.button-red:focus,.button-red:hover {
+    background: none repeat scroll 0 0 #3D3D3D;
+    color: #FFF;
+    border: none;
+}
+
+.button-blue {
+    background: none repeat scroll 0 0 #4C90FE;
+}
+
+.button-green {
+    background: none repeat scroll 0 0 #99C24B;
+}
+
+.button-red {
+    background: none repeat scroll 0 0 #EF7F7F;
+}
+
+/* END Buttons
+------------------------------------------------------------------------------*/
+/* Upload Window
+------------------------------------------------------------------------------*/
+.cw-upload-window {
+    height: 60px;
+    margin-top: 3px;
+    padding: 10px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.cw-upload-window button {
+    float: none !important;
+}
+
+.cw-upload-window input,.cw-upload-window select {
+    font-size: 1.1em;
+    border: 1px solid #c4c4c4;
+    outline: medium none;
+}
+
+.cw-progress {
+    display: block;
+    width: 100%;
+}
+
+.cw-progress img {
+    float: none;
+}
+
+#cw-progress-bar {
+    text-align: center;
+}
+
+/* END Upload
+------------------------------------------------------------------------------*/
+/* Info icon
+------------------------------------------------------------------------------*/
+td.center img,th.center img {
+    margin-top: -8px;
+}
+
+/*Admin Links 
+------------------------------------------------------------------------------*/
+.adminlist a:hover {
+    text-decoration: none !important;
+}
+
+/* Tool tips
+------------------------------------------------------------------------------*/
+.tool-title {
+    text-align: left !important;
+    text-decoration: none;
+}
+
+/* Admin Forms
+------------------------------------------------------------------------------*/
+.adminform ul li {
+    list-style: none outside none;
+}

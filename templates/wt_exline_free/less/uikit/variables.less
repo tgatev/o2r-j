@@ -1,0 +1,170 @@
+// Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+// Global variables
+// ========================================================================
+
+//
+// Text
+//
+
+@global-color:                                  #7f8c8d;
+@global-muted-color:                            #999;
+@global-highlight-color:                        #232331;
+@global-secondary-highlight-color:              #F2F3FF;
+@global-text-shadow:                            #fff;
+@global-text-contrast:                          #fff;
+@global-body-font-family:                       'Open Sans';
+@global-heading-font-family:                    'Poppins';
+@global-heading-font-weight:                    700;
+@global-text-transform:                         uppercase;
+@global-text-decoration:                        none;
+@global-letter-spacing:                         2px;
+
+@global-font-weight:                            400;
+@global-heading-color:                          #626262;
+
+
+@global-link-color:                             #1193d4;
+@global-link-hover-color:                       lighten(@global-link-color, 10%);
+@global-primary-link-color:                     #f0f5f9;
+@global-contrast-color:                         #fff;
+@global-nav-dropdown-color:                     #999;
+@global-contrast-text-shadow:                   rgba(0,0,0,0.1);
+
+@global-font-size:                              14px;
+@global-line-height:                            20px;
+
+//
+// Backgrounds & Borders
+//
+@global-preloader-background: #00a8e6;
+@global-preloader-color: #fff;
+
+@global-active-filter:                          blur(1px);
+@global-navbar-background:                      #2980b9;
+@global-navbar-default-background-hover:        #f6f6f6;
+@global-off-background:                         #222831;
+@global-pricing-bacground:                      #34495e;
+@global-pricing-border:                         #2f4254;
+@global-background:                             #fff;
+@global-light-background:                       #f6f6f6;
+@global-dark-background:                        #52616B;
+@global-secondary-background:                   #2c2c2c;
+
+@global-border:                                 #ddd;
+@global-background-color:                       #E4E4E4;
+
+@global-border-radius:                          0px;
+@global-dark-background:                        #262626;
+
+@global-default-background:                     #f5f5f5;
+@global-default-hover-background:               #fafafa;
+@global-default-active-background:              #eeeeee;
+
+@global-primary-background:                     #00a8e6;
+@global-primary-hover-background:               #35b3ee;
+@global-default-active-background:              #0091ca;
+
+@global-success-background:                     #8cc14c;
+@global-success-hover-background:               #8ec73b;
+@global-success-active-background:              #72ae41;
+
+@global-danger-background:                      #da314b;
+@global-danger-hover-background:                #e4354f;
+@global-danger-active-background:               #c91032;
+
+@global-warning-gradient-top:                   #fbb450;
+@global-warning-gradient-bottom:                #f89406;
+@global-warning-background:                     #faa732;
+
+//
+// Spacings
+//
+
+@global-margin:                                 15px;
+@global-margin-large:                           25px;
+@global-margin-xlarge:							            60px;
+@global-grid-gutter:                            25px;
+@global-grid-gutter-small:                      15px;
+@global-grid-gutter-large:                      35px;
+
+//
+// Controls
+//
+
+@global-height:                                 30px;
+@global-height-mini:                            20px;
+@global-height-small:                           25px;
+@global-height-large:                           40px;
+
+//
+//Extended Styles
+//
+@global-k2-tag-background:                         #f5f5f5;
+
+//
+// Animations
+//
+
+@global-transition:                             all 0.15s ease-in-out;
+@global-transform:                              scale(0.8);
+@global-hover-transform:                        scale(0.9);
+@global-active-transform:                       scale(1);
+
+//Mixins
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+     -moz-box-sizing: @boxmodel;
+          box-sizing: @boxmodel;
+}
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+// Opacity
+.opacity(@opacity) {
+  opacity: @opacity / 100;
+  filter: ~"alpha(opacity=@{opacity})";
+}
+.border-top-left-radius(@radius) {
+  -webkit-border-top-left-radius: @radius;
+      -moz-border-radius-topleft: @radius;
+          border-top-left-radius: @radius;
+}
+.border-top-right-radius(@radius) {
+  -webkit-border-top-right-radius: @radius;
+      -moz-border-radius-topright: @radius;
+          border-top-right-radius: @radius;
+}
+.border-bottom-right-radius(@radius) {
+  -webkit-border-bottom-right-radius: @radius;
+      -moz-border-radius-bottomright: @radius;
+          border-bottom-right-radius: @radius;
+}
+.border-bottom-left-radius(@radius) {
+  -webkit-border-bottom-left-radius: @radius;
+      -moz-border-radius-bottomleft: @radius;
+          border-bottom-left-radius: @radius;
+}
+.border-top-radius(@radius) {
+  .border-top-right-radius(@radius);
+  .border-top-left-radius(@radius);
+}
+.border-right-radius(@radius) {
+  .border-top-right-radius(@radius);
+  .border-bottom-right-radius(@radius);
+}
+.border-bottom-radius(@radius) {
+  .border-bottom-right-radius(@radius);
+  .border-bottom-left-radius(@radius);
+}
+.border-left-radius(@radius) {
+  .border-top-left-radius(@radius);
+  .border-bottom-left-radius(@radius);
+}
+//
+// Z-index
+//
+
+@global-z-index:                                1000;

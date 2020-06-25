@@ -1,0 +1,123 @@
+// Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+//
+// Component: Base
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+@base-body-font-family:                         'Open Sans', Times New Roman, serif;
+@base-body-background:                          @global-background;
+@base-body-font-weight:                         @global-font-weight;
+@base-body-font-size:                           @global-font-size;
+@base-body-line-height:                         @global-line-height;
+@base-body-color:                               @global-color;
+
+@base-link-color:                               @global-link-color;
+@base-link-hover-color:                         @global-link-hover-color;
+@base-ins-color:                                @global-color;
+@base-mark-color:                               @global-color;
+
+@base-margin-vertical:                          @global-margin;
+@base-heading-font-family:                      'Poppins', Times New Roman, serif;
+@base-heading-font-weight:                      @global-heading-font-weight;
+@base-heading-color:                            @global-heading-color;
+@base-heading-text-transform:                   @global-text-transform;
+@base-heading-margin-top:                       @global-margin-large;
+@base-h1-font-size:                             round((@global-font-size * 2)); // 32
+@base-h1-line-height:                           round((@base-h1-font-size * 1.187)); // 38px
+@base-h2-font-size:                             round((@global-font-size * 1.5)); // 24px
+@base-h2-line-height:                           round((@base-h2-font-size * 1.27)); // 30px
+@base-h3-font-size:                             round((@global-font-size * 1.125)); // 18px
+@base-h3-line-height:                           round((@base-h3-font-size * 1.32)); // 24px
+@base-h4-font-size:                             @global-font-size; // 16px
+@base-h4-line-height:                           round((@base-h4-font-size * 1.36)); // 22px
+@base-h5-font-size:                             round((@global-font-size * 0.875));; // 14px
+@base-h5-line-height:                           @global-line-height; // 20px
+@base-h6-font-size:                             round((@global-font-size * 0.75)); // 12px
+@base-h6-line-height:                           round((@base-h6-font-size * 1.46)); // 18px
+
+@base-hr-border:                                @global-border;
+
+@base-blockquote-border:                        @global-border;
+@base-blockquote-font-size:                     round((@global-font-size * 1.14)); // 16px / 18px
+@base-blockquote-line-height:                   round((@base-blockquote-font-size * 1.36)); // 22px / 24px
+
+@base-code-font-size:                           round((@global-font-size * 0.85)); // 12px / 14px
+
+@base-pre-background:                           #fafafa;
+@base-pre-color:                                @global-color;
+@base-pre-font-size:                            round((@global-font-size * 0.85)); // 12px / 14px
+@base-pre-line-height:                          round((@base-pre-font-size * 1.46)); // 18px / 20px
+
+//
+// New
+//
+
+@base-body-gradient-inner:                      @global-background;
+@base-body-gradient-outer:                      @global-background;
+
+@base-code-border:                              @global-border;
+@base-code-background:                          #fafafa;
+@base-pre-border:                               @global-border;
+@base-selection-background:                     #8E9F9D;
+@base-selection-color:                          @global-contrast-color;
+
+// Body
+// ========================================================================
+
+.hook-base-body() {
+    background-image: -webkit-radial-gradient(100% 100%, center, @base-body-gradient-inner, @base-body-gradient-outer);
+    background-image: radial-gradient(100% 100% at center, @base-body-gradient-inner, @base-body-gradient-outer);
+}
+
+
+// Text-level semantics
+// ========================================================================
+
+.hook-base-code() {
+    padding: 0 4px;
+    border: 1px solid @base-code-border;
+    border-radius: 3px;
+    background: @base-code-background;
+}
+
+
+// Headings
+// ========================================================================
+
+.hook-base-h1() {}
+
+.hook-base-h2() {}
+
+.hook-base-h3() {}
+
+.hook-base-h4() {}
+
+.hook-base-h5() {}
+
+.hook-base-h6() {}
+
+
+// Preformatted text
+// ========================================================================
+
+.hook-base-pre() {
+    border: 1px solid @base-pre-border;
+    border-radius: 3px;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-base-misc() {
+    a {
+      -webkit-transition: color 0.1s ease-in-out;
+      transition: color 0.1s ease-in-out;
+      }
+
+    a:hover { text-decoration: none; }
+}

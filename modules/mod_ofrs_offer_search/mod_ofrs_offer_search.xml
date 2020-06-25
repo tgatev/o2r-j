@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.9.0" client="site" method="upgrade">
+    <name>Offer Monster Offer Search</name>
+    <author>DeltaFlip Ltd</author>
+    <version>1.0.0</version>
+    <description>Search form for the offer page</description>
+    <files>
+        <filename>mod_ofrs_offer_search.xml</filename>
+        <filename module="mod_ofrs_offer_search">mod_ofrs_offer_search.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+    </files>
+    <config>
+    </config>
+</extension>

@@ -1,0 +1,1179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset
+            name="GENERAL_OPTION"
+            label="COM_CWSOCIALLINKS_GENERAL_TAB"
+            addfieldpath="plugins/system/cwgears/fields">
+
+        <field
+                name="css_import"
+                type="csscom"/>
+
+        <field
+                name="general_header"
+                type="header"
+                default="COM_CWSOCIALLINKS_GENERAL_TITLE"/>
+
+        <field
+                type="spacer"
+                name="general_spacer_facebook"
+                label="COM_CWSOCIALLINKS_SPACER_FACEBOOK"
+                class="cw_label"/>
+
+        <field
+                name="load_fb_js"
+                type="radio"
+                class="btn-group"
+                default="1"
+                label="COM_CWSOCIALLINKS_FIELD_LOADFBJS_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOADFBJS_DESC">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field
+                name="fbappid_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_FB_APPID"/>
+
+        <field
+                name="fb_app_id"
+                type="text"
+                default=""
+                label="COM_CWSOCIALLINKS_FIELD_APP_ID_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_APP_ID_DESC"/>
+
+        <field
+                name="fbsharetype_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_FB_SHARE_TYPE"/>
+
+        <field
+                name="fb_share_type"
+                type="list"
+                default="new"
+                label="COM_CWSOCIALLINKS_FIELD_FB_SHARE_TYPE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_FB_SHARE_TYPE_DESC">
+            <option value="new">COM_CWSOCIALLINKS_FB_SHARE_TYPE_OPT1</option>
+            <option value="old">COM_CWSOCIALLINKS_FB_SHARE_TYPE_OPT2</option>
+        </field>
+
+        <field
+                type="spacer"
+                name="general_spacer_twitter"
+                label="COM_CWSOCIALLINKS_SPACER_TWITTER"
+                class="cw_label"/>
+
+        <field
+                name="twitter_via"
+                type="text"
+                hint="@coalaweb"
+                label="COM_CWSOCIALLINKS_FIELD_TW_VIA_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_TW_VIA_DESC"/>
+
+        <field
+                name="twitter_hash"
+                type="text"
+                hint="Joomla,CoalaWeb"
+                label="COM_CWSOCIALLINKS_FIELD_TW_HASH_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_TW_HASH_DESC"/>
+
+        <field
+                type="spacer"
+                name="shorturl_services_spacer"
+                label="COM_CWSOCIALLINKS_GENERAL_SPACER_SERVICES"
+                class="cw_label"/>
+
+        <field
+                name="urlshortener_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_URLSHORTENER_INFO"/>
+
+        <field
+                name="short_url_service"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_SHORTURL_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_SHORTURL_DESC"/>
+
+
+        <field
+                name="api_key"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_SHORTURL_API_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_SHORTURL_API_DESC"/>
+
+        <field
+                name="shorten_social_mod"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_SHORT_MODSOCIAL_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_SHORT_MODSOCIAL_DESC"/>
+
+        <field
+                name="shorten_tabs_mod"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_SHORT_MODTABS_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_SHORT_MODTABS_DESC"/>
+
+        <field
+                name="shorten_content_plg"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_SHORT_PLGCONTENT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_SHORT_PLGCONTENT_DESC"/>
+
+        <field
+                name="shorten_share_plg"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_SHORT_PLGSHARE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_SHORT_PLGSHARE_DESC"/>
+
+    </fieldset>
+
+    <fieldset
+            name="CONTENT_PLG"
+            label="COM_CWSOCIALLINKS_CONTENTPLG_TAB">
+
+        <field
+                name="basic_header"
+                type="header"
+                default="COM_CWSOCIALLINKS_CONTENTPLG_TITLE"/>
+
+        <field
+                type="spacer"
+                name="load_spacer_p"
+                label="COM_CWSOCIALLINKS_CONTENTPLG_SPACER_LOADCONTENT"
+                class="cw_label"/>
+
+        <field
+                name="load_content"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LOADCONTENT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOADCONTENT_DESC"/>
+
+        <field
+                type="spacer"
+                name="cat_spacer"
+                label="COM_CWSOCIALLINKS_CONTENTPLG_SPACER_WHERE"
+                class="cw_label"/>
+
+        <field
+                name="only_articles"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_ONLYART_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_ONLYART_DESC"/>
+
+        <field
+                type="spacer"
+                name="joomla_spacer"
+                label="COM_CWSOCIALLINKS_PLG_SPACER_JOOMLA"
+                class="cw_label"/>
+
+        <field
+                name="cat_all"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_JOOMCATALL_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_JOOMCATALL_DESC"/>
+
+        <field
+                name="catids"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_JOOMLACAT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_JOOMLACAT_DESC"/>
+
+        <field
+                name="excluded_articles"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ART_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ART_DESC"/>
+
+        <field
+                type="spacer"
+                name="k2_spacer"
+                label="COM_CWSOCIALLINKS_PLG_SPACER_K2"
+                class="cw_label"/>
+
+        <field
+                name="k2cat_all"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_K2CATALL_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_K2CATALL_DESC"/>
+
+        <field
+                name="k2catids"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_K2CAT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_K2CAT_DESC"/>
+
+        <field
+                name="excluded_items"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ITEM_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ITEM_DESC"/>
+
+        <field
+                type="spacer"
+                name="l_spacer"
+                label="COM_CWSOCIALLINKS_CONTENTPLG_SPACER_LAYOUT"
+                class="cw_label"/>
+
+        <field
+                name="position"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNPOSITION_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNPOSITION_DESC"/>
+
+        <field
+                name="layout_style"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNSTYLE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNSTYLE_DESC"/>
+
+        <field
+                name="btn_layout_li"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNLAYOUT_LI_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNLAYOUT_DESC"/>
+
+        <field
+                name="btn_layout_pi"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNLAYOUT_PI_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNLAYOUT_DESC"/>
+        <field
+                name="btn_layout_xi"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNLAYOUT_XI_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNLAYOUT_DESC"/>
+
+        <field
+                name="btn_layout_fb"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNLAYOUT_FB_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNLAYOUT_DESC"/>
+
+        <field
+                type="spacer"
+                name="s_spacer"
+                label="COM_CWSOCIALLINKS_CONTENTPLG_SPACER_SOCIAL"
+                class="cw_label"/>
+
+        <field
+                name="linkedin"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNLINKEDIN_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNLINKEDIN_DESC"/>
+
+        <field
+                name="twitter"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNTWITTER_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNTWITTER_DESC"/>
+
+        <field
+                name="pinterest"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNPINTEREST_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNPINTEREST_DESC"/>
+
+        <field
+                name="pinterest_image"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNPINTEREST_IMAGE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNPINTEREST_IMAGE_DESC"/>
+
+        <field
+                name="xing"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNXING_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNXING_DESC"/>
+
+        <field
+                name="mail_count"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNMAILCOUNT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNMAILCOUNT_DESC"/>
+
+        <field
+                name="like_btn"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNFACEBOOK_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNFACEBOOK_DESC"/>
+
+    </fieldset>
+
+    <fieldset
+            name="SHARE_PLG"
+            label="COM_CWSOCIALLINKS_SHAREPLG_TAB">
+
+        <field
+                name="basic_header"
+                type="header"
+                default="COM_CWSOCIALLINKS_SHAREPLG_TITLE"/>
+
+        <field
+                type="spacer"
+                name="load_spacer_s"
+                label="COM_CWSOCIALLINKS_CONTENTPLG_SPACER_LOADSHARE"
+                class="cw_label"/>
+
+        <field
+                name="load_content_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LOADCONTENT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOADCONTENT_DESC"/>
+
+        <field
+                type="spacer"
+                name="cat_spacer_s"
+                label="COM_CWSOCIALLINKS_CONTENTPLG_SPACER_WHERE"
+                class="cw_label"/>
+
+        <field
+                name="only_articles_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_ONLYART_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_ONLYART_DESC"/>
+
+        <field
+                type="spacer"
+                name="joomla_spacer_s"
+                label="COM_CWSOCIALLINKS_PLG_SPACER_JOOMLA"
+                class="cw_label"/>
+
+        <field
+                name="cat_all_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_JOOMCATALL_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_JOOMCATALL_DESC"/>
+
+        <field
+                name="catids_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_JOOMLACAT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_JOOMLACAT_DESC"/>
+
+        <field
+                name="excluded_articles_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ART_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ART_DESC"/>
+
+        <field
+                type="spacer"
+                name="k2_spacer_s"
+                label="COM_CWSOCIALLINKS_PLG_SPACER_K2"
+                class="cw_label"/>
+
+        <field
+                name="k2cat_all_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_K2CATALL_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_K2CATALL_DESC"/>
+
+        <field
+                name="k2catids_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_K2CAT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_K2CAT_DESC"/>
+
+        <field
+                name="excluded_items_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ITEM_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ITEM_DESC"/>
+
+        <field
+                type="spacer"
+                name="l_spacer_s"
+                label="COM_CWSOCIALLINKS_GENERAL_TITLE"
+                class="cw_label"/>
+
+        <field
+                name="position_blog_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNPOSITION_BLOG_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNPOSITION_BLOG_DESC"/>
+
+        <field
+                name="position_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNPOSITION_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNPOSITION_DESC"/>
+
+        <field
+                name="link_nofollow"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LINKNOFOLLOW_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LINKNOFOLLOW_DESC"/>
+
+        <field
+                name="popup"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_POPUP_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_POPUP_DESC"/>
+
+        <field
+                type="spacer"
+                name="btn_spacer_s"
+                label="COM_CWSOCIALLINKS_BUTTON_STYLE_TITLE"
+                class="cw_label"/>
+
+        <field
+                name="icon_theme_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_STYLE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_STYLE_DESC">
+        </field>
+
+        <field
+                name="display_count_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_DISPLAY_COUNT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_DISPLAY_COUNT_DESC"/>
+
+        <field
+                type="spacer"
+                name="standard_msg_s"
+                label="COM_CWSOCIALLINKS_PLG_SPACER_STANDARD"
+                class="cw_label"/>
+
+        <field
+                name="standard_btn_spacer_s"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_BUTTON_STANDARD_MSG"/>
+
+        <field
+                name="icon_size_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_SIZE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_SIZE_DESC"/>
+
+        <field
+                name="icon_effect_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_HOVER_EFFECT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_HOVER_EFFECT_DESC"/>
+
+        <field
+                type="spacer"
+                name="uikit_spacer_s"
+                label="COM_CWSOCIALLINKS_PLG_SPACER_UIKIT"
+                class="cw_label"/>
+
+        <field
+                name="uikit_msg_s"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_BUTTON_UIKIT_MSG"/>
+
+        <field
+                name="display_labels_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_DISPLAY_LABEL_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_DISPLAY_LABEL_DESC"/>
+
+        <field
+                name="uikit_size_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_UIKITSIZE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_SIZE_DESC"/>
+
+        <field
+                type="spacer"
+                name="s_spacer_s"
+                label="COM_CWSOCIALLINKS_CONTENTPLG_SPACER_SOCIAL"
+                class="cw_label"/>
+
+        <field
+                name="linkedin_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNLINKEDIN_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNLINKEDIN_DESC"/>
+
+        <field
+                name="twitter_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNTWITTER_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNTWITTER_DESC"/>
+
+        <field
+                name="include_twitter_js"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_INCLUDE_TWITTER_JS_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_INCLUDE_TWITTER_JS_DESC"/>
+
+        <field
+                name="reddit_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNREDDIT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNREDDIT_DESC"/>
+
+        <field
+                name="mail_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNMAIL_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNMAIL_DESC"/>
+
+        <field
+                name="pinterest_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNPINTEREST_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNPINTEREST_DESC"/>
+
+        <field
+                name="pinterest_image_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNPINTEREST_IMAGE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNPINTEREST_IMAGE_DESC"/>
+
+        <field
+                name="fbappid_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+               description="COM_CWSOCIALLINKS_MSG_FB_APPID_SHARE"/>
+
+        <field
+                name="facebook_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNFACEBOOK_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNFACEBOOK_DESC"/>
+
+        <field
+                name="whatsapp_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_WHATSAPP"/>
+
+        <field
+                name="whatsapp_s"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_BTNWHATSAPP_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_BTNWHATSAPP_DESC"/>
+
+    </fieldset>
+
+    <fieldset
+            name="OPENGRAPH_PLG"
+            label="COM_CWSOCIALLINKS_OPENGRAPHPLG_TAB">
+
+        <field
+                name="quickicon_header"
+                type="header"
+                default="COM_CWSOCIALLINKS_OPENGRAPHPLG_TITLE"/>
+
+        <field
+                name="opengraph_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_OPENGRAPH_INFO"/>
+
+        <field
+                type="spacer"
+                name="ogwhere_spacer"
+                label="COM_CWSOCIALLINKS_CONTENTPLG_SPACER_WHERE"
+                class="cw_label"/>
+
+        <field
+                name="only_articles_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_ONLYART_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_ONLYART_DESC"/>
+
+        <field
+                name="menu_featured_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_FIELD_OG_FEATURED_MENU_MSG"/>
+
+        <field
+                name="menu_featured_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_FEATURED_MENU_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_FEATURED_MENU_DESC"/>
+
+        <field
+                type="spacer"
+                name="ogcdn_spacer"
+                label="COM_CWSOCIALLINKS_SPACER_CDN"
+                class="cw_label"/>
+
+        <field
+                name="cdn_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_CDN"/>
+
+        <field
+                name="use_cdn_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_USE_CDN_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_USE_CDN_DESC"/>
+
+        <field
+                name="root_cdn_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_DOMAIN_ROOT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_DOMAIN_ROOT_DESC"/>
+
+        <field
+                name="domain_cdn_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_DOMAIN_CDN_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_DOMAIN_CDN_DESC"/>
+
+        <field
+                type="spacer"
+                name="ogfacebook_spacer"
+                label="COM_CWSOCIALLINKS_OPENGRAPHPLG_SPACER_FACEBOOK"
+                class="cw_label"/>
+
+        <field
+                name="fb_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_OPENGRAPH_FB_INFO"/>
+
+        <field
+                name="load_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LOADOG_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOADOG_DESC"/>
+
+        <field
+                name="load_og_type"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LOADOG_TYPE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOADOG_TYPE_DESC"/>
+
+        <field
+                name="load_og_title"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LOADOG_TITLE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOADOG_TITLE_DESC"/>
+
+        <field
+                name="load_og_url"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LOADOG_URL_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOADOG_URL_DESC"/>
+
+        <field
+                name="load_og_image"
+                type="radio"
+                class="btn-group"
+                default="1"
+                label="COM_CWSOCIALLINKS_FIELD_LOADOG_IMAGE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOADOG_IMAGE_DESC"/>
+
+        <field
+                name="load_og_desc"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LOADOG_DESC_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOADOG_DESC_DESC"/>
+
+        <field
+                name="load_og_site"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LOADOG_SITE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOADOG_SITE_DESC"/>
+
+        <field
+                name="app_id_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_APP_ID_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_APP_ID_DESC"/>
+
+        <field
+                name="admins_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_ADMINS_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_ADMINS_DESC"/>
+
+        <field
+                name="xmlns_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_XMLNS_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_XMLNS_DESC"/>
+
+        <field
+                type="spacer"
+                name="ogtwitter_spacer"
+                label="COM_CWSOCIALLINKS_OPENGRAPHPLG_SPACER_TWITTER"
+                class="cw_label"/>
+
+        <field
+                name="load_twitter"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LOAD_TW_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOAD_TW_DESC"/>
+
+        <field
+                name="twitter_card_type"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_TWITTER_CARD_TYPE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_TWITTER_CARD_TYPE_DESC"/>
+        <field
+                name="twitter_username"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_TW_USERNAME_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_TW_USERNAME_DESC"/>
+
+        <field
+                name="twitter_creator"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_TW_CREATOR_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_TW_CREATOR_DESC"/>
+
+        <field
+                type="spacer"
+                name="ogschema_spacer"
+                label="COM_CWSOCIALLINKS_OPENGRAPHPLG_SPACER_SCHEMA"
+                class="cw_label"/>
+
+        <field
+                name="load_schema"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LOAD_SCHEMA_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_LOAD_SCHEMA_DESC"/>
+
+        <field
+                name="md_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_MD_INFO"/>
+
+        <field
+                name="image_le_md"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_IMAGE_LE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_IMAGE_LE_DESC"/>
+
+        <field
+                name="image_md"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_MD_IMAGE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_MD_IMAGE_DESC"/>
+
+        <field
+                name="image_md_ext"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_MD_IMAGE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_MD_IMAGE_DESC"/>
+
+        <field
+                name="author_type_md"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_AUTHOR_TYPE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_AUTHOR_TYPE_DESC"/>
+
+        <field
+                name="pub_md"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_MD_PUB_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_MD_PUB_DESC"/>
+
+        <field
+                name="pub_logo_le_md"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_IMAGE_LE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_IMAGE_LE_DESC"/>
+
+        <field
+                name="pub_logo_md"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_MD_PUB_IMAGE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_MD_PUB_IMAGE_DESC"/>
+
+        <field
+                name="pub_logo_md_ext"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_MD_PUB_IMAGE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_MD_PUB_IMAGE_DESC"/>
+
+        <field
+                type="spacer"
+                name="ogfallback_spacer"
+                label="COM_CWSOCIALLINKS_OPENGRAPHPLG_SPACER_FALLBACK"
+                class="cw_label"/>
+
+        <field
+                name="meta_fallback_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_FALLBACK_INFO"/>
+
+        <field
+                name="fback_title_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_FBACK_TITLE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_FBACK_TITLE_DESC"/>
+
+        <field
+                name="fback_description_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_FBACK_DESCRIPTION_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_FBACK_DESCRIPTION_DESC"/>
+
+        <field
+                name="fback_image_le_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_IMAGE_LE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_IMAGE_LE_DESC"/>
+
+        <field
+                name="fback_image_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_FBACK_IMAGE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_FBACK_IMAGE_DESC"/>
+
+        <field
+                name="fback_image_og_ext"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_MD_IMAGE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_MD_IMAGE_DESC"/>
+
+        <field
+                name="menu_fallback_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_FALLBACK_EVERYWHERE_INFO"/>
+
+        <field
+                name="fallback_everywhere"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_FALLBACK_MENU_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_FALLBACK_MENU_DESC"/>
+
+        <field
+                name="fback_exclude"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_FBACK_EXCLUDE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_FBACK_EXCLUDE_DESC"/>
+
+
+        <field
+                type="spacer"
+                name="ogdefault_spacer"
+                label="COM_CWSOCIALLINKS_OPENGRAPHPLG_SPACER_DEFAULT"
+                class="cw_label"/>
+
+        <field
+                name="og_default_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_DEAFULT_INFO"/>
+
+        <field
+                name="type_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_TYPE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_TYPE_DESC"/>
+
+        <field
+                name="title_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_TITLE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_TITLE_DESC"/>
+
+        <field
+                name="site_name_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_SITE_NAME_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_SITE_NAME_DESC"/>
+
+        <field
+                name="description_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_DESCRIPTION_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_DESCRIPTION_DESC"/>
+
+        <field
+                name="image_le_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_IMAGE_LE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_IMAGE_LE_DESC"/>
+
+        <field
+                name="image_og"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_IMAGE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_IMAGE_DESC"/>
+
+        <field
+                name="image_og_ext"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_OG_IMAGE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_OG_IMAGE_DESC"/>
+
+    </fieldset>
+
+    <fieldset
+            name="counts"
+            label="COM_CWSOCIALLINKS_COUNTS_TAB">
+
+        <field
+                name="counts_header"
+                type="header"
+                default="COM_CWSOCIALLINKS_FIELD_COUNTS_DESC"/>
+
+        <field
+                name="count_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_COUNT_INFO"/>
+
+        <field
+                type="spacer"
+                name="joomla_spacer_c"
+                label="COM_CWSOCIALLINKS_PLG_SPACER_JOOMLA"
+                class="cw_label"/>
+
+        <field
+                name="count_articles_j"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_IN_ART_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_IN_ART_DESC"/>
+
+        <field
+                name="count_categories_j"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_IN_CATS_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_IN_CATS_DESC"/>
+
+        <field
+                name="count_featured_j"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_IN_FEATURED_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_IN_FEATURED_DESC"/>
+
+        <field
+                name="nocount_articles_j"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ART_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ART_DESC"/>
+
+        <field
+                name="nocount_categories_j"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_EXCLUDE_CAT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_EXCLUDE_CAT_DESC"/>
+
+        <field
+                type="spacer"
+                name="k2_spacer_c"
+                label="COM_CWSOCIALLINKS_PLG_SPACER_K2"
+                class="cw_label"/>
+
+        <field
+                name="count_items_k2"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_IN_ART_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_IN_ART_DESC"/>
+
+        <field
+                name="count_list_k2"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_IN_LIST_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_IN_LIST_DESC"/>
+
+        <field
+                name="nocount_items_k2"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ART_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_EXCLUDE_ART_DESC"/>
+
+        <field
+                name="nocount_categories_k2"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_EXCLUDE_CAT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_EXCLUDE_CAT_DESC"/>
+
+        <field
+                type="spacer"
+                name="zoo_spacer_c"
+                label="COM_CWSOCIALLINKS_PLG_SPACER_ZOO"
+                class="cw_label"/>
+
+        <field
+                name="count_articles_z"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_IN_ART_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_IN_ART_DESC"/>
+
+        <field
+                type="spacer"
+                name="count_where_spacer"
+                label="COM_CWSOCIALLINKS_PLG_SPACER_COUNT_WHERE"
+                class="cw_label"/>
+
+        <field
+                name="count_facebook"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_FACEBOOK_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_DESC"/>
+
+        <field
+                name="fb_count_reaction"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_FACEBOOK_REACTIONS_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_FACEBOOK_REACTIONS_DESC"/>
+
+        <field
+                name="fb_use_id_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_FACEBOOK_USE_ID_DESC"/>
+
+        <field
+                name="fb_count_id"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_APP_ID_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_APP_ID_DESC"/>
+
+        <field
+                name="fb_count_secret"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_SECRET_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_SECRET_DESC"/>
+
+        <field
+                name="extra_secure_facebook"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_EXTRA_SECURE_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_EXTRA_SECURE_DESC"/>
+
+        <field
+                name="fb_extra_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                showon="extra_secure_facebook:1"
+                description="COM_CWSOCIALLINKS_EXTRA_SECURE_MSG"/>
+
+        <field
+                name="count_linkedin"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_LINKEDIN_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_DESC"/>
+
+        <field
+                name="count_pinterest"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_PINTEREST_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_DESC"/>
+
+        <field
+                name="count_reddit"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_REDDIT_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_DESC"/>
+
+        <field
+                type="spacer"
+                name="count_when_spacer"
+                label="COM_CWSOCIALLINKS_PLG_SPACER_COUNT_WHEN"
+                class="cw_label"/>
+
+        <field
+                name="locktime"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_LOCKTIME"
+                description="COM_CWSOCIALLINKS_FIELD_LOCKTIME_DESC"/>
+
+        <field
+                type="spacer"
+                name="count_extra"
+                label="COM_CWSOCIALLINKS_SPACER_COUNT_EXTRA"
+                class="cw_label"/>
+
+        <field
+                name="count_both_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_COUNT_BOTH_URLS_MSG"/>
+
+        <field
+                name="count_both_urls"
+                type="pro"
+                label="COM_CWSOCIALLINKS_FIELD_COUNT_BOTH_URLS_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_COUNT_BOTH_URLS_DESC"/>
+
+    </fieldset>
+
+    <fieldset
+            name="advanced"
+            label="COM_CWSOCIALLINKS_ADVANCED_TAB">
+
+        <field
+                name="advanced_header"
+                type="header"
+                default="COM_CWSOCIALLINKS_ADVANCED_SEPARATOR"/>
+
+        <field
+                name="uikit_prefix"
+                type="list"
+                default="cw"
+                label="COM_CWSOCIALLINKS_FIELD_UIKIT_PREFIX_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_UIKIT_PREFIX_DESC">
+            <option value="cw">CW</option>
+            <option value="uk">UK</option>
+        </field>
+
+        <field
+                name="debug_info"
+                type="note"
+                class="alert alert-info"
+                close="true"
+                description="COM_CWSOCIALLINKS_MSG_DEBUG"/>
+
+        <field
+                name="debug"
+                class="btn-group btn-group-yesno"
+                type="radio"
+                default="0"
+                label="COM_CWSOCIALLINKS_FIELD_DEBUG_LABEL"
+                description="COM_CWSOCIALLINKS_FIELD_DEBUG_DESC">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+    </fieldset>
+
+    <fieldset
+            name="permissions"
+            label="JCONFIG_PERMISSIONS_LABEL">
+
+        <field
+                name="rules"
+                type="rules"
+                component="com_coalawebsociallinks"
+                class="inputbox"
+                filter="rules"
+                validate="rules"
+                label="JCONFIG_PERMISSIONS_LABEL"
+                section="component"/>
+
+    </fieldset>
+
+</config>

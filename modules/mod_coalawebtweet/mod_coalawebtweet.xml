@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.2" client="site" method="upgrade">
+    <name>MOD_COALAWEBTWEET</name>
+    <creationDate>2020-03-24</creationDate>
+    <author>Steven Palmer</author>
+    <authorEmail>support@coalaweb.com</authorEmail>
+    <authorUrl>https://coalaweb.com</authorUrl>
+    <copyright>© 2020 Steven Palmer (CoalaWeb), All rights reserved.</copyright>
+    <license>GNU/GPL V3 or later.</license>
+    <version>1.1.1</version>
+    <description>MOD_COALAWEBTWEET_DESC</description>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.mod_coalawebtweet.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_coalawebtweet.ini</language>>
+    </languages>
+
+    <files>
+        <file module="mod_coalawebtweet">mod_coalawebtweet.php</file>
+		<file>helper.php</file>
+		<folder>assets</folder>
+		<file>index.html</file>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+    </files>
+
+    <!-- HELP FILE -->
+    <help url="MOD_COALAWEBTWEET_HELP_URL"/>
+
+    <config>
+        <fields
+                name="params"
+                addfieldpath="plugins/system/cwgears/fields">
+
+            <fieldset
+                    name="GENERAL"
+                    label="MOD_CWTWEET_GENERAL_OPTIONS">
+
+                <field
+                        name="css_import"
+                        type="css"/>
+
+                <field
+                        name="twitter_user"
+                        type="text"
+                        default=""
+                        hint="coalaweb"
+                        label="MOD_CWTWEET_FIELD_TW_USER_LABEL"
+                        description="MOD_CWTWEET_FIELD_TW_USER_DESC"/>
+
+                <field
+                        name="panel_style"
+                        type="pro"
+                        label="MOD_CWTWEET_FIELD_PANEL_STYLE_LABEL"
+                        description="MOD_CWTWEET_FIELD_PANEL_STYLE_DESC"/>
+
+                <field
+                        name="max_tweets"
+                        type="list"
+                        default="3"
+                        label="MOD_CWTWEET_FIELD_MAX_TWEETS_LABEL"
+                        description="MOD_CWTWEET_FIELD_MAX_TWEETS_DESC">
+                    <option value="1">J1</option>
+                    <option value="2">J2</option>
+                    <option value="3">J3</option>
+                    <option value="4">J4</option>
+                    <option value="5">J5</option>
+                    <option value="6">J6</option>
+                    <option value="7">J7</option>
+                    <option value="8">J8</option>
+                    <option value="9">J9</option>
+                    <option value="10">J10</option>
+                    <option value="15">J15</option>
+                    <option value="20">J20</option>
+                </field>
+
+            </fieldset>
+
+            <fieldset
+                    name="TWEET"
+                    label="MOD_CWTWEET_TWEET_OPTIONS">
+
+                <field
+                        type="spacer"
+                        name="title_spacer"
+                        label="MOD_CWTWEET_SPACER_TITLE"
+                        class="cw_label"/>
+
+                <field
+                        name="show_title"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="MOD_CWTWEET_FIELD_DISPLAY_TITLE_LABEL"
+                        description="MOD_CWTWEET_FIELD_DISPLAY_TITLE_DESC">
+                    <option value="1">JSHOW</option>
+                    <option value="0">JHIDE</option>
+                </field>
+
+                <field
+                        name="title_format"
+                        type="list"
+                        default="H3"
+                        label="MOD_CWTWEET_FIELD_FORMAT_LABEL"
+                        description="MOD_CWTWEET_FIELD_FORMAT_DESC">
+                    <option value="H1">MOD_CWTWEET_FIELD_FORMAT_OPT1</option>
+                    <option value="H2">MOD_CWTWEET_FIELD_FORMAT_OPT2</option>
+                    <option value="H3">MOD_CWTWEET_FIELD_FORMAT_OPT3</option>
+                    <option value="H4">MOD_CWTWEET_FIELD_FORMAT_OPT4</option>
+                    <option value="H5">MOD_CWTWEET_FIELD_FORMAT_OPT5</option>
+                    <option value="H6">MOD_CWTWEET_FIELD_FORMAT_OPT6</option>
+                    <option value="p">MOD_CWTWEET_FIELD_FORMAT_OPT7</option>
+                </field>
+
+                <field
+                        name="title_align"
+                        type="list"
+                        default="left"
+                        label="MOD_CWTWEET_FIELD_ALIGN_LABEL"
+                        description="MOD_CWTWEET_FIELD_ALIGN_DESC">
+                    <option value="left">MOD_CWTWEET_FIELD_ALIGN_OPT1</option>
+                    <option value="center">MOD_CWTWEET_FIELD_ALIGN_OPT2</option>
+                    <option value="right">MOD_CWTWEET_FIELD_ALIGN_OPT3</option>
+                </field>
+
+                <field
+                        name="show_text"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="MOD_CWTWEET_FIELD_DISPLAY_TITLE_TEXT_LABEL"
+                        description="MOD_CWTWEET_FIELD_DISPLAY_TITLE_TEXT_DESC">
+                    <option value="1">JSHOW</option>
+                    <option value="0">JHIDE</option>
+                </field>
+
+                <field
+                        name="title_text"
+                        type="text"
+                        default=""
+                        size="20"
+                        label="MOD_CWTWEET_FIELD_TITLE_TEXT_LABEL"
+                        description="MOD_CWTWEET_FIELD_TITLE_TEXT_DESC"/>
+
+                <field
+                        name="show_title_icon"
+                        type="pro"
+                        label="MOD_CWTWEET_FIELD_SHOW_ICON_LABEL"
+                        description="MOD_CWTWEET_FIELD_SHOW_ICON_DESC"/>
+
+                <field
+                        name="icon_size_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_CWTWEET_MSG_ICON_SIZE"/>
+
+                <field
+                        name="title_icon_size"
+                        type="pro"
+                        label="MOD_CWTWEET_FIELD_ICON_SIZE_LABEL"
+                        description="MOD_CWTWEET_FIELD_SIZE_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="date_spacer"
+                        label="MOD_CWTWEET_SPACER_DATE"
+                        class="cw_label"/>
+
+                <field
+                        name="show_date"
+                        type="pro"
+                        label="MOD_CWTWEET_FIELD_DISPLAY_DATE_LABEL"
+                        description="MOD_CWTWEET_FIELD_DISPLAY_DATE_DESC"/>
+
+                <field
+                        name="date_prefix"
+                        type="pro"
+                        label="MOD_CWTWEET_FIELD_DATE_LABEL"
+                        description="MOD_CWTWEET_FIELD_DATE_DESC"/>
+
+                <field
+                        name="show_date_icon"
+                        type="pro"
+                        label="MOD_CWTWEET_FIELD_SHOW_ICON_LABEL"
+                        description="MOD_CWTWEET_FIELD_SHOW_ICON_DESC"/>
+
+                <field
+                        name="date_align"
+                        type="pro"
+                        label="MOD_CWTWEET_FIELD_ALIGN_LABEL"
+                        description="MOD_CWTWEET_FIELD_ALIGN_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="content_spacer"
+                        label="MOD_CWTWEET_SPACER_CONTENT"
+                        class="cw_label"/>
+
+                <field
+                        name="content_format"
+                        type="list"
+                        default="p"
+                        label="MOD_CWTWEET_FIELD_FORMAT_LABEL"
+                        description="MOD_CWTWEET_FIELD_FORMAT_DESC">
+                    <option value="H1">MOD_CWTWEET_FIELD_FORMAT_OPT1</option>
+                    <option value="H2">MOD_CWTWEET_FIELD_FORMAT_OPT2</option>
+                    <option value="H3">MOD_CWTWEET_FIELD_FORMAT_OPT3</option>
+                    <option value="H4">MOD_CWTWEET_FIELD_FORMAT_OPT4</option>
+                    <option value="H5">MOD_CWTWEET_FIELD_FORMAT_OPT5</option>
+                    <option value="H6">MOD_CWTWEET_FIELD_FORMAT_OPT6</option>
+                    <option value="p">MOD_CWTWEET_FIELD_FORMAT_OPT7</option>
+                </field>
+
+                <field
+                        name="content_align"
+                        type="list"
+                        default="left"
+                        label="MOD_CWTWEET_FIELD_ALIGN_LABEL"
+                        description="MOD_CWTWEET_FIELD_ALIGN_DESC">
+                    <option value="left">MOD_CWTWEET_FIELD_ALIGN_OPT1</option>
+                    <option value="center">MOD_CWTWEET_FIELD_ALIGN_OPT2</option>
+                    <option value="right">MOD_CWTWEET_FIELD_ALIGN_OPT3</option>
+                </field>
+
+                <field
+                        name="content_break"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="MOD_CWTWEET_FIELD_BREAK_LABEL"
+                        description="MOD_CWTWEET_FIELD_BREAK_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field
+                        type="spacer"
+                        name="links_spacer"
+                        label="MOD_CWTWEET_SPACER_LINKS"
+                        class="cw_label"/>
+
+                <field
+                        name="icon_links_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_CWTWEET_MSG_LINKS"/>
+
+                <field
+                        name="show_links"
+                        type="pro"
+                        label="MOD_CWTWEET_FIELD_DISPLAY_LINKS_LABEL"
+                        description="MOD_CWTWEET_FIELD_DISPLAY_LINKS_DESC"/>
+
+                <field
+                        name="links_align"
+                        type="pro"
+                        label="MOD_CWTWEET_FIELD_ALIGN_LABEL"
+                        description="MOD_CWTWEET_FIELD_ALIGN_DESC"/>
+
+            </fieldset>
+
+            <fieldset
+                    name="FOOTER"
+                    label="MOD_CWTWEET_FOOTER_OPTIONS">
+
+                <field
+                        name="show_footer"
+                        type="pro"
+                        label="MOD_CWTWEET_FIELD_DISPLAY_FOOTER_LABEL"
+                        description="MOD_CWTWEET_FIELD_DISPLAY_FOOTER_DESC"/>
+
+                <field
+                        name="footer_sub"
+                        type="pro"
+                        label="MOD_CWTWEET_FIELD_FOOTER_SUB_LABEL"
+                        description="MOD_CWTWEET_FIELD_FOOTER_SUB_DESC"/>
+
+            </fieldset>
+
+            <fieldset name="advanced">
+
+                <field
+                        name="dependency_spacer"
+                        type="spacer"
+                        label="MOD_CWTWEET_SPACER_DEPENDENCY"
+                        class="cw_label"/>
+
+                <field
+                        name="dependency_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_CWTWEET_DEPENDENCY_MSG"/>
+
+                <field
+                        name="dependent_gears"
+                        type="dependent"
+                        label="MOD_CWTWEET"
+                        description="plg_system_cwgears"/>
+
+                <field
+                        name="dependent_component"
+                        type="dependent"
+                        label="MOD_CWTWEET"
+                        description="com_coalawebsociallinks"/>
+
+                <field
+                        name="debug_spacer"
+                        type="spacer"
+                        label="MOD_CWTWEET_SPACER_DEBUG"
+                        class="cw_label"/>
+
+                <field
+                        name="debug_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_CWTWEET_MSG_DEBUG"/>
+
+                <field
+                        name="debug"
+                        class="btn-group btn-group-yesno"
+                        type="list"
+                        default=""
+                        label="MOD_CWTWEET_FIELD_DEBUG_LABEL"
+                        description="MOD_CWTWEET_FIELD_DEBUG_DESC">
+                    <option value="">MOD_CWTWEET_FIELD_COM_OPT</option>
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="advanced_spacer"
+                        type="spacer"
+                        label="MOD_CWTWEET_SPACER_ADVANCED"
+                        class="cw_label"/>
+
+                <field
+                    name="uikit_prefix"
+                    type="list"
+                    default=""
+                    label="MOD_CWTWEET_UIKIT_PREFIX_LABEL"
+                    description="MOD_CWTWEET_UIKIT_PREFIX_DESC">
+                    <option value="">MOD_CWTWEET_FIELD_COM_OPT</option>
+                    <option value="cw">CW</option>
+                    <option value="uk">UK</option>
+                </field>
+
+
+                <field
+                        name="load_css"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_CWTWEET_FIELD_LOADCSS_LABEL"
+                        description="MOD_CWTWEET_FIELD_LOADCSS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="moduleclass_sfx"
+                        type="text"
+                        label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                        description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+
+                <field
+                    name="cache"
+                    type="list"
+                    default="1"
+                    label="COM_MODULES_FIELD_CACHING_LABEL"
+                    description="COM_MODULES_FIELD_CACHING_DESC" >
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+
+                <field
+                        name="cache_time"
+                        type="text"
+                        default="900"
+                        label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                        description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+
+            </fieldset>
+
+            <fieldset
+                    name="VERSION"
+                    label="MOD_CWTWEET_TITLE_VERSION">
+
+                <field
+                        name="go_pro"
+                        type="note"
+                        class="alert alert-danger"
+                        close="true"
+                        label="MOD_CWTWEET_TITLE_UPGRADE"
+                        description="MOD_CWTWEET_MSG_UPGRADE"/>
+
+                <field
+                        name="version_info"
+                        type="versioncheck"
+                        label="com_coalawebsociallinks"/>
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.2" client="site" method="upgrade">
+    <name>MOD_COALAWEBPAGE</name>
+    <creationDate>2020-03-24</creationDate>
+    <author>Steven Palmer</author>
+    <authorEmail>support@coalaweb.com</authorEmail>
+    <authorUrl>https://coalaweb.com</authorUrl>
+    <copyright>© 2020 Steven Palmer (CoalaWeb), All rights reserved.</copyright>
+    <license>GNU/GPL V3 or later.</license>
+    <version>1.1.1</version>
+    <description>MOD_COALAWEBPAGE_DESC</description>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.mod_coalawebpage.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_coalawebpage.sys.ini</language>>
+    </languages>
+
+    <files>
+        <file>helper.php</file>
+		<folder>assets</folder>
+		<file>index.html</file>
+		<folder>language</folder>
+		<file module="mod_coalawebpage">mod_coalawebpage.php</file>
+		<folder>tmpl</folder>
+    </files>
+
+    <!-- HELP FILE -->
+    <help url="MOD_COALAWEBPAGE_HELP_URL"/>
+
+    <config>
+        <fields
+                name="params"
+                addfieldpath="plugins/system/cwgears/fields">
+
+            <fieldset
+                    name="GENERAL"
+                    label="MOD_CWPAGE_GENERAL_OPTIONS">
+
+                <field
+                        name="css_import"
+                        type="css"/>
+
+                <field
+                        name="fb_page_link"
+                        type="text"
+                        default=""
+                        hint="https://www.facebook.com/CoalaWeb"
+                        label="MOD_CWPAGE_FIELD_PAGEURL_LABEL"
+                        description="MOD_CWPAGE_FIELD_PAGEURL_DESC"/>
+
+            </fieldset>
+
+            <fieldset
+                    name="LAYOUT"
+                    label="MOD_CWPAGE_LAYOUT_OPTIONS">
+
+                <field
+                        name="width_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_CWPAGE_MSG_WIDTH"/>
+
+                <field
+                        name="fb_width"
+                        type="text"
+                        default="300"
+                        label="MOD_CWPAGE_FIELD_WIDTH_LABEL"
+                        description="MOD_CWPAGE_FIELD_WIDTH_DESC"/>
+
+                <field
+                        name="height_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_CWPAGE_MSG_HEIGHT"/>
+
+                <field
+                        name="fb_height"
+                        type="text"
+                        default="400"
+                        label="MOD_CWPAGE_FIELD_HEIGHT_LABEL"
+                        description="MOD_CWPAGE_FIELD_HEIGHT_DESC"/>
+
+                <field
+                        name="fb_align"
+                        type="list"
+                        default="center"
+                        label="MOD_CWPAGE_FIELD_ALIGN_LABEL"
+                        description="MOD_CWPAGE_FIELD_ALIGN_DESC">
+                    <option value="left">JGLOBAL_LEFT</option>
+                    <option value="center">JGLOBAL_CENTER</option>
+                    <option value="right">JGLOBAL_RIGHT</option>
+                </field>
+
+                <field
+                        name="module_width"
+                        type="list"
+                        default="100"
+                        label="MOD_CWPAGE_FIELD_MODWIDTH_LABEL"
+                        description="MOD_CWPAGE_FIELD_MODWIDTH_DESC">
+                    <option value="100">100%</option>
+                    <option value="90">90%</option>
+                    <option value="80">80%</option>
+                    <option value="70">70%</option>
+                    <option value="60">60%</option>
+                    <option value="50">50%</option>
+                </field>
+
+                <field
+                        name="module_height"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_CWPAGE_FIELD_MODHEIGHT_LABEL"
+                        description="MOD_CWPAGE_FIELD_MODHEIGHT_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+            </fieldset>
+
+            <fieldset
+                    name="STYLE"
+                    label="MOD_CWPAGE_STYLE_OPTIONS">
+
+                <field
+                        name="fb_facepile"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_CWPAGE_FIELD_FACES_LABEL"
+                        description="MOD_CWPAGE_FIELD_FACES_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="fb_cover"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_CWPAGE_FIELD_HEADER_LABEL"
+                        description="MOD_CWPAGE_FIELD_HEADER_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="fb_small_header"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_CWPAGE_FIELD_SMALL_HEADER_LABEL"
+                        description="MOD_CWPAGE_FIELD_SMALL_HEADER_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="tabs_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_CWPAGE_FIELD_TABS_MSG"/>
+
+                <field
+                        name="fb_tabs"
+                        type="list"
+                        default=""
+                        multiple="true"
+                        label="MOD_CWPAGE_FIELD_TABS_LABEL"
+                        description="MOD_CWPAGE_FIELD_TABS_DESC">
+                    <option value="timeline">MOD_CWPAGE_FIELD_TABS_OPT1</option>
+                    <option value="events">MOD_CWPAGE_FIELD_TABS_OPT2</option>
+                    <option value="messages">MOD_CWPAGE_FIELD_TABS_OPT3</option>
+                </field>
+
+            </fieldset>
+
+            <fieldset name="advanced">
+
+                <field
+                        name="dependency_spacer"
+                        type="spacer"
+                        label="MOD_CWPAGE_SPACER_DEPENDENCY"
+                        class="cw_label"/>
+
+                <field
+                        name="dependency_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_CWPAGE_DEPENDENCY_MSG"/>
+
+                <field
+                        name="dependent_gears"
+                        type="dependent"
+                        label="MOD_CWPAGE"
+                        description="plg_system_cwgears"/>
+
+                <field
+                        name="dependent_facebookjs"
+                        type="dependent"
+                        label="MOD_CWPAGE"
+                        description="plg_system_cwfacebookjs"/>
+
+                <field
+                        name="dependent_component"
+                        type="dependent"
+                        label="MOD_CWPAGE"
+                        description="com_coalawebsociallinks"/>
+
+                <field
+                        name="debug_spacer"
+                        type="spacer"
+                        label="MOD_CWPAGE_SPACER_DEBUG"
+                        class="cw_label"/>
+
+                <field
+                        name="debug_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_CWPAGE_MSG_DEBUG"/>
+
+                <field
+                        name="debug"
+                        class="btn-group btn-group-yesno"
+                        type="list"
+                        default=""
+                        label="MOD_CWPAGE_FIELD_DEBUG_LABEL"
+                        description="MOD_CWPAGE_FIELD_DEBUG_DESC">
+                    <option value="">MOD_CWPAGE_FIELD_COM_OPT</option>
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="advanced_spacer"
+                        type="spacer"
+                        label="MOD_CWPAGE_SPACER_ADVANCED"
+                        class="cw_label"/>
+
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+                <field
+                    name="cache"
+                    type="list"
+                    default="1"
+                    label="COM_MODULES_FIELD_CACHING_LABEL"
+                    description="COM_MODULES_FIELD_CACHING_DESC" >
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+
+                <field
+                    name="cache_time"
+                    type="text"
+                    default="900"
+                    label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                    description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+
+                <field
+                    name="load_layout_css"
+                    type="radio"
+                    class="btn-group"
+                    default="1"
+                    label="MOD_CWPAGE_FIELD_LOADCSS_LABEL"
+                    description="MOD_CWPAGE_FIELD_LOADCSS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+            </fieldset>
+
+            <fieldset
+                    name="VERSION"
+                    label="MOD_CWPAGE_TITLE_VERSION">
+
+                <field
+                        name="go_pro"
+                        type="note"
+                        class="alert alert-danger"
+                        close="true"
+                        label="MOD_CWPAGE_TITLE_UPGRADE"
+                        description="MOD_CWPAGE_MSG_UPGRADE"/>
+
+                <field
+                        name="version_info"
+                        type="versioncheck"
+                        label="com_coalawebsociallinks"/>
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>

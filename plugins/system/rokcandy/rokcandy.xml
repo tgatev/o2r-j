@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+	<name>System - RokCandy</name>
+	<creationDate>February 15, 2019</creationDate>
+	<author>RocketTheme, LLC</author>
+	<authorEmail>support@rockettheme.com</authorEmail>
+	<authorUrl>http://www.rockettheme.com</authorUrl>
+	<copyright>(C) 2005 - 2019 RocketTheme, LLC. All rights reserved.</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<version>2.0.3</version>
+	<description>This is the RokCandy system plugin that performs the macro replacement</description>
+	<files>
+		<filename plugin="rokcandy">rokcandy.php</filename>
+		<filename>MD5SUMS</filename>
+	</files>
+</extension>

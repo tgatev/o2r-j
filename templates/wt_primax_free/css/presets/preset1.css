@@ -1,0 +1,131 @@
+
+a,
+.page-numbers {
+  /* color: #a96d01; */
+  color: #224160;
+}
+a:hover {
+  /* color: #764c01; */
+  color: #ee405c;
+}
+
+/* Main menu */
+
+.sp-megamenu-parent >li.active>a,
+.sp-megamenu-parent >li:hover>a {
+  /* color: #a96d01; */
+  color: #224160;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item >a:hover {
+  color: #a96d01;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item.active>a {
+  color: #a96d01;
+}
+.sp-menu-item:hover {
+  background-color: #e7ebee;
+  -webkit-transition: all 0.5s cubic-bezier(0.63, 0.28, 0.46, 0.88);
+  transition: all 0.5s cubic-bezier(0.63, 0.28, 0.46, 0.88);
+}
+
+.btn-primary,
+.sppb-btn-primary {
+  border-color: #8b5901;
+  background-color: #a96d01;
+}
+.btn-primary:hover,
+.sppb-btn-primary:hover {
+  border-color: #5d3c01;
+  background-color: #764c01;
+}
+ul.social-icons >li a:hover {
+  color: #a96d01;
+}
+.layout-boxed .body-innerwrapper {
+  background: #ffffff;
+}
+
+.sp-module .latestnews >div >a {
+  color: #777777;
+}
+.sp-module .latestnews >div >a:hover {
+  color: #a96d01;
+}
+.sp-module .tagscloud .tag-name:hover {
+  background: #a96d01;
+}
+.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li.active > a,
+.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li > a:hover {
+  background: #a96d01;
+}
+.search .btn-toolbar button {
+  background: #a96d01;
+}
+.post-format {
+  background: #a96d01;
+}
+.voting-symbol span.star.active:before {
+  color: #a96d01;
+}
+.sp-rating span.star:hover:before,
+.sp-rating span.star:hover ~ span.star:before {
+  color: #764c01;
+}
+.entry-link,
+.entry-quote {
+  background: #a96d01;
+}
+blockquote {
+  border-color: #a96d01;
+}
+.carousel-left:hover,
+.carousel-right:hover {
+  background: #a96d01;
+}
+.sp-comingsoon body {
+  background-color: #a96d01;
+}
+.pagination>li>a,
+.pagination>li>span {
+  color: #757f8a;
+  font-size: 1.1rem;
+  padding: 1rem 1.4rem 1rem 1.4rem;
+}
+
+ul.pagination > li >a.first,
+ul.pagination > li >a.last{
+  font-weight: bold;
+  padding: 0.5rem 1.4rem 0.5rem 1.4rem;
+  font-size: 1.8rem;
+}
+ul.pagination > li >a.previous,
+ul.pagination > li >a.next{
+  font-weight: bold;
+  padding: 0.5rem 1.4rem 0.5rem 1.4rem;
+  font-size: 1.8rem;
+}
+
+.pagination>.active>a,
+.pagination>.active>span {
+  background-color: #224160;
+  color: #ffffff;
+  font-weight: bold;
+}
+.pagination>.active>a:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:hover,
+.pagination>.active>span:focus {
+  background-color: #224160;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+ul.multiselect-container.dropdown-menu > li.multiselect-reset {
+  background-color: #ffffff;
+  padding: 5px 0;
+}
+
+ul.multiselect-container.dropdown-menu > li.multiselect-reset a {
+  color: #ee405c;
+  font-weight: bolder;
+}

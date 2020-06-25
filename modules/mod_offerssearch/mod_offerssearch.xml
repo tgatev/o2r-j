@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.8" client="site" method="upgrade">
+	<name>MOD_OFFERSSEARCH</name>
+	<creationDate>29th January, 2020</creationDate>
+	<author>SMIG</author>
+	<authorEmail>gangelov45@gmail.com</authorEmail>
+	<authorUrl>http://fuckitall.info</authorUrl>
+	<copyright>Copyright (C) 2019. All Rights Reserved</copyright>
+	<license>GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html</license>
+	<version>1.0.0</version>
+	<description>MOD_OFFERSSEARCH_XML_DESCRIPTION</description>
+
+	<!-- Language files -->
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_offerssearch.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_offerssearch.sys.ini</language>
+	</languages>
+
+	<!-- Model files -->
+	<files>
+		<filename module="mod_offerssearch">mod_offerssearch.php</filename>
+		<filename>index.html</filename>
+		<folder>language</folder>
+		<folder>fields</folder>
+		<folder>forms</folder>
+		<folder>rules</folder>
+		<folder>tmpl</folder>
+	</files>
+</extension>

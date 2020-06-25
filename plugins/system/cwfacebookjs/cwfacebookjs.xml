@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.6" type="plugin" group="system" method="upgrade">
+    <name>PLG_CWFACEBOOKJS</name>
+    <creationDate>2020-02-06</creationDate>
+    <author>Steven Palmer</author>
+    <authorEmail>support@coalaweb.com</authorEmail>
+    <authorUrl>https://coalaweb.com</authorUrl>
+    <copyright>Copyright (c) 2020 Steven Palmer All rights reserved.</copyright>
+    <license>GNU/GPL V3 or later; https://www.gnu.org/licenses/gpl-3.0.html</license>
+    <version>1.1.4</version>
+    <level>Core</level>
+    <description>PLG_CWFACEBOOKJS_DESCRIPTION</description>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_cwfacebookjs.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_cwfacebookjs.sys.ini</language>
+    </languages>
+
+    <files>
+        <file plugin="cwfacebookjs">cwfacebookjs.php</file>
+		<folder>assets</folder>
+		<file>README.md</file>
+		<file>index.html</file>
+		<file>version.php</file>
+		<folder>language</folder>
+		<file>CHANGELOG.md</file>
+    </files>
+
+    <!-- HELP FILE -->
+    <help url="PLG_CWFACEBOOKJS_HELP_URL"/>
+
+    <!-- Update Server -->
+    <updateservers>
+        <server type="extension" priority="1" name="CoalaWeb Facebook JS Update">
+            <![CDATA[https://coalaweb.com/index.php?option=com_rdsubs&view=updater&format=xml&cat=20&type=.xml]]>
+        </server>
+    </updateservers>
+
+
+    <!-- Installation / Uninstallation Script File -->
+    <scriptfile>script.plg_system_cwfacebookjs.php</scriptfile>
+
+    <config>
+        <fields
+                name="params"
+                addfieldpath="plugins/system/cwgears/fields">
+
+            <fieldset
+                    name="INFO"
+                    label="PLG_CWFACEBOOKJS_TAB_INFO">
+
+                <field
+                        name="css_import"
+                        type="css"/>
+
+                <field
+                        name="dependent_info"
+                        type="dependent"
+                        label="PLG_CWFACEBOOKJS"
+                        description="plg_system_cwgears"/>
+
+                <field
+                        name="basic_info"
+                        type="note"
+                        close="true"
+                        class="alert alert-info"
+                        label="PLG_CWFACEBOOKJS_TITLE_INFO"
+                        description="PLG_CWFACEBOOKJS_INFO_MESSAGE"/>
+
+            </fieldset>
+
+            <fieldset name="advanced">
+
+                <field
+                        name="dependency_spacer"
+                        type="spacer"
+                        label="PLG_CWFACEBOOKJS_SPACER_DEPENDENCY"
+                        class="cw_label"/>
+
+                <field
+                        name="dependency_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="PLG_CWFACEBOOKJS_DEPENDENCY_MSG"/>
+
+                <field
+                        name="dependent_gears"
+                        type="dependent"
+                        label="PLG_CWFACEBOOKJS"
+                        description="plg_system_cwgears"/>
+
+                <field
+                        name="debug_spacer"
+                        type="spacer"
+                        label="PLG_CWFACEBOOKJS_SPACER_DEBUG"
+                        class="cw_label"/>
+
+                <field
+                        name="debug_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="PLG_CWFACEBOOKJS_MSG_DEBUG"/>
+
+                <field
+                        name="debug"
+                        class="btn-group btn-group-yesno"
+                        type="list"
+                        default="0"
+                        label="PLG_CWFACEBOOKJS_FIELD_DEBUG_LABEL"
+                        description="PLG_CWFACEBOOKJS_FIELD_DEBUG_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="advanced_spacer"
+                        type="spacer"
+                        label="PLG_CWFACEBOOKJS_SPACER_ADVANCED"
+                        class="cw_label"/>
+
+                <field
+                        name="sdk_type"
+                        type="radio"
+                        class="btn-group"
+                        default="all"
+                        label="PLG_CWFACEBOOKJS_FIELD_SDK_TYPE_LABEL"
+                        description="PLG_CWFACEBOOKJS_FIELD_SDK_TYPE__DESC">
+                    <option value="sdk">PLG_CWFACEBOOKJS_FIELD_SDK_TYPE_OPT1</option>
+                    <option value="all">PLG_CWFACEBOOKJS_FIELD_SDK_TYPE_OPT2</option>
+                </field>
+
+                <field
+                        name="load_all_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="PLG_CWFACEBOOKJS_LOAD_ALL_MSG"/>
+
+                <field
+                        name="load_all"
+                        class="btn-group btn-group-yesno"
+                        type="radio"
+                        default="0"
+                        label="PLG_CWFACEBOOKJS_FIELD_LOAD_ALL_LABEL"
+                        description="PLG_CWFACEBOOKJS_FIELD_LOAD_ALL_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+            </fieldset>
+
+            <fieldset
+                    name="VERSION"
+                    label="PLG_CWFACEBOOKJS_TITLE_VERSION">
+
+                <field
+                        name="version_info"
+                        type="versioncheck"
+                        label="plg_system_cwfacebookjs"/>
+
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>

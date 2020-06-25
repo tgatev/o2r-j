@@ -1,0 +1,99 @@
+// Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+//
+// Component: Overlay
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@overlay-panel-color:                           @global-contrast-color;
+
+@overlay-panel-background:                      fade(@global-background, 90%);
+
+@overlay-icon-size:                             30px;
+@overlay-icon-color:                            @global-contrast-color;
+
+//
+// New
+//
+
+@overlay-button-border:                         @global-contrast-color;
+@overlay-button-color:                          @global-contrast-color;
+@overlay-button-hover-color:                    @global-color;
+
+@overlay-background-border-width:               15px;
+@overlay-background-color:                      @global-color;
+@overlay-background-heading-color:              @global-heading-color;
+
+
+// Sub-object `uk-overlay-panel`
+// ========================================================================
+
+.hook-overlay-panel() {}
+
+
+// Sub-object `uk-overlay-background`
+// ========================================================================
+
+.hook-overlay-background() {
+
+    border: @overlay-background-border-width solid rgba(0,0,0,0);
+    -moz-background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    color: @overlay-background-color;
+
+    h1, h2, h3, h4, h5, h6 { color: @overlay-background-heading-color; }
+    &.uk-overlay-icon:before { color: @overlay-background-color; }
+
+    + .uk-overlay-panel,
+    ~ .uk-overlay-panel {
+
+        color: @overlay-background-color;
+        h1, h2, h3, h4, h5, h6 { color: @overlay-background-heading-color; }
+        &.uk-overlay-icon:before { color: @overlay-background-color; }
+
+    }
+
+}
+
+
+// Sub-object `uk-overlay-image`
+// ========================================================================
+
+.hook-overlay-image() {}
+
+
+// Sub-object `uk-overlay-icon`
+// ========================================================================
+
+.hook-overlay-icon() {}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-overlay-misc() {
+
+    .uk-overlay-panel:not(.uk-overlay-background) .uk-button:not(.uk-button-primary):not(.uk-button-success):not(.uk-button-danger):not(.uk-button-link):before { background: @overlay-button-border; }
+
+    .uk-overlay-panel:not(.uk-overlay-background):not(.uk-overlay-background) .uk-button:not(.uk-button-primary):not(.uk-button-success):not(.uk-button-danger):not(.uk-button-link),
+    .uk-overlay-panel:not(.uk-overlay-background) .uk-icon-button {
+
+        border-color: @overlay-button-border;
+        color: @overlay-button-color;
+
+        &:after { background: @overlay-button-border; }
+
+        &:hover,
+        &:focus {
+            border-color: @overlay-button-border;
+            color: @overlay-button-hover-color;
+        }
+
+    }
+
+}
