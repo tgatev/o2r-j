@@ -27,9 +27,15 @@
 	font-weight: bold;
 	white-space: normal;
 }
-
+.ofrs-preview-icon {
+	width: 50px;
+}
+.offer-eye-icon-box {
+	max-width: 75px;
+	min-width: 75px;
+}
 .offer-payout {
-	font-weight: bold;
+	font-weight: normal;
 }
 
 /* Hide breadcrumb for this position */
@@ -39,4 +45,12 @@
 .offer-verticals,
 .offer-geotargeting {
 	overflow-wrap: break-word;
+}
+/** Fix Articles width on offers list */
+.com-content article.item,
+#sp-main-body .container,
+#sp-main-body,
+#sp-component {
+	padding-left: 15px !important;
+	padding-right: 15px !important;
 }

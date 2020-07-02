@@ -114,7 +114,7 @@ class OfrsModelOffer extends JModelItem
 				$query->from($db->quoteName('#__ofrs_offer', 'a'));
 				
 				// Get from #__ofrs_ad_network as b
-				$query->select('b.name AS ad_network_name,b.join_url AS ad_network_join_url');
+				$query->select('b.name AS ad_network_name,b.join_url AS ad_network_join_url, b.id as adnet_id, b.display_properties as adnet_display_properties');
 				$query->join('INNER', ($db->quoteName('#__ofrs_ad_network', 'b')) . ' ON (' . $db->quoteName('a.ad_network_id') . ' = ' . $db->quoteName('b.id') . ')');
 				
 				// Get from #__ofrs_offer as c

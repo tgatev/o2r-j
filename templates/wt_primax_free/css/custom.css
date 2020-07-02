@@ -9,64 +9,6 @@
 
 }
 
-@media ( max-width: 768px ) {
-    #sp-main-body {
-        /*  parts : 100% - header - search - breadcrumb - bottom menu - footer) */
-        min-height: calc(100vh - 90px - 182px - 120px - 65px);
-    }
-
-    /* Bottom menu resizing */
-    .menu_bottom {
-        display: list-item !important;
-        text-align: center;
-    }
-    .menu_item_bottom {
-        padding: 0px 0px !important;
-        margin: 0px 0px !important;
-    }
-
-    #dropdowns-container > div > div,
-    #dropdowns-container > div > span > div {
-        margin: 2.1rem 0px 0px 0px;
-    }
-    .dropdown-button {
-        margin: 0 0 0 0;
-        padding: 0;
-
-    }
-
-    .ml-xs-0 {
-       margin-left: -5px;
-    }
-    .mr-xs-0 {
-       margin-right: -5px;
-    }
-    .mb-xs-0 {
-        margin-bottom: -5px;
-    }
-    .mt-xs-0 {
-        margin-top: -5px;
-    }
-    .m-xs-0 {
-        margin: 0px;
-    }
-
-    /* pagination positioning  */
-    .pagination-align {
-        text-align: center;
-    }
-    .pagination-line {
-        min-height: 3rem;
-    }
-    .pagination-line div.results_offset  {
-        padding: 0px 0px ;
-        text-align: right;
-    }
-    .no-results-article {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-}
 
 /* sm size */
 @media (min-width: 769px) and (max-width: 992px){
@@ -99,7 +41,7 @@
         text-align: center;
     }
     .pagination-line {
-        margin: 0 -40px 0 -40px;
+        margin: 0 -45px 0 -45px;
         min-height: 3rem;
     }
     .no-results-article {
@@ -142,7 +84,7 @@
         text-align: right;
     }
     .pagination-line {
-        margin: 0 -30px 0 -45px;
+        margin: 0 -45px 0 -45px;
         min-height: 3rem;
     }
 
@@ -202,8 +144,8 @@ input.form-control.multiselect-search {
     display: inline-block;
     cursor: pointer;
     font-size: larger;
-    padding: 10px 10px 10px 10px;
-    color: #ee405c;
+    padding: 12px;
+    color: #f03b5d;
     position: absolute;
 }
 
@@ -211,7 +153,9 @@ input.form-control.multiselect-search {
 .btn-white {
     background-color: white;
 }
-
+ul.nav.menu_bottom li a.menu_item_bottom {
+    font-size: 12px;
+}
 /* END * Search Form Classes */
 
 
@@ -302,13 +246,13 @@ input.form-control.multiselect-search:active {
 }
 
 a.filter-btns {
-    color: #ee405c;
-    font-weight: bold;
+    color: #f03b5d;
+    /*font-weight: bold;*/
 }
 
 a.filter-btns:hover {
-    color: #ee405c;
-    font-weight: bold;
+    color: #f03b5d;
+    /*font-weight: bold;*/
     text-decoration: underline;
 }
 
@@ -319,25 +263,18 @@ a.filter-btns:hover {
 
     font-size: 1.2rem;
     text-align: left!important;
-    color: #87909a !important;
+    color: #757f89 !important;
     border: 1px solid #d2d8df;
     border-radius: 3px;
     padding: 1rem 1.2rem 1rem 1.2rem ;
 }
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #sp-header .logo {
         height: 90px;
         display: table;
         margin: 0 0 0 0;
-        max-width: 400px;
-        width: 300px;
-    }
-}
-
-/* overwrite font size for some buttons */
-@media (min-width: 992px) {
-    div#order_definitions > div {
-        padding-right: 0px;
+        max-width: 250px;
+        width: 265px;
     }
 }
 
@@ -397,6 +334,22 @@ a.filter-btns:hover {
     content: " > ";
 }
 
+.ofrs-content-title {
+    font-weight: bold;
+    font-size: 24px;
+    color: #f03b5d;
+    border-left: 3px solid #22405f;
+    padding: 0 0 0 7px;
+}
+
+
+.ofrs-title-space {
+    padding: 20px 0;
+}
+article.item.item-page .entry-header {
+    display: none;
+}
+
 select {
     display: none;
 }
@@ -445,3 +398,21 @@ a.offer-network-box > img.menu-custom-icon {
   border-radius: 10px;
 }
 
+/* Input autocomplete */
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #757f89;
+    transition: background-color 5000s ease-in-out 0s;
+    font-size: 14px;
+    border: 1px solid #d2d8df;
+    border-radius: 3px;
+    box-shadow: none;
+}

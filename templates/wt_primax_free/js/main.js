@@ -9,6 +9,10 @@ jQuery(function ($) {
     // ************    START Helix 1.4 JS    ************** //
     // **************************************************** //
 
+    /* make li in menus clickable */
+    $('li.sp-menu-item').click(function () {
+        $(this).find("a").get(0).click();
+    })
 
     let display_type = "";
     window.onresize = function () {
@@ -145,20 +149,20 @@ jQuery(function ($) {
     } // has go to top
 
     // Preloader
-    if (typeof sp_preloader === 'undefined') {
-        sp_preloader = '';
-    }
-
-    if (sp_preloader) {
-        $(window).on('load', function () {
-            if ($('.sp-loader-with-logo').length > 0) {
-                move();
-            }
-            setTimeout(function () {
-                $('.sp-pre-loader').fadeOut();
-            }, 1000);
-        });
-    } // has preloader
+    // if (typeof sp_preloader === 'undefined') {
+    //     sp_preloader = '';
+    // }
+    //
+    // if (sp_preloader) {
+    //     $(window).on('load', function () {
+    //         if ($('.sp-loader-with-logo').length > 0) {
+    //             move();
+    //         }
+    //         setTimeout(function () {
+    //             $('.sp-pre-loader').fadeOut();
+    //         }, 1000);
+    //     });
+    // } // has preloader
     //preloader Function
     function move() {
         var elem = document.getElementById("line-load");
@@ -263,15 +267,17 @@ jQuery(function ($) {
     // **************  START:: Scroll Header effect ******* //
     // **************************************************** //
     $(window).scroll(() => {
-            stickyNav();
+             stickyNav();
             if ($(this).scrollTop() > 0) {
 
                 // scroll position for effect end based on height of previouse
-                let end_effect_on = $('#sp-header').height() + $('#sp-search-area').height();
-                let current_scroll_position = $(this).scrollTop() / end_effect_on;
-                if (current_scroll_position > 1) current_scroll_position = 1;
-
-                setHeaderSize(current_scroll_position);
+                // let end_effect_on = $('#sp-header').height() + $('#sp-search-area').height();
+                // let current_scroll_position = $(this).scrollTop() / end_effect_on;
+                // if (current_scroll_position > 1) current_scroll_position = 1;
+    //
+    //             // Comment becous: remove resizing in ticket
+    //             // http://redmine.masq/issues/3890
+    //             setHeaderSize(current_scroll_position);
             }
         }
     );
@@ -324,12 +330,12 @@ function setHeaderSize(percent) {
         },
     };
     for (let selector in selectors) {
-        jQuery(selector).css(selectors[selector]);
+        // jQuery(selector).css(selectors[selector]);
 
-        if (!TRANSITION_RELOAD_STATUS) jQuery(selector).css({
-            '-webkit-transition': 'all ' + transition_time + 'ms cubic-bezier(0.63, 0.28, 0.46, 0.88)',
-            'transition': 'all ' + transition_time + 'ms cubic-bezier(0.63, 0.28, 0.46, 0.88)'
-        });
+        // if (!TRANSITION_RELOAD_STATUS) jQuery(selector).css({
+        //     '-webkit-transition': 'all ' + transition_time + 'ms cubic-bezier(0.63, 0.28, 0.46, 0.88)',
+        //     'transition': 'all ' + transition_time + 'ms cubic-bezier(0.63, 0.28, 0.46, 0.88)'
+        // });
     }
 
     // When reload - execute animation for longer time

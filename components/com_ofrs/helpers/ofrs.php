@@ -1384,7 +1384,7 @@ abstract class OfrsHelper
     /**
      * @param int $color_hue
      * @param array $defaults
-     * @return array
+     * @return array ["onmouseleave" => "background-color: #FFF; color: #000", "onmouseover" => "background-color: #123; color: #ABC"]
      */
     function generateStyles($color_hue = 82, $defaults = array( "s" => 100, "l" => 30))
     {
@@ -1399,17 +1399,70 @@ abstract class OfrsHelper
 
         $mouseover = "background-color: " . sprintf($format, $color_hue, $defaults['s'], $defaults['l']) .
             "color: white";// .sprintf($format, $color_hue, $bcg_color_data['s'], $bcg_color_data['l']) ;
-
         return ["onmouseleave" => $mouseleave, "onmouseover" => $mouseover];
     }
 
     function getPreviewNotFound( $text = "Preview not found." , $size = "5x" ){
         return '
-<span class="fa-stack fa-'.$size.'">
-  <i class="fa fa-circle fa-stack-2x fa-inverse" ></i>
-  <i class="fa fa-camera fa-stack-1x"></i>
-  <i class="fa fa-ban fa-stack-2x" style="color:Tomato"></i>
-</span>
+<span class="icon om-eye-invisible" style="font-size: 100pt"></span>
 <div><b>'.$text.'</b></div>';
+    }
+
+    /**
+     * Genearate Network box button with switchable colors
+     *
+     * @param $id
+     * @param $adnet_name
+     * @param array|json_string $styles
+     * @param string $class
+     * @return string
+     */
+    static function getNetworkBoxButtonLayout($id, $adnet_name, $styles = array(), $class = "offer-network-box" ){
+        if( (array_key_exists('adnet_text_color' , $styles) and array_key_exists('adnet_background_color' , $styles) ) and
+            ($styles['adnet_text_color'] and $styles['adnet_background_color']  ) ) {
+
+            $styles['onmouseleave'] = "color: ". $styles['adnet_text_color']. "; background-color: " .$styles['adnet_background_color'].";";
+            $styles['onmouseover'] = "color: white; background-color: " .$styles['adnet_text_color'].";";
+        }
+        // Parse Json
+//        if(is_string($styles)) $styles = OfrsHelper::parseDisplayProperties($styles, 'NetworkBoxButtonColors');
+        $defaults = OfrsHelper::generateStyles($id*20);
+
+        if(!array_key_exists('onmouseleave', $styles)) $styles['onmouseleave'] = $defaults['onmouseleave'];
+        if(!array_key_exists('onmouseover', $styles)) $styles['onmouseover'] = $defaults['onmouseover'];
+
+        $url =  JRoute::_("index.php?option=com_ofrs&view=adnet&id=$id&Itemid=2473" );
+        return <<<BUTTON_BOX
+<a class="$class"
+  style="${styles['onmouseleave']}" id="offer-network_$id"
+  onmouseover=" jQuery(this).attr('style','${styles['onmouseover']}') "
+  onmouseleave=" jQuery(this).attr('style','${styles['onmouseleave']}' ) "
+  title="$adnet_name"
+  href="$url"
+> <i class="icon om-network" aria-hidden="true" style="padding-right: 5px" ></i>$adnet_name</a>
+BUTTON_BOX;
+
+    }
+
+    /**
+     * Parse incoming json
+     *
+     * @param null $data
+     * @return mixed
+     */
+    public static function parseDisplayProperties($data = null, $key = null){
+        $res = json_decode($data, true);
+        if($key) {
+            return isset($res[$key]) ? $res[$key] : null ;
+        }else{
+            return $res ;
+        }
+    }
+
+    /**
+     *
+     */
+    public static function mokNetworksBoxButtonColorsJson(){
+       return '{"NetworkBoxButtonColors":{"onmouseleave":"background-color: #000; color: white","onmouseover":"background-color: white; color: #000"}}';
     }
 }

@@ -20,7 +20,7 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
-
+use OfrsHelper;
 /**
  * Ofrs Adnet Model
  */
@@ -93,7 +93,7 @@ class OfrsModelAdnet extends JModelItem
 		$this->initSet = true;
 
 		$pk = (!empty($pk)) ? $pk : (int) $this->getState('adnet.id');
-		
+
 		if ($this->_item === null)
 		{
 			$this->_item = array();
@@ -110,21 +110,25 @@ class OfrsModelAdnet extends JModelItem
 				$query = $db->getQuery(true);
 
 				// Get from #__ofrs_ad_network as a
-				$query->select('a.id AS id,a.asset_id AS asset_id,a.name AS name,a.tracking_platform_id AS tracking_platform_id,a.currency_id AS currency_id,a.api_params AS api_params,a.import_setup AS import_setup,a.description AS description,a.join_url AS join_url,a.min_payment_amt AS min_payment_amt,a.payment_frequency AS payment_frequency,a.account_login AS account_login,a.account_created AS account_created,a.login_url AS login_url,a.account_password AS account_password,a.stats_tz AS stats_tz,a.payment_method AS payment_methods,a.published AS published,a.created_by AS created_by,a.modified_by AS modified_by,a.created AS created,a.modified AS modified,a.version AS version,a.hits AS hits,a.ordering AS ordering,a.adnet_logo AS adnet_logo');
+				$query->select('a.id AS id,a.asset_id AS asset_id,a.name AS name,a.tracking_platform_id AS tracking_platform_id,a.currency_id AS currency_id,a.api_params AS api_params,a.import_setup AS import_setup,a.description AS description,a.join_url AS join_url,a.min_payment_amt AS min_payment_amt,a.payment_frequency AS payment_frequency,a.account_login AS account_login,a.account_created AS account_created,a.login_url AS login_url,a.account_password AS account_password,a.stats_tz AS stats_tz,a.payment_method AS payment_methods,a.published AS published,a.created_by AS created_by,a.modified_by AS modified_by,a.created AS created,a.modified AS modified,a.version AS version,a.hits AS hits,a.ordering AS ordering,a.adnet_logo AS adnet_logo, a.adnet_text_color AS adnet_text_color, a.adnet_background_color AS adnet_background_color');
 				$query->from($db->quoteName('#__ofrs_ad_network', 'a'));
-				
+
 				// Get from #__ofrs_tracking_platform as b
 				$query->select('b.name AS tracking_platform_name');
 				$query->join('LEFT OUTER', ($db->quoteName('#__ofrs_tracking_platform', 'b')) . ' ON (' . $db->quoteName('a.tracking_platform_id') . ' = ' . $db->quoteName('b.id') . ')');
-				
+
+				// Get from #__ofrs_tracking_platform as b
+				$query->select('currency.symbol AS currency_symbol');
+				$query->join('LEFT OUTER', ($db->quoteName('#__ofrs_currency', 'currency')) . ' ON (' . $db->quoteName('a.currency_id') . ' = ' . $db->quoteName('currency.id') . ')');
+
 				// Get from #__ofrs_offer as c
 				$query->select('COUNT(c.id) AS offer_count');
 				$query->join('LEFT OUTER', ($db->quoteName('#__ofrs_offer', 'c')) . ' ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('c.ad_network_id') . ')');
-				
+
 				// Get from #__ofrs_offer_payout as d
 				$query->select('d.type AS ofrs_offer_payout_payout_type');
 				$query->join('LEFT OUTER', ($db->quoteName('#__ofrs_offer_payout', 'd')) . ' ON (' . $db->quoteName('c.id') . ' = ' . $db->quoteName('d.offer_id') . ')');
-				
+
 				// Get from #__ofrs_payout_type as e
 				$query->select('GROUP_CONCAT(DISTINCT e.name) AS payout_types');
 				$query->join('LEFT OUTER', ($db->quoteName('#__ofrs_payout_type', 'e')) . ' ON (' . $db->quoteName('d.type') . ' = ' . $db->quoteName('e.id') . ')');
@@ -201,7 +205,7 @@ $data->payment_methods = $this->getPaymentMethodsDisplay($data->payment_methods)
 	        'A' => 'ACH',
 	        'D' => 'Direct Deposit'
 	    );
-	    
+
 	    foreach($pms AS $pm) {
 	        if (isset($ret))
 	            $ret .= ',';

@@ -267,8 +267,8 @@ $form->setValue('search', '', $search_filters_data['search']);
     </div>
 </form>
 
-<div class="row" style="padding: 5px 0px;">
-    <div class="col-xs-8 col-xs-offset-4 col-no-gutters text-right">
+<div class="row" id="filters-buttons-xs">
+    <div class="col-xs-8 col-xs-offset-4 text-right">
         <div class="visible-xs" >
             <button class="btn btn-white drop-down-btn" data-toggle="modal" data-target="#modal-filters" id="btn-modal-filter" href="#">
                 <span>No Filter</span>

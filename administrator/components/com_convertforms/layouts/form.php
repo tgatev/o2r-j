@@ -17,7 +17,7 @@ extract($displayData);
 ?>
 
 <div <?php echo trim($boxattributes) ?>>
-	<form name="cf<?php echo $id; ?>" id="cf<?php echo $id; ?>" method="post" action="#">
+	<form name="cf<?php echo $id; ?>" id="cf<?php echo $id; ?>" method="post" action="#" >
 		<?php if ($hascontent) { ?>
 		<div class="cf-content-wrap cf-col-16 <?php echo $contentclasses ?>">
 			<div class="cf-content cf-col-16">

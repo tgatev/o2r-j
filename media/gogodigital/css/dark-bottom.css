@@ -12,11 +12,12 @@
 }
 
 .cc_container .cc_message {
-    font-size: 0.6em;
+    font-size: 12px !important;
     transition: font-size 200ms;
     margin: 0;
     padding: 0;
-    line-height: 1.5em
+    line-height: 1.5em;
+    width: 75%;
 }
 
 .cc_container .cc_logo {
@@ -83,15 +84,15 @@
     cursor: pointer;
     transition: font-size 200ms;
     text-align: center;
-    font-size: 0.6em;
+    font-size: 12px !important;
     display: block;
-    width: 33%;
-    margin-left: 10px;
-    margin-top: 10px;
+    width: 25%;
+    /*margin-left: 10px;*/
+    /*margin-top: 10px;*/
     float: right;
     max-width: 120px;
 
-    padding: 8px 16px;
+    padding: 8px 8px !important;
     background-color: #fff;
     position: static;
     bottom: unset;
@@ -103,7 +104,7 @@
 .cc_container .cc_message {
     transition: font-size 200ms;
     font-size: 0.6em;
-    display: block
+    display: unset !important;
 }
 
 @media screen and (min-width: 500px) {
@@ -137,7 +138,8 @@
 @media screen and (min-width: 992px) {
     .cc_container .cc_message {
         font-size: 1em;
-        width: 100%;
+        width: 80%;
+        position: absolute;
     }
 }
 
@@ -145,8 +147,8 @@
     width: 100%;
     background: #224160;
     color: #fff;
-    font-size: 17px;
-    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    font-size: 12px !important;
+    /*font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;*/
     box-sizing: border-box
 }
 
@@ -172,12 +174,13 @@
 
 .cc_container a, .cc_container a:visited {
     text-decoration: none;
-    color: #31a8f0;
+    color: #fff;
     transition: 200ms color
 }
 
 .cc_container a:hover, .cc_container a:active {
-    color: #b2f7ff
+    text-decoration: underline;
+    color: #fff;
 }
 
 @-webkit-keyframes slideUp {

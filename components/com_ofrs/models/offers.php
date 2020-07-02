@@ -84,7 +84,6 @@ class OfrsModelOffers extends JModelList
 		$query = $db->getQuery(true);
 
         // Get from #__ofrs_offer as a
-        // b.display_properties as display_properties,
 		$query->select('a.id AS id,
                         a.ad_network_id AS ad_network_id,
                         a.name AS name,
@@ -98,6 +97,9 @@ class OfrsModelOffers extends JModelList
                         .'a.published AS published,
                         a.modified AS modified,
                         b.name AS adnet_name,
+                        b.id AS adnet_id,
+                        b.adnet_text_color as adnet_text_color,
+                        b.adnet_background_color as adnet_background_color,
                         d.name AS payout_type,
                         c.display');
 
@@ -110,6 +112,7 @@ class OfrsModelOffers extends JModelList
         $query->join('LEFT', ($db->quoteName('#__ofrs_vertical', 'g')) . 'ON (' . $db->quoteName('e.vertical_id') . ' = ' . $db->quoteName('g.id') . ')');
         $query->join('LEFT', ($db->quoteName('#__ofrs_country', 'h')) . 'ON (' . $db->quoteName('f.country_id') . ' = ' . $db->quoteName('h.id') . ')');
 
+        
 		// published only
 		$query->where('a.published = 1');
 
@@ -265,5 +268,4 @@ class OfrsModelOffers extends JModelList
         return $db->getNumRows();
     }
 /***[/JCBGUI$$$$]***/
-
 }

@@ -81,17 +81,18 @@
 	border: solid 1px #e3eaec;
 	box-shadow: 5px 3px 2px 0px #e3eaec;
 	min-width: 100%;
-	min-height: 180px;
+	min-height: 120px;
 	max-height: 615px;
-	color: #224160;
+	color: #757f8a;
 }
 .landing-page-link {
-	padding: 15px 0;
+	padding: 7px 0;
 	/*text-align: right;*/
 }
 section.offer-content {
-	padding-top: 15px;
-	line-height: 30px;
+	/*padding-top: 15px;*/
+	padding-bottom: 15px;
+	line-height: 24px;
 }
 
 .ofrs-adnet-area {

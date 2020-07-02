@@ -27,10 +27,6 @@ JLoader::register('OfrsHelper', JPATH_ADMINISTRATOR . '/components/com_ofrs/help
 //get the document object
 $document = JFactory::getDocument();
 
-// always load these files.
-$document->addScript(JURI::root(true) . "/assets/js/bootstrap-multiselect.js", (OfrsHelper::jVersion()->isCompatible("3.8.0")) ? array("version" => "auto") : "text/javascript");
-$document->addStyleSheet(JURI::root(true) . "/assets/css/bootstrap-multiselect.css", (OfrsHelper::jVersion()->isCompatible("3.8.0")) ? array("version" => "auto") : "text/css");
-
 // get the module class sfx (local)
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
 

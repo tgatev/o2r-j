@@ -66,7 +66,7 @@ class OfrsViewAdnet extends JViewLegacy
 		// Initialize the header checker.
 		$HeaderCheck = new ofrsHeaderCheck; 
 		// add the document default css file
-		$this->document->addStyleSheet(JURI::root(true) .'/components/com_ofrs/assets/css/adnet.css', (OfrsHelper::jVersion()->isCompatible('3.8.0')) ? array('version' => 'auto') : 'text/css');
+		$res = $this->document->addStyleSheet(JURI::root(true) .'/components/com_ofrs/assets/css/adnet.css', (OfrsHelper::jVersion()->isCompatible('3.8.0')) ? array('version' => 'auto') : 'text/css');
 	}
 
 	/**

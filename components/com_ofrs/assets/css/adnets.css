@@ -34,3 +34,29 @@ hr {
 	margin-top: 40px;
 	margin-bottom: 20px;
 }
+/** Fix Article width on networks list (search) */
+.com-content article.item,
+#sp-main-body .container,
+#sp-main-body,
+#sp-component {
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+}
+
+/** Fix order buttons */
+@media (min-width: 768px) {
+	div.row.pagination-line.ofrs-table-header {
+		margin-right: -45px;
+		margin-left: -30px;
+	}
+}
+
+@media (max-width: 767px) {
+	div.row.pagination-line.ofrs-table-header {
+		margin-right: -30px;
+	}
+}
+#sp-breadcrumb > .container > .row{
+	margin-left: -30px;
+	margin-right: -30px;
+}
