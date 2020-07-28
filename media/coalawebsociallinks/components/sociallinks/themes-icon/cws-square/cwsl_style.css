@@ -1,0 +1,2030 @@
+/**
+ * @author      Steven Palmer <support@coalaweb.com>
+ * @link        https://coalaweb.com/
+ * @copyright           Copyright (c) 2020 Steven Palmer All rights reserved.
+ */
+
+/**
+* Version 0.3.4
+* !important was added to both the background and background-position to stop
+* conflicts with t3 causing the hover to be transparent
+*/
+
+/* Social Icons
+----------------------------------------------------------------------------------------------------*/
+
+ul.cw-social-mod-icons-cws-square {
+    margin: 0 !important;
+    padding: 0!important;
+    list-style: none;
+}
+
+ul.cw-social-mod-icons-cws-square li {
+    padding: 3px !important;
+    margin: 0 !important;
+    display:inline-block;
+    vertical-align: top;
+    background:none repeat scroll 0 0 transparent !important;
+    border: none;
+}
+
+ul.cw-social-mod-icons-cws-square li > a::before {
+    content: none;
+}
+
+.cw-social-mod-icons-cws-square a { 
+    display: block !important;
+    border:none !important;
+    padding:0 !important;
+    margin: 0 !important;
+    position: relative;
+}
+
+/** Affects **/
+.cw-social-mod-icons-cws-square.fadein a {
+    opacity: 1;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.cw-social-mod-icons-cws-square.fadein a:hover {
+    opacity: .7;
+    filter: alpha(opacity=70);
+}
+
+.cw-social-mod-icons-cws-square.fadeout a {
+    opacity: .7;
+    filter: alpha(opacity=70);
+}
+
+.cw-social-mod-icons-cws-square.fadeout a:hover {
+    opacity: 1;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.cw-social-mod-icons-cws-square.zoom a {
+    transition: transform 1s;
+}
+
+.cw-social-mod-icons-cws-square.zoom a:hover {
+    transform: scale(1.5);
+}
+
+.cw-social-mod-icons-cws-square.rotate a {
+    transition: transform 1s;
+}
+
+.cw-social-mod-icons-cws-square.rotate a:hover {
+    transform: rotate(360deg);
+}
+
+.cw-social-mod-icons-cws-square.move a {
+    transition: transform 0.6s;
+}
+
+.cw-social-mod-icons-cws-square.move a:hover {
+    transform: translate(3px, 3px);
+}
+
+
+/* Size 16 styles
+------------------------------------------------------------------------------- */
+.cw-social-mod-icons-cws-square a[class$="16"],
+.cw-social-mod-icons-cws-square a[class$="16"]:hover,
+.cw-social-mod-icons-cws-square a[class$="16"]:active,
+.cw-social-mod-icons-cws-square a[class$="16"]:focus{
+    background-image: url(../coalaweb-icons/white/cw_social_16.png) !important;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-cws-square a[class$="16"],
+    .cw-social-mod-icons-cws-square a[class$="16"]:hover,
+    .cw-social-mod-icons-cws-square a[class$="16"]:active,
+    .cw-social-mod-icons-cws-square a[class$="16"]:focus{
+        background-image: url(../coalaweb-icons/white/cw_social_32.png) !important;
+        background-size: 784px 16px !important;
+        box-sizing: border-box;
+    }
+
+    .cw-social-mod-icons-cws-square a.instagram16,
+    .cw-social-mod-icons-cws-square a.instagram16:hover,
+    .cw-social-mod-icons-cws-square a.instagram16:active,
+    .cw-social-mod-icons-cws-square a.instagram16:focus {
+        background-image: url(../coalaweb-icons/white/cw_social_32.png), linear-gradient(
+                #515ECF,
+                #9B36B7,
+                #D92E7F,
+                #F15165,
+                #FED373
+        );
+    }
+}
+
+.cw-social-mod-icons-cws-square a.android16,
+.cw-social-mod-icons-cws-square a.android16:hover,
+.cw-social-mod-icons-cws-square a.android16:active,
+.cw-social-mod-icons-cws-square a.android16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: 0 0 !important;
+    background-color: #43a900 !important;
+}
+
+.cw-social-mod-icons-cws-square a.behance16,
+.cw-social-mod-icons-cws-square a.behance16:hover,
+.cw-social-mod-icons-cws-square a.behance16:active,
+.cw-social-mod-icons-cws-square a.behance16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -16px 0 !important;
+    background-color: #0043a9 !important;
+}
+
+.cw-social-mod-icons-cws-square a.blogger16,
+.cw-social-mod-icons-cws-square a.blogger16:hover,
+.cw-social-mod-icons-cws-square a.blogger16:active,
+.cw-social-mod-icons-cws-square a.blogger16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -32px 0 !important;
+    background-color: #f16020;
+}
+
+.cw-social-mod-icons-cws-square a.designmoo16,
+.cw-social-mod-icons-cws-square a.designmoo16:hover,
+.cw-social-mod-icons-cws-square a.designmoo16:active,
+.cw-social-mod-icons-cws-square a.designmoo16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -80px 0 !important;
+    background-color: #ff5555 !important;
+}
+
+.cw-social-mod-icons-cws-square a.deviantart16,
+.cw-social-mod-icons-cws-square a.deviantart16:hover,
+.cw-social-mod-icons-cws-square a.deviantart16:active,
+.cw-social-mod-icons-cws-square a.deviantart16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -112px 0 !important;
+    background-color: #477456 !important;
+}
+
+.cw-social-mod-icons-cws-square a.dribbble16,
+.cw-social-mod-icons-cws-square a.dribbble16:hover,
+.cw-social-mod-icons-cws-square a.dribbble16:active,
+.cw-social-mod-icons-cws-square a.dribbble16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -176px 0 !important;
+    background-color: #ee558e !important;
+}
+
+.cw-social-mod-icons-cws-square a.ebay16,
+.cw-social-mod-icons-cws-square a.ebay16:hover,
+.cw-social-mod-icons-cws-square a.ebay16:active,
+.cw-social-mod-icons-cws-square a.ebay16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -208px 0 !important;
+    background-color: #ffcc00 !important;
+}
+
+.cw-social-mod-icons-cws-square a.facebook16,
+.cw-social-mod-icons-cws-square a.facebook16:hover,
+.cw-social-mod-icons-cws-square a.facebook16:active,
+.cw-social-mod-icons-cws-square a.facebook16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -256px 0 !important;
+    background-color: #36609f !important;
+}
+
+.cw-social-mod-icons-cws-square a.flickr16,
+.cw-social-mod-icons-cws-square a.flickr16:hover,
+.cw-social-mod-icons-cws-square a.flickr16:active,
+.cw-social-mod-icons-cws-square a.flickr16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -272px 0 !important;
+    background-color: #ec338e !important;
+}
+
+.cw-social-mod-icons-cws-square a.github16,
+.cw-social-mod-icons-cws-square a.github16:hover,
+.cw-social-mod-icons-cws-square a.github16:active,
+.cw-social-mod-icons-cws-square a.github16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -288px 0 !important;
+    background-color:#191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.gmail16,
+.cw-social-mod-icons-cws-square a.gmail16:hover,
+.cw-social-mod-icons-cws-square a.gmail16:active,
+.cw-social-mod-icons-cws-square a.gmail16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -224px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.googleplus16,
+.cw-social-mod-icons-cws-square a.googleplus16:hover,
+.cw-social-mod-icons-cws-square a.googleplus16:active,
+.cw-social-mod-icons-cws-square a.googleplus16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -320px 0 !important;
+    background-color: #db5442 !important;
+}
+
+.cw-social-mod-icons-cws-square a.googleplus-alt16,
+.cw-social-mod-icons-cws-square a.googleplus-alt16:hover,
+.cw-social-mod-icons-cws-square a.googleplus-alt16:active,
+.cw-social-mod-icons-cws-square a.googleplus-alt16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -320px 0 !important;
+    background-color: #191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.instagram16,
+.cw-social-mod-icons-cws-square a.instagram16:hover,
+.cw-social-mod-icons-cws-square a.instagram16:active,
+.cw-social-mod-icons-cws-square a.instagram16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -336px 0 !important;
+    background-color: #cd166b;
+}
+
+.cw-social-mod-icons-cws-square a.itunes16,
+.cw-social-mod-icons-cws-square a.itunes16:hover,
+.cw-social-mod-icons-cws-square a.itunes16:active,
+.cw-social-mod-icons-cws-square a.itunes16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -368px 0 !important;
+    background-color: #1d92ff !important;
+}
+
+.cw-social-mod-icons-cws-square a.joomla16,
+.cw-social-mod-icons-cws-square a.joomla16:hover,
+.cw-social-mod-icons-cws-square a.joomla16:active,
+.cw-social-mod-icons-cws-square a.joomla16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -384px 0 !important;
+    background-color: #0193f3 !important;
+}
+
+.cw-social-mod-icons-cws-square a.lastfm16,
+.cw-social-mod-icons-cws-square a.lastfm16:hover,
+.cw-social-mod-icons-cws-square a.lastfm16:active,
+.cw-social-mod-icons-cws-square a.lastfm16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -416px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.linkedin16,
+.cw-social-mod-icons-cws-square a.linkedin16:hover,
+.cw-social-mod-icons-cws-square a.linkedin16:active,
+.cw-social-mod-icons-cws-square a.linkedin16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -432px 0 !important;
+    background-color: #066c9a !important;
+}
+
+.cw-social-mod-icons-cws-square a.myspace16,
+.cw-social-mod-icons-cws-square a.myspace16:hover,
+.cw-social-mod-icons-cws-square a.myspace16:active,
+.cw-social-mod-icons-cws-square a.myspace16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -448px 0 !important;
+    background-color: #00337f !important;
+}
+
+.cw-social-mod-icons-cws-square a.pinterest16,
+.cw-social-mod-icons-cws-square a.pinterest16:hover,
+.cw-social-mod-icons-cws-square a.pinterest16:active,
+.cw-social-mod-icons-cws-square a.pinterest16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -480px 0 !important;
+    background-color: #ca2027 !important;
+}
+
+.cw-social-mod-icons-cws-square a.reddit16,
+.cw-social-mod-icons-cws-square a.reddit16:hover,
+.cw-social-mod-icons-cws-square a.reddit16:active,
+.cw-social-mod-icons-cws-square a.reddit16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -496px 0 !important;
+    background-color: #191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.rss16,
+.cw-social-mod-icons-cws-square a.rss16:hover,
+.cw-social-mod-icons-cws-square a.rss16:active,
+.cw-social-mod-icons-cws-square a.rss16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -512px 0 !important;
+    background-color: #f48020 !important;
+}
+
+.cw-social-mod-icons-cws-square a.spotify16,
+.cw-social-mod-icons-cws-square a.spotify16:hover,
+.cw-social-mod-icons-cws-square a.spotify16:active,
+.cw-social-mod-icons-cws-square a.spotify16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -528px 0 !important;
+    background-color: #00a900 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tripadvisor16,
+.cw-social-mod-icons-cws-square a.tripadvisor16:hover,
+.cw-social-mod-icons-cws-square a.tripadvisor16:active,
+.cw-social-mod-icons-cws-square a.tripadvisor16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -576px 0px !important;
+    background-color: #437721 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tuenti16,
+.cw-social-mod-icons-cws-square a.tuenti16:hover,
+.cw-social-mod-icons-cws-square a.tuenti16:active,
+.cw-social-mod-icons-cws-square a.tuenti16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -592px 0px !important;
+    background-color: #00a9d4 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tumblr16,
+.cw-social-mod-icons-cws-square a.tumblr16:hover,
+.cw-social-mod-icons-cws-square a.tumblr16:active,
+.cw-social-mod-icons-cws-square a.tumblr16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -608px 0px !important;
+    background-color: #004354 !important;
+}
+
+.cw-social-mod-icons-cws-square a.twitter16,
+.cw-social-mod-icons-cws-square a.twitter16:hover,
+.cw-social-mod-icons-cws-square a.twitter16:active,
+.cw-social-mod-icons-cws-square a.twitter16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -624px 0 !important;
+   background-color: #2aa9e0 !important;
+}
+
+.cw-social-mod-icons-cws-square a.vimeo16,
+.cw-social-mod-icons-cws-square a.vimeo16:hover,
+.cw-social-mod-icons-cws-square a.vimeo16:active,
+.cw-social-mod-icons-cws-square a.vimeo16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -640px 0 !important;
+    background-color: #00b9ea !important;
+}
+
+.cw-social-mod-icons-cws-square a.weibo16,
+.cw-social-mod-icons-cws-square a.weibo16:hover,
+.cw-social-mod-icons-cws-square a.weibo16:active,
+.cw-social-mod-icons-cws-square a.weibo16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -656px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.whatsapp16,
+.cw-social-mod-icons-cws-square a.whatsapp16:hover,
+.cw-social-mod-icons-cws-square a.whatsapp16:active,
+.cw-social-mod-icons-cws-square a.whatsapp16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -688px 0 !important;
+    background-color: #189d0e !important;
+}
+
+.cw-social-mod-icons-cws-square a.xing16,
+.cw-social-mod-icons-cws-square a.xing16:hover,
+.cw-social-mod-icons-cws-square a.xing16:active,
+.cw-social-mod-icons-cws-square a.xing16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -704px 0 !important;
+    background-color: #2b9f88 !important;
+}
+
+.cw-social-mod-icons-cws-square a.yelp16,
+.cw-social-mod-icons-cws-square a.yelp16:hover,
+.cw-social-mod-icons-cws-square a.yelp16:active,
+.cw-social-mod-icons-cws-square a.yelp16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -720px 0 !important;
+    background-color: #c93c27 !important;
+}
+
+.cw-social-mod-icons-cws-square a.youtube16,
+.cw-social-mod-icons-cws-square a.youtube16:hover,
+.cw-social-mod-icons-cws-square a.youtube16:active,
+.cw-social-mod-icons-cws-square a.youtube16:focus {
+    width: 16px;
+    height: 16px;
+    background-position: -752px 0 !important;
+    background-color: #ed3437 !important;
+}
+
+/* Size 24 styles
+------------------------------------------------------------------------------- */
+.cw-social-mod-icons-cws-square a[class$="24"],
+.cw-social-mod-icons-cws-square a[class$="24"]:hover,
+.cw-social-mod-icons-cws-square a[class$="24"]:active,
+.cw-social-mod-icons-cws-square a[class$="24"]:focus{
+    background-image: url(../coalaweb-icons/white/cw_social_24.png) !important;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-cws-square a[class$="24"],
+    .cw-social-mod-icons-cws-square a[class$="24"]:hover,
+    .cw-social-mod-icons-cws-square a[class$="24"]:active,
+    .cw-social-mod-icons-cws-square a[class$="24"]:focus{
+        background-image: url(../coalaweb-icons/white/cw_social_48.png) !important;
+        background-size: 1176px 24px !important;
+        box-sizing: border-box;
+    }
+
+    .cw-social-mod-icons-cws-square a.instagram24,
+    .cw-social-mod-icons-cws-square a.instagram24:hover,
+    .cw-social-mod-icons-cws-square a.instagram24:active,
+    .cw-social-mod-icons-cws-square a.instagram24:focus {
+        background-image: url(../coalaweb-icons/white/cw_social_48.png), linear-gradient(
+                #515ECF,
+                #9B36B7,
+                #D92E7F,
+                #F15245,
+                #FED373
+        );
+    }
+}
+
+.cw-social-mod-icons-cws-square a.android24,
+.cw-social-mod-icons-cws-square a.android24:hover,
+.cw-social-mod-icons-cws-square a.android24:active,
+.cw-social-mod-icons-cws-square a.android24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: 0 0 !important;
+    background-color: #43a900 !important;
+}
+
+.cw-social-mod-icons-cws-square a.behance24,
+.cw-social-mod-icons-cws-square a.behance24:hover,
+.cw-social-mod-icons-cws-square a.behance24:active,
+.cw-social-mod-icons-cws-square a.behance24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -24px 0 !important;
+    background-color: #0043a9 !important;
+}
+
+.cw-social-mod-icons-cws-square a.blogger24,
+.cw-social-mod-icons-cws-square a.blogger24:hover,
+.cw-social-mod-icons-cws-square a.blogger24:active,
+.cw-social-mod-icons-cws-square a.blogger24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -48px 0 !important;
+    background-color: #f48020 !important;
+}
+
+.cw-social-mod-icons-cws-square a.designmoo24,
+.cw-social-mod-icons-cws-square a.designmoo24:hover,
+.cw-social-mod-icons-cws-square a.designmoo24:active,
+.cw-social-mod-icons-cws-square a.designmoo24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -120px 0 !important;
+    background-color: #ff5555 !important;
+}
+
+.cw-social-mod-icons-cws-square a.deviantart24,
+.cw-social-mod-icons-cws-square a.deviantart24:hover,
+.cw-social-mod-icons-cws-square a.deviantart24:active,
+.cw-social-mod-icons-cws-square a.deviantart24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -168px 0 !important;
+    background-color: #477456 !important;
+}
+
+.cw-social-mod-icons-cws-square a.dribbble24,
+.cw-social-mod-icons-cws-square a.dribbble24:hover,
+.cw-social-mod-icons-cws-square a.dribbble24:active,
+.cw-social-mod-icons-cws-square a.dribbble24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -264px 0 !important;
+    background-color: #ee558e !important;
+}
+
+.cw-social-mod-icons-cws-square a.ebay24,
+.cw-social-mod-icons-cws-square a.ebay24:hover,
+.cw-social-mod-icons-cws-square a.ebay24:active,
+.cw-social-mod-icons-cws-square a.ebay24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -312px 0 !important;
+    background-color: #ffcc00 !important;
+}
+
+.cw-social-mod-icons-cws-square a.facebook24,
+.cw-social-mod-icons-cws-square a.facebook24:hover,
+.cw-social-mod-icons-cws-square a.facebook24:active,
+.cw-social-mod-icons-cws-square a.facebook24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -384px 0 !important;
+    background-color: #36609f !important;
+}
+
+.cw-social-mod-icons-cws-square a.flickr24,
+.cw-social-mod-icons-cws-square a.flickr24:hover,
+.cw-social-mod-icons-cws-square a.flickr24:active,
+.cw-social-mod-icons-cws-square a.flickr24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -408px 0 !important;
+    background-color: #ec338e !important;
+}
+
+.cw-social-mod-icons-cws-square a.github24,
+.cw-social-mod-icons-cws-square a.github24:hover,
+.cw-social-mod-icons-cws-square a.github24:active,
+.cw-social-mod-icons-cws-square a.github24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -432px 0 !important;
+    background-color:#191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.gmail24,
+.cw-social-mod-icons-cws-square a.gmail24:hover,
+.cw-social-mod-icons-cws-square a.gmail24:active,
+.cw-social-mod-icons-cws-square a.gmail24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -336px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.googleplus24,
+.cw-social-mod-icons-cws-square a.googleplus24:hover,
+.cw-social-mod-icons-cws-square a.googleplus24:active,
+.cw-social-mod-icons-cws-square a.googleplus24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -480px 0 !important;
+    background-color: #db5442 !important;
+}
+
+.cw-social-mod-icons-cws-square a.googleplus-alt24,
+.cw-social-mod-icons-cws-square a.googleplus-alt24:hover,
+.cw-social-mod-icons-cws-square a.googleplus-alt24:active,
+.cw-social-mod-icons-cws-square a.googleplus-alt24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -480px 0 !important;
+    background-color: #191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.instagram24,
+.cw-social-mod-icons-cws-square a.instagram24:hover,
+.cw-social-mod-icons-cws-square a.instagram24:active,
+.cw-social-mod-icons-cws-square a.instagram24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -504px 0 !important;
+    background-color: #cd246b;
+}
+
+.cw-social-mod-icons-cws-square a.itunes24,
+.cw-social-mod-icons-cws-square a.itunes24:hover,
+.cw-social-mod-icons-cws-square a.itunes24:active,
+.cw-social-mod-icons-cws-square a.itunes24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -552px 0 !important;
+    background-color: #1d92ff !important;
+}
+
+.cw-social-mod-icons-cws-square a.joomla24,
+.cw-social-mod-icons-cws-square a.joomla24:hover,
+.cw-social-mod-icons-cws-square a.joomla24:active,
+.cw-social-mod-icons-cws-square a.joomla24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -576px 0 !important;
+    background-color: #0193f3 !important;
+}
+
+.cw-social-mod-icons-cws-square a.lastfm24,
+.cw-social-mod-icons-cws-square a.lastfm24:hover,
+.cw-social-mod-icons-cws-square a.lastfm24:active,
+.cw-social-mod-icons-cws-square a.lastfm24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -624px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.linkedin24,
+.cw-social-mod-icons-cws-square a.linkedin24:hover,
+.cw-social-mod-icons-cws-square a.linkedin24:active,
+.cw-social-mod-icons-cws-square a.linkedin24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -648px 0 !important;
+    background-color: #066c9a !important;
+}
+
+.cw-social-mod-icons-cws-square a.myspace24,
+.cw-social-mod-icons-cws-square a.myspace24:hover,
+.cw-social-mod-icons-cws-square a.myspace24:active,
+.cw-social-mod-icons-cws-square a.myspace24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -672px 0 !important;
+    background-color: #00337f !important;
+}
+
+.cw-social-mod-icons-cws-square a.pinterest24,
+.cw-social-mod-icons-cws-square a.pinterest24:hover,
+.cw-social-mod-icons-cws-square a.pinterest24:active,
+.cw-social-mod-icons-cws-square a.pinterest24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -720px 0 !important;
+    background-color: #ca2027 !important;
+}
+
+.cw-social-mod-icons-cws-square a.reddit24,
+.cw-social-mod-icons-cws-square a.reddit24:hover,
+.cw-social-mod-icons-cws-square a.reddit24:active,
+.cw-social-mod-icons-cws-square a.reddit24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -744px 0 !important;
+    background-color: #191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.rss24,
+.cw-social-mod-icons-cws-square a.rss24:hover,
+.cw-social-mod-icons-cws-square a.rss24:active,
+.cw-social-mod-icons-cws-square a.rss24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -768px 0 !important;
+    background-color: #f48020 !important;
+}
+
+.cw-social-mod-icons-cws-square a.spotify24,
+.cw-social-mod-icons-cws-square a.spotify24:hover,
+.cw-social-mod-icons-cws-square a.spotify24:active,
+.cw-social-mod-icons-cws-square a.spotify24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -792px 0 !important;
+    background-color: #00a900 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tripadvisor24,
+.cw-social-mod-icons-cws-square a.tripadvisor24:hover,
+.cw-social-mod-icons-cws-square a.tripadvisor24:active,
+.cw-social-mod-icons-cws-square a.tripadvisor24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -864px 0px !important;
+    background-color: #437721 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tuenti24,
+.cw-social-mod-icons-cws-square a.tuenti24:hover,
+.cw-social-mod-icons-cws-square a.tuenti24:active,
+.cw-social-mod-icons-cws-square a.tuenti24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -888px 0px !important;
+    background-color: #00a9d4 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tumblr24,
+.cw-social-mod-icons-cws-square a.tumblr24:hover,
+.cw-social-mod-icons-cws-square a.tumblr24:active,
+.cw-social-mod-icons-cws-square a.tumblr24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -912px 0px !important;
+    background-color: #004354 !important;
+}
+
+.cw-social-mod-icons-cws-square a.twitter24,
+.cw-social-mod-icons-cws-square a.twitter24:hover,
+.cw-social-mod-icons-cws-square a.twitter24:active,
+.cw-social-mod-icons-cws-square a.twitter24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -936px 0 !important;
+   background-color: #2aa9e0 !important;
+}
+
+.cw-social-mod-icons-cws-square a.vimeo24,
+.cw-social-mod-icons-cws-square a.vimeo24:hover,
+.cw-social-mod-icons-cws-square a.vimeo24:active,
+.cw-social-mod-icons-cws-square a.vimeo24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -960px 0 !important;
+    background-color: #00b9ea !important;
+}
+
+.cw-social-mod-icons-cws-square a.weibo24,
+.cw-social-mod-icons-cws-square a.weibo24:hover,
+.cw-social-mod-icons-cws-square a.weibo24:active,
+.cw-social-mod-icons-cws-square a.weibo24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -984px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.whatsapp24,
+.cw-social-mod-icons-cws-square a.whatsapp24:hover,
+.cw-social-mod-icons-cws-square a.whatsapp24:active,
+.cw-social-mod-icons-cws-square a.whatsapp24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -1032px 0 !important;
+    background-color: #189d0e !important;
+}
+
+.cw-social-mod-icons-cws-square a.xing24,
+.cw-social-mod-icons-cws-square a.xing24:hover,
+.cw-social-mod-icons-cws-square a.xing24:active,
+.cw-social-mod-icons-cws-square a.xing24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -1056px 0 !important;
+    background-color: #2b9f88 !important;
+}
+
+.cw-social-mod-icons-cws-square a.yelp24,
+.cw-social-mod-icons-cws-square a.yelp24:hover,
+.cw-social-mod-icons-cws-square a.yelp24:active,
+.cw-social-mod-icons-cws-square a.yelp24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -1080px 0 !important;
+    background-color: #c93c27 !important;
+}
+
+.cw-social-mod-icons-cws-square a.youtube24,
+.cw-social-mod-icons-cws-square a.youtube24:hover,
+.cw-social-mod-icons-cws-square a.youtube24:active,
+.cw-social-mod-icons-cws-square a.youtube24:focus {
+    width: 24px;
+    height: 24px;
+    background-position: -1128px 0 !important;
+    background-color: #ed3437 !important;
+}
+
+/* Size 32 styles
+------------------------------------------------------------------------------- */
+.cw-social-mod-icons-cws-square a[class$="32"],
+.cw-social-mod-icons-cws-square a[class$="32"]:hover,
+.cw-social-mod-icons-cws-square a[class$="32"]:active,
+.cw-social-mod-icons-cws-square a[class$="32"]:focus{
+    background-image: url(../coalaweb-icons/white/cw_social_32.png) !important;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-cws-square a[class$="32"],
+    .cw-social-mod-icons-cws-square a[class$="32"]:hover,
+    .cw-social-mod-icons-cws-square a[class$="32"]:active,
+    .cw-social-mod-icons-cws-square a[class$="32"]:focus{
+        background-image: url(../coalaweb-icons/white/cw_social_64.png) !important;
+        background-size: 1568px 32px !important;
+        box-sizing: border-box;
+    }
+
+    .cw-social-mod-icons-cws-square a.instagram32,
+    .cw-social-mod-icons-cws-square a.instagram32:hover,
+    .cw-social-mod-icons-cws-square a.instagram32:active,
+    .cw-social-mod-icons-cws-square a.instagram32:focus {
+        background-image: url(../coalaweb-icons/white/cw_social_64.png), linear-gradient(
+                #515ECF,
+                #9B36B7,
+                #D92E7F,
+                #F15245,
+                #FED373
+        );
+    }
+}
+
+.cw-social-mod-icons-cws-square a.android32,
+.cw-social-mod-icons-cws-square a.android32:hover,
+.cw-social-mod-icons-cws-square a.android32:active,
+.cw-social-mod-icons-cws-square a.android32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: 0 0 !important;
+    background-color: #43a900 !important;
+}
+
+.cw-social-mod-icons-cws-square a.behance32,
+.cw-social-mod-icons-cws-square a.behance32:hover,
+.cw-social-mod-icons-cws-square a.behance32:active,
+.cw-social-mod-icons-cws-square a.behance32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -32px 0 !important;
+    background-color: #0043a9 !important;
+}
+
+.cw-social-mod-icons-cws-square a.blogger32,
+.cw-social-mod-icons-cws-square a.blogger32:hover,
+.cw-social-mod-icons-cws-square a.blogger32:active,
+.cw-social-mod-icons-cws-square a.blogger32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -64px 0 !important;
+    background-color: #f48020 !important;
+}
+
+.cw-social-mod-icons-cws-square a.designmoo32,
+.cw-social-mod-icons-cws-square a.designmoo32:hover,
+.cw-social-mod-icons-cws-square a.designmoo32:active,
+.cw-social-mod-icons-cws-square a.designmoo32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -160px 0 !important;
+    background-color: #ff5555 !important;
+}
+
+.cw-social-mod-icons-cws-square a.deviantart32,
+.cw-social-mod-icons-cws-square a.deviantart32:hover,
+.cw-social-mod-icons-cws-square a.deviantart32:active,
+.cw-social-mod-icons-cws-square a.deviantart32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -256px 0 !important;
+    background-color: #477456 !important;
+}
+
+.cw-social-mod-icons-cws-square a.dribbble32,
+.cw-social-mod-icons-cws-square a.dribbble32:hover,
+.cw-social-mod-icons-cws-square a.dribbble32:active,
+.cw-social-mod-icons-cws-square a.dribbble32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -384px 0 !important;
+    background-color: #ee558e !important;
+}
+
+.cw-social-mod-icons-cws-square a.ebay32,
+.cw-social-mod-icons-cws-square a.ebay32:hover,
+.cw-social-mod-icons-cws-square a.ebay32:active,
+.cw-social-mod-icons-cws-square a.ebay32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -416px 0 !important;
+    background-color: #ffcc00 !important;
+}
+
+.cw-social-mod-icons-cws-square a.facebook32,
+.cw-social-mod-icons-cws-square a.facebook32:hover,
+.cw-social-mod-icons-cws-square a.facebook32:active,
+.cw-social-mod-icons-cws-square a.facebook32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -512px 0 !important;
+    background-color: #36609f !important;
+}
+
+.cw-social-mod-icons-cws-square a.flickr32,
+.cw-social-mod-icons-cws-square a.flickr32:hover,
+.cw-social-mod-icons-cws-square a.flickr32:active,
+.cw-social-mod-icons-cws-square a.flickr32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -544px 0 !important;
+    background-color: #ec338e !important;
+}
+
+.cw-social-mod-icons-cws-square a.github32,
+.cw-social-mod-icons-cws-square a.github32:hover,
+.cw-social-mod-icons-cws-square a.github32:active,
+.cw-social-mod-icons-cws-square a.github32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -608px 0 !important;
+    background-color:#191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.gmail32,
+.cw-social-mod-icons-cws-square a.gmail32:hover,
+.cw-social-mod-icons-cws-square a.gmail32:active,
+.cw-social-mod-icons-cws-square a.gmail32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -448px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.googleplus32,
+.cw-social-mod-icons-cws-square a.googleplus32:hover,
+.cw-social-mod-icons-cws-square a.googleplus32:active,
+.cw-social-mod-icons-cws-square a.googleplus32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -640px 0 !important;
+    background-color: #db5442 !important;
+}
+
+.cw-social-mod-icons-cws-square a.googleplus-alt32,
+.cw-social-mod-icons-cws-square a.googleplus-alt32:hover,
+.cw-social-mod-icons-cws-square a.googleplus-alt32:active,
+.cw-social-mod-icons-cws-square a.googleplus-alt32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -640px 0 !important;
+    background-color: #191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.instagram32,
+.cw-social-mod-icons-cws-square a.instagram32:hover,
+.cw-social-mod-icons-cws-square a.instagram32:active,
+.cw-social-mod-icons-cws-square a.instagram32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -704px 0 !important;
+    background-color: #cd326b;
+}
+
+.cw-social-mod-icons-cws-square a.itunes32,
+.cw-social-mod-icons-cws-square a.itunes32:hover,
+.cw-social-mod-icons-cws-square a.itunes32:active,
+.cw-social-mod-icons-cws-square a.itunes32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -736px 0 !important;
+    background-color: #1d92ff !important;
+}
+
+.cw-social-mod-icons-cws-square a.joomla32,
+.cw-social-mod-icons-cws-square a.joomla32:hover,
+.cw-social-mod-icons-cws-square a.joomla32:active,
+.cw-social-mod-icons-cws-square a.joomla32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -768px 0 !important;
+    background-color: #0193f3 !important;
+}
+
+.cw-social-mod-icons-cws-square a.lastfm32,
+.cw-social-mod-icons-cws-square a.lastfm32:hover,
+.cw-social-mod-icons-cws-square a.lastfm32:active,
+.cw-social-mod-icons-cws-square a.lastfm32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -832px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.linkedin32,
+.cw-social-mod-icons-cws-square a.linkedin32:hover,
+.cw-social-mod-icons-cws-square a.linkedin32:active,
+.cw-social-mod-icons-cws-square a.linkedin32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -864px 0 !important;
+    background-color: #066c9a !important;
+}
+
+.cw-social-mod-icons-cws-square a.myspace32,
+.cw-social-mod-icons-cws-square a.myspace32:hover,
+.cw-social-mod-icons-cws-square a.myspace32:active,
+.cw-social-mod-icons-cws-square a.myspace32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -896px 0 !important;
+    background-color: #00337f !important;
+}
+
+.cw-social-mod-icons-cws-square a.pinterest32,
+.cw-social-mod-icons-cws-square a.pinterest32:hover,
+.cw-social-mod-icons-cws-square a.pinterest32:active,
+.cw-social-mod-icons-cws-square a.pinterest32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -960px 0 !important;
+    background-color: #ca2027 !important;
+}
+
+.cw-social-mod-icons-cws-square a.reddit32,
+.cw-social-mod-icons-cws-square a.reddit32:hover,
+.cw-social-mod-icons-cws-square a.reddit32:active,
+.cw-social-mod-icons-cws-square a.reddit32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -992px 0 !important;
+    background-color: #191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.rss32,
+.cw-social-mod-icons-cws-square a.rss32:hover,
+.cw-social-mod-icons-cws-square a.rss32:active,
+.cw-social-mod-icons-cws-square a.rss32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1024px 0 !important;
+    background-color: #f48020 !important;
+}
+
+.cw-social-mod-icons-cws-square a.spotify32,
+.cw-social-mod-icons-cws-square a.spotify32:hover,
+.cw-social-mod-icons-cws-square a.spotify32:active,
+.cw-social-mod-icons-cws-square a.spotify32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1056px 0 !important;
+    background-color: #00a900 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tripadvisor32,
+.cw-social-mod-icons-cws-square a.tripadvisor32:hover,
+.cw-social-mod-icons-cws-square a.tripadvisor32:active,
+.cw-social-mod-icons-cws-square a.tripadvisor32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1152px 0px !important;
+    background-color: #437721 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tuenti32,
+.cw-social-mod-icons-cws-square a.tuenti32:hover,
+.cw-social-mod-icons-cws-square a.tuenti32:active,
+.cw-social-mod-icons-cws-square a.tuenti32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1184px 0px !important;
+    background-color: #00a9d4 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tumblr32,
+.cw-social-mod-icons-cws-square a.tumblr32:hover,
+.cw-social-mod-icons-cws-square a.tumblr32:active,
+.cw-social-mod-icons-cws-square a.tumblr32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1216px 0px !important;
+    background-color: #004354 !important;
+}
+
+.cw-social-mod-icons-cws-square a.twitter32,
+.cw-social-mod-icons-cws-square a.twitter32:hover,
+.cw-social-mod-icons-cws-square a.twitter32:active,
+.cw-social-mod-icons-cws-square a.twitter32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1248px 0 !important;
+   background-color: #2aa9e0 !important;
+}
+
+.cw-social-mod-icons-cws-square a.vimeo32,
+.cw-social-mod-icons-cws-square a.vimeo32:hover,
+.cw-social-mod-icons-cws-square a.vimeo32:active,
+.cw-social-mod-icons-cws-square a.vimeo32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1280px 0 !important;
+    background-color: #00b9ea !important;
+}
+
+.cw-social-mod-icons-cws-square a.weibo32,
+.cw-social-mod-icons-cws-square a.weibo32:hover,
+.cw-social-mod-icons-cws-square a.weibo32:active,
+.cw-social-mod-icons-cws-square a.weibo32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1312px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.whatsapp32,
+.cw-social-mod-icons-cws-square a.whatsapp32:hover,
+.cw-social-mod-icons-cws-square a.whatsapp32:active,
+.cw-social-mod-icons-cws-square a.whatsapp32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1376px 0 !important;
+    background-color: #189d0e !important;
+}
+
+.cw-social-mod-icons-cws-square a.xing32,
+.cw-social-mod-icons-cws-square a.xing32:hover,
+.cw-social-mod-icons-cws-square a.xing32:active,
+.cw-social-mod-icons-cws-square a.xing32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1408px 0 !important;
+    background-color: #2b9f88 !important;
+}
+
+.cw-social-mod-icons-cws-square a.yelp32,
+.cw-social-mod-icons-cws-square a.yelp32:hover,
+.cw-social-mod-icons-cws-square a.yelp32:active,
+.cw-social-mod-icons-cws-square a.yelp32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1440px 0 !important;
+    background-color: #c93c27 !important;
+}
+
+.cw-social-mod-icons-cws-square a.youtube32,
+.cw-social-mod-icons-cws-square a.youtube32:hover,
+.cw-social-mod-icons-cws-square a.youtube32:active,
+.cw-social-mod-icons-cws-square a.youtube32:focus {
+    width: 32px;
+    height: 32px;
+    background-position: -1504px 0 !important;
+    background-color: #ed3437 !important;
+}
+
+/* Size 48 styles
+------------------------------------------------------------------------------- */
+.cw-social-mod-icons-cws-square a[class$="48"],
+.cw-social-mod-icons-cws-square a[class$="48"]:hover,
+.cw-social-mod-icons-cws-square a[class$="48"]:active,
+.cw-social-mod-icons-cws-square a[class$="48"]:focus{
+    background-image: url(../coalaweb-icons/white/cw_social_48.png) !important;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-cws-square a[class$="48"],
+    .cw-social-mod-icons-cws-square a[class$="48"]:hover,
+    .cw-social-mod-icons-cws-square a[class$="48"]:active,
+    .cw-social-mod-icons-cws-square a[class$="48"]:focus{
+        background-image: url(../coalaweb-icons/white/cw_social_96.png) !important;
+        background-size: 2352px 48px !important;
+        box-sizing: border-box;
+    }
+
+    .cw-social-mod-icons-cws-square a.instagram48,
+    .cw-social-mod-icons-cws-square a.instagram48:hover,
+    .cw-social-mod-icons-cws-square a.instagram48:active,
+    .cw-social-mod-icons-cws-square a.instagram48:focus {
+        background-image: url(../coalaweb-icons/white/cw_social_96.png), linear-gradient(
+                #515ECF,
+                #9B36B7,
+                #D92E7F,
+                #F15245,
+                #FED373
+        );
+    }
+}
+
+.cw-social-mod-icons-cws-square a.android48,
+.cw-social-mod-icons-cws-square a.android48:hover,
+.cw-social-mod-icons-cws-square a.android48:active,
+.cw-social-mod-icons-cws-square a.android48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: 0 0 !important;
+    background-color: #43a900 !important;
+}
+
+.cw-social-mod-icons-cws-square a.behance48,
+.cw-social-mod-icons-cws-square a.behance48:hover,
+.cw-social-mod-icons-cws-square a.behance48:active,
+.cw-social-mod-icons-cws-square a.behance48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -48px 0 !important;
+    background-color: #0043a9 !important;
+}
+
+.cw-social-mod-icons-cws-square a.blogger48,
+.cw-social-mod-icons-cws-square a.blogger48:hover,
+.cw-social-mod-icons-cws-square a.blogger48:active,
+.cw-social-mod-icons-cws-square a.blogger48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -96px 0 !important;
+    background-color: #f48020 !important;
+}
+
+.cw-social-mod-icons-cws-square a.designmoo48,
+.cw-social-mod-icons-cws-square a.designmoo48:hover,
+.cw-social-mod-icons-cws-square a.designmoo48:active,
+.cw-social-mod-icons-cws-square a.designmoo48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -240px 0 !important;
+    background-color: #ff5555 !important;
+}
+
+.cw-social-mod-icons-cws-square a.deviantart48,
+.cw-social-mod-icons-cws-square a.deviantart48:hover,
+.cw-social-mod-icons-cws-square a.deviantart48:active,
+.cw-social-mod-icons-cws-square a.deviantart48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -336px 0 !important;
+    background-color: #477456 !important;
+}
+
+.cw-social-mod-icons-cws-square a.dribbble48,
+.cw-social-mod-icons-cws-square a.dribbble48:hover,
+.cw-social-mod-icons-cws-square a.dribbble48:active,
+.cw-social-mod-icons-cws-square a.dribbble48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -528px 0 !important;
+    background-color: #ee558e !important;
+}
+
+.cw-social-mod-icons-cws-square a.ebay48,
+.cw-social-mod-icons-cws-square a.ebay48:hover,
+.cw-social-mod-icons-cws-square a.ebay48:active,
+.cw-social-mod-icons-cws-square a.ebay48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -624px 0 !important;
+    background-color: #ffcc00 !important;
+}
+
+.cw-social-mod-icons-cws-square a.facebook48,
+.cw-social-mod-icons-cws-square a.facebook48:hover,
+.cw-social-mod-icons-cws-square a.facebook48:active,
+.cw-social-mod-icons-cws-square a.facebook48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -768px 0 !important;
+    background-color: #36609f !important;
+}
+
+.cw-social-mod-icons-cws-square a.flickr48,
+.cw-social-mod-icons-cws-square a.flickr48:hover,
+.cw-social-mod-icons-cws-square a.flickr48:active,
+.cw-social-mod-icons-cws-square a.flickr48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -816px 0 !important;
+    background-color: #ec338e !important;
+}
+
+.cw-social-mod-icons-cws-square a.github48,
+.cw-social-mod-icons-cws-square a.github48:hover,
+.cw-social-mod-icons-cws-square a.github48:active,
+.cw-social-mod-icons-cws-square a.github48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -864px 0 !important;
+    background-color:#191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.gmail48,
+.cw-social-mod-icons-cws-square a.gmail48:hover,
+.cw-social-mod-icons-cws-square a.gmail48:active,
+.cw-social-mod-icons-cws-square a.gmail48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -672px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.googleplus48,
+.cw-social-mod-icons-cws-square a.googleplus48:hover,
+.cw-social-mod-icons-cws-square a.googleplus48:active,
+.cw-social-mod-icons-cws-square a.googleplus48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -960px 0 !important;
+    background-color: #db5442 !important;
+}
+
+.cw-social-mod-icons-cws-square a.googleplus-alt48,
+.cw-social-mod-icons-cws-square a.googleplus-alt48:hover,
+.cw-social-mod-icons-cws-square a.googleplus-alt48:active,
+.cw-social-mod-icons-cws-square a.googleplus-alt48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -960px 0 !important;
+    background-color: #191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.instagram48,
+.cw-social-mod-icons-cws-square a.instagram48:hover,
+.cw-social-mod-icons-cws-square a.instagram48:active,
+.cw-social-mod-icons-cws-square a.instagram48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1008px 0 !important;
+    background-color: #cd486b !important;
+}
+
+.cw-social-mod-icons-cws-square a.itunes48,
+.cw-social-mod-icons-cws-square a.itunes48:hover,
+.cw-social-mod-icons-cws-square a.itunes48:active,
+.cw-social-mod-icons-cws-square a.itunes48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1104px 0 !important;
+    background-color: #1d92ff !important;
+}
+
+.cw-social-mod-icons-cws-square a.joomla48,
+.cw-social-mod-icons-cws-square a.joomla48:hover,
+.cw-social-mod-icons-cws-square a.joomla48:active,
+.cw-social-mod-icons-cws-square a.joomla48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1152px 0 !important;
+    background-color: #0193f3 !important;
+}
+
+.cw-social-mod-icons-cws-square a.lastfm48,
+.cw-social-mod-icons-cws-square a.lastfm48:hover,
+.cw-social-mod-icons-cws-square a.lastfm48:active,
+.cw-social-mod-icons-cws-square a.lastfm48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1248px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.linkedin48,
+.cw-social-mod-icons-cws-square a.linkedin48:hover,
+.cw-social-mod-icons-cws-square a.linkedin48:active,
+.cw-social-mod-icons-cws-square a.linkedin48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1296px 0 !important;
+    background-color: #066c9a !important;
+}
+
+.cw-social-mod-icons-cws-square a.myspace48,
+.cw-social-mod-icons-cws-square a.myspace48:hover,
+.cw-social-mod-icons-cws-square a.myspace48:active,
+.cw-social-mod-icons-cws-square a.myspace48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1344px 0 !important;
+    background-color: #00337f !important;
+}
+
+.cw-social-mod-icons-cws-square a.pinterest48,
+.cw-social-mod-icons-cws-square a.pinterest48:hover,
+.cw-social-mod-icons-cws-square a.pinterest48:active,
+.cw-social-mod-icons-cws-square a.pinterest48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1440px 0 !important;
+    background-color: #ca2027 !important;
+}
+
+.cw-social-mod-icons-cws-square a.reddit48,
+.cw-social-mod-icons-cws-square a.reddit48:hover,
+.cw-social-mod-icons-cws-square a.reddit48:active,
+.cw-social-mod-icons-cws-square a.reddit48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1488px 0 !important;
+    background-color: #191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.rss48,
+.cw-social-mod-icons-cws-square a.rss48:hover,
+.cw-social-mod-icons-cws-square a.rss48:active,
+.cw-social-mod-icons-cws-square a.rss48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1536px 0 !important;
+    background-color: #f48020 !important;
+}
+
+.cw-social-mod-icons-cws-square a.spotify48,
+.cw-social-mod-icons-cws-square a.spotify48:hover,
+.cw-social-mod-icons-cws-square a.spotify48:active,
+.cw-social-mod-icons-cws-square a.spotify48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1584px 0 !important;
+    background-color: #00a900 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tripadvisor48,
+.cw-social-mod-icons-cws-square a.tripadvisor48:hover,
+.cw-social-mod-icons-cws-square a.tripadvisor48:active,
+.cw-social-mod-icons-cws-square a.tripadvisor48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1728px 0px !important;
+    background-color: #437721 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tuenti48,
+.cw-social-mod-icons-cws-square a.tuenti48:hover,
+.cw-social-mod-icons-cws-square a.tuenti48:active,
+.cw-social-mod-icons-cws-square a.tuenti48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1776px 0px !important;
+    background-color: #00a9d4 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tumblr48,
+.cw-social-mod-icons-cws-square a.tumblr48:hover,
+.cw-social-mod-icons-cws-square a.tumblr48:active,
+.cw-social-mod-icons-cws-square a.tumblr48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1824px 0px !important;
+    background-color: #004354 !important;
+}
+
+.cw-social-mod-icons-cws-square a.twitter48,
+.cw-social-mod-icons-cws-square a.twitter48:hover,
+.cw-social-mod-icons-cws-square a.twitter48:active,
+.cw-social-mod-icons-cws-square a.twitter48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1872px 0 !important;
+   background-color: #2aa9e0 !important;
+}
+
+.cw-social-mod-icons-cws-square a.vimeo48,
+.cw-social-mod-icons-cws-square a.vimeo48:hover,
+.cw-social-mod-icons-cws-square a.vimeo48:active,
+.cw-social-mod-icons-cws-square a.vimeo48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1920px 0 !important;
+    background-color: #00b9ea !important;
+}
+
+.cw-social-mod-icons-cws-square a.weibo48,
+.cw-social-mod-icons-cws-square a.weibo48:hover,
+.cw-social-mod-icons-cws-square a.weibo48:active,
+.cw-social-mod-icons-cws-square a.weibo48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -1968px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.whatsapp48,
+.cw-social-mod-icons-cws-square a.whatsapp48:hover,
+.cw-social-mod-icons-cws-square a.whatsapp48:active,
+.cw-social-mod-icons-cws-square a.whatsapp48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -2064px 0 !important;
+    background-color: #189d0e !important;
+}
+
+.cw-social-mod-icons-cws-square a.xing48,
+.cw-social-mod-icons-cws-square a.xing48:hover,
+.cw-social-mod-icons-cws-square a.xing48:active,
+.cw-social-mod-icons-cws-square a.xing48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -2112px 0 !important;
+    background-color: #2b9f88 !important;
+}
+
+.cw-social-mod-icons-cws-square a.yelp48,
+.cw-social-mod-icons-cws-square a.yelp48:hover,
+.cw-social-mod-icons-cws-square a.yelp48:active,
+.cw-social-mod-icons-cws-square a.yelp48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -2880px 0 !important;
+    background-color: #c93c27 !important;
+}
+
+.cw-social-mod-icons-cws-square a.youtube48,
+.cw-social-mod-icons-cws-square a.youtube48:hover,
+.cw-social-mod-icons-cws-square a.youtube48:active,
+.cw-social-mod-icons-cws-square a.youtube48:focus {
+    width: 48px;
+    height: 48px;
+    background-position: -2256px 0 !important;
+    background-color: #ed3437 !important;
+}
+
+/* Size 64 styles
+------------------------------------------------------------------------------- */
+.cw-social-mod-icons-cws-square a[class$="64"],
+.cw-social-mod-icons-cws-square a[class$="64"]:hover,
+.cw-social-mod-icons-cws-square a[class$="64"]:active,
+.cw-social-mod-icons-cws-square a[class$="64"]:focus{
+    background-image: url(../coalaweb-icons/white/cw_social_64.png) !important;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-cws-square a[class$="64"],
+    .cw-social-mod-icons-cws-square a[class$="64"]:hover,
+    .cw-social-mod-icons-cws-square a[class$="64"]:active,
+    .cw-social-mod-icons-cws-square a[class$="64"]:focus{
+        background-image: url(../coalaweb-icons/white/cw_social_128.png) !important;
+        background-size: 3136px 64px !important;
+        box-sizing: border-box;
+    }
+
+    .cw-social-mod-icons-cws-square a.instagram64,
+    .cw-social-mod-icons-cws-square a.instagram64:hover,
+    .cw-social-mod-icons-cws-square a.instagram64:active,
+    .cw-social-mod-icons-cws-square a.instagram64:focus {
+        background-image: url(../coalaweb-icons/white/cw_social_128.png), linear-gradient(
+                #515ECF,
+                #9B36B7,
+                #D92E7F,
+                #F15245,
+                #FED373
+        );
+    }
+}
+
+.cw-social-mod-icons-cws-square a.android64,
+.cw-social-mod-icons-cws-square a.android64:hover,
+.cw-social-mod-icons-cws-square a.android64:active,
+.cw-social-mod-icons-cws-square a.android64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: 0 0 !important;
+    background-color: #43a900 !important;
+}
+
+.cw-social-mod-icons-cws-square a.behance64,
+.cw-social-mod-icons-cws-square a.behance64:hover,
+.cw-social-mod-icons-cws-square a.behance64:active,
+.cw-social-mod-icons-cws-square a.behance64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -64px 0 !important;
+    background-color: #0043a9 !important;
+}
+
+.cw-social-mod-icons-cws-square a.blogger64,
+.cw-social-mod-icons-cws-square a.blogger64:hover,
+.cw-social-mod-icons-cws-square a.blogger64:active,
+.cw-social-mod-icons-cws-square a.blogger64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -128px 0 !important;
+    background-color: #f48020 !important;
+}
+
+.cw-social-mod-icons-cws-square a.designmoo64,
+.cw-social-mod-icons-cws-square a.designmoo64:hover,
+.cw-social-mod-icons-cws-square a.designmoo64:active,
+.cw-social-mod-icons-cws-square a.designmoo64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -320px 0 !important;
+    background-color: #ff5555 !important;
+}
+
+.cw-social-mod-icons-cws-square a.deviantart64,
+.cw-social-mod-icons-cws-square a.deviantart64:hover,
+.cw-social-mod-icons-cws-square a.deviantart64:active,
+.cw-social-mod-icons-cws-square a.deviantart64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -448px 0 !important;
+    background-color: #477456 !important;
+}
+
+.cw-social-mod-icons-cws-square a.dribbble64,
+.cw-social-mod-icons-cws-square a.dribbble64:hover,
+.cw-social-mod-icons-cws-square a.dribbble64:active,
+.cw-social-mod-icons-cws-square a.dribbble64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -704px 0 !important;
+    background-color: #ee558e !important;
+}
+
+.cw-social-mod-icons-cws-square a.ebay64,
+.cw-social-mod-icons-cws-square a.ebay64:hover,
+.cw-social-mod-icons-cws-square a.ebay64:active,
+.cw-social-mod-icons-cws-square a.ebay64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -832px 0 !important;
+    background-color: #ffcc00 !important;
+}
+
+.cw-social-mod-icons-cws-square a.facebook64,
+.cw-social-mod-icons-cws-square a.facebook64:hover,
+.cw-social-mod-icons-cws-square a.facebook64:active,
+.cw-social-mod-icons-cws-square a.facebook64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1024px 0 !important;
+    background-color: #36609f !important;
+}
+
+.cw-social-mod-icons-cws-square a.flickr64,
+.cw-social-mod-icons-cws-square a.flickr64:hover,
+.cw-social-mod-icons-cws-square a.flickr64:active,
+.cw-social-mod-icons-cws-square a.flickr64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1088px 0 !important;
+    background-color: #ec338e !important;
+}
+
+.cw-social-mod-icons-cws-square a.github64,
+.cw-social-mod-icons-cws-square a.github64:hover,
+.cw-social-mod-icons-cws-square a.github64:active,
+.cw-social-mod-icons-cws-square a.github64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1152px 0 !important;
+    background-color:#191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.gmail64,
+.cw-social-mod-icons-cws-square a.gmail64:hover,
+.cw-social-mod-icons-cws-square a.gmail64:active,
+.cw-social-mod-icons-cws-square a.gmail64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -896px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.googleplus64,
+.cw-social-mod-icons-cws-square a.googleplus64:hover,
+.cw-social-mod-icons-cws-square a.googleplus64:active,
+.cw-social-mod-icons-cws-square a.googleplus64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1280px 0 !important;
+    background-color: #db5442 !important;
+}
+
+.cw-social-mod-icons-cws-square a.googleplus-alt64,
+.cw-social-mod-icons-cws-square a.googleplus-alt64:hover,
+.cw-social-mod-icons-cws-square a.googleplus-alt64:active,
+.cw-social-mod-icons-cws-square a.googleplus-alt64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1280px 0 !important;
+    background-color: #191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.instagram64,
+.cw-social-mod-icons-cws-square a.instagram64:hover,
+.cw-social-mod-icons-cws-square a.instagram64:active,
+.cw-social-mod-icons-cws-square a.instagram64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1344px 0 !important;
+    background-color: #cd486b !important;
+}
+
+.cw-social-mod-icons-cws-square a.itunes64,
+.cw-social-mod-icons-cws-square a.itunes64:hover,
+.cw-social-mod-icons-cws-square a.itunes64:active,
+.cw-social-mod-icons-cws-square a.itunes64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1472px 0 !important;
+    background-color: #1d92ff !important;
+}
+
+.cw-social-mod-icons-cws-square a.joomla64,
+.cw-social-mod-icons-cws-square a.joomla64:hover,
+.cw-social-mod-icons-cws-square a.joomla64:active,
+.cw-social-mod-icons-cws-square a.joomla64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1536px 0 !important;
+    background-color: #0193f3 !important;
+}
+
+.cw-social-mod-icons-cws-square a.lastfm64,
+.cw-social-mod-icons-cws-square a.lastfm64:hover,
+.cw-social-mod-icons-cws-square a.lastfm64:active,
+.cw-social-mod-icons-cws-square a.lastfm64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1664px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.linkedin64,
+.cw-social-mod-icons-cws-square a.linkedin64:hover,
+.cw-social-mod-icons-cws-square a.linkedin64:active,
+.cw-social-mod-icons-cws-square a.linkedin64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1728px 0 !important;
+    background-color: #066c9a !important;
+}
+
+.cw-social-mod-icons-cws-square a.myspace64,
+.cw-social-mod-icons-cws-square a.myspace64:hover,
+.cw-social-mod-icons-cws-square a.myspace64:active,
+.cw-social-mod-icons-cws-square a.myspace64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1792px 0 !important;
+    background-color: #00337f !important;
+}
+
+.cw-social-mod-icons-cws-square a.pinterest64,
+.cw-social-mod-icons-cws-square a.pinterest64:hover,
+.cw-social-mod-icons-cws-square a.pinterest64:active,
+.cw-social-mod-icons-cws-square a.pinterest64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1920px 0 !important;
+    background-color: #ca2027 !important;
+}
+
+.cw-social-mod-icons-cws-square a.reddit64,
+.cw-social-mod-icons-cws-square a.reddit64:hover,
+.cw-social-mod-icons-cws-square a.reddit64:active,
+.cw-social-mod-icons-cws-square a.reddit64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1984px 0 !important;
+    background-color: #191919 !important;
+}
+
+.cw-social-mod-icons-cws-square a.rss64,
+.cw-social-mod-icons-cws-square a.rss64:hover,
+.cw-social-mod-icons-cws-square a.rss64:active,
+.cw-social-mod-icons-cws-square a.rss64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2048px 0 !important;
+    background-color: #f48020 !important;
+}
+
+.cw-social-mod-icons-cws-square a.spotify64,
+.cw-social-mod-icons-cws-square a.spotify64:hover,
+.cw-social-mod-icons-cws-square a.spotify64:active,
+.cw-social-mod-icons-cws-square a.spotify64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2112px 0 !important;
+    background-color: #00a900 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tripadvisor64,
+.cw-social-mod-icons-cws-square a.tripadvisor64:hover,
+.cw-social-mod-icons-cws-square a.tripadvisor64:active,
+.cw-social-mod-icons-cws-square a.tripadvisor64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2304px 0px !important;
+    background-color: #437721 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tuenti64,
+.cw-social-mod-icons-cws-square a.tuenti64:hover,
+.cw-social-mod-icons-cws-square a.tuenti64:active,
+.cw-social-mod-icons-cws-square a.tuenti64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2368px 0px !important;
+    background-color: #00a9d4 !important;
+}
+
+.cw-social-mod-icons-cws-square a.tumblr64,
+.cw-social-mod-icons-cws-square a.tumblr64:hover,
+.cw-social-mod-icons-cws-square a.tumblr64:active,
+.cw-social-mod-icons-cws-square a.tumblr64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2432px 0px !important;
+    background-color: #004354 !important;
+}
+
+.cw-social-mod-icons-cws-square a.twitter64,
+.cw-social-mod-icons-cws-square a.twitter64:hover,
+.cw-social-mod-icons-cws-square a.twitter64:active,
+.cw-social-mod-icons-cws-square a.twitter64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2496px 0 !important;
+   background-color: #2aa9e0 !important;
+}
+
+.cw-social-mod-icons-cws-square a.vimeo64,
+.cw-social-mod-icons-cws-square a.vimeo64:hover,
+.cw-social-mod-icons-cws-square a.vimeo64:active,
+.cw-social-mod-icons-cws-square a.vimeo64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2560px 0 !important;
+    background-color: #00b9ea !important;
+}
+
+.cw-social-mod-icons-cws-square a.weibo64,
+.cw-social-mod-icons-cws-square a.weibo64:hover,
+.cw-social-mod-icons-cws-square a.weibo64:active,
+.cw-social-mod-icons-cws-square a.weibo64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2624px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-cws-square a.whatsapp64,
+.cw-social-mod-icons-cws-square a.whatsapp64:hover,
+.cw-social-mod-icons-cws-square a.whatsapp64:active,
+.cw-social-mod-icons-cws-square a.whatsapp64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2752px 0 !important;
+    background-color: #189d0e !important;
+}
+
+.cw-social-mod-icons-cws-square a.xing64,
+.cw-social-mod-icons-cws-square a.xing64:hover,
+.cw-social-mod-icons-cws-square a.xing64:active,
+.cw-social-mod-icons-cws-square a.xing64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2816px 0 !important;
+    background-color: #2b9f88 !important;
+}
+
+.cw-social-mod-icons-cws-square a.yelp64,
+.cw-social-mod-icons-cws-square a.yelp64:hover,
+.cw-social-mod-icons-cws-square a.yelp64:active,
+.cw-social-mod-icons-cws-square a.yelp64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2880px 0 !important;
+    background-color: #c93c27 !important;
+}
+
+.cw-social-mod-icons-cws-square a.youtube64,
+.cw-social-mod-icons-cws-square a.youtube64:hover,
+.cw-social-mod-icons-cws-square a.youtube64:active,
+.cw-social-mod-icons-cws-square a.youtube64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -3008px 0 !important;
+    background-color: #ed3437 !important;
+}
+
+/* Count Badge
+----------------------------------------------------------------------------------------------------*/
+
+.cw-social-mod-icons-cws-square a[class*="googleplus"]::before,
+.cw-social-mod-icons-cws-square a[class*="reddit"]::before,
+.cw-social-mod-icons-cws-square a[class*="facebook"]::before,
+.cw-social-mod-icons-cws-square a[class*="linkedin"]::before,
+.cw-social-mod-icons-cws-square a[class*="pinterest"]::before{
+    content: attr(data-count);
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 500px;
+    border-bottom: medium none;
+    background: #41A9BE none repeat scroll 0% 0%;
+    color: #FFF;
+    position: absolute;
+    left: auto;
+    font-weight:bold;
+    vertical-align: middle;
+    text-transform: none;
+}
+
+/* Size 16
+------------------------------------------------------------------------------- */
+
+.cw-social-mod-icons-cws-square  a.cw-count16 { 
+    margin: 8px 8px 0 0 !important;
+}
+
+.cw-social-mod-icons-cws-square  a.cw-nocount16 { 
+    margin: 8px 0 0 0 !important;
+}
+
+.cw-social-mod-icons-cws-square a[class$="16"]::before{
+    padding: 0 4px;
+    min-width: 16px;
+    font-size: 8px;
+    line-height: 16px;
+    top: -8px;
+    right: -10px;
+}
+
+/* Size 24
+------------------------------------------------------------------------------- */
+
+.cw-social-mod-icons-cws-square  a.cw-count24 { 
+    margin: 8px 10px 0 0 !important;
+}
+
+.cw-social-mod-icons-cws-square  a.cw-nocount24 { 
+    margin: 8px 2px 0 0 !important;
+}
+
+.cw-social-mod-icons-cws-square a[class$="24"]::before{
+    padding: 0 4px;
+    min-width: 20px;
+    font-size: 10px;
+    line-height: 20px;
+    top: -8px;
+    right: -12px;
+}
+
+/* Size 32
+------------------------------------------------------------------------------- */
+
+.cw-social-mod-icons-cws-square  a.cw-count32 { 
+    margin: 8px 15px 0 0 !important;
+}
+
+.cw-social-mod-icons-cws-square  a.cw-nocount32 { 
+    margin: 8px 5px 0 0 !important;
+}
+
+.cw-social-mod-icons-cws-square a[class$="32"]::before{
+    padding: 0 6px;
+    min-width: 22px;
+    font-size: 12px;
+    line-height: 22px;
+    top: -10px;
+    right: -12px;
+}
+
+/* Size 48
+------------------------------------------------------------------------------- */
+
+.cw-social-mod-icons-cws-square  a.cw-count48 { 
+    margin: 8px 15px 0 0 !important;
+}
+
+.cw-social-mod-icons-cws-square  a.cw-nocount48 { 
+    margin: 8px 5px 0 0 !important;
+}
+
+.cw-social-mod-icons-cws-square a[class$="48"]::before{
+    padding: 0 6px;
+    min-width: 26px;
+    font-size: 14px;
+    line-height: 26px;
+    top: -10px;
+    right: -8px;
+}
+
+/* Size 64
+------------------------------------------------------------------------------- */
+
+.cw-social-mod-icons-cws-square  a.cw-count64 { 
+    margin: 8px 15px 0 0 !important;
+}
+
+.cw-social-mod-icons-cws-square  a.cw-nocount64 { 
+    margin: 8px 5px 0 0 !important;
+}
+
+.cw-social-mod-icons-cws-square a[class$="64"]::before{
+    padding: 0 6px;
+    min-width: 26px;
+    font-size: 14px;
+    line-height: 26px;
+    top: -10px;
+    right: -8px;
+}
+
+/* End
+------------------------------------------------------------------------------- */

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.2" method="upgrade">
+	<name>COM_OFRS</name>
+	<creationDate>5th February, 2020</creationDate>
+	<author>Delta Flip Ltd</author>
+	<authorEmail>gangelov45@gmail.com</authorEmail>
+	<authorUrl>http://deltaflip.com</authorUrl>
+	<copyright>Copyright (C) 2019. All Rights Reserved</copyright>
+	<license>GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html</license>
+	<version>1.0.27</version>
+	<description><![CDATA[
+		<h1>Offer Monster (v.1.0.27)</h1>
+		<div style="clear: both;"></div>
+		<p></p>
+		<p>Created by <a href="http://deltaflip.com" target="_blank">Delta Flip Ltd</a><br /><small>Development started 5th July, 2019</small></p>
+	]]></description>
+
+	<!-- Runs on install; New in Joomla 1.5 -->
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+
+	<!-- Runs on uninstall; New in Joomla 1.5 -->
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+
+	<!-- Runs on install/uninstall/update; New in Joomla 2.5 -->
+	<scriptfile>script.php</scriptfile>
+
+	<media destination="com_ofrs" folder="media">
+		<filename>index.html</filename>
+		<folder>js</folder>
+		<folder>css</folder>
+		<folder>images</folder>
+	</media>
+
+	<!-- Update Schema; New in Joomla 2.5 -->
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql/</schemapath>
+		</schemas>
+	</update>
+
+	
+
+	
+
+	<administration>
+		<menu>COM_OFRS_MENU</menu>
+		<submenu>
+			<!-- Instead of link you can specify individual link attributes -->
+			<menu option="com_ofrs" view="imp_sessions">COM_OFRS_MENU_IMP_SESSIONS</menu>
+			<menu option="com_ofrs" view="imp_requests">COM_OFRS_MENU_IMP_REQUESTS</menu>
+			<menu option="com_ofrs" view="imp_offers">COM_OFRS_MENU_IMP_OFFERS</menu>
+			<menu option="com_ofrs" view="imp_messages">COM_OFRS_MENU_IMP_MESSAGES</menu>
+			<menu option="com_ofrs" view="offers">COM_OFRS_MENU_OFFERS</menu>
+			<menu option="com_ofrs" view="countries">COM_OFRS_MENU_COUNTRIES</menu>
+			<menu option="com_ofrs" view="verticals">COM_OFRS_MENU_VERTICALS</menu>
+			<menu option="com_ofrs" view="currencies">COM_OFRS_MENU_CURRENCIES</menu>
+			<menu option="com_ofrs" view="tracking_platforms">COM_OFRS_MENU_TRACKING_PLATFORMS</menu>
+			<menu option="com_ofrs" view="ad_networks">COM_OFRS_MENU_AD_NETWORKS</menu>
+			<menu option="com_ofrs" view="phrase_offers">COM_OFRS_MENU_PHRASE_OFFERS</menu>
+			<menu option="com_ofrs" view="phrase_verticals">COM_OFRS_MENU_PHRASE_VERTICALS</menu>
+			<menu option="com_ofrs" view="phrases">COM_OFRS_MENU_PHRASES</menu>
+			<menu option="com_ofrs" view="offer_payouts">COM_OFRS_MENU_OFFER_PAYOUTS</menu>
+			<menu option="com_ofrs" view="currency_rates">COM_OFRS_MENU_CURRENCY_RATES</menu>
+		</submenu>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>ofrs.php</filename>
+			<folder>assets</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<folder>layouts</folder>
+		</files>
+
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_ofrs.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_ofrs.sys.ini</language>
+		</languages>
+
+	</administration>
+</extension>

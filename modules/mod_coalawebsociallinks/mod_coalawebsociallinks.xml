@@ -1,0 +1,1684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.2" client="site" method="upgrade">
+    <name>MOD_COALAWEBSOCIALLINKS</name>
+    <creationDate>2020-03-24</creationDate>
+    <author>Steven Palmer</author>
+    <authorEmail>support@coalaweb.com</authorEmail>
+    <authorUrl>https://coalaweb.com</authorUrl>
+    <copyright>© 2020 Steven Palmer (CoalaWeb), All rights reserved.</copyright>
+    <license>GNU/GPL V3 or later.</license>
+    <version>1.1.1</version>
+    <description>MOD_COALAWEBSOCIALLINKS_DESCRIPTION</description>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.mod_coalawebsociallinks.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_coalawebsociallinks.ini</language>>
+    </languages>
+
+    <files>
+        <file module="mod_coalawebsociallinks">mod_coalawebsociallinks.php</file>
+		<file>helper.php</file>
+		<folder>assets</folder>
+		<file>index.html</file>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+    </files>
+
+    <!-- HELP FILE -->
+    <help url="MOD_COALAWEBSOCIALLINKS_HELP_URL"/>
+
+    <config>
+        <fields
+                name="params"
+                addfieldpath="plugins/system/cwgears/fields">
+
+            <fieldset
+                    name="GENERAL"
+                    label="MOD_COALAWEBSOCIALLINKS_TABS_GENERAL_OPTIONS">
+
+                <field
+                        name="css_import"
+                        type="css"/>
+
+                <field
+                        name="theme_obsolete"
+                        type="note"
+                        class="alert alert-danger"
+                        close="true"
+                        showon="themes_icon:custom-example,wpzoom-fadein,wpzoom-fadeout"
+                        label="MOD_COALAWEBSOCIALLINKS_OBSOLETE"
+                        description="MOD_COALAWEBSOCIALLINKS_THEME_OBSOLETE_MSG"/>
+
+                <field
+                        name="theme_custom_v2"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        showon="themes_icon:custom-example-v2"
+                        label="MOD_COALAWEBSOCIALLINKS_THEME_CUSTOM_V2_TITLE"
+                        description="MOD_COALAWEBSOCIALLINKS_THEME_CUSTOM_V2_MSG"/>
+
+                <field
+                        name="themes_icon"
+                        type="cwfolderlist"
+                        default="cws-circle"
+                        hide_default="true"
+                        hide_none="true"
+                        exclude="uikit|coalaweb-icons|cws-color-ring"
+                        directory="media/coalawebsociallinks/components/sociallinks/themes-icon"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_STYLE_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_STYLE_DESC">
+                </field>
+
+                <field
+                        name="icon_size"
+                        type="list"
+                        default="32"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_SIZE_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_SIZE_DESC">
+                    <option value="16">16</option>
+                    <option value="24">24</option>
+                    <option value="32">32</option>
+                    <option value="48">48</option>
+                    <option value="64">64</option>
+                </field>
+
+                <field
+                        name="icon_effect"
+                        type="list"
+                        default="new"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_HOVER_EFFECT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_HOVER_EFFECT_DESC">
+                    <option value="fadein">MOD_COALAWEBSOCIALLINKS_HOVER_EFFECT_OPT1</option>
+                    <option value="fadeout">MOD_COALAWEBSOCIALLINKS_HOVER_EFFECT_OPT2</option>
+                </field>
+
+                <field
+                        name="icon_align"
+                        type="radio"
+                        class="btn-group"
+                        default="cw-social-mod-icon-ac"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_ICON_ALIGNMENT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_ICON_ALIGNMENT_DESC">
+                    <option value="cw-social-mod-icon-al">MOD_COALAWEBSOCIALLINKS_FIELD_ALIGNMENT_OP1</option>
+                    <option value="cw-social-mod-icon-ac">MOD_COALAWEBSOCIALLINKS_FIELD_ALIGNMENT_OP2</option>
+                    <option value="cw-social-mod-icon-ar">MOD_COALAWEBSOCIALLINKS_FIELD_ALIGNMENT_OP3</option>
+
+                </field>
+
+                <field
+                        name="title_align"
+                        type="radio"
+                        class="btn-group"
+                        default="cw-social-mod-title-ac"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_TITLE_ALIGNMENT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_TITLE_ALIGNMENT_DESC">
+                    <option value="cw-social-mod-title-al">MOD_COALAWEBSOCIALLINKS_FIELD_ALIGNMENT_OP1</option>
+                    <option value="cw-social-mod-title-ac">MOD_COALAWEBSOCIALLINKS_FIELD_ALIGNMENT_OP2</option>
+                    <option value="cw-social-mod-title-ar">MOD_COALAWEBSOCIALLINKS_FIELD_ALIGNMENT_OP3</option>
+                </field>
+
+                <field
+                        name="title_format"
+                        type="list"
+                        default="3"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_TITLE_FORMAT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_TITLE_FORMAT_DESC">
+                    <option value="1">MOD_COALAWEBSOCIALLINKS_FIELD_TFORMAT_OP1</option>
+                    <option value="2">MOD_COALAWEBSOCIALLINKS_FIELD_TFORMAT_OP2</option>
+                    <option value="3">MOD_COALAWEBSOCIALLINKS_FIELD_TFORMAT_OP3</option>
+                    <option value="4">MOD_COALAWEBSOCIALLINKS_FIELD_TFORMAT_OP4</option>
+                    <option value="5">MOD_COALAWEBSOCIALLINKS_FIELD_TFORMAT_OP5</option>
+                </field>
+
+                <field
+                        name="display_bm_sec"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAY_BSEC_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAY_BSEC_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="display_f_sec"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAY_FSEC_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAY_FSEC_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="display_borders"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAY_BORDERS_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAY_BORDERS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field
+                        name="border_width"
+                        type="list"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_BORDERWIDTH_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_BORDERWIDTH_DESC">
+                    <option value="1">MOD_COALAWEBSOCIALLINKS_FIELD_BORDERWIDTH_OPT1</option>
+                    <option value="2">MOD_COALAWEBSOCIALLINKS_FIELD_BORDERWIDTH_OPT2</option>
+                    <option value="3">MOD_COALAWEBSOCIALLINKS_FIELD_BORDERWIDTH_OPT3</option>
+                    <option value="4">MOD_COALAWEBSOCIALLINKS_FIELD_BORDERWIDTH_OPT4</option>
+                </field>
+
+                <field
+                        name="module_width"
+                        type="list"
+                        default="100"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_MODWIDTH_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_MODWIDTH_DESC">
+                    <option value="100">100%</option>
+                    <option value="90">90%</option>
+                    <option value="80">80%</option>
+                    <option value="70">70%</option>
+                    <option value="60">60%</option>
+                    <option value="50">50%</option>
+                    <option value="40">40%</option>
+                    <option value="30">30%</option>
+                    <option value="20">20%</option>
+                    <option value="10">10%</option>
+                </field>
+
+                <field
+                        name="layout"
+                        type="list"
+                        default="default"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_MODLAYOUT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_MODLAYOUT_DESC">
+                    <option value="default">MOD_COALAWEBSOCIALLINKS_FIELD_MODLAYOUT_OPT1</option>
+                </field>
+
+                <field
+                        type="spacer"
+                        name="popup_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_SPACER_POPUP"
+                        class="cw_label"/>
+
+                <field
+                        name="popup"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_POPUP_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_POPUP_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="popup_follow"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_POPUP_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_POPUP_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+            </fieldset>
+
+            <fieldset
+                    name="BOOKMARKTHIS_GENERAL"
+                    label="MOD_COALAWEBSOCIALLINKS_TABS_BOOKMARK_OPTIONS">
+
+                <field
+                        type="spacer"
+                        name="default_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_SPACER_DEFAULT"
+                        class="cw_label"/>
+
+                <field
+                        name="title_default"
+                        type="text"
+                        size="20"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_TITLEDEFAULT_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_TITLEDEFAULT_BM_DESC"/>
+
+                <field
+                        name="link_default"
+                        type="text"
+                        size="20"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKDEFAULT_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKDEFAULT_BM_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="email_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_SPACER_EMAIL"
+                        class="cw_label"/>
+
+                <field
+                        name="desc_default"
+                        type="textarea"
+                        rows="5"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DESC_DEFAULT_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DESC_DEFAULT_BM_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="display_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_SPACER_DISPLAY"
+                        class="cw_label"/>
+
+                <field
+                        name="border_color_bm"
+                        type="jscolor"
+                        default="#C4C4C4"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_COLORBORDER_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_COLORBORDER_DESC"/>
+
+                <field
+                        name="display_title_bm"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTITLE_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTITLE_BM_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="title_bm"
+                        type="text"
+                        default=""
+                        size="20"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_TITLE_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_TITLE_BM_DESC"/>
+
+                <field
+                        name="title_color_bm"
+                        type="jscolor"
+                        default="#444444"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_COLORTITLE_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_COLORTITLE_DESC"/>
+
+                <field
+                        name="display_text_bm"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTEXT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTEXT_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="text_bm"
+                        type="textarea"
+                        default=""
+                        rows="10"
+                        cols="30"
+                        filter="raw"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_TEXT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_TEXT_DESC"/>
+            </fieldset>
+
+            <fieldset
+                    name="BM_SOCIAL"
+                    label="MOD_COALAWEBSOCIALLINKS_TABS_BOOKMARK_SOCIAL_OPTIONS">
+
+                <field
+                        type="spacer"
+                        name="bm_social_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_SPACER_SOCIAL"
+                        class="cw_label"/>
+
+                <field
+                        name="fbappid_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_COALAWEBSOCIALLINKS_MSG_FB_APPID"/>
+
+                <field
+                        name="app_id"
+                        type="text"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_APP_ID_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_APP_ID_DESC"/>
+
+                <field
+                        name="display_facebook_bm"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYFACEBOOK_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYFACEBOOK_BM_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="display_linkedin_bm"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYLINKEDIN_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYLINKEDIN_BM_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="display_twitter_bm"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTWITTER_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTWITTER_BM_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="include_twitter_js"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_INCLUDE_TWITTER_JS_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_INCLUDE_TWITTER_JS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="display_reddit_bm"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYREDDIT_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYREDDIT_BM_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="display_email_bm"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYEMAIL_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYEMAIL_BM_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="display_pinterest_bm"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYPINTEREST_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYPINTEREST_BM_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="whatsapp_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_COALAWEBSOCIALLINKS_MSG_WHATSAPP"/>
+
+                <field
+                        name="display_whatsapp_bm"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAY_WHATSAPP_BM_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAY_WHATSAPP_BM_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+            </fieldset>
+
+            <fieldset
+                    name="FOLLOW_GENERAL"
+                    label="MOD_COALAWEBSOCIALLINKS_TABS_FOLLOW_OPTIONS">
+
+                <field
+                        type="spacer"
+                        name="gen_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_GENERAL"
+                        class="cw_label"/>
+
+                <field
+                        name="border_color_f"
+                        type="jscolor"
+                        default="C4C4C4"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_COLORBORDER_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_COLORBORDER_DESC"/>
+
+                <field
+                        name="display_title_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTITLE_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTITLE_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="title_color_f"
+                        type="jscolor"
+                        default="444444"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_COLORTITLE_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_COLORTITLE_DESC"/>
+
+                <field
+                        name="title_f"
+                        type="text"
+                        default=""
+                        size="20"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_TITLE_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_TITLE_F_DESC"/>
+
+                <field
+                        name="display_text_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTEXT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTEXT_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="text_f"
+                        type="textarea"
+                        default=""
+                        rows="10"
+                        cols="30"
+                        filter="raw"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_TEXT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_TEXT_LABEL"/>
+
+            </fieldset>
+
+            <fieldset
+                    name="FOLLOW_ATOE"
+                    label="MOD_COALAWEBSOCIALLINKS_FOLLOW_ATOE_OPTIONS">
+
+                <field
+                        type="spacer"
+                        name="and_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_ANDROID"
+                        class="cw_label"/>
+
+                <field
+                        name="display_android_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYANDROID_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYANDROID_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_android"
+                        type="text"
+                        size="20"
+                        hint="www.android.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKANDROID_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKANDROID_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="beh_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_BEHANCE"
+                        class="cw_label"/>
+
+                <field
+                        name="display_behance_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYBEHANCE_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYBEHANCE_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_behance"
+                        type="text"
+                        size="20"
+                        hint="www.behance.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKBEHANCE_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKBEHANCE_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="blo_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_BLOGGER"
+                        class="cw_label"/>
+
+                <field
+                        name="display_blogger_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYBLOGGER_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYBLOGGER_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_blogger"
+                        type="text"
+                        size="20"
+                        hint="www.blogger.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKBLOGGER_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKBLOGGER_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="con_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_CONTACTUS"
+                        class="cw_label"/>
+
+                <field
+                        name="display_contact_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYCONTACT_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYCONTACT_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_target_contact"
+                        type="list"
+                        default="self"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_DESC">
+                    <option value="self">MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_OPT1</option>
+                    <option value="blank">MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_OPT2</option>
+                    <option value="anchor">MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_OPT3</option>
+                </field>
+
+                <field
+                        name="root_contact"
+                        type="radio"
+                        class="btn-group"
+                        default="http://"
+                        showon="link_target_contact:self,blank"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_DESC">
+                    <option value="http://">MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_OPT1</option>
+                    <option value="https://">MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_OPT2</option>
+                </field>
+
+                <field
+                        name="link_contact"
+                        type="text"
+                        size="20"
+                        hint="www.example.com/contact-us"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKCONTACT_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKCONTACT_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="dri_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_DRIBBLE"
+                        class="cw_label"/>
+
+                <field
+                        name="display_dribbble_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYDRIBBLE_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYDRIBBLE_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_dribbble"
+                        type="text"
+                        size="20"
+                        hint="www.dribbble.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKDRIBBLE_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKDRIBBLE_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="dev_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_DEVIANTART"
+                        class="cw_label"/>
+
+                <field
+                        name="display_deviantart_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYDEVIANTART_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYDEVIANTART_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_deviantart"
+                        type="text"
+                        size="20"
+                        hint="www.deviantart.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKDEVIANTART_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKDEVIANTART_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="des_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_DESIGNMOO"
+                        class="cw_label"/>
+
+                <field
+                        name="display_designmoo_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYDESIGNMOO_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYDESIGNMOO_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_designmoo"
+                        type="text"
+                        size="20"
+                        hint="www.designmoo.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKDESIGNMOO_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKDESIGNMOO_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="eba_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_EBAY"
+                        class="cw_label"/>
+
+                <field
+                        name="display_ebay_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYEBAY_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYEBAY_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_ebay"
+                        type="text"
+                        size="20"
+                        hint="www.ebay.es"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKEBAY_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKEBAY_F_DESC"/>
+
+            </fieldset>
+
+            <fieldset
+                    name="FOLLOW_FTOJ"
+                    label="MOD_COALAWEBSOCIALLINKS_FOLLOW_FTOJ_OPTIONS">
+
+                <field
+                        type="spacer"
+                        name="fac_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_FACEBOOK"
+                        class="cw_label"/>
+
+                <field
+                        name="display_facebook_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYFACEBOOK_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYFACEBOOK_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_facebook"
+                        type="text"
+                        size="20"
+                        hint="www.facebook.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKFACEBOOK_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKFACEBOOK_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="fli_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_FLICKR"
+                        class="cw_label"/>
+
+                <field
+                        name="display_flickr_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYFLICKR_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYFLICKR_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_flickr"
+                        type="text"
+                        size="20"
+                        hint="www.flickr.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKFLICKR_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKFLICKR_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="git_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_GITHUB"
+                        class="cw_label"/>
+
+                <field
+                        name="display_github_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYGITHUB_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYGITHUB_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_github"
+                        type="text"
+                        size="20"
+                        hint="www.github.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKGITHUB_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKGITHUB_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="ins_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_INSTAGRAM"
+                        class="cw_label"/>
+
+                <field
+                        name="display_instagram_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYINSTAGRAM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYINSTAGRAM_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_instagram"
+                        type="text"
+                        size="20"
+                        hint="www.instagram.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKINSTAGRAM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKINSTAGRAM_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="you_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_ITUNES"
+                        class="cw_label"/>
+
+                <field
+                        name="display_itunes_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYITUNES_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYITUNES_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_itunes"
+                        type="text"
+                        size="20"
+                        hint="www.itunes.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKITUNES_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKITUNES_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="joomla_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_JOOMLA"
+                        class="cw_label"/>
+
+                <field
+                        name="display_joomla_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYJOOMLA_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYJOOMLA_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_joomla"
+                        type="text"
+                        size="20"
+                        hint="www.joomla.org"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKJOOMLA_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKJOOMLA_F_DESC"/>
+
+            </fieldset>
+
+            <fieldset
+                    name="FOLLOW_KTOO"
+                    label="MOD_COALAWEBSOCIALLINKS_FOLLOW_KTOO_OPTIONS">
+
+                <field
+                        type="spacer"
+                        name="lin_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_LINKEDIN"
+                        class="cw_label"/>
+
+                <field
+                        name="display_linkedin_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYLINKEDIN_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYLINKEDIN_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_linkedin"
+                        type="text"
+                        size="20"
+                        hint="www.linkedin.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKLINKEDIN_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKLINKEDIN_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="las_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_LASTFM"
+                        class="cw_label"/>
+
+                <field
+                        name="display_lastfm_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYLASTFM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYLASTFM_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_lastfm"
+                        type="text"
+                        size="20"
+                        hint="www.last.fm"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKLASTFM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKLASTFM_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="mys_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_MYSPACE"
+                        class="cw_label"/>
+
+                <field
+                        name="display_myspace_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYMYSPACE_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYMYSPACE_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_myspace"
+                        type="text"
+                        size="20"
+                        hint="www.myspace.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKMYSPACE_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKMYSPACE_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="mai_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_MAILUS"
+                        class="cw_label"/>
+
+                <field
+                        name="display_mail_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYMAIL_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYMAIL_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_mail"
+                        type="text"
+                        size="20"
+                        hint="email@social.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKMAIL_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKMAIL_F_DESC"/>
+
+            </fieldset>
+
+            <fieldset
+                    name="FOLLOW_PTOT"
+                    label="MOD_COALAWEBSOCIALLINKS_FOLLOW_PTOT_OPTIONS">
+
+                <field
+                        type="spacer"
+                        name="pin_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_PINTEREST"
+                        class="cw_label"/>
+
+                <field
+                        name="display_pinterest_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYPINTEREST_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYPINTEREST_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_pinterest"
+                        type="text"
+                        size="20"
+                        hint="www.pinterest.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKPINTEREST_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKPINTEREST_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="rss_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_RSS"
+                        class="cw_label"/>
+
+                <field
+                        name="display_rss_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYRSS_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYRSS_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="root_rss"
+                        type="radio"
+                        class="btn-group"
+                        default="http://"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_DESC">
+                    <option value="http://">MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_OPT1</option>
+                    <option value="https://">MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_OPT2</option>
+                </field>
+
+                <field
+                        name="link_rss"
+                        type="text"
+                        size="20"
+                        hint="www.example.com/rss"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKRSS_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKRSS_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="spotify_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_SPOTIFY"
+                        class="cw_label"/>
+
+                <field
+                        name="display_spotify_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYSPOTIFY_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYSPOTIFY_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_spotify"
+                        type="text"
+                        size="20"
+                        hint="www.spotify.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKSPOTIFY_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKSPOTIFY_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="tri_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_TRIPADVISOR"
+                        class="cw_label"/>
+
+                <field
+                        name="display_tripadvisor_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTRIPADVISOR_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTRIPADVISOR_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_tripadvisor"
+                        type="text"
+                        size="20"
+                        hint="www.tripadvisor.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKTRIPADVISOR_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKTRIPADVISOR_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="twi_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_TWITTER"
+                        class="cw_label"/>
+
+                <field
+                        name="display_twitter_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTWITTER_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTWITTER_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_twitter"
+                        type="text"
+                        size="20"
+                        hint="www.twitter.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKTWITTER_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKTWITTER_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="tue_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_TUENTI"
+                        class="cw_label"/>
+
+                <field
+                        name="display_tuenti_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTUENTI_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTUENTI_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_tuenti"
+                        type="text"
+                        size="20"
+                        hint="www.tuenti.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKTUENTI_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKTUENTI_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="tum_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_TUMBLR"
+                        class="cw_label"/>
+
+                <field
+                        name="display_tumblr_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTUMBLR_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYTUMBLR_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_tumblr"
+                        type="text"
+                        size="20"
+                        hint="www.tumblr.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKTUMBLR_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKTUMBLR_F_DESC"/>
+
+            </fieldset>
+
+            <fieldset
+                    name="FOLLOW_UTOZ"
+                    label="MOD_COALAWEBSOCIALLINKS_FOLLOW_UTOZ_OPTIONS">
+
+                <field
+                        type="spacer"
+                        name="vim_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_VIMEO"
+                        class="cw_label"/>
+
+                <field
+                        name="display_vimeo_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYVIMEO_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYVIMEO_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_vimeo"
+                        type="text"
+                        size="20"
+                        hint="www.vimeo.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKVIMEO_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKVIMEO_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="yelp_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_YELP"
+                        class="cw_label"/>
+
+                <field
+                        name="display_yelp_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYYELP_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYYELP_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_yelp"
+                        type="text"
+                        size="20"
+                        hint="www.yelp.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKYELP_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKYELP_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="you_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_YOUTUBE"
+                        class="cw_label"/>
+
+                <field
+                        name="display_youtube_f"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYYOUTUBE_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYYOUTUBE_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_youtube"
+                        type="text"
+                        size="20"
+                        hint="www.youtube.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKYOUTUBE_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKYOUTUBE_F_DESC"/>
+                <field
+                        type="spacer"
+                        name="weibo_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_WEIBO"
+                        class="cw_label"/>
+
+                <field
+                        name="display_weibo_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYWEIBO_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYWEIBO_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_weibo"
+                        type="text"
+                        size="20"
+                        hint="www.weibo.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKWEIBO_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKWEIBO_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="xin_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_XING"
+                        class="cw_label"/>
+
+                <field
+                        name="display_xing_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYXING_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYXING_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_xing"
+                        type="text"
+                        size="20"
+                        hint="www.xing.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKXING_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKXING_F_DESC"/>
+
+            </fieldset>
+
+            <fieldset
+                    name="FOLLOW_CUSTOM"
+                    label="MOD_COALAWEBSOCIALLINKS_TABS_FOLLOW_CUSTOM">
+
+                <field
+                        type="spacer"
+                        name="c1_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_SPACER_CUSTOMONE_LABEL"
+                        class="cw_label"/>
+
+                <field
+                        name="display_customone_f"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYCUSTOM_F_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="text_customone"
+                        type="text"
+                        size="20"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_TEXTCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_TEXTCUSTOM_F_DESC"/>
+
+                <field
+                        name="link_target_customone"
+                        type="list"
+                        default="blank"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_DESC">
+                    <option value="self">MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_OPT1</option>
+                    <option value="blank">MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_OPT2</option>
+                    <option value="anchor">MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_OPT3</option>
+                </field>
+
+                <field
+                        name="root_customone"
+                        type="radio"
+                        class="btn-group"
+                        default="http://"
+                        showon="link_target_customone:self,blank"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_DESC">
+                    <option value="http://">MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_OPT1</option>
+                    <option value="https://">MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_OPT2</option>
+                </field>
+
+                <field
+                        name="link_customone"
+                        type="text"
+                        size="20"
+                        hint="www.custom.com"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKCUSTOM_F_DESC"/>
+
+                <field
+                        name="icon_customone"
+                        type="media"
+                        directory=""
+                        preview="tooltip"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_ICONCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_ICONCUSTOM_F_DESC"/>
+
+                <field
+                        name="icon_ext_customone"
+                        type="text"
+                        size="20"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_ICONEXTCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_ICONEXTCUSTOM_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="c2_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_SPACER_CUSTOMTWO_LABEL"
+                        class="cw_label"/>
+
+                <field
+                        name="display_customtwo_f"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYCUSTOM_F_DESC"/>
+
+                <field
+                        name="text_customtwo"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_TEXTCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_TEXTCUSTOM_F_DESC"/>
+
+                <field
+                        name="link_target_customtwo"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_DESC"/>
+
+                <field
+                        name="root_customtwo"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_DESC"/>
+
+                <field
+                        name="link_customtwo"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKCUSTOM_F_DESC"/>
+
+                <field
+                        name="icon_customtwo"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_ICONCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_ICONCUSTOM_F_DESC"/>
+
+                <field
+                        name="icon_ext_customtwo"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_ICONEXTCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_ICONEXTCUSTOM_F_DESC"/>
+
+                <field
+                        type="spacer"
+                        name="c3_spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_SPACER_CUSTOMTHREE_LABEL"
+                        class="cw_label"/>
+
+                <field
+                        name="display_customthree_f"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DISPLAYCUSTOM_F_DESC"/>
+
+                <field
+                        name="text_customthree"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_TEXTCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_TEXTCUSTOM_F_DESC"/>
+
+                <field
+                        name="link_target_customthree"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINK_TARGET_DESC"/>
+
+                <field
+                        name="root_customthree"
+                        type="pro"
+                        showon="link_target_customthree:self,blank"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DOMAIN_ROOT_DESC"/>
+
+                <field
+                        name="link_customthree"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKCUSTOM_F_DESC"/>
+
+                <field
+                        name="icon_customthree"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_ICONCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_ICONCUSTOM_F_DESC"/>
+
+                <field
+                        name="icon_ext_customthree"
+                        type="pro"
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_ICONEXTCUSTOM_F_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_ICONEXTCUSTOM_F_DESC"/>
+
+            </fieldset>
+
+            <fieldset name="advanced">
+
+                <field
+                        name="dependency_spacer"
+                        type="spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_SPACER_DEPENDENCY"
+                        class="cw_label"/>
+
+                <field
+                        name="dependency_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_COALAWEBSOCIALLINKS_DEPENDENCY_MSG"/>
+
+                <field
+                        name="dependent_gears"
+                        type="dependent"
+                        label="MOD_COALAWEBSOCIALLINKS"
+                        description="plg_system_cwgears"/>
+
+                <field
+                        name="dependent_facebookjs"
+                        type="dependent"
+                        label="MOD_COALAWEBSOCIALLINKS"
+                        description="plg_system_cwfacebookjs"/>
+
+                <field
+                        name="dependent_component"
+                        type="dependent"
+                        label="MOD_COALAWEBSOCIALLINKS"
+                        description="com_coalawebsociallinks"/>
+
+                <field
+                        name="debug_spacer"
+                        type="spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_SPACER_DEBUG"
+                        class="cw_label"/>
+
+                <field
+                        name="debug_info"
+                        type="note"
+                        class="alert alert-info"
+                        close="true"
+                        description="MOD_COALAWEBSOCIALLINKS_MSG_DEBUG"/>
+
+                <field
+                        name="debug"
+                        class="btn-group btn-group-yesno"
+                        type="list"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_DEBUG_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_DEBUG_DESC">
+                    <option value="">MOD_COALAWEBSOCIALLINKS_FIELD_COM_OPT</option>
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="advanced_spacer"
+                        type="spacer"
+                        label="MOD_COALAWEBSOCIALLINKS_SPACER_ADVANCED"
+                        class="cw_label"/>
+
+                <field
+                        name="moduleclass_sfx"
+                        type="text"
+                        label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                        description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+
+                <field
+                        name="cache"
+                        type="list"
+                        default="0"
+                        label="COM_MODULES_FIELD_CACHING_LABEL"
+                        description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+
+                <field
+                        name="cache_time"
+                        type="text"
+                        default="900"
+                        label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                        description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+
+                <field
+                        name="load_layout_css"
+                        type="radio"
+                        class="btn-group"
+                        default="1"
+                        label="MOD_COALAWEBSOCIALLINKS_LOADCSS_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_LOADCSS_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_text_on"
+                        type="radio"
+                        class="btn-group"
+                        default="0"
+                        label="MOD_COALAWEBSOCIALLINKS_LINKTEXT_ON_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_LINKTEXT_ON_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                        name="link_nofollow"
+                        type="radio"
+                        class="btn-group"
+                        default=""
+                        label="MOD_COALAWEBSOCIALLINKS_FIELD_LINKNOFOLLOW_LABEL"
+                        description="MOD_COALAWEBSOCIALLINKS_FIELD_LINKNOFOLLOW_DESC">
+                    <option value="">JNO</option>
+                    <option value="nofollow">JYES</option>
+                </field>
+
+            </fieldset>
+
+            <fieldset
+                    name="VERSION"
+                    label="MOD_COALAWEBSOCIALLINKS_TITLE_VERSION">
+
+                <field
+                        name="go_pro"
+                        type="note"
+                        class="alert alert-danger"
+                        close="true"
+                        label="MOD_COALAWEBSOCIALLINKS_TITLE_UPGRADE"
+                        description="MOD_COALAWEBSOCIALLINKS_MSG_UPGRADE"/>
+
+                <field
+                        name="version_info"
+                        type="versioncheck"
+                        label="com_coalawebsociallinks"/>
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<access component="com_ofrs">
+	<section name="component">
+		<action name="core.admin" title="JACTION_ADMIN" description="JACTION_ADMIN_COMPONENT_DESC" />
+		<action name="core.options" title="JACTION_OPTIONS" description="JACTION_OPTIONS_COMPONENT_DESC" />
+		<action name="core.manage" title="JACTION_MANAGE" description="JACTION_MANAGE_COMPONENT_DESC" />
+		<action name="core.export" title="COM_OFRS_EXPORT_DATA" description="COM_OFRS_EXPORT_DATA_DESC" />
+		<action name="core.import" title="COM_OFRS_IMPORT_DATA" description="COM_OFRS_IMPORT_DATA_DESC" />
+		<action name="core.batch" title="COM_OFRS_USE_BATCH" description="COM_OFRS_USE_BATCH_DESC" />
+		<action name="core.version" title="COM_OFRS_EDIT_VERSIONS" description="COM_OFRS_EDIT_VERSIONS_DESC" />
+		<action name="core.create" title="JACTION_CREATE" description="JACTION_CREATE_COMPONENT_DESC" />
+		<action name="core.delete" title="JACTION_DELETE" description="JACTION_DELETE_COMPONENT_DESC" />
+		<action name="core.edit" title="JACTION_EDIT" description="JACTION_EDIT_COMPONENT_DESC" />
+		<action name="core.edit.state" title="JACTION_EDITSTATE" description="JACTION_ACCESS_EDITSTATE_DESC" />
+		<action name="core.edit.own" title="JACTION_EDITOWN" description="JACTION_EDITOWN_COMPONENT_DESC" />
+		<action name="core.edit.created_by" title="COM_OFRS_EDIT_CREATED_BY" description="COM_OFRS_EDIT_CREATED_BY_DESC" />
+		<action name="core.edit.created" title="COM_OFRS_EDIT_CREATED_DATE" description="COM_OFRS_EDIT_CREATED_DATE_DESC" />
+		<action name="ad_network.batch" title="COM_OFRS_AD_NETWORKS_BATCH_USE" description="COM_OFRS_AD_NETWORKS_BATCH_USE_DESC" />
+		<action name="ad_network.export" title="COM_OFRS_AD_NETWORKS_EXPORT" description="COM_OFRS_AD_NETWORKS_EXPORT_DESC" />
+		<action name="ad_network.import" title="COM_OFRS_AD_NETWORKS_IMPORT" description="COM_OFRS_AD_NETWORKS_IMPORT_DESC" />
+		<action name="country.batch" title="COM_OFRS_COUNTRIES_BATCH_USE" description="COM_OFRS_COUNTRIES_BATCH_USE_DESC" />
+		<action name="country.export" title="COM_OFRS_COUNTRIES_EXPORT" description="COM_OFRS_COUNTRIES_EXPORT_DESC" />
+		<action name="country.import" title="COM_OFRS_COUNTRIES_IMPORT" description="COM_OFRS_COUNTRIES_IMPORT_DESC" />
+		<action name="currency.batch" title="COM_OFRS_CURRENCIES_BATCH_USE" description="COM_OFRS_CURRENCIES_BATCH_USE_DESC" />
+		<action name="currency.export" title="COM_OFRS_CURRENCIES_EXPORT" description="COM_OFRS_CURRENCIES_EXPORT_DESC" />
+		<action name="currency.import" title="COM_OFRS_CURRENCIES_IMPORT" description="COM_OFRS_CURRENCIES_IMPORT_DESC" />
+		<action name="currency_rate.batch" title="COM_OFRS_CURRENCY_RATES_BATCH_USE" description="COM_OFRS_CURRENCY_RATES_BATCH_USE_DESC" />
+		<action name="currency_rate.export" title="COM_OFRS_CURRENCY_RATES_EXPORT" description="COM_OFRS_CURRENCY_RATES_EXPORT_DESC" />
+		<action name="currency_rate.import" title="COM_OFRS_CURRENCY_RATES_IMPORT" description="COM_OFRS_CURRENCY_RATES_IMPORT_DESC" />
+		<action name="imp_message.batch" title="COM_OFRS_IMP_MESSAGES_BATCH_USE" description="COM_OFRS_IMP_MESSAGES_BATCH_USE_DESC" />
+		<action name="imp_message.export" title="COM_OFRS_IMP_MESSAGES_EXPORT" description="COM_OFRS_IMP_MESSAGES_EXPORT_DESC" />
+		<action name="imp_message.import" title="COM_OFRS_IMP_MESSAGES_IMPORT" description="COM_OFRS_IMP_MESSAGES_IMPORT_DESC" />
+		<action name="imp_message.submenu" title="COM_OFRS_IMP_MESSAGES_SUBMENU" description="COM_OFRS_IMP_MESSAGES_SUBMENU_DESC" />
+		<action name="imp_offer.batch" title="COM_OFRS_IMP_OFFERS_BATCH_USE" description="COM_OFRS_IMP_OFFERS_BATCH_USE_DESC" />
+		<action name="imp_offer.export" title="COM_OFRS_IMP_OFFERS_EXPORT" description="COM_OFRS_IMP_OFFERS_EXPORT_DESC" />
+		<action name="imp_offer.import" title="COM_OFRS_IMP_OFFERS_IMPORT" description="COM_OFRS_IMP_OFFERS_IMPORT_DESC" />
+		<action name="imp_offer.submenu" title="COM_OFRS_IMP_OFFERS_SUBMENU" description="COM_OFRS_IMP_OFFERS_SUBMENU_DESC" />
+		<action name="imp_request.batch" title="COM_OFRS_IMP_REQUESTS_BATCH_USE" description="COM_OFRS_IMP_REQUESTS_BATCH_USE_DESC" />
+		<action name="imp_request.export" title="COM_OFRS_IMP_REQUESTS_EXPORT" description="COM_OFRS_IMP_REQUESTS_EXPORT_DESC" />
+		<action name="imp_request.import" title="COM_OFRS_IMP_REQUESTS_IMPORT" description="COM_OFRS_IMP_REQUESTS_IMPORT_DESC" />
+		<action name="imp_request.submenu" title="COM_OFRS_IMP_REQUESTS_SUBMENU" description="COM_OFRS_IMP_REQUESTS_SUBMENU_DESC" />
+		<action name="imp_session.batch" title="COM_OFRS_IMP_SESSIONS_BATCH_USE" description="COM_OFRS_IMP_SESSIONS_BATCH_USE_DESC" />
+		<action name="imp_session.export" title="COM_OFRS_IMP_SESSIONS_EXPORT" description="COM_OFRS_IMP_SESSIONS_EXPORT_DESC" />
+		<action name="imp_session.import" title="COM_OFRS_IMP_SESSIONS_IMPORT" description="COM_OFRS_IMP_SESSIONS_IMPORT_DESC" />
+		<action name="imp_session.submenu" title="COM_OFRS_IMP_SESSIONS_SUBMENU" description="COM_OFRS_IMP_SESSIONS_SUBMENU_DESC" />
+		<action name="offer_payout.batch" title="COM_OFRS_OFFER_PAYOUTS_BATCH_USE" description="COM_OFRS_OFFER_PAYOUTS_BATCH_USE_DESC" />
+		<action name="offer_payout.export" title="COM_OFRS_OFFER_PAYOUTS_EXPORT" description="COM_OFRS_OFFER_PAYOUTS_EXPORT_DESC" />
+		<action name="offer_payout.import" title="COM_OFRS_OFFER_PAYOUTS_IMPORT" description="COM_OFRS_OFFER_PAYOUTS_IMPORT_DESC" />
+		<action name="offer_payout.submenu" title="COM_OFRS_OFFER_PAYOUTS_SUBMENU" description="COM_OFRS_OFFER_PAYOUTS_SUBMENU_DESC" />
+		<action name="offer.batch" title="COM_OFRS_OFFERS_BATCH_USE" description="COM_OFRS_OFFERS_BATCH_USE_DESC" />
+		<action name="offer.export" title="COM_OFRS_OFFERS_EXPORT" description="COM_OFRS_OFFERS_EXPORT_DESC" />
+		<action name="offer.import" title="COM_OFRS_OFFERS_IMPORT" description="COM_OFRS_OFFERS_IMPORT_DESC" />
+		<action name="offer.submenu" title="COM_OFRS_OFFERS_SUBMENU" description="COM_OFRS_OFFERS_SUBMENU_DESC" />
+		<action name="phrase_offer.batch" title="COM_OFRS_PHRASE_OFFERS_BATCH_USE" description="COM_OFRS_PHRASE_OFFERS_BATCH_USE_DESC" />
+		<action name="phrase_offer.export" title="COM_OFRS_PHRASE_OFFERS_EXPORT" description="COM_OFRS_PHRASE_OFFERS_EXPORT_DESC" />
+		<action name="phrase_offer.import" title="COM_OFRS_PHRASE_OFFERS_IMPORT" description="COM_OFRS_PHRASE_OFFERS_IMPORT_DESC" />
+		<action name="phrase_offer.submenu" title="COM_OFRS_PHRASE_OFFERS_SUBMENU" description="COM_OFRS_PHRASE_OFFERS_SUBMENU_DESC" />
+		<action name="phrase_vertical.batch" title="COM_OFRS_PHRASE_VERTICALS_BATCH_USE" description="COM_OFRS_PHRASE_VERTICALS_BATCH_USE_DESC" />
+		<action name="phrase_vertical.export" title="COM_OFRS_PHRASE_VERTICALS_EXPORT" description="COM_OFRS_PHRASE_VERTICALS_EXPORT_DESC" />
+		<action name="phrase_vertical.import" title="COM_OFRS_PHRASE_VERTICALS_IMPORT" description="COM_OFRS_PHRASE_VERTICALS_IMPORT_DESC" />
+		<action name="phrase_vertical.submenu" title="COM_OFRS_PHRASE_VERTICALS_SUBMENU" description="COM_OFRS_PHRASE_VERTICALS_SUBMENU_DESC" />
+		<action name="phrase.batch" title="COM_OFRS_PHRASES_BATCH_USE" description="COM_OFRS_PHRASES_BATCH_USE_DESC" />
+		<action name="phrase.export" title="COM_OFRS_PHRASES_EXPORT" description="COM_OFRS_PHRASES_EXPORT_DESC" />
+		<action name="phrase.import" title="COM_OFRS_PHRASES_IMPORT" description="COM_OFRS_PHRASES_IMPORT_DESC" />
+		<action name="phrase.submenu" title="COM_OFRS_PHRASES_SUBMENU" description="COM_OFRS_PHRASES_SUBMENU_DESC" />
+		<action name="tracking_platform.batch" title="COM_OFRS_TRACKING_PLATFORMS_BATCH_USE" description="COM_OFRS_TRACKING_PLATFORMS_BATCH_USE_DESC" />
+		<action name="tracking_platform.export" title="COM_OFRS_TRACKING_PLATFORMS_EXPORT" description="COM_OFRS_TRACKING_PLATFORMS_EXPORT_DESC" />
+		<action name="tracking_platform.import" title="COM_OFRS_TRACKING_PLATFORMS_IMPORT" description="COM_OFRS_TRACKING_PLATFORMS_IMPORT_DESC" />
+		<action name="vertical.batch" title="COM_OFRS_VERTICALS_BATCH_USE" description="COM_OFRS_VERTICALS_BATCH_USE_DESC" />
+		<action name="vertical.export" title="COM_OFRS_VERTICALS_EXPORT" description="COM_OFRS_VERTICALS_EXPORT_DESC" />
+		<action name="vertical.import" title="COM_OFRS_VERTICALS_IMPORT" description="COM_OFRS_VERTICALS_IMPORT_DESC" />
+	</section>
+
+</access>

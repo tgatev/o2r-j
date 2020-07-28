@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	addrulepath="/administrator/components/com_ofrs/models/rules"
+	addfieldpath="/administrator/components/com_ofrs/models/fields"
+>
+	<fieldset name="details">
+		<!-- Default Fields. -->
+		<!-- Id Field. Type: Text (joomla) -->
+		<field
+			name="id"
+			type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
+			readonly="true"
+		/>
+		<!-- Date Created Field. Type: Calendar (joomla) -->
+		<field
+			name="created"
+			type="calendar"
+			label="COM_OFRS_IMP_OFFER_CREATED_DATE_LABEL"
+			description="COM_OFRS_IMP_OFFER_CREATED_DATE_DESC"
+			size="22"
+			format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc"
+		/>
+		<!-- User Created Field. Type: User (joomla) -->
+		<field
+			name="created_by"
+			type="user"
+			label="COM_OFRS_IMP_OFFER_CREATED_BY_LABEL"
+			description="COM_OFRS_IMP_OFFER_CREATED_BY_DESC"
+		/>
+		<!-- Published Field. Type: List (joomla) -->
+		<field name="published" type="list" label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC" class="chzn-color-state"
+			filter="intval" size="1" default="1" >
+			<option value="1">
+				JPUBLISHED</option>
+			<option value="0">
+				JUNPUBLISHED</option>
+			<option value="2">
+				JARCHIVED</option>
+			<option value="-2">
+				JTRASHED</option>
+		</field>
+		<!-- Date Modified Field. Type: Calendar (joomla) -->
+		<field name="modified" type="calendar" class="readonly"
+			label="COM_OFRS_IMP_OFFER_MODIFIED_DATE_LABEL" description="COM_OFRS_IMP_OFFER_MODIFIED_DATE_DESC"
+			size="22" readonly="true" format="%Y-%m-%d %H:%M:%S" filter="user_utc" />
+		<!-- User Modified Field. Type: User (joomla) -->
+		<field name="modified_by" type="user"
+			label="COM_OFRS_IMP_OFFER_MODIFIED_BY_LABEL"
+			description="COM_OFRS_IMP_OFFER_MODIFIED_BY_DESC"
+			class="readonly"
+			readonly="true"
+			filter="unset"
+		/>
+		<!-- Ordering Field. Type: Numbers (joomla) -->
+		<field
+			name="ordering"
+			type="number"
+			class="inputbox validate-ordering"
+			label="COM_OFRS_IMP_OFFER_ORDERING_LABEL"
+			description=""
+			default="0"
+			size="6"
+			required="false"
+		/>
+		<!-- Version Field. Type: Text (joomla) -->
+		<field
+			name="version"
+			type="text"
+			class="readonly"
+			label="COM_OFRS_IMP_OFFER_VERSION_LABEL"
+			description="COM_OFRS_IMP_OFFER_VERSION_DESC"
+			size="6"
+			readonly="true"
+			filter="unset"
+		/>
+		<!-- Dynamic Fields. -->
+		<!-- Status Field. Type: List. (joomla) -->
+		<field
+			type="list"
+			name="status"
+			label="COM_OFRS_IMP_OFFER_STATUS_LABEL"
+			class="list_class"
+			multiple="false"
+			default="0">
+			<!-- Option Set. -->
+			<option value="0">
+				COM_OFRS_IMP_OFFER_OPTION_ONE</option>
+			<option value="1">
+				COM_OFRS_IMP_OFFER_OPTION_TWO</option>
+			<option value="2">
+				COM_OFRS_IMP_OFFER_OPTION_ONE</option>
+		</field>
+		<!-- Imp_session_id Field. Type: Impsession. (custom) -->
+		<field
+			type="impsession"
+			name="imp_session_id"
+			label="COM_OFRS_IMP_OFFER_IMP_SESSION_ID_LABEL"
+			description="COM_OFRS_IMP_OFFER_IMP_SESSION_ID_DESCRIPTION"
+			class="list_class"
+			multiple="false"
+			default="0"
+			required="true"
+			button="true"
+		/>
+		<!-- Name Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="name"
+			label="COM_OFRS_IMP_OFFER_NAME_LABEL"
+			description="COM_OFRS_IMP_OFFER_NAME_DESCRIPTION"
+			class="search_offer_name"
+			readonly="false"
+			disabled="false"
+			required="true"
+			filter="STRING"
+			message="COM_OFRS_IMP_OFFER_NAME_MESSAGE"
+			hint="COM_OFRS_IMP_OFFER_NAME_HINT"
+		/>
+		<!-- Description Field. Type: Textarea. (joomla) -->
+		<field
+			type="textarea"
+			name="description"
+			label="COM_OFRS_IMP_OFFER_DESCRIPTION_LABEL"
+			rows="11"
+			cols="10"
+			description="COM_OFRS_IMP_OFFER_DESCRIPTION_DESCRIPTION"
+			class="text_area span12"
+			filter="HTML"
+			hint="COM_OFRS_IMP_OFFER_DESCRIPTION_HINT"
+		/>
+		<!-- Currency Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="currency"
+			label="COM_OFRS_IMP_OFFER_CURRENCY_LABEL"
+			size="50"
+			maxlength="50"
+			default=""
+			description="COM_OFRS_IMP_OFFER_CURRENCY_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="false"
+			filter="STRING"
+			message="COM_OFRS_IMP_OFFER_CURRENCY_MESSAGE"
+			hint="COM_OFRS_IMP_OFFER_CURRENCY_HINT"
+			autocomplete="on"
+		/>
+		<!-- Countries Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="countries"
+			label="COM_OFRS_IMP_OFFER_COUNTRIES_LABEL"
+			size="4096"
+			maxlength="4096"
+			default=""
+			description="COM_OFRS_IMP_OFFER_COUNTRIES_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="false"
+			filter="STRING"
+			message="COM_OFRS_IMP_OFFER_COUNTRIES_MESSAGE"
+			hint="COM_OFRS_IMP_OFFER_COUNTRIES_HINT"
+			autocomplete="on"
+		/>
+		<!-- Verticals Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="verticals"
+			label="COM_OFRS_IMP_OFFER_VERTICALS_LABEL"
+			size="4096"
+			maxlength="4096"
+			default=""
+			description="COM_OFRS_IMP_OFFER_VERTICALS_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="false"
+			filter="STRING"
+			message="COM_OFRS_IMP_OFFER_VERTICALS_MESSAGE"
+			hint="COM_OFRS_IMP_OFFER_VERTICALS_HINT"
+			autocomplete="on"
+		/>
+		<!-- Payout Field. Type: Number. (joomla) -->
+		<field
+			type="number"
+			name="display"
+			label="COM_OFRS_IMP_OFFER_PAYOUT_LABEL"
+			default=""
+			class="text_area"
+			min="0"
+			max="40"
+			step="0.01"
+		/>
+		<!-- Payout_type Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="type"
+			label="COM_OFRS_IMP_OFFER_PAYOUT_TYPE_LABEL"
+			size="50"
+			maxlength="50"
+			default=""
+			description="COM_OFRS_IMP_OFFER_PAYOUT_TYPE_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="false"
+			filter="STRING"
+			message="COM_OFRS_IMP_OFFER_PAYOUT_TYPE_MESSAGE"
+			hint="COM_OFRS_IMP_OFFER_PAYOUT_TYPE_HINT"
+			autocomplete="on"
+		/>
+	</fieldset>
+	
+	<!-- Access Control Fields. -->
+	<fieldset name="accesscontrol">
+		<!-- Asset Id Field. Type: Hidden (joomla) -->
+		<field
+			name="asset_id"
+			type="hidden"
+			filter="unset"
+		/>
+		<!-- Rules Field. Type: Rules (joomla) -->
+		<field
+			name="rules"
+			type="rules"
+			label="Permissions in relation to this imp_offer"
+			translate_label="false"
+			filter="rules"
+			validate="rules"
+			class="inputbox"
+			component="com_ofrs"
+			section="imp_offer"
+		/>
+	</fieldset>
+</form>

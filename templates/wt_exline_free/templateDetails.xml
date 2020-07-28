@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.7//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.7/template-install.dtd">
+<extension version="2.5" type="template" client="site" method="upgrade">
+	<name>wt_exline_free</name>
+	<version>1.0.9</version>
+	<creationDate>Oct 2015</creationDate>
+	<author>WarpTheme</author>
+	<authorEmail>info@warptheme.com</authorEmail>
+	<authorUrl>http://www.warptheme.com</authorUrl>
+    <copyright>Copyright (C) WarpTheme</copyright>
+    <license>http://www.gnu.org/licenses/gpl.html GNU/GPL</license>
+	<description>
+		<![CDATA[
+		<div class="overview-header" style="text-align: left;">
+			<h2>
+			  <small style="display: block;">Joomla Corporate Business Template - <strong>WT EXLINE</strong></small></h2>
+			<p>Exline is Modern, Clean and fully Responsive Joomla Template to promote your products and services that can help create an engaging business site flexibly. For Help and Support: Visit <a href="http://warptheme.com/" target="_blank">WarpTheme</a></p>
+			</div>
+		]]>
+	</description>
+	<files>
+		<filename>checksums</filename>
+		<filename>apple_touch_icon.png</filename>
+		<filename>CHANGELOG.md</filename>
+		<filename>component.php</filename>
+		<filename>config.php</filename>
+		<filename>config.xml</filename>
+		<filename>config.default.json</filename>
+		<filename>error.php</filename>
+		<filename>favicon.ico</filename>
+		<filename>index.php</filename>
+		<filename>offline.php</filename>
+		<filename>raw.php</filename>
+		<filename>warp.php</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<filename>templateDetails.xml</filename>
+		<folder>css</folder>
+		<folder>html</folder>
+		<folder>js</folder>
+		<folder>layouts</folder>
+		<folder>images</folder>
+		<folder>less</folder>
+		<folder>warp</folder>
+	</files>
+    <positions>
+		<position settings="">search</position>
+		<position settings="">logo</position>
+		<position settings="">logo-small</position>
+		<position settings="">menu</position>
+		<position settings="">toolbar-l</position>
+		<position settings="">toolbar-r</position>
+		<position settings="">breadcrumbs</position>
+		<position>top-a</position>
+		<position>top-b</position>
+		<position>top-c</position>
+		<position>top-d</position>
+		<position>bottom-a</position>
+		<position>bottom-b</position>
+		<position>bottom-c</position>
+		<position>bottom-d</position>
+		<position>bottom-e</position>
+		<position>bottom-f</position>
+		<position>main-top</position>
+		<position>main-bottom</position>
+		<position>sidebar-a</position>
+		<position>sidebar-b</position>
+		<position settings="">footer</position>
+		<position settings="">offcanvas</position>
+		<position settings="">debug</position>
+    </positions>
+	<config>
+		<fields name="params" addfieldpath="/templates/wt_exline_free/warp/systems/joomla/config/elements">
+			<fieldset name="options">
+		    	<field name="config" type="config" label="Config" description="" default="" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

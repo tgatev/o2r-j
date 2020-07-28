@@ -1,0 +1,75 @@
+/**
+ * @author      Steven Palmer <support@coalaweb.com>
+ * @link        https://coalaweb.com/
+ * @copyright           Copyright (c) 2020 Steven Palmer All rights reserved.
+ */
+
+.cwt-teaser-bottom {
+    border-radius: 0 0 0 0;
+    padding: 30px 30px 60px;
+    background: #5cd1df;
+    color: #ffffff;
+}
+
+.cwt-subtitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cwt-teaser-bottom h4 {
+    color: inherit;
+    margin-bottom: 0;
+    font-size: 23px;
+    line-height: 27px;
+}
+
+.cwt-content > a.link {
+    display: block;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.cwt-content > a.hashtag {
+    display: block;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+/*------------------------------------------------------------------------------
+Messages 
+------------------------------------------------------------------------------*/
+.cw-tweet-msg .error, 
+.cw-tweet-msg .success {
+    clear:both; 
+    display:block; 
+    padding: 5px 5px 5px 35px; 
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); 
+    border-width:1px; 
+    border-style:solid; 
+    border-radius: 0;
+    font-size:12px; 
+    margin:5px 0;
+    line-height:20px;
+}
+
+.cw-tweet-msg .error{
+    background: url("../icons/cw-alert.png") no-repeat scroll -2px center #FFF0EB;
+    border-color: #FFD7CD; 
+    color: #b94a48; 
+}
+
+.cw-tweet-msg .success{
+    background: url("../icons/cw-info.png") no-repeat scroll -5px center #EBF5FA;
+    border-color: #D2DCE1;
+    color: #2382B2; 
+}
+
+h2 {
+    word-wrap:break-word !important;
+}
+
+/* Fix width issue in Chrome */
+/*
+.cwt .cw-row-first {
+    max-width:95%;
+}*/

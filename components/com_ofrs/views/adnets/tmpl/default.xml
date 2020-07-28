@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<metadata>
+	<layout title="COM_OFRS_MENU_ADNETS_TITLE" option="COM_OFRS_MENU_ADNETS_OPTION">
+		<message>
+			<![CDATA[COM_OFRS_MENU_ADNETS_DESC]]>
+		</message>
+	</layout>
+</metadata>

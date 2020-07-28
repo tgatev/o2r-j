@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	addrulepath="/administrator/components/com_ofrs/models/rules"
+	addfieldpath="/administrator/components/com_ofrs/models/fields"
+>
+	<fieldset name="details">
+		<!-- Default Fields. -->
+		<!-- Id Field. Type: Text (joomla) -->
+		<field
+			name="id"
+			type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
+			readonly="true"
+		/>
+		<!-- Date Created Field. Type: Calendar (joomla) -->
+		<field
+			name="created"
+			type="calendar"
+			label="COM_OFRS_PHRASE_IMP_OFFER_CREATED_DATE_LABEL"
+			description="COM_OFRS_PHRASE_IMP_OFFER_CREATED_DATE_DESC"
+			size="22"
+			format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc"
+		/>
+		<!-- User Created Field. Type: User (joomla) -->
+		<field
+			name="created_by"
+			type="user"
+			label="COM_OFRS_PHRASE_IMP_OFFER_CREATED_BY_LABEL"
+			description="COM_OFRS_PHRASE_IMP_OFFER_CREATED_BY_DESC"
+		/>
+		<!-- Published Field. Type: List (joomla) -->
+		<field name="published" type="list" label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC" class="chzn-color-state"
+			filter="intval" size="1" default="1" >
+			<option value="1">
+				JPUBLISHED</option>
+			<option value="0">
+				JUNPUBLISHED</option>
+			<option value="2">
+				JARCHIVED</option>
+			<option value="-2">
+				JTRASHED</option>
+		</field>
+		<!-- Date Modified Field. Type: Calendar (joomla) -->
+		<field name="modified" type="calendar" class="readonly"
+			label="COM_OFRS_PHRASE_IMP_OFFER_MODIFIED_DATE_LABEL" description="COM_OFRS_PHRASE_IMP_OFFER_MODIFIED_DATE_DESC"
+			size="22" readonly="true" format="%Y-%m-%d %H:%M:%S" filter="user_utc" />
+		<!-- User Modified Field. Type: User (joomla) -->
+		<field name="modified_by" type="user"
+			label="COM_OFRS_PHRASE_IMP_OFFER_MODIFIED_BY_LABEL"
+			description="COM_OFRS_PHRASE_IMP_OFFER_MODIFIED_BY_DESC"
+			class="readonly"
+			readonly="true"
+			filter="unset"
+		/>
+		<!-- Ordering Field. Type: Numbers (joomla) -->
+		<field
+			name="ordering"
+			type="number"
+			class="inputbox validate-ordering"
+			label="COM_OFRS_PHRASE_IMP_OFFER_ORDERING_LABEL"
+			description=""
+			default="0"
+			size="6"
+			required="false"
+		/>
+		<!-- Version Field. Type: Text (joomla) -->
+		<field
+			name="version"
+			type="text"
+			class="readonly"
+			label="COM_OFRS_PHRASE_IMP_OFFER_VERSION_LABEL"
+			description="COM_OFRS_PHRASE_IMP_OFFER_VERSION_DESC"
+			size="6"
+			readonly="true"
+			filter="unset"
+		/>
+		<!-- Dynamic Fields. -->
+		<!-- Phrase_id Field. Type: Integer. (joomla) -->
+		<field
+			type="integer"
+			name="phrase_id"
+			label="COM_OFRS_PHRASE_IMP_OFFER_PHRASE_ID_LABEL"
+			default=""
+			description="JFIELD_TITLE_DESC"
+			class="text_area"
+			required="true"
+			first="1"
+			last="20"
+			step="1"
+		/>
+		<!-- Imp_offer_id Field. Type: Integer. (joomla) -->
+		<field
+			type="integer"
+			name="imp_offer_id"
+			label="COM_OFRS_PHRASE_IMP_OFFER_IMP_OFFER_ID_LABEL"
+			default=""
+			class="text_area"
+			first="1"
+			last="20"
+			step="5"
+		/>
+	</fieldset>
+	
+	<!-- Access Control Fields. -->
+	<fieldset name="accesscontrol">
+		<!-- Asset Id Field. Type: Hidden (joomla) -->
+		<field
+			name="asset_id"
+			type="hidden"
+			filter="unset"
+		/>
+		<!-- Rules Field. Type: Rules (joomla) -->
+		<field
+			name="rules"
+			type="rules"
+			label="Permissions in relation to this phrase_imp_offer"
+			translate_label="false"
+			filter="rules"
+			validate="rules"
+			class="inputbox"
+			component="com_ofrs"
+			section="phrase_imp_offer"
+		/>
+	</fieldset>
+</form>

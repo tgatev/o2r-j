@@ -1,0 +1,102 @@
+/*----------------------------------------------------------------------------------|  www.vdm.io  |----/
+				Delta Flip 
+/-------------------------------------------------------------------------------------------------------/
+
+	@version		1.0.21
+	@build			26th November, 2019
+	@created		5th July, 2019
+	@package		Offers
+	@subpackage		offer.css
+	@author			SMIG <http://fuckitall.info>	
+	@copyright		Copyright (C) 2019. All Rights Reserved
+	@license		GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html
+  ____  _____  _____  __  __  __      __       ___  _____  __  __  ____  _____  _  _  ____  _  _  ____ 
+ (_  _)(  _  )(  _  )(  \/  )(  )    /__\     / __)(  _  )(  \/  )(  _ \(  _  )( \( )( ___)( \( )(_  _)
+.-_)(   )(_)(  )(_)(  )    (  )(__  /(__)\   ( (__  )(_)(  )    (  )___/ )(_)(  )  (  )__)  )  (   )(  
+\____) (_____)(_____)(_/\/\_)(____)(__)(__)   \___)(_____)(_/\/\_)(__)  (_____)(_)\_)(____)(_)\_) (__) 
+
+/------------------------------------------------------------------------------------------------------*/
+
+/* CSS Document */
+
+.offer-cell {
+	word-wrap: normal;
+	margin: -3px 0 0 -3px;
+	border-color: #e2e6e9;
+	background-color: white;
+	box-sizing: border-box;
+	flex-grow: 1;
+	width: 100%;
+	padding: 0.8em 1.2em;
+	overflow: hidden;
+	list-style: none;
+	border: solid 3px white;
+	/* background: rgba(112, 128, 144, 0.2); */
+}
+
+.offer-left-column {
+	width: 70%;
+}
+
+.offer-right-column {
+	width: 30%;
+}
+
+.offer-title-area {
+	display: flex;
+}
+
+.offer-name {
+	font-size: 18px;
+	word-wrap: normal;
+}
+
+.offer-network-name {
+	font-size: 18px;
+	word-wrap: normal;
+}
+
+.offer-get-alerts-button {
+	width: 1px;
+}
+
+
+.offer-f2 {
+	font-weight: bold;
+}
+
+.offer-lp {
+	/*margin: 30px 0 0 0;*/
+}
+
+.offer-adnet-area {
+	display: flow-root;
+	background-color: #ffffff;
+	border: solid 1px #e3eaec;
+	box-shadow: 5px 3px 2px 0px #e3eaec;
+}
+
+.offer-preview {
+	margin: 0;
+	border: solid 1px #e3eaec;
+	box-shadow: 5px 3px 2px 0px #e3eaec;
+	min-width: 100%;
+	min-height: 180px;
+	max-height: 615px;
+	color: #224160;
+}
+.landing-page-link {
+	padding: 15px 0;
+	/*text-align: right;*/
+}
+section.offer-content {
+	padding-top: 15px;
+	line-height: 30px;
+}
+
+.ofrs-adnet-area {
+	margin: 2rem 0 0 0;
+	font-weight: bold;
+	font-size: 18px;
+	color: #224160;
+}

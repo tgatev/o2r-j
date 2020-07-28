@@ -1,0 +1,81 @@
+// Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+//
+// Component: Icon
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@icon-small-font-size:                          120%;
+
+@icon-hover-color:                              @global-highlight-color;
+@icon-hover-hover-color:                        @global-color;
+
+@icon-button-width:                             36px;
+@icon-button-height:                            @icon-button-width;
+@icon-button-border-radius:                     50%;
+@icon-button-font-size:                         20px;
+
+@icon-button-background:                        rgba(0,0,0,0);
+@icon-button-color:                             @global-highlight-color;
+@icon-button-hover-background:                  rgba(0,0,0,0);
+@icon-button-hover-color:                       @global-secondary-background;
+@icon-button-active-background:                 @global-secondary-background;
+@icon-button-active-color:                      @global-secondary-highlight-color;
+
+//
+// New
+//
+
+@icon-button-margin-horizontal:                 4px;
+
+@icon-button-border-width:                      2px;
+@icon-button-border:                            @global-border;
+@icon-button-hover-border:                      @global-secondary-background;
+@icon-button-active-border:                     @global-secondary-background;
+
+@icon-button-line-height:                       round(@icon-button-height - 2);
+
+@icon-button-active-filter:                     @global-active-filter;
+
+
+// Modifier: `uk-icon-hover`
+// ========================================================================
+
+.hook-icon-hover() {
+    -webkit-transition: color 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out;
+}
+
+.hook-icon-hover-hover() {}
+
+
+// Modifier: `uk-icon-button`
+// ========================================================================
+
+.hook-icon-button() {
+    margin: @icon-button-margin-horizontal;
+    border: @icon-button-border-width solid @icon-button-border;
+    line-height: @icon-button-line-height;
+    -webkit-transition: @global-transition;
+    transition: @global-transition;
+}
+
+// Hover
+.hook-icon-button-hover() { border-color: @icon-button-hover-border; }
+
+// Active
+.hook-icon-button-active() {
+    border-color: @icon-button-active-border;
+    -webkit-filter: @icon-button-active-filter;
+    filter: @icon-button-active-filter;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-icon-misc() {}

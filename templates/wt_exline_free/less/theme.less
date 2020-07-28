@@ -1,0 +1,937 @@
+// Copyright (C) YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+@import "uikit/uikit.less";
+
+/* ========================================================================
+Warp theme
+========================================================================== */
+@theme_block-alt-background:                 @panel-box-background;
+@theme_block-padding-large:                  @global-margin-xlarge;
+@theme_block-padding-large-large:            90px;
+@theme-navbar-shadow:                        0 1px 2px rgba(0,0,0,0.1);
+@theme-navbar-background:                    @global-contrast-color;
+@theme-navbar-height:                        47px;
+
+/*
+* Force vertical scrollbar
+*/
+
+html { overflow-y: scroll;}
+
+.layout-boxed {
+  background: #f9f9f9;
+  .body-innerwrapper {
+    max-width: 1240px;
+    margin: 0 auto;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
+}
+.no-padding {
+  .qx-container-fluid {
+    padding: 0;
+  }
+}
+.no-padding-column {
+  .qx-column {
+    padding: 0;
+  }
+}
+.align-items-center {
+    -webkit-box-align: center!important;
+    -webkit-align-items: center!important;
+    -ms-flex-align: center!important;
+    align-items: center!important;
+}
+.tm-content .qx-inner {
+  overflow: hidden;
+  position: relative;
+}
+/*
+* Blocks
+*/
+.tm-block {
+  padding-top:  @grid-gutter-vertical;
+  padding-bottom:  @grid-gutter-vertical;
+}
+.tm-toolbar {
+  padding: 14px;
+  background: #27343e;
+  .uk-subnav-line>:nth-child(n+2):before {
+    border-left: none;
+  }
+  a {
+    font-family: 'Open Sans';
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  ul li {
+    position: relative;
+    float: left;
+    line-height: 24px;
+    margin-right: 20px;
+    list-style: none;
+    text-transform: lowercase !important;
+    a {
+      color: #a1a1a1 !important;
+    }
+  }
+}
+.tm-block-alt {
+  background-color: @theme_block-alt-background;
+  background-position: 0 0;
+  background-repeat: repeat;
+}
+.tm-block-alt .uk-panel-box:not(.uk-panel-box-secondary) { background-color: @global-background; }
+.tm-block-alt .uk-panel-header > .uk-panel-title:after { background-color: @theme_block-alt-background; }
+
+.tm-block-fullwidth > .uk-container {
+  max-width: 100%;
+  padding: 0;
+}
+.tm-block-padding-collapse {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.tm-block-padding-collapse .tm-block-image > .uk-panel {
+  padding-top: (@theme_block-padding-large + 40px);
+  padding-bottom: (@theme_block-padding-large + 40px);
+}
+
+.uk-article h1:after {
+  margin: 0;
+  background: none;
+}
+
+.tm-block-footer {
+  padding: 20px 0;
+  border-top: 1px solid #3c3c3c;
+  background: #2c2c2c;
+}
+
+.tm-navbar {
+  position: relative;
+  z-index: 2;
+  background: @theme-navbar-background;
+  .tm-navbar-container {
+    .uk-flex;
+    .uk-flex-middle;
+    .uk-flex-space-between;
+  }
+}
+.tm-block-fullwidth {
+  padding: 0;
+  > .uk-container  {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+// Grid collapse (removing the grid gutter) (Warp Option)
+.tm-grid-collapse > .uk-container {
+  &::before,
+  &::after { display: none; }
+  > .uk-grid {
+    width: 100%;
+    margin-left: 0;
+  }
+  > .uk-grid > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-left: 0;
+  }
+}
+
+.ptags ul {
+  padding: 0;
+}
+.ptags li {
+  margin-top: 5px;
+  margin-right: 4px;
+  padding: 4px 15px;
+  display: inline-block;
+  background: #fafafa;
+  border: 1px solid #ebebec;
+  border-radius: 2px;
+}
+ul.tm-link-gray li a{
+  color: #a1a1a1;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  &:hover, &:focus,&:active {
+    color: @global-link-color;
+  }
+}
+.tm-link-gray.uk-list-line > li:nth-child(n+2) {
+    border-top: none;
+}
+
+#tm-bottom-f {
+  color: #a1a1a1;
+  .uk-icon-button {
+    background: rgba(0, 0, 0, 0);
+    color: #a1a1a1;
+    border-color: rgba(242, 243, 255, 0.06);
+    &:hover, &:focus,&:active {
+      background-color: rgba(0, 0, 0, 0);
+      color: #f2f3ff;
+      border-color: #f2f3ff;
+    }
+  }
+  .uk-panel-title {
+      font-size: 16px;
+      text-transform: uppercase;
+      color: #fff;
+  }
+}
+//Common settings for both smartphone and tablet
+@media only screen and (max-width: @breakpoint-large), (max-device-width: @breakpoint-large) {
+  .uk-navbar-nav > li > a {
+    padding: 0px 5px;
+  }
+}
+
+// Mobile navbar
+@media (max-width: @breakpoint-medium) {
+
+  .tm-navbar {
+
+    padding: @global-grid-gutter-small 0;
+
+    // Mobile logo position
+    .uk-navbar-center { max-width: 100%; }
+
+    // Mobile navbar logo position
+    .uk-navbar-content { padding: 0; }
+    // Set Height for mobile devices
+    .tm-navbar-container {
+      box-sizing: border-box;
+      height: @theme-navbar-height;
+    }
+  }
+}
+
+/*
+* Logo small
+* Remove whitespace caused by vertical centering to prevent logo wrapping into the next line
+*/
+
+.tm-logo-small { letter-spacing: -0.31em; }
+
+/*
+* Toolbar
+*/
+
+.tm-toolbar .uk-float-left .uk-panel {
+  margin: 0 @global-grid-gutter 0 0;
+  float: left;
+}
+
+.tm-toolbar .uk-float-right .uk-panel {
+  margin: 0 0 0 @global-grid-gutter;
+  float: right;
+}
+
+/*
+* Headerbar
+*/
+
+.tm-headerbar .tm-logo { float: left; }
+
+.tm-headerbar .uk-panel {
+  max-width: 300px;
+  margin-right: 0;
+  float: right;
+}
+
+/*
+* Middle
+*/
+
+.tm-main >:nth-child(n+2) {
+    margin-top: @global-grid-gutter;
+}
+.tm-content >:last-child {
+    margin-bottom: 0;
+}
+/*
+* Footer
+*/
+
+.tm-footer {
+    position: relative;
+    text-align: center;
+    color: #a1a1a1;
+    a {
+        color: @global-primary-link-color;
+    }
+}
+.tm-footer .uk-panel + .uk-panel {
+    margin-top: @global-grid-gutter;
+}
+/*
+* To-top scroller
+*/
+
+.tm-totop-scroller {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: @global-z-index;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: @global-color;
+    text-align: center;
+    -webkit-transition: all linear 0.05s;
+    transition: all linear 0.05s;
+}
+.tm-totop-scroller:after {
+    content: "\f077";
+    font-family: "FontAwesome";
+}
+/*
+* Hover
+* 1. Apply hover style also to focus state
+* 2. Remove default focus style
+*/
+
+.tm-totop-scroller:hover,
+.tm-totop-scroller:focus {
+    /* 1 */
+
+    color: lighten(@global-color, 20%);
+    outline: none;
+    /* 2 */
+
+    text-decoration: none;
+}
+/* Active */
+
+.tm-totop-scroller:active {
+    color: darken(@global-color, 20%);
+}
+/* Dropdown stack
+========================================================================== */
+/*
+* Reset width if column width is set
+*/
+
+.uk-dropdown-navbar.uk-dropdown-stack {
+    min-width: 0 !important;
+    max-width: none !important;
+}
+/* Blog
+========================================================================== */
+/*
+* Leading article
+* Joomla only
+*/
+
+.tm-leading-article .uk-article:last-child {
+    padding-bottom: @article-margin-top;
+    border-bottom: 1px solid @article-border;
+}
+/* Error
+========================================================================== */
+
+.tm-error-icon {
+    font-size: 250px;
+}
+.tm-error-headline {
+    font-size: 100px;
+}
+/* Offline
+========================================================================== */
+
+.tm-offline {
+    width: 300px;
+}
+/* Socialbuttons
+========================================================================== */
+
+.tm-socialbuttons {
+    line-height: 1;
+    > div {
+        margin-right: 10px;
+        float: left;
+    }
+}
+.uk-overlay-hover {
+    position: inherit !important;
+    transform: initial !important;
+}
+
+/*Module positions page*/
+.mdposition .table {
+  margin-bottom: 20px !important;
+  width: 100%;
+}
+.mdposition .table.table-bordered th {
+  padding: 15px 0;
+  background-color: #F2F2F2;
+  text-align: center;
+}
+.mdposition .table.table-bordered th h4 {
+  margin-bottom: 0;
+}
+.mdposition .table.table-bordered td {
+  padding: 10px 0;
+  text-align: center;
+  border: 1px solid #fafafa;
+}
+.mdposition .table-bordered thead:first-child tr:first-child > th:first-child {
+  border-left: none;
+}
+/* ************   START Pre-Loader CSS   ************** */
+/* **************************************************** */
+
+.sp-pre-loader {
+    background: @global-preloader-background;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99999;
+
+    // Clock loader
+    .sp-loader-clock {
+        border: 3px solid @global-preloader-color;
+        border-radius: 60px;
+        bottom: 0;
+        height: 80px;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 80px;
+        &:after{
+            content: "";
+            position: absolute;
+            background-color: @global-preloader-color;
+            top:2px;
+            left: 48%;
+            height: 38px;
+            width: 4px;
+            border-radius: 5px;
+            -webkit-transform-origin: 50% 97%;
+            transform-origin: 50% 97%;
+            -webkit-animation: grdAiguille 2s linear infinite;
+            animation: grdAiguille 2s linear infinite;
+        }
+
+        &:before{
+            content: "";
+            position: absolute;
+            background-color: @global-preloader-color;
+            top:6px;
+            left: 48%;
+            height: 35px;
+            width: 4px;
+            border-radius: 5px;
+            -webkit-transform-origin: 50% 94%;
+            transform-origin: 50% 94%;
+            -webkit-animation: ptAiguille 12s linear infinite;
+            animation: ptAiguille 12s linear infinite;
+        }
+    }
+    // Circle Loader
+    .sp-loader-circle{
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        border-radius: 80px;
+        border: 3px solid fade(@global-preloader-color, 70%);
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-animation: loader1 3s linear infinite;
+        animation: loader1 3s linear infinite;
+        &:after{
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 20px;
+            width: 11px;
+            height: 11px;
+            border-radius: 10px;
+            background-color: @global-preloader-color;
+        }
+    }
+    // Bubble Loop Loader
+    .sp-loader-bubble-loop{
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border-radius: 12px;
+        background-color: @global-preloader-color;
+        -webkit-transform-origin:  50% 50%;
+        transform-origin:  50% 50% ;
+        -webkit-animation: loader6 1s ease-in-out infinite;
+        animation: loader6 1s ease-in-out infinite;
+        &:before{
+            content: "";
+            position: absolute;
+            background-color: fade(@global-preloader-color, 50%);
+            top: 0px;
+            left: -25px;
+            height: 12px;
+            width: 12px;
+            border-radius: 12px;
+        }
+        &:after{
+            content: "";
+            position: absolute;
+            background-color: fade(@global-preloader-color, 50%);
+            top: 0px;
+            left: 25px;
+            height: 12px;
+            width: 12px;
+            border-radius: 12px;
+        }
+    }
+    // Circle  Loader Two
+    .circle-two {
+        bottom: 0;
+        height: 100px;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100px;
+    }
+    .circle-two > span,
+    .circle-two > span:before,
+    .circle-two > span:after {
+        content: "";
+        display: block;
+        border-radius: 50%;
+        border: 2px solid @global-preloader-color;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .circle-two > span {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-left-color: transparent;
+        -webkit-animation: effect-2 2s infinite linear;
+        -moz-animation: effect-2 2s infinite linear;
+        -ms-animation: effect-2 2s infinite linear;
+        -o-animation: effect-2 2s infinite linear;
+        animation: effect-2 2s infinite linear;
+    }
+    .circle-two > span:before {
+        width: 75%;
+        height: 75%;
+        border-right-color: transparent;
+    }
+    .circle-two > span:after {
+        width: 50%;
+        height: 50%;
+        border-bottom-color: transparent;
+    }
+
+    // Audio Wave 2 Loader
+    .wave-two-wrap{
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 50%;
+        width: 90px;
+    }
+    .wave-two {
+        margin: 0;
+        list-style: none;
+        width: 90px;
+        position: relative;
+        padding: 0;
+        height: 10px;
+    }
+    .wave-two li {
+        position: absolute;
+        width: 2px;
+        height: 0;
+        background-color: @global-preloader-color;
+        bottom: 0;
+    }
+
+    .wave-two li:nth-child(1) {
+        left: 0;
+        -webkit-animation: sequence1 1s ease infinite 0;
+        animation: sequence1 1s ease infinite 0;
+    }
+    .wave-two li:nth-child(2) {
+        left: 15px;
+        -webkit-animation: sequence2 1s ease infinite 0.1s;
+        animation: sequence2 1s ease infinite 0.1s;
+    }
+    .wave-two li:nth-child(3) {
+        left: 30px;
+        -webkit-animation: sequence1 1s ease-in-out infinite 0.2s;
+        animation: sequence1 1s ease-in-out infinite 0.2s;
+    }
+    .wave-two li:nth-child(4) {
+        left: 45px;
+        -webkit-animation: sequence2 1s ease-in infinite 0.3s;
+        animation: sequence2 1s ease-in infinite 0.3s;
+    }
+    .wave-two li:nth-child(5) {
+        left: 60px;
+        -webkit-animation: sequence1 1s ease-in-out infinite 0.4s;
+        animation: sequence1 1s ease-in-out infinite 0.4s;
+    }
+    .wave-two li:nth-child(6) {
+        left: 75px;
+        -webkit-animation: sequence2 1s ease infinite 0.5s;
+        animation: sequence2 1s ease infinite 0.5s;
+    }
+
+    // Audio Wave Loader
+    .sp-loader-audio-wave {
+        width: 3em;
+        height: 2em;
+        background: linear-gradient(@global-preloader-color, @global-preloader-color) 0 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 0.625em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.25em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.875em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 2.5em 50%;
+        background-repeat: no-repeat;
+        background-size: 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em;
+        animation: audioWave 1.5s linear infinite;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    // Loader With Logo
+    .sp-loader-with-logo{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 105px;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        text-align: center;
+        position: absolute;
+        .logo{
+            display: inline-block;
+            width: auto;
+        }
+        .line{
+            background: @global-preloader-color;
+            bottom: 0;
+            height: 5px;
+            left: 0;
+            position: absolute;
+            top: auto;
+        }
+    }
+}
+
+/* *************   END:: Pre-Loader CSS   ************* */
+/* **************************************************** */
+
+/* ************   START Loader Animation   ************ */
+/* **************************************************** */
+
+// Clock Loader Animation
+@-webkit-keyframes grdAiguille{
+    0%{-webkit-transform:rotate(0deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+
+@keyframes grdAiguille{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+@-webkit-keyframes ptAiguille{
+    0%{-webkit-transform:rotate(0deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+@keyframes ptAiguille{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+// Circle Loader Animation
+@-webkit-keyframes loader1{
+    0%{-webkit-transform:rotate(0deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+
+@keyframes loader1{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+// Bubble Loop Loader Animation
+@-webkit-keyframes loader6{
+    0%{-webkit-transform:rotate(0deg);}
+    50%{-webkit-transform:rotate(180deg);}
+    100%{-webkit-transform:rotate(180deg);}
+}
+@keyframes loader6{
+    0%{transform:rotate(0deg);}
+    50%{transform:rotate(180deg);}
+    100%{transform:rotate(180deg);}
+}
+
+// Ring Loader Animation
+@keyframes rotate-360 {
+    from {
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+// Audio Wave Loader Animation
+@keyframes audioWave {
+    25% {
+        background: linear-gradient(@global-preloader-color, @global-preloader-color) 0 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 0.625em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.25em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.875em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 2.5em 50%;
+        background-repeat: no-repeat;
+        background-size: 0.5em 2em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em;
+    }
+    37.5% {
+        background: linear-gradient(@global-preloader-color, @global-preloader-color) 0 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 0.625em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.25em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.875em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 2.5em 50%;
+        background-repeat: no-repeat;
+        background-size: 0.5em 0.25em, 0.5em 2em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em;
+    }
+    50% {
+        background: linear-gradient(@global-preloader-color, @global-preloader-color) 0 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 0.625em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.25em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.875em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 2.5em 50%;
+        background-repeat: no-repeat;
+        background-size: 0.5em 0.25em, 0.5em 0.25em, 0.5em 2em, 0.5em 0.25em, 0.5em 0.25em;
+    }
+    62.5% {
+        background: linear-gradient(@global-preloader-color, @global-preloader-color) 0 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 0.625em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.25em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.875em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 2.5em 50%;
+        background-repeat: no-repeat;
+        background-size: 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 2em, 0.5em 0.25em;
+    }
+    75% {
+        background: linear-gradient(@global-preloader-color, @global-preloader-color) 0 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 0.625em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.25em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 1.875em 50%, linear-gradient(@global-preloader-color, @global-preloader-color) 2.5em 50%;
+        background-repeat: no-repeat;
+        background-size: 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 0.25em, 0.5em 2em;
+    }
+}
+
+// Circle 2 Loader Animation
+@-webkit-keyframes effect-2 {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes effect-2 {
+    from {
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+// Audio Wave Loader 2 animation
+@keyframes sequence1 {
+    0% {
+        height: 10px;
+    }
+    50% {
+        height: 50px;
+    }
+    100% {
+        height: 10px;
+    }
+}
+@keyframes sequence2 {
+    0% {
+        height: 20px;
+    }
+    50% {
+        height: 65px;
+    }
+    100% {
+        height: 20px;
+    }
+}
+
+@keyframes rot1 {
+    100% {
+        transform: skew(-10deg) translateX(50px) rotate(405deg);
+    }
+}
+@-webkit-keyframes rot1 {
+    100% {
+        -webkit-transform: skew(-10deg) translateX(50px) rotate(405deg);
+    }
+}
+@keyframes rot2 {
+    100% {
+        transform: skew(-10deg) rotate(525deg);
+    }
+}
+@-webkit-keyframes rot2 {
+    100% {
+        -webkit-transform: skew(-10deg) rotate(525deg);
+    }
+}
+@keyframes rot3 {
+    100% {
+        transform: skew(-10deg) translateX(20px) translateY(-50px) rotate(645deg);
+    }
+}
+@-webkit-keyframes rot3 {
+    100% {
+        -webkit-transform: skew(-10deg) translateX(20px) translateY(-50px) rotate(645deg);
+    }
+}
+
+@keyframes width {
+    10% {
+        width: 10%;
+    }
+    20% {
+        width: 20%;
+    }
+    30% {
+        width: 30%;
+    }
+    40% {
+        width: 40%;
+    }
+    50% {
+        width: 50%;
+    }
+    60% {
+        width: 60%;
+    }
+    70% {
+        width: 70%;
+    }
+    80% {
+        width: 80%;
+    }
+    90% {
+        width: 90%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* ***********   END:: Loader Animation   ************* */
+/* **************************************************** */
+
+/* ************ START Animations Header *************** */
+/* **************************************************** */
+
+.animated{
+    -webkit-animation-duration:1s;
+    animation-duration:1s;
+    -webkit-animation-fill-mode:both;
+    animation-fill-mode:both;
+}
+
+@-webkit-keyframes fadeInDown{
+    from{
+        opacity:0;
+        -webkit-transform:translate3d(0,-50%,0);
+        transform:translate3d(0,-50%,0);
+    }
+    to{
+        opacity:1;
+        -webkit-transform:none;
+        transform:none;
+    }
+}
+@keyframes fadeInDown{
+    from{
+        opacity:0;
+        -webkit-transform:translate3d(0,-50%,0);
+        transform:translate3d(0,-50%,0);
+    }
+    to{
+        opacity:1;
+        -webkit-transform:none;
+        transform:none;
+    }
+}
+.fadeInDown{
+    -webkit-animation-name:fadeInDown;
+    animation-name:fadeInDown;
+}
+
+//fadeinUp
+@-webkit-keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+}
+
+/* ************ END:: Animations Header *************** */
+/* **************************************************** */

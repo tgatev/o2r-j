@@ -1,0 +1,15 @@
+.ptp-sync
+.project
+*.ptp-sync/*
+.settings/
+.idea/*
+
+images/lp_thumbnails/
+configuration.php
+administrator/cache/*
+administrator/logs/*
+cache/*
+cache/*/*
+images/*
+tmp/
+

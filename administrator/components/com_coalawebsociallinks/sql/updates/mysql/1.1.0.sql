@@ -1,0 +1,1 @@
+ALTER TABLE `#__cwsocial_count` ADD COLUMN `facebook_reaction` int(11) NOT NULL;

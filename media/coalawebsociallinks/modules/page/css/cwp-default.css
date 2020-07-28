@@ -1,0 +1,19 @@
+/**
+ * @author      Steven Palmer <support@coalaweb.com>
+ * @link        https://coalaweb.com/
+ * @copyright           Copyright (c) 2020 Steven Palmer All rights reserved.
+ */
+
+.cwpage100, .cwpage90, .cwpage80,
+.cwpage70, .cwpage60 , .cwpage50 {
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.cwpage100 {width: 100%;}
+.cwpage90 {width: 90%;}
+.cwpage80 {width: 80%;}
+.cwpage70 {width: 70%;}
+.cwpage60 {width: 60%;}
+.cwpage50 {width: 50%;}
+

@@ -1,0 +1,1165 @@
+/**
+ * @author      Steven Palmer <support@coalaweb.com>
+ * @link        https://coalaweb.com/
+ * @copyright   Copyright (c) 2020 Steven Palmer All rights reserved.
+ */
+
+
+/* Social Icons
+----------------------------------------------------------------------------------------------------*/
+
+ul.cw-social-mod-icons-custom-example-v2 {
+    margin: 0 !important;
+    padding: 0!important;
+    list-style: none;
+}
+
+ul.cw-social-mod-icons-custom-example-v2 li {
+    padding: 3px !important;
+    margin: 0 !important;
+    display:inline-block;
+    vertical-align: top;
+    background:none repeat scroll 0 0 transparent !important;
+    border: none;
+}
+
+ul.cw-social-mod-icons-custom-example-v2 li > a::before {
+    content: none;
+}
+
+.cw-social-mod-icons-custom-example-v2 a { 
+    display: block !important;
+    border:none !important;
+    padding:0 !important;
+    margin: 0 !important;
+    position: relative;
+}
+
+/** Affects **/
+.cw-social-mod-icons-custom-example-v2.fadein a {
+    opacity: 1;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.cw-social-mod-icons-custom-example-v2.fadein a:hover {
+    opacity: .7;
+    filter: alpha(opacity=70);
+}
+
+.cw-social-mod-icons-custom-example-v2.fadeout a {
+    opacity: .7;
+    filter: alpha(opacity=70);
+}
+
+.cw-social-mod-icons-custom-example-v2.fadeout a:hover {
+    opacity: 1;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.cw-social-mod-icons-custom-example-v2.zoom a {
+    transition: transform 1s;
+}
+
+.cw-social-mod-icons-custom-example-v2.zoom a:hover {
+    transform: scale(1.5);
+}
+
+.cw-social-mod-icons-custom-example-v2.rotate a {
+    transition: transform 1s;
+}
+
+.cw-social-mod-icons-custom-example-v2.rotate a:hover {
+    transform: rotate(360deg);
+}
+
+.cw-social-mod-icons-custom-example-v2.move a {
+    transition: transform 0.6s;
+}
+
+.cw-social-mod-icons-custom-example-v2.move a:hover {
+    transform: translate(3px, 3px);
+}
+
+/* Size 48 styles
+------------------------------------------------------------------------------- */
+
+.cw-social-mod-icons-custom-example-v2 a.android48,
+.cw-social-mod-icons-custom-example-v2 a.android48:hover,
+.cw-social-mod-icons-custom-example-v2 a.android48:active,
+.cw-social-mod-icons-custom-example-v2 a.android48:focus {
+    width: 48px;
+    height: 48px;
+    background: #43a900 url("48/android.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.android48,
+    .cw-social-mod-icons-custom-example-v2 a.android48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.android48:active,
+    .cw-social-mod-icons-custom-example-v2 a.android48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/android.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.behance48,
+.cw-social-mod-icons-custom-example-v2 a.behance48:hover,
+.cw-social-mod-icons-custom-example-v2 a.behance48:active,
+.cw-social-mod-icons-custom-example-v2 a.behance48:focus {
+    width: 48px;
+    height: 48px;
+    background: #0043a9 url("48/behance.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.behance48,
+    .cw-social-mod-icons-custom-example-v2 a.behance48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.behance48:active,
+    .cw-social-mod-icons-custom-example-v2 a.behance48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/behance.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.blogger48,
+.cw-social-mod-icons-custom-example-v2 a.blogger48:hover,
+.cw-social-mod-icons-custom-example-v2 a.blogger48:active,
+.cw-social-mod-icons-custom-example-v2 a.blogger48:focus {
+    width: 48px;
+    height: 48px;
+    background: #f48020 url("48/blogger.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.blogger48,
+    .cw-social-mod-icons-custom-example-v2 a.blogger48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.blogger48:active,
+    .cw-social-mod-icons-custom-example-v2 a.blogger48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/blogger.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.designmoo48,
+.cw-social-mod-icons-custom-example-v2 a.designmoo48:hover,
+.cw-social-mod-icons-custom-example-v2 a.designmoo48:active,
+.cw-social-mod-icons-custom-example-v2 a.designmoo48:focus {
+    width: 48px;
+    height: 48px;
+    background: #ff5555 url("48/designmoo.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.designmoo48,
+    .cw-social-mod-icons-custom-example-v2 a.designmoo48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.designmoo48:active,
+    .cw-social-mod-icons-custom-example-v2 a.designmoo48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/designmoo.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.deviantart48,
+.cw-social-mod-icons-custom-example-v2 a.deviantart48:hover,
+.cw-social-mod-icons-custom-example-v2 a.deviantart48:active,
+.cw-social-mod-icons-custom-example-v2 a.deviantart48:focus {
+    width: 48px;
+    height: 48px;
+    background: #477456 url("48/deviantart.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.deviantart48,
+    .cw-social-mod-icons-custom-example-v2 a.deviantart48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.deviantart48:active,
+    .cw-social-mod-icons-custom-example-v2 a.deviantart48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/deviantart.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.dribbble48,
+.cw-social-mod-icons-custom-example-v2 a.dribbble48:hover,
+.cw-social-mod-icons-custom-example-v2 a.dribbble48:active,
+.cw-social-mod-icons-custom-example-v2 a.dribbble48:focus {
+    width: 48px;
+    height: 48px;
+    background: #ee558e url("48/dribbble.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.dribbble48,
+    .cw-social-mod-icons-custom-example-v2 a.dribbble48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.dribbble48:active,
+    .cw-social-mod-icons-custom-example-v2 a.dribbble48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/dribbble.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.ebay48,
+.cw-social-mod-icons-custom-example-v2 a.ebay48:hover,
+.cw-social-mod-icons-custom-example-v2 a.ebay48:active,
+.cw-social-mod-icons-custom-example-v2 a.ebay48:focus {
+    width: 48px;
+    height: 48px;
+    background: #ffcc00 url("48/ebay.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.ebay48,
+    .cw-social-mod-icons-custom-example-v2 a.ebay48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.ebay48:active,
+    .cw-social-mod-icons-custom-example-v2 a.ebay48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/ebay.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.facebook48,
+.cw-social-mod-icons-custom-example-v2 a.facebook48:hover,
+.cw-social-mod-icons-custom-example-v2 a.facebook48:active,
+.cw-social-mod-icons-custom-example-v2 a.facebook48:focus {
+    width: 48px;
+    height: 48px;
+    background: #36609f url("48/facebook.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.facebook48,
+    .cw-social-mod-icons-custom-example-v2 a.facebook48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.facebook48:active,
+    .cw-social-mod-icons-custom-example-v2 a.facebook48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/facebook.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.flickr48,
+.cw-social-mod-icons-custom-example-v2 a.flickr48:hover,
+.cw-social-mod-icons-custom-example-v2 a.flickr48:active,
+.cw-social-mod-icons-custom-example-v2 a.flickr48:focus {
+    width: 48px;
+    height: 48px;
+    background: #ec338e url("48/flickr.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.flickr48,
+    .cw-social-mod-icons-custom-example-v2 a.flickr48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.flickr48:active,
+    .cw-social-mod-icons-custom-example-v2 a.flickr48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/flickr.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.github48,
+.cw-social-mod-icons-custom-example-v2 a.github48:hover,
+.cw-social-mod-icons-custom-example-v2 a.github48:active,
+.cw-social-mod-icons-custom-example-v2 a.github48:focus {
+    width: 48px;
+    height: 48px;
+    background: #191919 url("48/github.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.github48,
+    .cw-social-mod-icons-custom-example-v2 a.github48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.github48:active,
+    .cw-social-mod-icons-custom-example-v2 a.github48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/github.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.gmail48,
+.cw-social-mod-icons-custom-example-v2 a.gmail48:hover,
+.cw-social-mod-icons-custom-example-v2 a.gmail48:active,
+.cw-social-mod-icons-custom-example-v2 a.gmail48:focus {
+    width: 48px;
+    height: 48px;
+    background: #d40000 url("48/email.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.gmail48,
+    .cw-social-mod-icons-custom-example-v2 a.gmail48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.gmail48:active,
+    .cw-social-mod-icons-custom-example-v2 a.gmail48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/email.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.instagram48,
+.cw-social-mod-icons-custom-example-v2 a.instagram48:hover,
+.cw-social-mod-icons-custom-example-v2 a.instagram48:active,
+.cw-social-mod-icons-custom-example-v2 a.instagram48:focus {
+    width: 48px;
+    height: 48px;
+    background: #cd486b url("48/instagram.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.instagram48,
+    .cw-social-mod-icons-custom-example-v2 a.instagram48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.instagram48:active,
+    .cw-social-mod-icons-custom-example-v2 a.instagram48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/instagram.png"), linear-gradient(
+                #515ECF,
+                #9B36B7,
+                #D92E7F,
+                #F15245,
+                #FED373
+        );
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.itunes48,
+.cw-social-mod-icons-custom-example-v2 a.itunes48:hover,
+.cw-social-mod-icons-custom-example-v2 a.itunes48:active,
+.cw-social-mod-icons-custom-example-v2 a.itunes48:focus {
+    width: 48px;
+    height: 48px;
+    background: #1d92ff url("48/itunes.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.itunes48,
+    .cw-social-mod-icons-custom-example-v2 a.itunes48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.itunes48:active,
+    .cw-social-mod-icons-custom-example-v2 a.itunes48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/itunes.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.joomla48,
+.cw-social-mod-icons-custom-example-v2 a.joomla48:hover,
+.cw-social-mod-icons-custom-example-v2 a.joomla48:active,
+.cw-social-mod-icons-custom-example-v2 a.joomla48:focus {
+    width: 48px;
+    height: 48px;
+    background: #0193f3 url("48/joomla.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.joomla48,
+    .cw-social-mod-icons-custom-example-v2 a.joomla48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.joomla48:active,
+    .cw-social-mod-icons-custom-example-v2 a.joomla48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/joomla.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.lastfm48,
+.cw-social-mod-icons-custom-example-v2 a.lastfm48:hover,
+.cw-social-mod-icons-custom-example-v2 a.lastfm48:active,
+.cw-social-mod-icons-custom-example-v2 a.lastfm48:focus {
+    width: 48px;
+    height: 48px;
+    background: #d40000 url("48/lastfm.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.lastfm48,
+    .cw-social-mod-icons-custom-example-v2 a.lastfm48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.lastfm48:active,
+    .cw-social-mod-icons-custom-example-v2 a.lastfm48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/lastfm.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.linkedin48,
+.cw-social-mod-icons-custom-example-v2 a.linkedin48:hover,
+.cw-social-mod-icons-custom-example-v2 a.linkedin48:active,
+.cw-social-mod-icons-custom-example-v2 a.linkedin48:focus {
+    width: 48px;
+    height: 48px;
+    background: #066c9a url("48/linkedin.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.linkedin48,
+    .cw-social-mod-icons-custom-example-v2 a.linkedin48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.linkedin48:active,
+    .cw-social-mod-icons-custom-example-v2 a.linkedin48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/linkedin.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.myspace48,
+.cw-social-mod-icons-custom-example-v2 a.myspace48:hover,
+.cw-social-mod-icons-custom-example-v2 a.myspace48:active,
+.cw-social-mod-icons-custom-example-v2 a.myspace48:focus {
+    width: 48px;
+    height: 48px;
+    background: #00337f url("48/myspace.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.myspace48,
+    .cw-social-mod-icons-custom-example-v2 a.myspace48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.myspace48:active,
+    .cw-social-mod-icons-custom-example-v2 a.myspace48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/myspace.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.pinterest48,
+.cw-social-mod-icons-custom-example-v2 a.pinterest48:hover,
+.cw-social-mod-icons-custom-example-v2 a.pinterest48:active,
+.cw-social-mod-icons-custom-example-v2 a.pinterest48:focus {
+    width: 48px;
+    height: 48px;
+    background: #ca2027 url("48/pinterest.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.pinterest48,
+    .cw-social-mod-icons-custom-example-v2 a.pinterest48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.pinterest48:active,
+    .cw-social-mod-icons-custom-example-v2 a.pinterest48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/pinterest.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.reddit48,
+.cw-social-mod-icons-custom-example-v2 a.reddit48:hover,
+.cw-social-mod-icons-custom-example-v2 a.reddit48:active,
+.cw-social-mod-icons-custom-example-v2 a.reddit48:focus {
+    width: 48px;
+    height: 48px;
+    background: #191919 url("48/reddit.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.reddit48,
+    .cw-social-mod-icons-custom-example-v2 a.reddit48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.reddit48:active,
+    .cw-social-mod-icons-custom-example-v2 a.reddit48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/reddit.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.rss48,
+.cw-social-mod-icons-custom-example-v2 a.rss48:hover,
+.cw-social-mod-icons-custom-example-v2 a.rss48:active,
+.cw-social-mod-icons-custom-example-v2 a.rss48:focus {
+    width: 48px;
+    height: 48px;
+    background: #f48020 url("48/rss.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.rss48,
+    .cw-social-mod-icons-custom-example-v2 a.rss48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.rss48:active,
+    .cw-social-mod-icons-custom-example-v2 a.rss48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/rss.png");
+    }
+}.cw-social-mod-icons-custom-example-v2 a.rss48,
+ .cw-social-mod-icons-custom-example-v2 a.rss48:hover,
+ .cw-social-mod-icons-custom-example-v2 a.rss48:active,
+ .cw-social-mod-icons-custom-example-v2 a.rss48:focus {
+     width: 48px;
+     height: 48px;
+     background: #f48020 url("48/rss.png") no-repeat 0 0;
+ }
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.rss48,
+    .cw-social-mod-icons-custom-example-v2 a.rss48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.rss48:active,
+    .cw-social-mod-icons-custom-example-v2 a.rss48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/rss.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.spotify48,
+.cw-social-mod-icons-custom-example-v2 a.spotify48:hover,
+.cw-social-mod-icons-custom-example-v2 a.spotify48:active,
+.cw-social-mod-icons-custom-example-v2 a.spotify48:focus {
+    width: 48px;
+    height: 48px;
+    background: #00a900 url("48/spotify.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.spotify48,
+    .cw-social-mod-icons-custom-example-v2 a.spotify48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.spotify48:active,
+    .cw-social-mod-icons-custom-example-v2 a.spotify48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/spotify.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.tripadvisor48,
+.cw-social-mod-icons-custom-example-v2 a.tripadvisor48:hover,
+.cw-social-mod-icons-custom-example-v2 a.tripadvisor48:active,
+.cw-social-mod-icons-custom-example-v2 a.tripadvisor48:focus {
+    width: 48px;
+    height: 48px;
+    background: #437721 url("48/tripadvisor.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.tripadvisor48,
+    .cw-social-mod-icons-custom-example-v2 a.tripadvisor48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.tripadvisor48:active,
+    .cw-social-mod-icons-custom-example-v2 a.tripadvisor48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/tripadvisor.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.tuenti48,
+.cw-social-mod-icons-custom-example-v2 a.tuenti48:hover,
+.cw-social-mod-icons-custom-example-v2 a.tuenti48:active,
+.cw-social-mod-icons-custom-example-v2 a.tuenti48:focus {
+    width: 48px;
+    height: 48px;
+    background: #00a9d4 url("48/tuenti.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.tuenti48,
+    .cw-social-mod-icons-custom-example-v2 a.tuenti48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.tuenti48:active,
+    .cw-social-mod-icons-custom-example-v2 a.tuenti48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/tuenti.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.tumblr48,
+.cw-social-mod-icons-custom-example-v2 a.tumblr48:hover,
+.cw-social-mod-icons-custom-example-v2 a.tumblr48:active,
+.cw-social-mod-icons-custom-example-v2 a.tumblr48:focus {
+    width: 48px;
+    height: 48px;
+    background: #004354 url("48/tumblr.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.tumblr48,
+    .cw-social-mod-icons-custom-example-v2 a.tumblr48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.tumblr48:active,
+    .cw-social-mod-icons-custom-example-v2 a.tumblr48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/tumblr.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.twitter48,
+.cw-social-mod-icons-custom-example-v2 a.twitter48:hover,
+.cw-social-mod-icons-custom-example-v2 a.twitter48:active,
+.cw-social-mod-icons-custom-example-v2 a.twitter48:focus {
+    width: 48px;
+    height: 48px;
+    background: #2aa9e0 url("48/twitter.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.twitter48,
+    .cw-social-mod-icons-custom-example-v2 a.twitter48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.twitter48:active,
+    .cw-social-mod-icons-custom-example-v2 a.twitter48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/twitter.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.vimeo48,
+.cw-social-mod-icons-custom-example-v2 a.vimeo48:hover,
+.cw-social-mod-icons-custom-example-v2 a.vimeo48:active,
+.cw-social-mod-icons-custom-example-v2 a.vimeo48:focus {
+    width: 48px;
+    height: 48px;
+    background: #00b9ea url("48/vimeo.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.vimeo48,
+    .cw-social-mod-icons-custom-example-v2 a.vimeo48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.vimeo48:active,
+    .cw-social-mod-icons-custom-example-v2 a.vimeo48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/vimeo.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.weibo48,
+.cw-social-mod-icons-custom-example-v2 a.weibo48:hover,
+.cw-social-mod-icons-custom-example-v2 a.weibo48:active,
+.cw-social-mod-icons-custom-example-v2 a.weibo48:focus {
+    width: 48px;
+    height: 48px;
+    background: #d40000 url("48/weibo.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.weibo48,
+    .cw-social-mod-icons-custom-example-v2 a.weibo48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.weibo48:active,
+    .cw-social-mod-icons-custom-example-v2 a.weibo48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/weibo.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.whatsapp48,
+.cw-social-mod-icons-custom-example-v2 a.whatsapp48:hover,
+.cw-social-mod-icons-custom-example-v2 a.whatsapp48:active,
+.cw-social-mod-icons-custom-example-v2 a.whatsapp48:focus {
+    width: 48px;
+    height: 48px;
+    background: #189d0e url("48/whatsapp.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.whatsapp48,
+    .cw-social-mod-icons-custom-example-v2 a.whatsapp48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.whatsapp48:active,
+    .cw-social-mod-icons-custom-example-v2 a.whatsapp48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/whatsapp.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.xing48,
+.cw-social-mod-icons-custom-example-v2 a.xing48:hover,
+.cw-social-mod-icons-custom-example-v2 a.xing48:active,
+.cw-social-mod-icons-custom-example-v2 a.xing48:focus {
+    width: 48px;
+    height: 48px;
+    background: #2b9f88 url("48/xing.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.xing48,
+    .cw-social-mod-icons-custom-example-v2 a.xing48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.xing48:active,
+    .cw-social-mod-icons-custom-example-v2 a.xing48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/xing.png");
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a.yelp48,
+.cw-social-mod-icons-custom-example-v2 a.yelp48:hover,
+.cw-social-mod-icons-custom-example-v2 a.yelp48:active,
+.cw-social-mod-icons-custom-example-v2 a.yelp48:focus {
+    width: 48px;
+    height: 48px;
+    background: #ed3437 url("48/yelp.png") no-repeat 0 0;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a.yelp48,
+    .cw-social-mod-icons-custom-example-v2 a.yelp48:hover,
+    .cw-social-mod-icons-custom-example-v2 a.yelp48:active,
+    .cw-social-mod-icons-custom-example-v2 a.yelp48:focus {
+        background-size: 48px 48px;
+        background-image: url("96/yelp.png");
+    }
+}
+
+/* Size 64 styles
+------------------------------------------------------------------------------- */
+.cw-social-mod-icons-custom-example-v2.size-64 a[class$="64"] {
+    background-image: url(../coalaweb-icons/white/cw_social_64.png) !important;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a[class$="64"] {
+        background-image: url(../coalaweb-icons/white/cw_social_128.png) !important;
+        background-size: 3136px 64px !important;
+        box-sizing: border-box;
+    }
+
+    .cw-social-mod-icons-custom-example-v2 a.instagram64,
+    .cw-social-mod-icons-custom-example-v2 a.instagram64:hover,
+    .cw-social-mod-icons-custom-example-v2 a.instagram64:active,
+    .cw-social-mod-icons-custom-example-v2 a.instagram64:focus {
+        background-image: url(../coalaweb-icons/white/cw_social_128.png), linear-gradient(
+                #515ECF,
+                #9B36B7,
+                #D92E7F,
+                #F15245,
+                #FED373
+        );
+    }
+}
+
+.cw-social-mod-icons-custom-example-v2 a[class$="64"]:hover {
+    background-image: url(../coalaweb-icons/white/cw_social_64.png) !important;
+}
+
+@media (min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx) {
+    .cw-social-mod-icons-custom-example-v2 a[class$="64"]:hover {
+        background-image: url(../coalaweb-icons/white/cw_social_128.png) !important;
+        background-size: 3136px 64px !important;
+    }
+    .cw-social-mod-icons-custom-example-v2 a.instagram64,
+    .cw-social-mod-icons-custom-example-v2 a.instagram64:hover,
+    .cw-social-mod-icons-custom-example-v2 a.instagram64:active,
+    .cw-social-mod-icons-custom-example-v2 a.instagram64:focus {
+        background-image: url(../coalaweb-icons/white/cw_social_128.png), linear-gradient(
+                #515ECF,
+                #9B36B7,
+                #D92E7F,
+                #F15245,
+                #FED373
+        );
+    }
+
+}
+
+.cw-social-mod-icons-custom-example-v2 a.android64,
+.cw-social-mod-icons-custom-example-v2 a.android64:hover,
+.cw-social-mod-icons-custom-example-v2 a.android64:active,
+.cw-social-mod-icons-custom-example-v2 a.android64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: 0 0 !important;
+    background-color: #43a900 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.behance64,
+.cw-social-mod-icons-custom-example-v2 a.behance64:hover,
+.cw-social-mod-icons-custom-example-v2 a.behance64:active,
+.cw-social-mod-icons-custom-example-v2 a.behance64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -64px 0 !important;
+    background-color: #0043a9 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.blogger64,
+.cw-social-mod-icons-custom-example-v2 a.blogger64:hover,
+.cw-social-mod-icons-custom-example-v2 a.blogger64:active,
+.cw-social-mod-icons-custom-example-v2 a.blogger64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -128px 0 !important;
+    background-color: #f48020 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.designmoo64,
+.cw-social-mod-icons-custom-example-v2 a.designmoo64:hover,
+.cw-social-mod-icons-custom-example-v2 a.designmoo64:active,
+.cw-social-mod-icons-custom-example-v2 a.designmoo64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -320px 0 !important;
+    background-color: #ff5555 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.deviantart64,
+.cw-social-mod-icons-custom-example-v2 a.deviantart64:hover,
+.cw-social-mod-icons-custom-example-v2 a.deviantart64:active,
+.cw-social-mod-icons-custom-example-v2 a.deviantart64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -448px 0 !important;
+    background-color: #477456 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.dribbble64,
+.cw-social-mod-icons-custom-example-v2 a.dribbble64:hover,
+.cw-social-mod-icons-custom-example-v2 a.dribbble64:active,
+.cw-social-mod-icons-custom-example-v2 a.dribbble64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -704px 0 !important;
+    background-color: #00337f !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.ebay64,
+.cw-social-mod-icons-custom-example-v2 a.ebay64:hover,
+.cw-social-mod-icons-custom-example-v2 a.ebay64:active,
+.cw-social-mod-icons-custom-example-v2 a.ebay64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -832px 0 !important;
+    background-color: #ffcc00 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.facebook64,
+.cw-social-mod-icons-custom-example-v2 a.facebook64:hover,
+.cw-social-mod-icons-custom-example-v2 a.facebook64:active,
+.cw-social-mod-icons-custom-example-v2 a.facebook64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1024px 0 !important;
+    background-color: #ffcc00 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.flickr64,
+.cw-social-mod-icons-custom-example-v2 a.flickr64:hover,
+.cw-social-mod-icons-custom-example-v2 a.flickr64:active,
+.cw-social-mod-icons-custom-example-v2 a.flickr64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1088px 0 !important;
+    background-color: #ec338e !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.github64,
+.cw-social-mod-icons-custom-example-v2 a.github64:hover,
+.cw-social-mod-icons-custom-example-v2 a.github64:active,
+.cw-social-mod-icons-custom-example-v2 a.github64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1152px 0 !important;
+    background-color:#191919 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.gmail64,
+.cw-social-mod-icons-custom-example-v2 a.gmail64:hover,
+.cw-social-mod-icons-custom-example-v2 a.gmail64:active,
+.cw-social-mod-icons-custom-example-v2 a.gmail64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -896px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.instagram64,
+.cw-social-mod-icons-custom-example-v2 a.instagram64:hover,
+.cw-social-mod-icons-custom-example-v2 a.instagram64:active,
+.cw-social-mod-icons-custom-example-v2 a.instagram64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1344px 0 !important;
+    background-color: #cd486b !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.itunes64,
+.cw-social-mod-icons-custom-example-v2 a.itunes64:hover,
+.cw-social-mod-icons-custom-example-v2 a.itunes64:active,
+.cw-social-mod-icons-custom-example-v2 a.itunes64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1472px 0 !important;
+    background-color: #1d92ff !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.joomla64,
+.cw-social-mod-icons-custom-example-v2 a.joomla64:hover,
+.cw-social-mod-icons-custom-example-v2 a.joomla64:active,
+.cw-social-mod-icons-custom-example-v2 a.joomla64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1536px 0 !important;
+    background-color: #0193f3 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.lastfm64,
+.cw-social-mod-icons-custom-example-v2 a.lastfm64:hover,
+.cw-social-mod-icons-custom-example-v2 a.lastfm64:active,
+.cw-social-mod-icons-custom-example-v2 a.lastfm64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1664px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.linkedin64,
+.cw-social-mod-icons-custom-example-v2 a.linkedin64:hover,
+.cw-social-mod-icons-custom-example-v2 a.linkedin64:active,
+.cw-social-mod-icons-custom-example-v2 a.linkedin64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1728px 0 !important;
+    background-color: #066c9a !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.myspace64,
+.cw-social-mod-icons-custom-example-v2 a.myspace64:hover,
+.cw-social-mod-icons-custom-example-v2 a.myspace64:active,
+.cw-social-mod-icons-custom-example-v2 a.myspace64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1792px 0 !important;
+    background-color: #00337f !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.pinterest64,
+.cw-social-mod-icons-custom-example-v2 a.pinterest64:hover,
+.cw-social-mod-icons-custom-example-v2 a.pinterest64:active,
+.cw-social-mod-icons-custom-example-v2 a.pinterest64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1920px 0 !important;
+    background-color: #ca2027 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.reddit64,
+.cw-social-mod-icons-custom-example-v2 a.reddit64:hover,
+.cw-social-mod-icons-custom-example-v2 a.reddit64:active,
+.cw-social-mod-icons-custom-example-v2 a.reddit64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -1984px 0 !important;
+    background-color: #191919 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.rss64,
+.cw-social-mod-icons-custom-example-v2 a.rss64:hover,
+.cw-social-mod-icons-custom-example-v2 a.rss64:active,
+.cw-social-mod-icons-custom-example-v2 a.rss64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2048px 0 !important;
+    background-color: #f48020 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.spotify64,
+.cw-social-mod-icons-custom-example-v2 a.spotify64:hover,
+.cw-social-mod-icons-custom-example-v2 a.spotify64:active,
+.cw-social-mod-icons-custom-example-v2 a.spotify64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2112px 0 !important;
+    background-color: #00a900 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.tripadvisor64,
+.cw-social-mod-icons-custom-example-v2 a.tripadvisor64:hover,
+.cw-social-mod-icons-custom-example-v2 a.tripadvisor64:active,
+.cw-social-mod-icons-custom-example-v2 a.tripadvisor64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2304px 0px !important;
+    background-color: #437721 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.tuenti64,
+.cw-social-mod-icons-custom-example-v2 a.tuenti64:hover,
+.cw-social-mod-icons-custom-example-v2 a.tuenti64:active,
+.cw-social-mod-icons-custom-example-v2 a.tuenti64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2368px 0px !important;
+    background-color: #00a9d4 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.tumblr64,
+.cw-social-mod-icons-custom-example-v2 a.tumblr64:hover,
+.cw-social-mod-icons-custom-example-v2 a.tumblr64:active,
+.cw-social-mod-icons-custom-example-v2 a.tumblr64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2432px 0px !important;
+    background-color: #004354 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.twitter64,
+.cw-social-mod-icons-custom-example-v2 a.twitter64:hover,
+.cw-social-mod-icons-custom-example-v2 a.twitter64:active,
+.cw-social-mod-icons-custom-example-v2 a.twitter64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2496px 0 !important;
+   background-color: #2aa9e0 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.vimeo64,
+.cw-social-mod-icons-custom-example-v2 a.vimeo64:hover,
+.cw-social-mod-icons-custom-example-v2 a.vimeo64:active,
+.cw-social-mod-icons-custom-example-v2 a.vimeo64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2560px 0 !important;
+    background-color: #00b9ea !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.weibo64,
+.cw-social-mod-icons-custom-example-v2 a.weibo64:hover,
+.cw-social-mod-icons-custom-example-v2 a.weibo64:active,
+.cw-social-mod-icons-custom-example-v2 a.weibo64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2624px 0 !important;
+    background-color: #d40000 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.whatsapp64,
+.cw-social-mod-icons-custom-example-v2 a.whatsapp64:hover,
+.cw-social-mod-icons-custom-example-v2 a.whatsapp64:active,
+.cw-social-mod-icons-custom-example-v2 a.whatsapp64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2752px 0 !important;
+    background-color: #189d0e !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.xing64,
+.cw-social-mod-icons-custom-example-v2 a.xing64:hover,
+.cw-social-mod-icons-custom-example-v2 a.xing64:active,
+.cw-social-mod-icons-custom-example-v2 a.xing64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2816px 0 !important;
+    background-color: #2b9f88 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.yelp64,
+.cw-social-mod-icons-custom-example-v2 a.yelp64:hover,
+.cw-social-mod-icons-custom-example-v2 a.yelp64:active,
+.cw-social-mod-icons-custom-example-v2 a.yelp64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -2880px 0 !important;
+    background-color: #c93c27 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a.youtube64,
+.cw-social-mod-icons-custom-example-v2 a.youtube64:hover,
+.cw-social-mod-icons-custom-example-v2 a.youtube64:active,
+.cw-social-mod-icons-custom-example-v2 a.youtube64:focus {
+    width: 64px;
+    height: 64px;
+    background-position: -3008px 0 !important;
+    background-color: #ed3437 !important;
+}
+
+/* Count Badge
+----------------------------------------------------------------------------------------------------*/
+
+.cw-social-mod-icons-custom-example-v2 a[class*="reddit"]::before,
+.cw-social-mod-icons-custom-example-v2 a[class*="facebook"]::before,
+.cw-social-mod-icons-custom-example-v2 a[class*="linkedin"]::before,
+.cw-social-mod-icons-custom-example-v2 a[class*="pinterest"]::before{
+    content: attr(data-count);
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    border-radius: 500px;
+    border-bottom: medium none;
+    background: #41A9BE none repeat scroll 0% 0%;
+    color: #FFF;
+    position: absolute;
+    left: auto;
+    font-weight:bold;
+    vertical-align: middle;
+    text-transform: none;
+}
+
+/* Size 16
+------------------------------------------------------------------------------- */
+
+.cw-social-mod-icons-custom-example-v2  a.cw-count16 { 
+    margin: 8px 8px 0 0 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2  a.cw-nocount16 { 
+    margin: 8px 0 0 0 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a[class$="16"]::before{
+    padding: 0 4px;
+    min-width: 16px;
+    font-size: 8px;
+    line-height: 16px;
+    top: -8px;
+    right: -10px;
+}
+
+/* Size 24
+------------------------------------------------------------------------------- */
+
+.cw-social-mod-icons-custom-example-v2  a.cw-count24 { 
+    margin: 8px 10px 0 0 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2  a.cw-nocount24 { 
+    margin: 8px 2px 0 0 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a[class$="24"]::before{
+    padding: 0 4px;
+    min-width: 20px;
+    font-size: 10px;
+    line-height: 20px;
+    top: -8px;
+    right: -12px;
+}
+
+/* Size 32
+------------------------------------------------------------------------------- */
+
+.cw-social-mod-icons-custom-example-v2  a.cw-count32 { 
+    margin: 8px 15px 0 0 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2  a.cw-nocount32 { 
+    margin: 8px 5px 0 0 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a[class$="32"]::before{
+    padding: 0 6px;
+    min-width: 22px;
+    font-size: 12px;
+    line-height: 22px;
+    top: -10px;
+    right: -12px;
+}
+
+/* Size 48
+------------------------------------------------------------------------------- */
+
+.cw-social-mod-icons-custom-example-v2  a.cw-count48 { 
+    margin: 8px 15px 0 0 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2  a.cw-nocount48 { 
+    margin: 8px 5px 0 0 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a[class$="48"]::before{
+    padding: 0 6px;
+    min-width: 26px;
+    font-size: 14px;
+    line-height: 26px;
+    top: -10px;
+    right: -8px;
+}
+
+/* Size 64
+------------------------------------------------------------------------------- */
+
+.cw-social-mod-icons-custom-example-v2  a.cw-count64 { 
+    margin: 8px 15px 0 0 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2  a.cw-nocount64 { 
+    margin: 8px 5px 0 0 !important;
+}
+
+.cw-social-mod-icons-custom-example-v2 a[class$="64"]::before{
+    padding: 0 6px;
+    min-width: 26px;
+    font-size: 14px;
+    line-height: 26px;
+    top: -10px;
+    right: -8px;
+}
+
+/* End
+------------------------------------------------------------------------------- */

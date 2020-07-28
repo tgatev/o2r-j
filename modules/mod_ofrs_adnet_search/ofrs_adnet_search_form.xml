@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset addfieldpath="/administrator/components/com_ofrs/models/fields" >
+        <field name="adnet_search" type="searchtext" hint="Search Network"
+               id="filter_search"
+               placeholder="Search offers"
+               class="col-xs-12" />
+    </fieldset>
+</form>

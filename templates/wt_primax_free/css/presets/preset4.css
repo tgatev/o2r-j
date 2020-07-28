@@ -1,0 +1,100 @@
+a {
+  color: #b1d056;
+}
+a:hover {
+  color: #9bbe35;
+}
+.sp-megamenu-parent >li.active>a,
+.sp-megamenu-parent >li:hover>a {
+  color: #b1d056;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item >a:hover {
+  color: #b1d056;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item.active>a {
+  color: #b1d056;
+}
+.btn-primary,
+.sppb-btn-primary {
+  border-color: #a6c93e;
+  background-color: #b1d056;
+}
+.btn-primary:hover,
+.sppb-btn-primary:hover {
+  border-color: #8baa2f;
+  background-color: #9bbe35;
+}
+ul.social-icons >li a:hover {
+  color: #b1d056;
+}
+.layout-boxed .body-innerwrapper {
+  background: #ffffff;
+}
+.sp-module ul >li >a {
+  color: #777777;
+}
+.sp-module ul >li >a:hover {
+  color: #b1d056;
+}
+.sp-module .latestnews >div >a {
+  color: #777777;
+}
+.sp-module .latestnews >div >a:hover {
+  color: #b1d056;
+}
+.sp-module .tagscloud .tag-name:hover {
+  background: #b1d056;
+}
+.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li.active > a,
+.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li > a:hover {
+  background: #b1d056;
+}
+.search .btn-toolbar button {
+  background: #b1d056;
+}
+.post-format {
+  background: #b1d056;
+}
+.voting-symbol span.star.active:before {
+  color: #b1d056;
+}
+.sp-rating span.star:hover:before,
+.sp-rating span.star:hover ~ span.star:before {
+  color: #9bbe35;
+}
+.entry-link,
+.entry-quote {
+  background: #b1d056;
+}
+blockquote {
+  border-color: #b1d056;
+}
+.carousel-left:hover,
+.carousel-right:hover {
+  background: #b1d056;
+}
+.sp-comingsoon body {
+  background-color: #b1d056;
+}
+.pagination>li>a,
+.pagination>li>span {
+  color: #777777;
+}
+.pagination>li>a:hover,
+.pagination>li>a:focus,
+.pagination>li>span:hover,
+.pagination>li>span:focus {
+  color: #777777;
+}
+.pagination>.active>a,
+.pagination>.active>span {
+  background-color: transparent;
+  color: #b1d056;
+}
+.pagination>.active>a:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:hover,
+.pagination>.active>span:focus {
+  background-color: transparent;
+  color: #b1d056 !important;
+}

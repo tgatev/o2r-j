@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="filter">
+		<field name="search" type="text" hint="" label="COM_USERS_FILTER_SEARCH_DESC" class="js-stools-search-string" />
+		<!--field name="breedcat" type="list" onchange="this.form.submit();">
+			<option value="">COM_BREED_BREEDS_BREEDCAT_FILTER</option>
+			<option value="hybrids">COM_BREED_BREEDS_BREEDCAT_OPTION_HYBRIDS</option>
+			<option value="purebreeds">COM_BREED_BREEDS_BREEDCAT_OPTION_PUREBREEDS</option>
+		</field-->
+	</fields>
+</form>

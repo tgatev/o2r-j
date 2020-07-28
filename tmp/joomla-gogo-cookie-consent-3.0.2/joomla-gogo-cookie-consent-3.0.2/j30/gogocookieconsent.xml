@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension type="plugin" version="3.0" group="system" method="upgrade">
+	<name>PLG_SYSTEM_GOGOCOOKIECONSENT</name>
+	<author>Gogodigital Srls</author>
+	<creationDate>2015-11-26</creationDate>
+	<copyright>Copyright (C) 2015 Gogodigital Slrs. All rights reserved.</copyright>
+	<license>GNU General Public License version 3</license>
+	<authorEmail>info@gogodigital.it</authorEmail>
+	<authorUrl>www.gogodigital.it</authorUrl>
+	<version>3.0.2</version>
+	<description><![CDATA[
+        <span style="color: #4d4d4d; font-family: Arial; font-size:13px !important; font-weight: normal !important; line-height: 24px; padding: 0 0 0 10px; text-align: justify;">
+            <h1 style="border-bottom: 1px solid #eee; clear:both; color:#333; font-family: Georgia, sans-serif; font-size:38px; margin:10px 20px 24px; padding:0 0 24px 10px; font-weight: normal;">
+                Gogodigital Cookie Consent Plugin <small>ver. 3.0.2</small>
+            </h1>
+            <p style="margin: 10px 25px 15px">Gogodigital Cookie Consent Plugin for Joomla is a System Plugin to add Cookie Consent script to your Website: <strong>Cookie Consent</strong> is a wonderful script, that you can find <a title="Cookie Consent Script" target="_blank" href="https://silktide.com/tools/cookie-consent/">here</a>, allows to show a warning for <strong>cookie policy</strong>.</p>
+            <p style="margin: 10px 25px 30px"><a target="_blank" href="http://www.gogodigital.it/development/estensioni/joomla/joomla-gogodigital-cookie-consent">Learn More</a></p>
+        </span>
+    ]]></description>
+	<files>
+		<filename plugin="gogocookieconsent">gogocookieconsent.php</filename>
+	</files>
+	<media destination="gogodigital" folder="media">
+		<filename>index.html</filename>
+		<folder>css</folder>
+		<folder>js</folder>
+        <folder>scss</folder>
+	</media>
+	<languages>
+	   <language tag="en-GB">languages/en-GB/en-GB.plg_system_gogocookieconsent.ini</language>
+	   <language tag="en-GB">languages/en-GB/en-GB.plg_system_gogocookieconsent.sys.ini</language>
+	   <language tag="it-IT">languages/it-IT/it-IT.plg_system_gogocookieconsent.ini</language>
+	   <language tag="it-IT">languages/it-IT/it-IT.plg_system_gogocookieconsent.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+                <field name="cookieLoad" type="list"
+                       default="1"
+                       label="PLG_SYSTEM_GOGOCOOKIECONSENT_LOAD_LABEL"
+                       description="PLG_SYSTEM_GOGOCOOKIECONSENT_LOAD_DESC">
+                    <option value="0">PLG_SYSTEM_GOGOCOOKIECONSENT_LOAD_NOT_LABEL</option>
+                    <option value="1">PLG_SYSTEM_GOGOCOOKIECONSENT_LOAD_CDN_LABEL</option>
+                    <option value="2">PLG_SYSTEM_GOGOCOOKIECONSENT_LOAD_INTERNAL_LABEL</option>
+                </field>
+				<field name="cookieTheme" type="list" 
+                        default="dark-bottom"
+                        label="PLG_SYSTEM_GOGOCOOKIECONSENT_THEME_LABEL"
+                        description="PLG_SYSTEM_GOGOCOOKIECONSENT_THEME_DESC">
+	            	<option value="dark-bottom">PLG_SYSTEM_GOGOCOOKIECONSENT_THEME_DARK_BOTTOM</option>
+					<option value="dark-floating">PLG_SYSTEM_GOGOCOOKIECONSENT_THEME_DARK_FLOATING</option>
+	            	<option value="dark-top">PLG_SYSTEM_GOGOCOOKIECONSENT_THEME_DARK_TOP</option>
+	            	<option value="light-bottom">PLG_SYSTEM_GOGOCOOKIECONSENT_THEME_LIGHT_BOTTOM</option>
+					<option value="light-floating">PLG_SYSTEM_GOGOCOOKIECONSENT_THEME_LIGHT_FLOATING</option>
+	                <option value="light-top">PLG_SYSTEM_GOGOCOOKIECONSENT_THEME_LIGHT_TOP</option>
+	            </field>
+				<field name="cookieMessage" type="textarea" cols="60" size="6"
+				    default="This website uses cookies to ensure you get the best experience on our website" filter="raw"
+	            	label="PLG_SYSTEM_GOGOCOOKIECONSENT_MESSAGE_LABEL" 
+	            	description="PLG_SYSTEM_GOGOCOOKIECONSENT_MESSAGE_DESC" /> 
+				<field name="cookieDismiss" type="text" size="6"
+					default="Got It!" 
+					label="PLG_SYSTEM_GOGOCOOKIECONSENT_DISMISS_LABEL" 
+					description="PLG_SYSTEM_GOGOCOOKIECONSENT_DISMISS_DESC" />	
+				<field name="cookieMore" type="text" size="6"  
+					default="learnMore" 
+					label="PLG_SYSTEM_GOGOCOOKIECONSENT_LEARNMORE_LABEL" 
+					description="PLG_SYSTEM_GOGOCOOKIECONSENT_LEARNMORE_DESC" />
+				<field name="cookieLink" type="text" size="6"
+					default=""
+					label="PLG_SYSTEM_GOGOCOOKIECONSENT_LINK_LABEL"
+					description="PLG_SYSTEM_GOGOCOOKIECONSENT_LINK_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>	

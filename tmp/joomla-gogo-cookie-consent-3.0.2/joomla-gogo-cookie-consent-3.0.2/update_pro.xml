@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+    <update>
+        <name>Gogodigital Cookie Consent Pro Plugin</name>
+        <description>Gogodigital Cookie Consent Pro Plugin for Joomla is a System Plugin to add Cookie Consent script to your Website</description>
+        <element>gogoessentials</element>
+        <type>plugin</type>
+        <version>3.0.2</version>
+        <infourl title="Gogodigital Cookie Consent Updates">http://www.gogodigital.it/development/estensioni/joomla/joomla-gogodigital-essentials</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/cinghie/joomla-gogo-cookie-consent/archive/3.0.2.zip</downloadurl>
+        </downloads>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <maintainer>Gogodigital Srls</maintainer>
+        <maintainerurl>http://www.gogodigital.it</maintainerurl>
+        <section>Updates</section>
+        <targetplatform name="joomla" version="3.[012345]" />
+        <folder>system</folder>
+    </update>
+</updates>

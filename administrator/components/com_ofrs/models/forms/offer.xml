@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form
+	addrulepath="/administrator/components/com_ofrs/models/rules"
+	addfieldpath="/administrator/components/com_ofrs/models/fields"
+>
+	<fieldset name="details">
+		<!-- Default Fields. -->
+		<!-- Id Field. Type: Text (joomla) -->
+		<field
+			name="id"
+			type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
+			readonly="true"
+		/>
+		<!-- Date Created Field. Type: Calendar (joomla) -->
+		<field
+			name="created"
+			type="calendar"
+			label="COM_OFRS_OFFER_CREATED_DATE_LABEL"
+			description="COM_OFRS_OFFER_CREATED_DATE_DESC"
+			size="22"
+			format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc"
+		/>
+		<!-- User Created Field. Type: User (joomla) -->
+		<field
+			name="created_by"
+			type="user"
+			label="COM_OFRS_OFFER_CREATED_BY_LABEL"
+			description="COM_OFRS_OFFER_CREATED_BY_DESC"
+		/>
+		<!-- Published Field. Type: List (joomla) -->
+		<field name="published" type="list" label="JSTATUS"
+			description="JFIELD_PUBLISHED_DESC" class="chzn-color-state"
+			filter="intval" size="1" default="1" >
+			<option value="1">
+				JPUBLISHED</option>
+			<option value="0">
+				JUNPUBLISHED</option>
+			<option value="2">
+				JARCHIVED</option>
+			<option value="-2">
+				JTRASHED</option>
+		</field>
+		<!-- Date Modified Field. Type: Calendar (joomla) -->
+		<field name="modified" type="calendar" class="readonly"
+			label="COM_OFRS_OFFER_MODIFIED_DATE_LABEL" description="COM_OFRS_OFFER_MODIFIED_DATE_DESC"
+			size="22" readonly="true" format="%Y-%m-%d %H:%M:%S" filter="user_utc" />
+		<!-- User Modified Field. Type: User (joomla) -->
+		<field name="modified_by" type="user"
+			label="COM_OFRS_OFFER_MODIFIED_BY_LABEL"
+			description="COM_OFRS_OFFER_MODIFIED_BY_DESC"
+			class="readonly"
+			readonly="true"
+			filter="unset"
+		/>
+		<!-- Ordering Field. Type: Numbers (joomla) -->
+		<field
+			name="ordering"
+			type="number"
+			class="inputbox validate-ordering"
+			label="COM_OFRS_OFFER_ORDERING_LABEL"
+			description=""
+			default="0"
+			size="6"
+			required="false"
+		/>
+		<!-- Version Field. Type: Text (joomla) -->
+		<field
+			name="version"
+			type="text"
+			class="readonly"
+			label="COM_OFRS_OFFER_VERSION_LABEL"
+			description="COM_OFRS_OFFER_VERSION_DESC"
+			size="6"
+			readonly="true"
+			filter="unset"
+		/>
+		<!-- Dynamic Fields. -->
+		<!-- Thumbnail_url Field. Type: Url. (joomla) -->
+		<field
+			type="url"
+			name="thumbnail_url"
+			label="COM_OFRS_OFFER_THUMBNAIL_URL_LABEL"
+			size="2048"
+			maxlength="2048"
+			default=""
+			description="COM_OFRS_OFFER_THUMBNAIL_URL_DESCRIPTION"
+			class="text_area"
+			required="false"
+			relative="false"
+			filter="url"
+			validated="url"
+			scheme="http,https"
+			message="COM_OFRS_OFFER_THUMBNAIL_URL_MESSAGE"
+			hint="COM_OFRS_OFFER_THUMBNAIL_URL_HINT"
+		/>
+		<!-- Ad_network_id Field. Type: Adnetwork. (custom) -->
+		<field
+			type="adnetwork"
+			name="ad_network_id"
+			label="COM_OFRS_OFFER_AD_NETWORK_ID_LABEL"
+			class="list_class"
+			multiple="false"
+			default=""
+			required="true"
+			button="true"
+		/>
+		<!-- Name Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="name"
+			label="COM_OFRS_OFFER_NAME_LABEL"
+			description="COM_OFRS_OFFER_NAME_DESCRIPTION"
+			class="search_offer_name"
+			readonly="false"
+			disabled="false"
+			required="true"
+			filter="STRING"
+			message="COM_OFRS_OFFER_NAME_MESSAGE"
+			hint="COM_OFRS_OFFER_NAME_HINT"
+		/>
+		<!-- Offer_id_at_network Field. Type: Text. (joomla) -->
+		<field
+			type="text"
+			name="offer_id_at_network"
+			label="COM_OFRS_OFFER_OFFER_ID_AT_NETWORK_LABEL"
+			size="10"
+			maxlength="10"
+			default=""
+			description="COM_OFRS_OFFER_OFFER_ID_AT_NETWORK_DESCRIPTION"
+			class="text_area"
+			readonly="false"
+			disabled="false"
+			required="true"
+			filter="STRING"
+			message="COM_OFRS_OFFER_OFFER_ID_AT_NETWORK_MESSAGE"
+			hint="COM_OFRS_OFFER_OFFER_ID_AT_NETWORK_HINT"
+			autocomplete="on"
+		/>
+		<!-- Payouts Field. Type: Subform. (joomla) -->
+		<field
+			type="subform"
+			name="payouts"
+			label="COM_OFRS_OFFER_PAYOUTS_LABEL"
+			layout="joomla.form.field.subform.repeatable-table"
+			multiple="true"
+			buttons="add,remove,move"
+			default=""
+			icon="list"
+			max="50">
+			<form hidden="true" name="list_payouts_modal" repeat="true">
+				<!-- Payout_type Field. Type: Payouttype. (custom) -->
+				<field
+					type="payouttype"
+					name="payout"
+					label="COM_OFRS_OFFER_PAYOUT_TYPE_LABEL"
+					class="list_class"
+					multiple="true"
+					default="0"
+					required="true"
+					readonly="false"
+					button="false"
+				/>
+				<!-- Payout Field. Type: Number. (joomla) -->
+				<field
+					type="number"
+					name="display"
+					label="COM_OFRS_OFFER_PAYOUT_LABEL"
+					default=""
+					class="text_area"
+					min="0"
+					max="40"
+					step="0.01"
+				/>
+				<!-- Percent_payout Field. Type: Text. (joomla) -->
+				<field
+					type="text"
+					name="percent_payout"
+					label="COM_OFRS_OFFER_PERCENT_PAYOUT_LABEL"
+					size="10"
+					maxlength="50"
+					default=""
+					class="text_area"
+					readonly="false"
+					disabled="false"
+					required="false"
+					filter="STRING"
+					message="COM_OFRS_OFFER_PERCENT_PAYOUT_MESSAGE"
+					hint="COM_OFRS_OFFER_PERCENT_PAYOUT_HINT"
+					autocomplete="on"
+				/>
+				<!-- Currency_id Field. Type: Currency. (custom) -->
+				<field
+					type="currency"
+					name="currency_id"
+					label="COM_OFRS_OFFER_CURRENCY_ID_LABEL"
+					class="list_class"
+					multiple="false"
+					default="10"
+					required="true"
+					button="false"
+				/>
+			</form>
+		</field>
+		<!-- Description Field. Type: Textarea. (joomla) -->
+		<field
+			type="textarea"
+			name="description"
+			label="COM_OFRS_OFFER_DESCRIPTION_LABEL"
+			rows="11"
+			cols="10"
+			description="COM_OFRS_OFFER_DESCRIPTION_DESCRIPTION"
+			class="text_area span12"
+			filter="HTML"
+			hint="COM_OFRS_OFFER_DESCRIPTION_HINT"
+		/>
+		<!-- Verticals Field. Type: Verticals. (custom) -->
+		<field
+			type="verticals"
+			name="verticals"
+			label="COM_OFRS_OFFER_VERTICALS_LABEL"
+			class="list_class"
+			multiple="true"
+			default=""
+			required="false"
+			readonly="false"
+			button="true"
+		/>
+		<!-- Geo_targeting Field. Type: Geotargeting. (custom) -->
+		<field
+			type="geotargeting"
+			name="geo_targeting"
+			label="COM_OFRS_OFFER_GEO_TARGETING_LABEL"
+			class="list_class"
+			multiple="true"
+			default=""
+			required="false"
+			readonly="false"
+			button="true"
+		/>
+		<!-- Preview_url Field. Type: Url. (joomla) -->
+		<field
+			type="url"
+			name="preview_url"
+			label="COM_OFRS_OFFER_PREVIEW_URL_LABEL"
+			size="2048"
+			maxlength="2048"
+			default=""
+			description="COM_OFRS_OFFER_PREVIEW_URL_DESCRIPTION"
+			class="text_area"
+			filter="url"
+			validated="url"
+			scheme="http,https"
+			message="COM_OFRS_OFFER_PREVIEW_URL_MESSAGE"
+			hint="COM_OFRS_OFFER_PREVIEW_URL_HINT"
+		/>
+		<!-- Affiliate_access Field. Type: List. (joomla) -->
+		<field
+			type="list"
+			name="affiliate_access"
+			label="COM_OFRS_OFFER_AFFILIATE_ACCESS_LABEL"
+			class="list_class"
+			multiple="false"
+			default="0">
+			<!-- Option Set. -->
+			<option value="P">
+				COM_OFRS_OFFER_PUBLIC</option>
+			<option value="A">
+				COM_OFRS_OFFER_APPLY_TO_RUN</option>
+		</field>
+		<!-- Expire_date_at_net Field. Type: Calendar. (joomla) -->
+		<field
+			type="calendar"
+			name="expire_date_at_net"
+			label="COM_OFRS_OFFER_EXPIRE_DATE_AT_NET_LABEL"
+			default="NOW"
+			format="%Y-%m-%d"
+		/>
+		<!-- Create_date_at_net Field. Type: Calendar. (joomla) -->
+		<field
+			type="calendar"
+			name="create_date_at_net"
+			label="COM_OFRS_OFFER_CREATE_DATE_AT_NET_LABEL"
+			default="NOW"
+			format="%Y-%m-%d"
+		/>
+		<!-- Imp_offer_id_one Field. Type: Integer. (joomla) -->
+		<field
+			type="integer"
+			name="imp_offer_id_one"
+			label="COM_OFRS_OFFER_IMP_OFFER_ID_ONE_LABEL"
+			default=""
+			class="text_area"
+			first="1"
+			last="20"
+			step="5"
+		/>
+		<!-- Imp_offer_id_two Field. Type: Integer. (joomla) -->
+		<field
+			type="integer"
+			name="imp_offer_id_two"
+			label="COM_OFRS_OFFER_IMP_OFFER_ID_TWO_LABEL"
+			default=""
+			class="text_area"
+			first="1"
+			last="20"
+			step="5"
+		/>
+	</fieldset>
+	
+	<!-- Access Control Fields. -->
+	<fieldset name="accesscontrol">
+		<!-- Asset Id Field. Type: Hidden (joomla) -->
+		<field
+			name="asset_id"
+			type="hidden"
+			filter="unset"
+		/>
+		<!-- Rules Field. Type: Rules (joomla) -->
+		<field
+			name="rules"
+			type="rules"
+			label="Permissions in relation to this offer"
+			translate_label="false"
+			filter="rules"
+			validate="rules"
+			class="inputbox"
+			component="com_ofrs"
+			section="offer"
+		/>
+	</fieldset>
+</form>

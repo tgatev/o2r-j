@@ -1,0 +1,51 @@
+/**
+ * @author      Steven Palmer <support@coalaweb.com>
+ * @link        https://coalaweb.com/
+ * @copyright           Copyright (c) 2020 Steven Palmer All rights reserved.
+ */
+
+/* Module Style
+------------------------------------------------------------------------------- */
+.cw-sl-width-hor-100 {width: 100%; margin-left: auto; margin-right: auto; }
+.cw-sl-width-hor-90 {width: 90%; margin-left: auto; margin-right: auto; }
+.cw-sl-width-hor-80 {width: 80%; margin-left: auto; margin-right: auto; }
+.cw-sl-width-hor-70 {width: 70%; margin-left: auto; margin-right: auto; }
+.cw-sl-width-hor-60 {width: 60%; margin-left: auto; margin-right: auto; }
+.cw-sl-width-hor-50 {width: 50%; margin-left: auto; margin-right: auto; }
+
+
+ul.cw-social-mod-icons-wpzoom-fadein li h1, ul.cw-social-mod-icons-wpzoom-fadein li h2,
+ul.cw-social-mod-icons-wpzoom-fadein li h3, ul.cw-social-mod-icons-wpzoom-fadein li h4,
+ul.cw-social-mod-icons-wpzoom-fadein li h5{
+    vertical-align: middle;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    display: inline;
+}
+
+.cw-social-mod-bookmark-hor a,
+.cw-social-mod-follow-hor a{
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    font-size: 0.0001em !important;
+}
+
+.cw-social-mod-hor ul > li:before {
+    display: none !important;
+}
+
+.cw-social-mod-bookmark-hor {
+    margin-bottom: 5px;
+    padding: 2px;
+}
+
+.cw-social-mod-follow-hor {
+    padding: 2px;
+}
+
+
+.cw-social-mod-follow-hor li, .cw-social-mod-bookmark-hor li {
+    vertical-align: middle !important;
+}
+/* End
+------------------------------------------------------------------------------*/
