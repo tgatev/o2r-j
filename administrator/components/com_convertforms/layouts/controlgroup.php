@@ -27,7 +27,7 @@ if (isset($field->inputmask) && !empty($field->inputmask))
 	<?php if (isset($field->hidelabel) && !$field->hidelabel && !empty($field->label)) { ?>
 		<div class="cf-control-label">
 			<label class="cf-label" style="<?php echo implode(";", $field->labelStyles) ?>" for="<?php echo $field->id; ?>">
-				<?php echo $field->label ?>
+				<?php echo $field->label?>
 				<?php if ($form['params']->get('required_indication', true) && $field->required) { ?>
 					<span class="cf-required-label">*</span>
 				<?php } ?>

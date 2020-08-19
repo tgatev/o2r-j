@@ -15,24 +15,40 @@
 .-_)(   )(_)(  )(_)(  )    (  )(__  /(__)\   ( (__  )(_)(  )    (  )___/ )(_)(  )  (  )__)  )  (   )(  
 \____) (_____)(_____)(_/\/\_)(____)(__)(__)   \___)(_____)(_/\/\_)(__)  (_____)(_)\_)(____)(_)\_) (__) 
 
-/------------------------------------------------------------------------------------------------------*/
-/* Responsive Classes */
-@media (max-width: 991px ) {
+/-----------------------------------------------
+
+-------------------------------------------------------*/
+/** Mobile Definitions */
+@media (max-width: 767px) {
+
+}
+/* SM Definitions */
+@media (min-width: 768px){
     .pagination-box {
         text-align: center;
     }
-}
+    section.offer-content,
+    section#adnet-content {
+        margin: 0 -15px;
+    }
 
+    #adnet-logo-box {
+        margin-right: -45px;
+        float: right;
+    }
+
+    #preview-box {
+        margin-right: -30px;
+        float: right;
+    }
+}
+/* MD Responsive Classes */
 @media (min-width: 992px ) {
     .pagination-box {
         text-align: right;
     }
 }
 
-
-/*.pagination-line > #order_definitions >div:nth-child(1) {*/
-/*    margin-left: -30px;*/
-/*}*/
 /* CSS Document */
 .no-click {
     pointer-events: none;
@@ -249,12 +265,16 @@ strong {
 
 /* -------------------- */
 
-.ofrs-table-header {
+.ofrs-table-header,
+.ofrs-results {
     color: #c4cacf;
     font-weight: bold;
-    font-size: 13px;
     padding: 1rem 0px;
     /* margin: 0 0 0 0; */
+}
+.ofrs-results.pager-stats-xs {
+    font-weight: normal;
+    color: #757f89;
 }
 
 .ofrs-table-header-mini {
@@ -265,8 +285,7 @@ strong {
 }
 
 .ofrs-title-space {
-    padding: 60px 0 30px 0;
-    border-bottom: 1px solid #ced8dc;
+    padding: 20px 0;
 }
 
 
@@ -306,8 +325,8 @@ strong {
 .ofrs-content-subtitle {
     font-weight: bold;
     font-size: 18px;
-    color: #224160;
-    margin: 32px 0 0 0;
+    color: #757f8a;
+    margin: 24px 0 12px 0;
 }
 
 .ofrs-content-bold {
@@ -319,7 +338,7 @@ strong {
 
 .ofrs-content-normal {
     padding: 0 0 0 0;
-    font-size: 14px;
+    font-size: 12px;
     color: #757f8a;
 }
 
@@ -335,7 +354,8 @@ strong {
 }
 
 /*preview eye icon*/
-.ofrs-preview-icon {
+.ofrs-preview-icon,
+.ofrs-preview-no-icon {
     padding: 8px 8px !important;
     color: #ee405c;
     max-width: 51px;
@@ -344,28 +364,13 @@ strong {
     margin-right: 15px;
     background: #f4f8f9;
 }
-
-/*.ofrs-preview-icon {*/
-/*    padding: 0px !important;*/
-/*    color: #ee405c;*/
-/*    max-width: 46px;*/
-/*    border-radius: 50px;*/
-/*    margin-left: 15px;*/
-/*    margin-right: 15px;*/
-/*    background: #f4f8f9;*/
-/*}*/
-
+.ofrs-preview-icon,
+.ofrs-preview-no-icon {
+    font-size: xx-large;
+}
 .ofrs-preview-icon:hover {
     background-color: #224160;
     color: #f4f8f9;
-}
-
-.eye-icon {
-    background: url("/images/Eye3.png") no-repeat center center;
-    background-size: contain;
-    height: 35px !important;
-    width: 35px !important;
-    overflow: hidden;
 }
 
 .offer-network-box {
@@ -373,6 +378,17 @@ strong {
     border-radius: 4px;
     display: inline-flex;
     margin-left: 15px;
+}
+
+
+#adnet-join-button .offer-network-box {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+}
+#ofr-network-btn .offer-network-box {
+    display: inline-block;
+    margin-left: 0;
 }
 
 ul.pagination {

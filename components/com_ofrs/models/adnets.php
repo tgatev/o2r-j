@@ -80,7 +80,8 @@ class OfrsModelAdnets extends JModelList
                         a.name AS adnet_name,
                         a.description AS adnet_description,
                         COUNT(b.id) AS offer_count,
-                        a.modified AS adnet_modified');
+                        max(b.modified) AS adnet_modified
+                        ');
 		$query->from($db->quoteName('#__ofrs_ad_network', 'a'));
 		
         // Join to offers
@@ -88,12 +89,16 @@ class OfrsModelAdnets extends JModelList
 
  		if (!is_null($f_search))
  		    $query->where("a.name LIKE '%" . $f_search . "%'");
-		$query->group(array('a.id','a.name'));
+
+ 		$query->where("b.published = 1" );
+        $query->where("a.published = 1");
+		$query->group(array('a.id'));
         $ord_col = $this->getState('list.ordering', self::ORDER_MAP[$filter['sort_by']] ?? 'a.modified');
         $ord_direction = $this->getState('list.direction', 'DESC');
         $query->order($db->escape($ord_col).' '.$db->escape($ord_direction));
         /***[/JCBGUI$$$$]***/
-
+//        echo $query->dump();
+//        die();
 		// return the query object
 		return $query;
 	}
@@ -155,9 +160,16 @@ protected function populateState($ordering = null, $direction = null) {
 
     public function getCountsOfFilterResults(){
         $query= $this->getListQuery();
+//        var_dump($query->dump());
+
         $db = JFactory::getDbo();
         $db->setQuery($query);
         $db->execute();
+//        $query->select('offrs_count')
+//        var_dump($db->getAffectedRows());
+//        var_dump($db->getNumRows());
+//        die();
         return $db->getNumRows();
     }
+
 }

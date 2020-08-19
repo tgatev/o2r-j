@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.9.0" client="site" method="upgrade">
+    <name>Offer Monster offer name Area</name>
+    <author>DeltaFlip Ltd</author>
+    <version>1.0.6</version>
+    <description>Display Offer name.</description>
+    <files>
+        <filename>mod_ofrs_offer_name.xml</filename>
+        <filename module="mod_ofrs_offer_name">mod_ofrs_offer_name.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+    </files>
+    <config>
+    </config>
+</extension>

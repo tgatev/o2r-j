@@ -14,8 +14,9 @@ $app = JFactory::getApplication();
 $menu = $app->getMenu()->getActive();
 
 JHtml::_('jquery.framework');
-JHtml::_('bootstrap.framework'); //Force load Bootstrap
-unset($doc->_scripts[$this->baseurl . '/media/jui/js/bootstrap.min.js']); // Remove joomla core bootstrap
+$doc->addStyleSheet($this->baseurl.'/templates/wt_primax_free/css/offermonster-styles.css');
+//JHtml::_('bootstrap.framework'); //Force load Bootstrap
+//unset($doc->_scripts[$this->baseurl . '/media/jui/js/bootstrap.min.js']); // Remove joomla core bootstrap
 //Load Helix
 $helix3_path = JPATH_PLUGINS . '/system/helix3/core/helix3.php';
 
@@ -122,6 +123,10 @@ $doc->addScriptdeclaration("\nvar sp_preloader = '" . $this->params->get('preloa
 $doc->addScriptdeclaration("\nvar sp_cookie = '" . $this->params->get('cookie') . "';\n");
 $doc->addScriptdeclaration("\nvar sp_gotop = '" . $this->params->get('goto_top') . "';\n");
 $doc->addScriptdeclaration("\nvar sp_offanimation = '" . $this->params->get('offcanvas_animation') . "';\n");
+// Chosen Select Loading
+$doc->addScript(JURI::root(true) . "/assets/js/bootstrap-multiselect.js");
+$doc->addStyleSheet(JURI::root(true) . "/assets/css/bootstrap-multiselect.css");
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
@@ -167,9 +172,11 @@ $doc->addScriptdeclaration("\nvar sp_offanimation = '" . $this->params->get('off
                 }
                 if ($this->params->get('cookie')) {
                   // load css, less and js
-                $this->helix3->addCSS('cookieconsent.min.css') // CSS Files
-                    ->addJS('cookieconsent.min.js'); // JS Files
+                    $this->helix3->addCSS('cookieconsent.min.css') // CSS Files
+                    // JS Files
+                    ->addJS('cookieconsent.min.js');
                  }
+
                 $this->helix3->addLess('presets', 'presets/' . $this->helix3->Preset(), array('class' => 'preset'));
 
                 //Before Head
@@ -227,3 +234,4 @@ $doc->addScriptdeclaration("\nvar sp_offanimation = '" . $this->params->get('off
 
                 </body>
                 </html>
+

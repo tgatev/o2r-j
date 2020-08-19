@@ -104,10 +104,6 @@ protected function getSortFields()
 	    // add the document default css file
 		$this->document->addStyleSheet(JURI::root(true) .'/components/com_ofrs/assets/css/offers.css', (OfrsHelper::jVersion()->isCompatible('3.8.0')) ? array('version' => 'auto') : 'text/css');
         // Set the Custom JS script to view
-          // always load these files. for component offers page
-        $this->document->addScript(JURI::root(true) . "/assets/js/bootstrap-multiselect.js", (OfrsHelper::jVersion()->isCompatible("3.8.0")) ? array("version" => "auto") : "text/javascript");
-        $this->document->addStyleSheet(JURI::root(true) . "/assets/css/bootstrap-multiselect.css", (OfrsHelper::jVersion()->isCompatible("3.8.0")) ? array("version" => "auto") : "text/css");
-
     }
 
 	/**

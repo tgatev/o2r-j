@@ -98,6 +98,8 @@ class OfrsModelOffers extends JModelList
                         .'a.published AS published,
                         a.modified AS modified,
                         b.name AS adnet_name,
+                        b.id AS adnet_id,
+                        b.display_properties as adnet_display_properties,
                         d.name AS payout_type,
                         c.display');
 
@@ -265,5 +267,4 @@ class OfrsModelOffers extends JModelList
         return $db->getNumRows();
     }
 /***[/JCBGUI$$$$]***/
-
 }
