@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.0" method="upgrade"  group="system" >
+	<name>Ultimate User redirect</name>
+    <creationDate>2019-07-04</creationDate>
+    <version>1.8.11</version>
+    <copyright>Copyright (C) 2019. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <author>Stéphane Bouey</author>
+    <authorEmail>stephane.bouey@faboba.com</authorEmail>
+    <authorUrl>http://www.faboba.com</authorUrl>
+	<description>PLG_SYSTEM_UUREDIRECT_XML_DESCRIPTION</description>
+	<files>
+        <filename plugin="uuredirect">index.html</filename>
+		<filename plugin="uuredirect">uuredirect.php</filename>
+        <folder>language</folder>
+	</files>
+    <languages>
+        <language tag="language/en-GB">en-GB.plg_system_uuredirect.ini</language>
+        <language tag="language/en-GB">en-GB.plg_system_uuredirect.sys.ini</language>
+    </languages>
+</extension>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.0" method="upgrade" group="acymailing">
+	<name>AcyMailing : Ultimate User Profile Information</name>
+	<creationDate>2019-07-04</creationDate>
+	<version>1.8.11</version>
+	<copyright>Copyright (C) 2019. All rights reserved.</copyright>
+	<author>Stéphane Bouey</author>
+	<authorEmail>stephane.bouey@faboba.com</authorEmail>
+	<authorUrl>http://www.faboba.com</authorUrl>
+	<copyright>Copyright (C) 20010-2018 Faboba.com - All rights reserved..</copyright>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<description>This plugin enables you to add information of Ultimate User profile in the Newsletter</description>
+	<files>
+		<filename plugin="ultimateuser">ultimateuser.php</filename>
+	</files>
+</extension>

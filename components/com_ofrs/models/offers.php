@@ -48,6 +48,7 @@ class OfrsModelOffers extends JModelList
 	protected $app;
 	protected $input;
 	protected $uikitComp;
+	public $filterStr;
 
 	/**
 	 * Method to build an SQL query to load the list data.
@@ -78,10 +79,12 @@ class OfrsModelOffers extends JModelList
 		// Get a db connection.
 		$db = JFactory::getDbo();
 
-		// [Prepare Query to ] Get data
-/***[JCBGUI.dynamic_get.php_custom_get.41.$$$$]***/
 		// Create a new query object.
 		$query = $db->getQuery(true);
+		
+		// Get logged user
+		$user = JFactory::getUser();
+		$user_id = $user->id;
 
         // Get from #__ofrs_offer as a
 		$query->select('a.id AS id,
@@ -112,26 +115,53 @@ class OfrsModelOffers extends JModelList
         $query->join('LEFT', ($db->quoteName('#__ofrs_offer_country', 'f')) . 'ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('f.offer_id') . ')');
         $query->join('LEFT', ($db->quoteName('#__ofrs_vertical', 'g')) . 'ON (' . $db->quoteName('e.vertical_id') . ' = ' . $db->quoteName('g.id') . ')');
         $query->join('LEFT', ($db->quoteName('#__ofrs_country', 'h')) . 'ON (' . $db->quoteName('f.country_id') . ' = ' . $db->quoteName('h.id') . ')');
+        
+        // 
+        if ($user_id)
+            $query->join('LEFT', 'ofrs_offer_monitor om ON (a.id = om.offer_id AND om.user_id = ' . $user_id . ')');
 
         
 		// published only
 		$query->where('a.published = 1');
-
+		
+		$filterStr = '{';
             // filter on general word
-		if (strlen($f_search)) $query->where("(a.name LIKE '%" . $f_search . "%' OR g.name LIKE '%" . $f_search . "%')");
+		if (strlen($f_search)) {
+		    $query->where("(a.name LIKE '%" . $f_search . "%' OR g.name LIKE '%" . $f_search . "%')");
+		    $filterStr .= '"search_phrase":"'.$f_search.'"';
+		}
 
 		    // filter on network
-		if (isset($f_network_id) && count($f_network_id)) $query->where("a.ad_network_id IN ('" . implode("','", $f_network_id) . "')");
+		if (isset($f_network_id) && count($f_network_id)) {
+		    $query->where("a.ad_network_id IN ('" . implode("','", $f_network_id) . "')");
+		    if (strlen($filterStr) > 1) $filterStr .= ', ';
+		    $filterStr .= '"ad_network_id":"' . implode(",", $f_network_id) . '"';
+		}
 		    
 				
 		    // filter on country
-        if (isset($f_geo) && count($f_geo)) $query->where("f.country_id IN ('516','" . implode("','", $f_geo) . "')");
+		if (isset($f_geo) && count($f_geo)) {
+		    $query->where("f.country_id IN ('516','" . implode("','", $f_geo) . "')");
+		    if (strlen($filterStr) > 1) $filterStr .= ', ';
+		    $filterStr .= '"country_id":"'. implode(",", $f_geo) .'"';
+		}
 		
             // filter on vertical
-        if (isset($f_verticals)) $query->where("e.vertical_id IN ('" . implode("','", $f_verticals) . "')");
+		if (isset($f_verticals)) {
+		    $query->where("e.vertical_id IN ('" . implode("','", $f_verticals) . "')");
+		    if (strlen($filterStr) > 1) $filterStr .= ', ';
+		    $filterStr .= '"vertical_id":"' . implode(",", $f_verticals) . '"';
+		}
 
             // filter on payout type
-        if (isset($f_payout_type) && count($f_payout_type)) $query->where('c.type IN (\'' . implode("','",$f_payout_type) . '\')');
+		if (isset($f_payout_type) && count($f_payout_type)) {
+		    $query->where('c.type IN (\'' . implode("','",$f_payout_type) . '\')');
+		    if (strlen($filterStr) > 1) $filterStr .= ', ';
+		    $filterStr .= '"payout_type":"' . implode(",", $f_payout_type) . '"';
+		}
+        $filterStr .= '}';
+        $this->filterStr = $filterStr;
+        
 //
         if($ordering = $this->getState('list.ordering', 'a.modified')){
             $query->order($db->escape($ordering).' '.$db->escape($this->getState('list.direction', 'DESC')));

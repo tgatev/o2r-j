@@ -167,5 +167,121 @@ class OfrsController extends JControllerLegacy
         }
         return $id;
     }
-}
+    
+    // ----------------------------------------------------------------
+    public function upIsLogged() {
+        $this->upAjax();
+    }
+    
+    public function upOmt() {
+        $input = JFactory::getApplication()->input;
+        $element_id = $input->get('elementId');
+        $offer_id = substr($element_id,3);
+        $status = null;
+        
+        $user = JFactory::getUser();
+        $user_id = $user->id;
+        if ($user->id) {
+            $db = JFactory::getDbo();
+            $db->setQuery("SELECT COUNT(*) cc FROM ofrs_offer_monitor WHERE user_id = " . $user_id . " AND offer_id = ".$offer_id);
+            $r = $db->loadObjectList();
+            if ($r[0]->cc) {
+                $db->setQuery("DELETE FROM ofrs_offer_monitor WHERE user_id = " . $user_id . " AND offer_id = " . $offer_id);
+                $status = 'N';
+            } else {
+                $db->setQuery("INSERT INTO ofrs_offer_monitor(user_id,offer_id) VALUES (" . $user_id . "," . $offer_id . ")");
+                $status = 'Y';
+            }
+            $db->execute();
+        } else
+            $status = 'L';
+            
+            $response = array(
+                'elementId' => $element_id,
+                'status' => $status
+            );
+            echo(json_encode($response));
+            jexit();
+    }
+    
+    
+    public function upOmr() {
+//         $input = JFactory::getApplication()->input;
+//         $element_id = $input->get('elementId');
+//         $offer_id = substr($element_id,3);
+//         $status = null;
+        
+//         $user = JFactory::getUser();
+//         $user_id = $user->id;
+//         if ($user->id) {
+//             $db = JFactory::getDbo();
+//             $db->setQuery("DELETE FROM ofrs_offer_monitor WHERE user_id = " . $user_id . " AND offer_id = " . $offer_id);
+//             $db->execute();
+//             $status = 'Y';
+//         } else
+//             $status = 'L';
+            
+//             $response = array(
+//                 'elementId' => $element_id,
+//                 'status' => $status
+//             );
+//             echo(json_encode($response));
+//             jexit();
+        $this->upAjax("DELETE FROM ofrs_offer_monitor WHERE user_id = @u AND offer_id = @i");
+    }
+    
+    public function upVmr() {
+        $this->upAjax("DELETE FROM ofrs_vertical_monitor WHERE user_id = @u AND vertical_id = @i");
+    }
+    
+    public function upVms() {
+        $this->upAjax("INSERT IGNORE INTO ofrs_vertical_monitor(user_id,vertical_id) VALUES (@u,@i)");
+    }
+    
+    public function upNms() {
+        $this->upAjax("INSERT IGNORE INTO ofrs_network_monitor(user_id,ad_network_id) VALUES (@u,@i)");
+    }
+    
+    public function upNmr() {
+        $this->upAjax("DELETE FROM ofrs_network_monitor WHERE user_id = @u AND ad_network_id = @i");
+    }
+    
+    public function upSsr() {
+        $this->upAjax("DELETE FROM ofrs_user_saved_search WHERE id = @i");
+    }
+    
+    public function upSms() {
+        $this->upAjax("INSERT IGNORE ofrs_saved_search_monitor(uss_id) VALUES (@i)");
+    }
+    
+    public function upSmr() {
+        $this->upAjax("DELETE FROM ofrs_saved_search_monitor WHERE uss_id = @i");
+    }
+    
+    private function upAjax($sql = null) {
+        $input = JFactory::getApplication()->input;
+        $element_id = $input->get('elementId');
+        $id = substr($element_id,3);
+        $status = null;
+        $user = JFactory::getUser();
+        $user_id = $user->id;
 
+        if ($user->id) {
+            if ($sql) {
+                $db = JFactory::getDbo();
+                $sql = str_replace('@i', $id, str_replace('@u', $user_id, $sql));
+                $db->setQuery($sql);
+                $db->execute();
+            }
+            $status = 'Y';
+        } else
+            $status = 'L';
+            
+        $response = array(
+            'elementId' => $element_id,
+            'status' => $status
+        );
+        echo(json_encode($response));
+        jexit();
+    }
+}

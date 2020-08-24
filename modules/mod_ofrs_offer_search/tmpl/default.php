@@ -7,6 +7,11 @@ $search_filters_data = OfrsHelper::parseOfrsParams('ofrs.filter_parsed');
 /* @var JForm $form provided by helper.php from xml definition */
 $form = getSearchForm();
 $form->setValue('search', '', $search_filters_data['search']);
+
+require_once(JPATH_SITE.'/components/com_uu/models/subscriptions.php');
+require_once(JPATH_SITE.'/components/com_uu/helpers/ustring.php');
+require_once(JPATH_SITE.'/components/com_uu/libraries/uufieldinterface.php');
+
 ?>
 
 <script>
@@ -261,6 +266,7 @@ $form->setValue('search', '', $search_filters_data['search']);
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn" onclick="clearAllFilters()">Reset</button>
                     <button type="button" class="btn btn-sm btn-danger" onclick="submitOffersForm('ofrs-srch-form')" >Apply</button>
+                    <input id="saved_search_name1" type="hidden" name="saved_search_name1"/>
                 </div>
             </div>
         </div>
@@ -281,7 +287,19 @@ $form->setValue('search', '', $search_filters_data['search']);
         </div>
         <!--        .ofrs-srch-form a.clear-all-filters -->
         <div class="col-xs-6 col-sm-offset-6 col-md-offset-6 col-no-gutters hidden-xs" >
-            <a class="filter-btns" onclick="submitOffersForm('ofrs-srch-form');">Apply Filters</a>
+            <a id="apply_filters_lnk" class="filter-btns" onclick="submitOffersForm('ofrs-srch-form');">Apply Filters</a>
+            
+            <input id="saved_search_name" type="text" name="search_name" value="" class="col-xs-12" placeholder="Name" style="display: none;">
+        	<a id="save_search_lnk" class="filter-btns" onclick="activateSaveSearch(); return true;">Save Search</a>
+        	<a id="save_and_apply_lnk" class="filter-btns" style="display: none;" onclick="saveSearch(); return true;">Save & Apply</a>
+
+        	<?php
+            	$model = new UuModelSubscriptions();
+            	echo($model->getSavedSearchesSelect());
+        	?>
+        	<a id="my_searches_lnk" class="filter-btns" onclick="mySearches(); return true;">My Searches</a>
+        	<a id="redo_search_lnk" class="filter-btns" style="display: none;" onclick="alert('Да се направи'); return true;">Go</a>
+			<a id="cancel_lnk" class="filter-btns" style="display: none;" onclick="doCancel(); return true;">Cancel</a>
         </div>
     </div>
     <div class="col-xs-12 col-no-gutters">

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+        <field name="fieldcode"
+               type="text"
+               class="inputbox"
+               label="COM_UU_FORM_LBL_FIELD_FIELDCODE"
+               description="COM_UU_FORM_DESC_FIELD_FIELDCODE"
+               required="true"
+                />
+
+        <field name="type"
+               type="customfields"
+               extension="com_uu"
+               default="text"
+               class="inputbox"
+               label="COM_UU_FORM_LBL_FIELD_TYPE"
+               description="COM_UU_FORM_DESC_FIELD_TYPE"
+               required="true"
+               onchange="changeType(this)"
+                />
+
+        <field name="groups"
+               type="groups"
+               extension="com_uu"
+               default="default"
+               class="inputbox"
+               label="COM_UU_FORM_LBL_FIELD_GROUP"
+               description="COM_UU_FORM_DESC_FIELD_GROUP"
+                />
+
+        <field name="required" type="radio"
+               class="inputbox btn-group"
+               default="1"
+               description="COM_UU_FORM_DESC_FIELD_REQUIRED_DESC"
+               label="COM_UU_FORM_DESC_FIELD_REQUIRED_LBL"
+               size="1"
+                >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="registration" type="radio"
+               class="inputbox btn-group"
+               default="1"
+               description="COM_UU_FORM_DESC_FIELD_REGISTRATION_DESC"
+               label="COM_UU_FORM_DESC_FIELD_REGISTRATION_LBL"
+               size="1"
+                >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="editable" type="radio"
+               class="inputbox btn-group"
+               default="1"
+               description="COM_UU_FORM_DESC_FIELD_EDITABLE_DESC"
+               label="COM_UU_FORM_DESC_FIELD_EDITABLE_LBL"
+               size="1"
+                >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+
+        <fields name="params" type="text">
+
+            <field name="size" type="text"
+                   description=""
+                   label="Size"
+            />
+            <field name="min_char" type="text"
+                   description=""
+                   label="Minimum Character"
+                    />
+            <field name="max_char" type="text"
+                   description=""
+                   label="Maximum Character"
+                    />
+            <field name="max_char" type="text"
+                   description=""
+                   label="Maximum Character"
+                    />
+            <field name="maxlength" type="text"
+                   description=""
+                   label="maxlength"
+                    />
+            <field name="rows" type="text"
+                   default="2"
+                   description=""
+                   label="Visible Rows"
+                    />
+            <field name="cols" type="text"
+                   default="2"
+                   description=""
+                   label="Visible Cols"
+                    />
+            <field name="style" type="text"
+                   description=""
+                   label="Style"
+                    />
+            <field name="sqlquery" type="textarea"
+                   description=""
+                   label="Query"
+            />
+            <field name="readonly" type="radio"
+                   default="0"
+                   description=""
+                   label="Readonly"
+                    />
+
+            <field name="recaptcha_public" type="text"
+                   description=""
+                   label="Recaptcha Public Key"
+                    />
+
+            <field name="recaptcha_private" type="text"
+                   description=""
+                   label="Recaptcha Private Key"
+                    />
+
+            <field name="theme" type="list"
+                   description=""
+                   label="Recaptcha Private Key"
+                    >
+                <option value="clean" name='Clean'>Clean</option>
+                <option value="white" name='White'>White</option>
+                <option value="blackglass" name='BlackGlass'>BlackGlass</option>
+                <option value="red" name='Red'>Red</option>
+            </field>
+
+            <field name="version" type="list"
+                   description=""
+                   label="Define which version use for reCaptcha"
+                   default="2.0"
+                   >
+                <option value="1.0" name="1.0">1.0</option>
+                <option value="2.0" name="2.0">2.0</option>
+            </field>
+
+            <!-- add date field format-->
+            <field name="dateformat" type="list" default="yyyy-mm-dd" label="Date Format" description="">
+                <option value="yyyy-mm-dd" name="YYYY-MM-DD">yyyy-mm-dd</option>
+                <option value="dd-mm-yyyy" name="DD-MM-YYYY">dd-mm-yyyy</option>
+            </field>
+
+        </fields>
+
+    </fieldset>
+
+</form>

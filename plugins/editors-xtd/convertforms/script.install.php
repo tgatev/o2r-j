@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version      2.7.2 Free
  *
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr

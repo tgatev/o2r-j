@@ -1,5 +1,6 @@
 <?php
 
+
 /*----------------------------------------------------------------------------------|  www.vdm.io  |----/
 				Delta Flip 
 /-------------------------------------------------------------------------------------------------------/
@@ -281,6 +282,7 @@ if (isset($this->items) && isset($this->pagination) && isset($this->pagination->
     </div>
     <input type="hidden" name="filter_order" value="<?php echo $this->sortColumn; ?>"/>
     <input type="hidden" name="filter_order_Dir" value="<?php echo $this->sortDirection; ?>"/>
+    <input type="hidden" id="saved_search_name2" name="saved_search_name2"/>
     <!--[/JCBGUI$$$$]-->
 
     <div class="row" style="margin: 0 -3rem 0 -3rem;">

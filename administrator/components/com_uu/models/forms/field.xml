@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+         <field name="id" type="text" size="40" class="inputbox"
+            label="COM_UU_FORM_LBL_FIELD_ID"
+            description="COM_UU_FORM_DESC_FIELD_ID"
+            readonly="true"
+            filter="safehtml" />
+
+        <field name="name" type="text" size="40" class="inputbox"
+               label="COM_UU_FORM_LBL_FIELD_NAME"
+               description="COM_UU_FORM_DESC_FIELD_NAME"
+               required="true"
+               filter="safehtml" />
+
+        <field name="description" type="textarea" size="40" class="inputbox"
+               label="COM_UU_FORM_LBL_FIELD_DESCRIPTION"
+               description="COM_UU_FORM_DESC_FIELD_DESCRIPTION"
+               filter="safehtml" />
+
+
+        <field name="published" type="radio"
+               class="inputbox btn-group"
+               default="1"
+               description="JPUBLISHED"
+               label="JPUBLISHED"
+               size="1"
+                >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+    </fieldset>
+
+</form>

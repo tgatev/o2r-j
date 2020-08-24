@@ -28,6 +28,8 @@ $document->addStyleSheet('components/com_ofrs/assets/css/site.css');
 $document->addScript('components/com_ofrs/assets/js/site.js');
 $document->addScript('components/com_ofrs/assets/js/offers.js');
 $document->addScript('components/com_ofrs/assets/js/dropdowns.js');
+$document->addScript('components/com_ofrs/assets/js/user_profile.js');
+
 
 // Require helper files
 JLoader::register('OfrsHelper', __DIR__ . '/helpers/ofrs.php'); 

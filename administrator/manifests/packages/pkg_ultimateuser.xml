@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="3.0" method="upgrade">
+	<name>Ultimate User Package</name>
+	<author>Stéphane Bouey</author>
+	<creationDate>November 2018</creationDate>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+ 	<packagename>Ultimate User</packagename>
+	 <version>1.8.11</version>
+	 <url>http://www.faboba.com</url>
+	 <packager>Stéphane Bouey</packager>
+	 <packagerurl>http://www.faboba.com</packagerurl>
+	 <description>Ultimate User Installer Package.</description>
+	 
+	  <!-- List of extensions to install -->
+	 <files folder="packages">
+		 <!-- Component -->
+		 <file type="component" id="com_uu" >com_uu_1.8.11.zip</file>
+		 
+		 <!-- Plugins -->
+		 <file type="plugin" id="uuredirect" group="system">plg_system_uuredirect_1.8.11.zip</file>
+		 <file type="plugin" id="ultimateuser" group="user">plg_user_ultimateuser_1.8.11.zip</file>
+		 <file type="plugin" id="acymailing_ultimateuser" group="acymailing">plg_acymailing_ultimateuser_1.8.11.zip</file>
+	 </files>
+
+    <!-- Update servers -->
+    <updateservers>
+        <server type="extension" priority="1" name="Ultimate User Community">http://www.faboba.com/update/ultimateuser/pkguucom.xml</server>
+    </updateservers>	 
+</extension>

@@ -20,6 +20,5 @@
                class="list_class" multiple="true" required="false"
                label="Payout Types">
         </field>
-
     </fieldset>
 </form>

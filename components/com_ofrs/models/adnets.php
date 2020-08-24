@@ -98,6 +98,7 @@ class OfrsModelAdnets extends JModelList
         $ord_direction = $this->getState('list.direction', 'DESC');
         $query->order($db->escape($ord_col).' '.$db->escape($ord_direction));
         return $query;
+
 	}
 
 	/**
@@ -157,9 +158,16 @@ protected function populateState($ordering = null, $direction = null) {
 
     public function getCountsOfFilterResults(){
         $query= $this->getListQuery();
+//        var_dump($query->dump());
+
         $db = JFactory::getDbo();
         $db->setQuery($query);
         $db->execute();
+//        $query->select('offrs_count')
+//        var_dump($db->getAffectedRows());
+//        var_dump($db->getNumRows());
+//        die();
         return $db->getNumRows();
     }
+
 }

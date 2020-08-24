@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="User Profile">
+        <message>
+            Edit Ultimate User Profile
+        </message>
+    </layout>
+    <fields name="request">
+		<fieldset name="request">
+        	<field
+            	name="layout"
+                type="text"
+                label="Layout"
+                description="Layout"
+                default="edit"
+            >
+            </field>
+        </fieldset>
+	</fields>
+</metadata>

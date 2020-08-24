@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="3.4" type="plugin" group="system" method="upgrade">
+	<name>System - Novarain Installer</name>
+	<description></description>
+	<version>1.0</version>
+	<creationDate>October 2015</creationDate>
+	<author>Novarain (Tassos Marinos)</author>
+	<authorEmail>info@novarain.com</authorEmail>
+	<authorUrl>http://www.novarain.com</authorUrl>
+	<copyright>Copyright © 2015 Novarain All Rights Reserved</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<scriptfile>script.install.php</scriptfile>
+	<files>
+		<filename plugin="novaraininstaller">novaraininstaller.php</filename>
+		<folder>language</folder>
+	</files>
+    <updateservers>
+        <server type="extension" priority="1" name="System - Novarain Installer">
+            https://static.tassos.gr/update?type=.xml
+        </server>
+    </updateservers>
+</extension>

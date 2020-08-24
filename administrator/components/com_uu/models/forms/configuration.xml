@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset
+            addfieldpath="/administrator/components/com_content/models/fields"
+            >
+        <field name="enable_user_registration" type="radio"
+               class="inputbox btn-group"
+               default="1"
+               label="COM_UU_FORM_LBL_CONFIGURATION_ENABLE_UU"
+               description="COM_UU_FORM_DESC_CONFIGURATION_ENABLE_UU"
+               size="1"
+                >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field name="email_as_username" type="radio"
+               class="inputbox btn-group"
+               default="1"
+               label="COM_UU_FORM_LBL_CONFIGURATION_EMAIL_AS_USERNAME"
+               description="COM_UU_FORM_DESC_CONFIGURATION_EMAIL_AS_USERNAME"
+               size="1"
+                >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field name="store_ip_address" type="radio"
+               class="inputbox btn-group"
+               default="1"
+               label="COM_UU_FORM_LBL_CONFIGURATION_STORE_IP_ADDRESS"
+               description="COM_UU_FORM_DESC_CONFIGURATION_STORE_IP_ADDRESS"
+               size="1"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field name="enable_terms" type="radio"
+               class="inputbox btn-group"
+               default="1"
+               label="COM_UU_FORM_LBL_CONFIGURATION_ENABLE_TERMS"
+               description="COM_UU_FORM_DESC_CONFIGURATION_ENABLE_TERMS"
+               size="1"
+                >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field name="enable_terms_url" type="modal_article"
+               class="inputbox"
+               label="COM_UU_FORM_LBL_CONFIGURATION_ENABLE_TERMS_URL"
+               description="COM_UU_FORM_DESC_CONFIGURATION_ENABLE_TERMS_URL"
+               size="15"
+                />
+        <field name="registation_text_intro" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_REGISTRATION_TEXT_INTRO"
+               description="COM_UU_FORM_DESC_CONFIGURATION_REGISTRATION_TEXT_INTRO"
+               class="inputbox" rows="3" cols="80" buttons="false"/>
+
+        <field name="registration_text_concluding" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_REGISTRATION_TEXT_CONCLUDING"
+               description="COM_UU_FORM_DESC_CONFIGURATION_REGISTRATION_TEXT_CONCLUDING"
+               class="inputbox" rows="3" cols="80" buttons="false"/>
+
+
+    </fieldset>
+
+    <fieldset>
+    <field name="enable_password_display" type="radio"
+           class="inputbox btn-group"
+           default="1"
+           label="COM_UU_FORM_LBL_CONFIGURATION_DISPLAY_PASSWORD_STRENGTH"
+           description="COM_UU_FORM_DESC_CONFIGURATION_DISPLAY_PASSWORD_STRENGTH"
+           size="1"
+            >
+        <option value="1">JYES</option>
+        <option value="0">JNO</option>
+    </field>
+    </fieldset>
+    <fieldset>
+        <field name="approval_mail_subject"
+               type="text"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_APPROVAL_SUBJECT"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_APPROVAL_SUBJECT"
+               class="inputbox" />
+        <field name="approval_mail_body" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_APPROVAL_BODY"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_APPROVAL_BODY"
+               class="inputbox" rows="6" cols="80" />
+
+        <field name="activation_mail_subject"
+               type="text"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_ACTIVATION_SUBJECT"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_ACTIVATION_SUBJECT"
+               class="inputbox" />
+
+        <field name="activation_mail_body" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_ACTIVATION_BODY"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL__ACTIVATION_BODY"
+               class="inputbox" rows="6" cols="80" />
+
+        <field name="activation_mail_body_nopw" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_ACTIVATION_BODY_NOPW"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_ACTIVATION_BODY_NOPW"
+               class="inputbox" rows="6" cols="80" />
+
+        <field name="admin_activation_mail_subject"
+               type="text"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_ADMIN_ACTIVATION_SUBJECT"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_ACTIVATION_SUBJECT"
+               class="inputbox" />
+
+        <field name="admin_activation_mail_body" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_ADMIN_ACTIVATION_BODY"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_ACTIVATION_BODY"
+               class="inputbox" rows="7" cols="80"
+               filter="JComponentHelper::filterText" buttons="false"/>
+
+        <field name="admin_activation_mail_body_nopw" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_ADMIN_ACTIVATION_BODY_NOPW"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_ACTIVATION_BOD_NOPWY"
+               class="inputbox" rows="5" cols="80"
+               filter="JComponentHelper::filterText" buttons="false"/>
+
+        <field name="registered_mail_subject"
+               type="text"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_REGISTERED_SUBJECT"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_REGISTERED_SUBJECT"
+               class="inputbox" />
+
+        <field name="registered_mail_body" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_REGISTERED_BODY"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_REGISTERED_BODY"
+               class="inputbox" rows="6" cols="80" />
+
+        <field name="activate_by_admin_activation_mail_subject"
+               type="text"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_ACTIVATE_BY_ADMIN_ACTIVATION_SUBJECT"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_ACTIVATE_BY_ADMIN_ACTIVATION_SUBJECT"
+               class="inputbox" />
+
+        <field name="activate_by_admin_activation_mail_body" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_ACTIVATE_BY_ADMIN_ADMIN_ACTIVATION_BODY"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_ACTIVATE_BY_ADMIN_ACTIVATION_BODY"
+               class="inputbox" rows="7" cols="80"
+               filter="JComponentHelper::filterText" buttons="false"/>
+
+        <field name="activate_with_admin_activation_mail_subject"
+               type="text"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_ACTIVATE_WITH_ADMIN_ACTIVATION_SUBJECT"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_ACTIVATE_WITH_ADMIN_ACTIVATION_SUBJECT"
+               class="inputbox" />
+
+        <field name="activate_with_admin_activation_mail_body" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_ACTIVATE_WITH_ADMIN_ADMIN_ACTIVATION_BODY"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_ACTIVATE_WITH_ADMIN_ACTIVATION_BODY"
+               class="inputbox" rows="7" cols="80"
+               filter="JComponentHelper::filterText" buttons="false"/>
+
+        <field name="reset_mail_subject"
+               type="text"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_RESET_SUBJECT"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_RESET_SUBJECT"
+               class="inputbox" />
+
+        <field name="reset_mail_body" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_RESET_BODY"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_RESET_BODY"
+               class="inputbox" rows="7" cols="80"
+               filter="JComponentHelper::filterText" buttons="false"/>
+
+        <field name="notification_to_admin_mail_subject"
+               type="text"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_NOTIFICATION_TO_ADMIN_SUBJECT"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_NOTIFICATION_TO_ADMIN_SUBJECT"
+               class="inputbox" />
+
+        <field name="notification_to_admin_mail_body" type="editor"
+               label="COM_UU_FORM_LBL_CONFIGURATION_MAIL_NOTIFICATION_TO_ADMIN_BODY"
+               description="COM_UU_FORM_DESC_CONFIGURATION_MAIL_NOTIFICATION_TO_ADMIN_BODY"
+               class="inputbox" rows="7" cols="80"
+               filter="JComponentHelper::filterText" buttons="false"/>
+
+
+    </fieldset>
+    <fieldset addfieldpath="administrator/components/com_menus/models/fields">
+    <field name="red_login_success"
+           type="list"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_LOGIN_SUCCESS"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_LOGIN_SUCCESS"
+           class="inputbox" default="home">
+        <option value="home">COM_UU_RED_HOME</option>
+        <option value="login">COM_UU_RED_LOGIN</option>
+        <option value="register">COM_UU_RED_REGISTER</option>
+        <option value="login_register">COM_UU_RED_LOGIN_REGISTER</option>
+        <option value="custom">COM_UU_RED_CUSTOM</option>
+        <option value="custom_menu">COM_UU_RED_CUSTOM_MENU</option>
+        <option value="previous">COM_UU_RED_PREVIOUS</option>
+     </field>
+
+    <field name="red_login_success_custom"
+           type="modal_article"
+           showon="red_login_success:custom"
+           size="50"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_LOGIN_SUCCESS_CUSTOM"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_LOGIN_SUCCESS_CUSTOM"
+           class="inputbox" />
+
+    <field name="red_login_success_custom_menu"
+           type="modal_menu"
+           showon="red_login_success:custom_menu"
+           size="50"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_LOGIN_SUCCESS_CUSTOM_MENU"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_LOGIN_SUCCESS_CUSTOM_MENU"
+           class="inputbox" />
+
+    <field name="red_logout_success"
+           type="list"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_LOGOUT_SUCCESS"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_LOGOUT_SUCCESS"
+           class="inputbox" default="home">
+        <option value="home">COM_UU_RED_HOME</option>
+        <option value="login">COM_UU_RED_LOGIN</option>
+        <option value="register">COM_UU_RED_REGISTER</option>
+        <option value="login_register">COM_UU_RED_LOGIN_REGISTER</option>
+        <option value="custom">COM_UU_RED_CUSTOM</option>
+        <option value="custom_menu">COM_UU_RED_CUSTOM_MENU</option>
+    </field>
+
+    <field name="red_logout_success_custom"
+           type="modal_article"
+           showon="red_logout_success:custom"
+           size="50"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_LOGOUT_SUCCESS_CUSTOM"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_LOGOUT_SUCCESS_CUSTOM"
+           class="inputbox" />
+
+    <field name="red_logout_success_custom_menu"
+           type="modal_menu"
+           showon="red_logout_success:custom_menu"
+           size="50"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_LOGOUT_SUCCESS_CUSTOM_MENU"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_LOGOUT_SUCCESS_CUSTOM_MENU"
+           class="inputbox" />
+
+
+    <field name="red_registration_success"
+           type="list"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_REGISTRATION_SUCCESS"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_REGISTRATION_SUCCESS"
+           class="inputbox" default="home">
+        <option value="default">COM_UU_RED_DEFAULT</option>
+        <option value="custom">COM_UU_RED_CUSTOM</option>
+        <option value="custom_menu">COM_UU_RED_CUSTOM_MENU</option>
+    </field>
+
+    <field name="red_registration_success_custom"
+           type="modal_article"
+           showon="red_registration_success:custom"
+           size="50"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_REGISTRATION_SUCCESS_CUSTOM"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_REGISTRATION_SUCCESS_CUSTOM"
+           class="inputbox" />
+
+        <field name="red_registration_success_custom_menu"
+               type="modal_menu"
+               showon="red_registration_success:custom_menu"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_RED_REGISTRATION_SUCCESS_CUSTOM_MENU"
+               description="COM_UU_FORM_DESC_CONFIGURATION_RED_REGISTRATION_SUCCESS_CUSTOM_MENU"
+               class="inputbox" />
+
+
+    <field name="red_registration_with_activation"
+           type="list"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_REGISTRATION_WITH_ACTIVATION"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_REGISTRATION_WITH_ACTIVATION"
+           class="inputbox" default="home">
+        <option value="default">COM_UU_RED_DEFAULT</option>
+        <option value="custom">COM_UU_RED_CUSTOM</option>
+        <option value="custom_menu">COM_UU_RED_CUSTOM_MENU</option>
+    </field>
+
+    <field name="red_registration_with_activation_custom"
+           type="modal_article"
+           showon="red_registration_with_activation:custom"
+           size="50"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_REGISTRATION_WITH_ACTIVATION_CUSTOM"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_REGISTRATION_WITH_ACTIVATION_CUSTOM"
+           class="inputbox" />
+
+        <field name="red_registration_with_activation_custom_menu"
+               type="modal_menu"
+               showon="red_registration_with_activation:custom_menu"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_RED_REGISTRATION_WITH_ACTIVATION_CUSTOM_MENU"
+               description="COM_UU_FORM_DESC_CONFIGURATION_RED_REGISTRATION_WITH_ACTIVATION_CUSTOM_MENU"
+               class="inputbox" />
+
+
+    <field name="red_registration_with_approval"
+           type="list"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_REGISTRATION_WITH_APPROVAL"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_REGISTRATION_WITH_APPROVAL"
+           class="inputbox" default="home">
+        <option value="default">COM_UU_RED_DEFAULT</option>
+        <option value="custom">COM_UU_RED_CUSTOM</option>
+        <option value="custom_menu">COM_UU_RED_CUSTOM_MENU</option>
+    </field>
+
+    <field name="red_registration_with_approval_custom"
+           type="modal_article"
+           showon="red_registration_with_approval:custom"
+           size="50"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_REGISTRATION_WITH_APPROVAL_CUSTOM"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_REGISTRATION_WITH_APPROVAL_CUSTOM"
+           class="inputbox" />
+
+        <field name="red_registration_with_approval_custom_menu"
+               type="modal_menu"
+               showon="red_registration_with_approval:custom_menu"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_RED_REGISTRATION_WITH_APPROVAL_CUSTOM_MENU"
+               description="COM_UU_FORM_DESC_CONFIGURATION_RED_REGISTRATION_WITH_APPROVAL_CUSTOM_MENU"
+               class="inputbox" />
+
+        <field name="red_activation_success"
+               type="list"
+               label="COM_UU_FORM_LBL_CONFIGURATION_RED_ACTIVATION_SUCCESS"
+               description="COM_UU_FORM_DESC_CONFIGURATION_RED_ACTIVATION_SUCCESS"
+               class="inputbox" default="home">
+            <option value="home">COM_UU_RED_HOME</option>
+            <option value="login">COM_UU_RED_LOGIN</option>
+            <option value="register">COM_UU_RED_REGISTER</option>
+            <option value="login_register">COM_UU_RED_LOGIN_REGISTER</option>
+            <option value="custom">COM_UU_RED_CUSTOM</option>
+            <option value="custom_menu">COM_UU_RED_CUSTOM_MENU</option>
+        </field>
+
+        <field name="red_activation_success_custom"
+               type="modal_article"
+               showon="red_activation_success:custom"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_RED_ACTIVATION_SUCCESS_CUSTOM"
+               description="COM_UU_FORM_DESC_CONFIGURATION_RED_ACTIVATION_SUCCESS_CUSTOM"
+               class="inputbox" />
+
+        <field name="red_activation_success_custom_menu"
+               type="modal_menu"
+               showon="red_activation_success:custom_menu"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_RED_ACTIVATION_SUCCESS_CUSTOM_MENU"
+               description="COM_UU_FORM_DESC_CONFIGURATION_RED_ACTIVATION_SUCCESS_CUSTOM_MENU"
+               class="inputbox" />
+
+
+        <field name="red_activation_with_approval"
+           type="list"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_ACTIVATION_WITH_APPROVAL"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_ACTIVATION_WITH_APPROVAL"
+           class="inputbox" default="home">
+        <option value="home">COM_UU_RED_HOME</option>
+        <option value="login">COM_UU_RED_LOGIN</option>
+        <option value="register">COM_UU_RED_REGISTER</option>
+        <option value="login_register">COM_UU_RED_LOGIN_REGISTER</option>
+        <option value="custom">COM_UU_RED_CUSTOM</option>
+        <option value="custom_menu">COM_UU_RED_CUSTOM_MENU</option>
+    </field>
+
+    <field name="red_activation_with_approval_custom"
+           type="modal_article"
+           showon="red_activation_with_approval:custom"
+           size="50"
+           label="COM_UU_FORM_LBL_CONFIGURATION_RED_ACTIVATION_WITH_APPROVAL_CUSTOM"
+           description="COM_UU_FORM_DESC_CONFIGURATION_RED_ACTIVATION_WITH_APPROVAL_CUSTOM"
+           class="inputbox" />
+
+        <field name="red_activation_with_approval_custom_menu"
+               type="modal_menu"
+               showon="red_activation_with_approval:custom_menu"
+               size="50"
+               label="COM_UU_FORM_LBL_CONFIGURATION_RED_ACTIVATION_WITH_APPROVAL_CUSTOM_MENU"
+               description="COM_UU_FORM_DESC_CONFIGURATION_RED_ACTIVATION_WITH_APPROVAL_CUSTOM_MENU"
+               class="inputbox" />
+
+    </fieldset>
+</form>
+

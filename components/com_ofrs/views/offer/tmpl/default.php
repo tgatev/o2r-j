@@ -79,8 +79,7 @@ if (strlen($this->item->preview_url) < 3) {
     </div>
     <div id="preview-box" class="col-xs-12 col-sm-4 text-center">
         <div id="preview-btn" class="landing-page-link">
-            <?php
-            if ($this->item->preview_url and $this->item->thumbnail_url) : ?>  <a href="<?= $this->item->preview_url ?>" target="<?= $target ?>" style="font-weight: bold">Go To Landing Page</a>
+            <?php if ($this->item->preview_url and $this->item->thumbnail_url) : ?>  <a href="<?= $this->item->preview_url ?>" target="<?= $target ?>" style="font-weight: bold">Go To Landing Page</a>
             <?php else:?> &nbsp;
             <?php endif; ?>
         </div>

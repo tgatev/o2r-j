@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset name="component"
+		label="COM_UU_COMPONENT_LABEL"
+		description="COM_UU_COMPONENT_DESC"
+	>
+
+	<field name="downloadid" type="text" default="" size="30"
+		   label="COM_UU_CONFIG_BASIC_DOWNLOADID_LABEL"
+		   description ="COM_UU_CONFIG_BASIC_DOWNLOADID_DESC" />
+
+		<field
+				name="update_caching"
+				type="radio"
+				default="0"
+				class="btn-group btn-group-yesno"
+				label="COM_UU_CONFIG_UPDATE_CACHING_LBL"
+				description="COM_UU_CONFIG_UPDATE_CACHING_DESC"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+	</fieldset>
+
+
+
+	<fieldset name="permissions"
+		description="JCONFIG_PERMISSIONS_DESC"
+		label="JCONFIG_PERMISSIONS_LABEL"
+	>
+
+		<field name="rules" type="rules"
+			component="com_uu"
+			filter="rules"
+			validate="rules"
+			label="JCONFIG_PERMISSIONS_LABEL"
+			section="component" />
+	</fieldset>
+
+</config>
+

@@ -8,7 +8,7 @@
 	@created		5th July, 2019
 	@package		Offers
 	@subpackage		view.html.php
-	@author			SMIG <http://fuckitall.info>	
+	@author			SMIG	
 	@copyright		Copyright (C) 2019. All Rights Reserved
 	@license		GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html
   ____  _____  _____  __  __  __      __       ___  _____  __  __  ____  _____  _  _  ____  _  _  ____ 
@@ -35,8 +35,13 @@ class OfrsViewOffers extends JViewLegacy
 		$this->menu = $this->app->getMenu()->getActive();
 		// get the user object
 		$this->user = JFactory::getUser();
+		
 		// Initialise variables.
         $this->items = $this->get('Items');
+        
+        // Save the search
+        $this->saveSearch();
+        
         // load verticals map
 		$this->verticals_map = $this->get('VerticalsMap');
 
@@ -135,5 +140,33 @@ protected function getSortFields()
 	{
 		// use the helper htmlEscape method instead.
 		return OfrsHelper::htmlEscape($var, $this->_charset, $sorten, $length);
+	}
+	
+	private function saveSearch() {
+	    $filterStr = $this->getModel()->filterStr;
+	    $filterHash = hash('sha512', $filterStr);
+	    
+	    $db = JFactory::getDbo();
+	    $db->setQuery("SELECT COUNT(*) cc FROM ofrs_saved_search WHERE hash = '" . $filterHash . "'");
+	    $r = $db->loadObjectList();
+	    if (!($r[0]->cc)) {
+	        $db->setQuery("INSERT INTO ofrs_saved_search(hash,search) VALUES ('" . $filterHash . "','" . $filterStr . "')");
+	        $db->execute();
+	    }
+	    
+	    $saved_search_name = $this->app->input->get('saved_search_name1');
+	    if (strlen($saved_search_name) < 1)
+	        $saved_search_name = $this->app->input->get('saved_search_name2');
+        if (strlen($saved_search_name) > 0) {
+            $sql = "INSERT INTO ofrs_user_saved_search(name,created_at,user_id,saved_search_id)
+                            SELECT '".$saved_search_name."',current_timestamp,".$this->user->id.",id
+                            FROM ofrs_saved_search
+                            WHERE hash = '".$filterHash."'";
+//             echo('<pre>');
+//             echo($sql);
+//             echo('</pre>');
+            $db->setQuery($sql);
+            $db->execute();
+        }
 	}
 }

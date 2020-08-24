@@ -115,6 +115,7 @@ class OfrsModelOffer extends JModelItem
 				
 				// Get from #__ofrs_ad_network as b
 				$query->select('b.name AS ad_network_name,b.join_url AS ad_network_join_url, b.id as adnet_id, b.adnet_text_color as adnet_text_color, b.adnet_background_color as adnet_background_color ');
+
 				$query->join('INNER', ($db->quoteName('#__ofrs_ad_network', 'b')) . ' ON (' . $db->quoteName('a.ad_network_id') . ' = ' . $db->quoteName('b.id') . ')');
 				
 				// Get from #__ofrs_offer as c
@@ -141,10 +142,23 @@ class OfrsModelOffer extends JModelItem
                 // Add image to Query result
                 $query->select('OCTET_LENGTH(lp_thumbnail) as image_octet_len ');
                 $query->join('LEFT', ($db->quoteName('#__ofrs_offer_preview', 'preview')) . 'ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('preview.offer_id') . ')');
+                
+                // Get logged user
+                $user = JFactory::getUser();
+                $user_id = $user->id;
+                if ($user_id) {
+                    $query->select('NOT ISNULL(om.offer_id) AS is_monitored');
+                    $query->join('LEFT', 'ofrs_offer_monitor om ON (a.id = om.offer_id AND om.user_id = ' . $user_id . ')');
+                } else {
+                    $query->select('0 AS is_monitored');
+                }
 
 
                 $query->where('a.id = ' . (int) $pk);
                 $query->group('a.id');
+                
+//                 echo $query->dump();
+//                 die();
 
                 // Reset the query using our newly populated query object.
 				$db->setQuery($query);

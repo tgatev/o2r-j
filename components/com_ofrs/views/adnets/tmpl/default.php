@@ -114,7 +114,7 @@ if(isset($this->items) && isset($this->pagination) && isset($this->pagination->p
                                  direction="<?= OfrsHelper::getDirections("24", $search_filters_data) ?>" >
                             <i class=" fa fa-sort<?= ($search_filters_data['sort_by'] == 24 )? strtolower("-".$search_filters_data['sort_direction']): "" ?>">
                             </i>#OFFERS</section>
-                        <section class="col-xs-6 col-md-6 col-no-gutters table-header sort-btn"
+                        <section class="col-xs-6 col-md-6 col-no-gutters table-header sort-btn text-right"
                                  sort_by="49"
                                  direction="<?= OfrsHelper::getDirections("49", $search_filters_data) ?>" >
                             <i class=" fa fa-sort<?= ($search_filters_data['sort_by'] == 49 )? strtolower("-".$search_filters_data['sort_direction']): "" ?>">

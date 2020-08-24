@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="Offer Alerts">
+        <message>
+            Потребителите да получават известия по имейл ако се увеличи payout на конкретната оферта, както и ако същата оферта (същото LP) се появи от друга агенция.
+        </message>
+    </layout>
+</metadata>

@@ -32,7 +32,7 @@ class ModOfrsCountsHelper
         $query->select('network_count AS adnets_count FROM ofrs_statistics');
         $db->setQuery($query);
         $results = $db->loadObjectList();
-        return $results[0]->adnets_count;
+        return count($results);
     }
     
     

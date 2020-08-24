@@ -1399,7 +1399,6 @@ abstract class OfrsHelper
 
         $mouseover = "background-color: " . sprintf($format, $color_hue, $defaults['s'], $defaults['l']) .
             "color: white";// .sprintf($format, $color_hue, $bcg_color_data['s'], $bcg_color_data['l']) ;
-
         return ["onmouseleave" => $mouseleave, "onmouseover" => $mouseover];
     }
 
