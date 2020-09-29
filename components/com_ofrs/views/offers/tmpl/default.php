@@ -107,12 +107,15 @@ if (isset($this->items) && isset($this->pagination) && isset($this->pagination->
     <div class="row pagination-content">
         <div class="row ofrs-table-header hidden-xs hidden-sm " id="offers-table-header">
             <section class="col-md-4 col-no-gutters vertical-center-sm">
-                <div class="col-md-2 hidden-xs hidden-sm table-header">
-                    <!-- Eye Column --></div>
-                <div class="col-md-10 hidden-xs hidden-sm table-header sort-btn"
+                <div class="col-md-2 hidden-xs hidden-sm table-header"><!-- Eye Column --></div>
+                <div class="col-md-7 hidden-xs hidden-sm table-header sort-btn"
                      sort_by="45"
                      direction="<?= OfrsHelper::getDirections("45", $search_filters_data) ?>">
                     <i class=" fa fa-sort<?= ($search_filters_data['sort_by'] == 45) ? strtolower("-" . $search_filters_data['sort_direction']) : "" ?>"></i>OFFER
+                </div>
+                <div class="col-md-3 hidden-xs hidden-sm table-header sort-btn col-no-gutters"><!-- Favorites -->
+                    <i class=" fa fa-sort<?= ($search_filters_data['sort_by'] == 23) ? strtolower("-" . $search_filters_data['sort_direction']) : "" ?>">
+                    </i>FAVORITES
                 </div>
             </section>
             <section class="col-md-5 col-no-gutters">
@@ -190,10 +193,13 @@ if (isset($this->items) && isset($this->pagination) && isset($this->pagination->
                         </div>
 
                         <!-- Name -->
-                        <div class="offer-name col-xs-9 col-no-gutters vertical-center-sm" id="offer-name_<?= $id ?>">
+                        <div class="offer-name col-xs-7 col-no-gutters vertical-center-sm" id="offer-name_<?= $id ?>">
                             <a href="<?php echo OfrsHelperRoute::getOfferRoute($item->id); ?>">
                                 <?php echo $this->escape($item->name); ?>
                             </a>
+                        </div>
+                        <div class="offer-favorite col-xs col-md-3 col-no-gutters vertical-center-sm" id="offer-name_<?= $id ?>" style="justify-content: center; display: flex;">
+                            <i class="fa fa-heart-o fa-2x" id="heart_<?=$id?>"></i>
                         </div>
                 </section>
                 <section class="col-xs-12 col-md-5 col-no-gutters ofrs-article-content vertical-center-sm">
