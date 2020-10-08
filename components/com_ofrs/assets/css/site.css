@@ -434,7 +434,7 @@ ul.pagination {
     color: #757f89;
     background-color: #ffffff;
 }
-.adnet-logo > img {
+.adnet-logo > a > img {
     height: 100%;
     width: 100%;
     object-fit: scale-down;

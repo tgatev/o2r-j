@@ -75,15 +75,15 @@ JFactory::getDocument()->setTitle($this->item->name);
         $this->item->logo_url = "/images/fav-01.png";
          */
 
+        if ($this->item->adnet_logo) { ?>
 
-        if ($this->item->adnet_logo) {
-            ?>
+                <a href="<?=$this->item->join_url?>" target="_blank">
+                    <img id="<?= $this->item->id ?>" src="<?= $this->escape($this->item->logo_url); ?>"
+                     alt="Landing Page"
+                     onerror="jQuery('img#<?= $this->item->id ?>').replaceWith(`<?= htmlspecialchars(OfrsHelper::getPreviewNotFound()) ?>`);" align="middle" style="display: inline">
+                </a>
 
-            <img id="<?= $this->item->id ?>" src="<?= $this->escape($this->item->logo_url); ?>"
-                 alt="Landing Page"
-                 onerror="jQuery('img#<?= $this->item->id ?>').replaceWith(`<?= htmlspecialchars(OfrsHelper::getPreviewNotFound()) ?>`);" align="middle" style="display: inline">
-
-            <?php
+        <?php
         }else{
             echo OfrsHelper::getPreviewNotFound("Logo not found.");
         }

@@ -148,7 +148,7 @@ if (isset($this->items) && isset($this->pagination) && isset($this->pagination->
                     <i class=" fa fa-sort<?= ($search_filters_data['sort_by'] == 43) ? strtolower("-" . $search_filters_data['sort_direction']) : "" ?>">
                     </i>NETWORK
                 </div>
-                <div class="col-md-4 hidden-xs hidden-sm table-header offer-updated sort-btn col-no-gutters text-right "
+                <div class="col-md-4 hidden-xs hidden-sm table-header offer-updated sort-btn col-no-gutters"
                      sort_by="49"
                      direction="<?= OfrsHelper::getDirections("49", $search_filters_data) ?>">
                     <i class=" fa fa-sort<?= ($search_filters_data['sort_by'] == 49 || $search_filters_data['sort_by'] == "default") ? strtolower("-" . $search_filters_data['sort_direction']) : "" ?>"> </i>UPDATED

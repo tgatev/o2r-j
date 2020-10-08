@@ -100,21 +100,21 @@ if(isset($this->items) && isset($this->pagination) && isset($this->pagination->p
         <div class="row ofrs-table-header hidden-xs">
             <div class="row" id="offers-table-header">
                 <section class="col-md-12 ">
-                    <section class="col-xs-4 col-md-3  col-no-gutters">
+                    <section class="col-xs-4 col-md-2  col-no-gutters">
                         <div class="col-md-12 table-header sort-btn"
                                                           sort_by="43"
                                                           direction="<?= OfrsHelper::getDirections("43", $search_filters_data) ?>" >
                             <i class=" fa fa-sort<?= ($search_filters_data['sort_by'] == 43 )? strtolower("-".$search_filters_data['sort_direction']): "" ?>">
                             </i>NETWORK</div>
                     </section>
-                    <section class="col-xs-4 col-md-7 hidden-sm col-no-gutters ">DESCRIPTION</section>
+                    <section class="col-sm-8 col-md-8 hidden-sm col-no-gutters ">DESCRIPTION</section>
                     <section class="col-xs-4 col-sm-offset-4 col-md-2 col-md-offset-0 col-no-gutters">
                         <section class="col-xs-6 col-md-6 col-no-gutters table-header sort-btn "
                                  sort_by="24"
                                  direction="<?= OfrsHelper::getDirections("24", $search_filters_data) ?>" >
                             <i class=" fa fa-sort<?= ($search_filters_data['sort_by'] == 24 )? strtolower("-".$search_filters_data['sort_direction']): "" ?>">
                             </i>#OFFERS</section>
-                        <section class="col-xs-6 col-md-6 col-no-gutters table-header sort-btn text-right"
+                        <section class="col-xs-6 col-md-6 col-no-gutters table-header sort-btn"
                                  sort_by="49"
                                  direction="<?= OfrsHelper::getDirections("49", $search_filters_data) ?>" >
                             <i class=" fa fa-sort<?= ($search_filters_data['sort_by'] == 49 )? strtolower("-".$search_filters_data['sort_direction']): "" ?>">
