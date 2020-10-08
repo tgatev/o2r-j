@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -33,6 +33,13 @@ class Submit extends \ConvertForms\Field
 		'inputmask',
 		'readonly'
 	);
+
+	/**
+	 * Indicates the default required behavior on the form
+	 *
+	 * @var bool
+	 */
+	protected $required = false; 
 }
 
 ?>

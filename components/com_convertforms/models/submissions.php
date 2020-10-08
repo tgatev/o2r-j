@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -38,7 +38,7 @@ class ConvertFormsModelSubmissions extends ConvertFormsModelConversions
 	public function __construct($config = array())
 	{
 		$this->app  = JFactory::getApplication();
-		$this->options = isset($config['options']) ? new Registry($config['options']) : $this->app->getMenu()->getActive()->get('params');
+		$this->options = isset($config['options']) ? new Registry($config['options']) : $this->app->getMenu()->getActive()->getParams();
 
 		parent::__construct($config);
 	}

@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -310,7 +310,7 @@ class ConvertFormsModelConversions extends JModelList
         $this->setState('filter.join_campaigns', 'skip');
         $this->setState('filter.join_forms', 'skip');
 
-        $rows = $this->getItems();
+        $rows = $this->getItems(); 
 
         $this->prepareRowsForExporting($rows);
 
@@ -485,7 +485,6 @@ class ConvertFormsModelConversions extends JModelList
     private function getLastFormID()
     {
         $model = JModelLegacy::getInstance('Forms', 'ConvertFormsModel', ['ignore_request' => true]);
-        $model->setState('filter.state', '1');
         $model->setState('list.limit', 1);
         $model->setState('list.direction', 'asc');
 

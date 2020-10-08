@@ -102,6 +102,10 @@
                 rows="10"
                 class="span12"
             />
+            <field name="notephpscripts" type="note"
+                description="COM_CONVERTFORMS_PHPSCRIPT_NOTE"
+                class="alert"
+            />
         </fields>
     </fieldset>
 </form>

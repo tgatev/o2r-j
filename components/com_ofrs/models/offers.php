@@ -101,7 +101,8 @@ class OfrsModelOffers extends JModelList
                         b.adnet_text_color as adnet_text_color,
                         b.adnet_background_color as adnet_background_color,
                         d.name AS payout_type,
-                        c.display');
+                        c.display,
+                        a.have_lp_thumbnail as lp_thumbnail');
 
 		$query->from($db->quoteName('#__ofrs_offer', 'a'));
 		$query->join('', ($db->quoteName('#__ofrs_ad_network', 'b')) . ' ON (' . $db->quoteName('a.ad_network_id') . ' = ' . $db->quoteName('b.id') . ')');

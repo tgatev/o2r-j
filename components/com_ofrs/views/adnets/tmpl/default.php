@@ -145,7 +145,8 @@ if(isset($this->items) && isset($this->pagination) && isset($this->pagination->p
             ?>
         <article class="row Rtable-row vertical-center-sm" id="<?= $id ;?>">
             <section class="col-xs-12 col-sm-8 col-md-2 col-no-gutters vertical-center-sm">
-                <div><?= OfrsHelper::getNetworkBoxButtonLayout($item->adnet_id, $item->adnet_name, [
+                <div><?= OfrsHelper::getNetworkBoxButtonLayout($item->adnet_id, $item->adnet_name, null,
+                	[
                         "adnet_text_color" => $item->adnet_text_color,
                         "adnet_background_color" => $item->adnet_background_color,
 

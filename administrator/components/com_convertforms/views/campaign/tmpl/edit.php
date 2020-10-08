@@ -1,9 +1,8 @@
-
 <?php
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -12,31 +11,42 @@
 */
 
 defined('_JEXEC') or die('Restricted access');
-JHtml::_('behavior.formvalidation');
-JHtml::_('formbehavior.chosen', 'select');
 
-?>
+use Joomla\CMS\HTML\HTMLHelper;
 
-<script type="text/javascript">
-    Joomla.submitbutton = function(task)
-    {
-        if (task == 'campaign.cancel' || document.formvalidator.isValid(document.id('adminForm')))
-        {
-            Joomla.submitform(task, document.getElementById('adminForm'));
-        }
-    }
+HTMLHelper::_('behavior.formvalidator');
+HTMLHelper::_('behavior.keepalive');
 
+if (!defined('nrJ4'))
+{
+    JHtml::_('formbehavior.chosen', 'select');
+
+    JFactory::getDocument()->addScriptDeclaration('
+        document.addEventListener("DOMContentLoaded", function() {
+            Joomla.submitbutton = function(task)
+            {
+                if (task == "campaign.cancel" || document.formvalidator.isValid(document.getElementById("adminForm")))
+                {
+                    Joomla.submitform(task, document.getElementById("adminForm"));
+                }
+            }
+        });
+    ');
+}
+
+JFactory::getDocument()->addScriptDeclaration('
     jQuery(function($) {
         $("#jform_service").on("change", function() {
-            $('#confirm-delete').modal('show');
+            $("#confirm-delete").modal("show");
         })
 
         $("#confirm-delete .btn-success").click(function() {
-            Joomla.submitform("campaign.apply", document.getElementById('adminForm'));
+            Joomla.submitform("campaign.apply", document.getElementById("adminForm"));
         })
     })
+');
 
-</script>
+?>
 
 <div class="modal fade modal-nr modal-sm" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -59,14 +69,14 @@ JHtml::_('formbehavior.chosen', 'select');
     <div class="form-horizontal">
         <div class="row-fluid">
             <div class="span12">
-                <div class="well nr-well">
+                <div class="card p-3 mb-3 well nr-well">
                     <h4>Campaign Settings</h4>
                     <?php echo $this->form->renderField("name"); ?>
                     <?php echo $this->form->renderField("state"); ?>
                 </div>
-                <div class="well nr-well">
+                <div class="card p-3 well nr-well">
                     <h4><?php echo JText::_("COM_CONVERTFORMS_CAMPAIGN_SYNC") ?></h4>
-                    <div class="well-desc">
+                    <div class="well-desc" style="margin-bottom:20px">
                         <?php echo JText::_("COM_CONVERTFORMS_CAMPAIGN_SYNC_DESC"); ?>
                     </div>
 
@@ -77,7 +87,7 @@ JHtml::_('formbehavior.chosen', 'select');
                         <div class="controls">
                             <?php echo $this->form->getInput("service"); ?>
                             <a href="<?php echo JURI::base() ?>index.php?option=com_convertforms&view=addons" class="btn btn-info btn-small">
-                                <span class="icon-cogs"></span>
+                                <span class="icon-cogs" style="margin-right:5px;"></span>
                                 <?php echo JText::_("COM_CONVERTFORMS_INSTALL_ADDONS"); ?>
                             </a>
                         </div>
@@ -85,9 +95,9 @@ JHtml::_('formbehavior.chosen', 'select');
                     <?php echo $this->form->renderField("service_pro"); ?>
                 </div>
                 <?php if ($this->item->service) { ?>
-                    <div class="well nr-well cf-service-fields">
+                    <div class="card p-3 mt-3 well nr-well cf-service-fields">
                         <h4><?php echo JText::_("PLG_CONVERTFORMS_" . $this->item->service  . "_ALIAS"); ?></h4>
-                        <div class="well-desc"><?php echo JText::_("PLG_CONVERTFORMS_" . $this->item->service  . "_DESC"); ?></div>
+                        <div class="well-desc" style="margin-bottom:20px;"><?php echo JText::_("PLG_CONVERTFORMS_" . $this->item->service  . "_DESC"); ?></div>
                         <?php echo $this->form->renderFieldset("service"); ?>
                     </div>
                 <?php } ?>

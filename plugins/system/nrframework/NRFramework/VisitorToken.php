@@ -84,14 +84,6 @@ class VisitorToken
     }
 
     /**
-     *  Deprecated
-     */
-    public function getToken($forceNew = false)
-    {
-        return $this->get($forceNew);
-    }
-
-    /**
      *  Create a token-string
      *
      *  @param   integer $length  Length of string
@@ -104,14 +96,6 @@ class VisitorToken
     }
 
     /**
-     *  Deprecated
-     */
-    private function createToken($length = 8)
-    {
-        return $this->create($length);
-    }
-
-    /**
      *  Saves the cookie to the visitor's browser
      *
      *  @param   string  $value  Cookie Value
@@ -120,16 +104,6 @@ class VisitorToken
      */
     private function store($value)
     {
-        $this->cookies->set($this->cookieName, $value, time() + $this->expire, '/');
-    }
-
-    /**
-     *  Deprecated
-     */
-    private function saveToken($value)
-    {
-        $this->store($value);
+        $this->cookies->set($this->cookieName, $value, time() + $this->expire, '/', '', true);
     }
 }
-
-?>

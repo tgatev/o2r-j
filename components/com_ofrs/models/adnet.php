@@ -126,13 +126,13 @@ class OfrsModelAdnet extends JModelItem
 				$query->join('LEFT OUTER', ($db->quoteName('#__ofrs_offer', 'c')) . ' ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('c.ad_network_id') . ')');
 
 				// Get from #__ofrs_offer_payout as d
-				$query->select('d.type AS ofrs_offer_payout_payout_type');
 				$query->join('LEFT OUTER', ($db->quoteName('#__ofrs_offer_payout', 'd')) . ' ON (' . $db->quoteName('c.id') . ' = ' . $db->quoteName('d.offer_id') . ')');
 
 				// Get from #__ofrs_payout_type as e
 				$query->select('GROUP_CONCAT(DISTINCT e.name) AS payout_types');
 				$query->join('LEFT OUTER', ($db->quoteName('#__ofrs_payout_type', 'e')) . ' ON (' . $db->quoteName('d.type') . ' = ' . $db->quoteName('e.id') . ')');
 				$query->where('a.id = ' . (int) $pk);
+				$query->where('c.published = 1');
 				$query->group('a.id');
 
 				// Reset the query using our newly populated query object.
@@ -188,15 +188,14 @@ class OfrsModelAdnet extends JModelItem
 			}
 		}
 
-/***[JCBGUI.dynamic_get.php_after_getitem.42.$$$$]***/
-$data->payment_methods = $this->getPaymentMethodsDisplay($data->payment_methods);/***[/JCBGUI$$$$]***/
+
+		//$data->payment_methods = $this->getPaymentMethodsDisplay($data->payment_methods);
 
 
 		return $this->_item[$pk];
 	}
 
 
-/***[JCBGUI.site_view.php_model.28.$$$$]***/
 	public function getPaymentMethodsDisplay($pms) {
 	    $payment_methodArray = array(
 	        'P' => 'PayPal',
@@ -212,7 +211,7 @@ $data->payment_methods = $this->getPaymentMethodsDisplay($data->payment_methods)
 	        $ret .= $payment_methodArray[$pm];
 	    }
 	    return $ret;
-	}/***[/JCBGUI$$$$]***/
+	}
 
     /**
      * @param null $pk primary key

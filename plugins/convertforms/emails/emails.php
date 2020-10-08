@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -226,7 +226,7 @@ class plgConvertFormsEmails extends JPlugin
             }
 
             // In case a sub Smart Tag is being used. Eg: {field.dropdown.label} to get dropdown's selected text.
-            if (strpos($name, $field->name . '.') !== false)
+            if (stripos($name, $field->name . '.') !== false)
             {
                 return true;
             }

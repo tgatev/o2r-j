@@ -65,7 +65,7 @@ class plgSystemNRFramework extends JPlugin
 	{
 		// Run only on Novarain Framework edit form
 		if (
-			$this->app->isSite()
+			$this->app->isClient('site')
 			|| $context != 'com_plugins.plugin'
 			|| $table->element != 'nrframework'
 			|| !isset($table->params)

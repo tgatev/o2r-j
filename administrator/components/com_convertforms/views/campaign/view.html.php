@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -12,9 +12,8 @@
 
 defined('_JEXEC') or die('Restricted access');
  
-// import Joomla view library
-jimport('joomla.application.component.view');
- 
+use Joomla\CMS\Toolbar\Toolbar;
+
 /**
  * Campaign View Class
  */
@@ -62,6 +61,27 @@ class ConvertFormsViewCampaign extends JViewLegacy
         $isNew = ($this->item->id == 0);
 
         JToolBarHelper::title($isNew ? JText::_('COM_CONVERTFORMS_NEW_CAMPAIGN') : JText::_('COM_CONVERTFORMS_EDIT_CAMPAIGN') . ": " . $this->item->name . " - ". $this->item->id);
+
+        if (defined('nrJ4'))
+        {
+            $toolbar = Toolbar::getInstance();
+
+            $saveGroup = $toolbar->dropdownButton('save-group');
+            
+			$saveGroup->configure(
+				function (Toolbar $childBar)
+				{
+                    $childBar->apply('campaign.apply');
+                    $childBar->save('campaign.save');
+                    $childBar->save2new('campaign.save2new');
+					$childBar->save2copy('campaign.save2copy');
+				}
+            );
+            
+			$toolbar->cancel('campaign.cancel', 'JTOOLBAR_CLOSE');
+
+            return;
+        }
 
         JToolbarHelper::apply('campaign.apply');
         JToolBarHelper::save('campaign.save');

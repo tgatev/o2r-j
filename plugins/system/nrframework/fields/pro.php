@@ -26,14 +26,14 @@ class JFormFieldNR_PRO extends JFormField
 
         NRFramework\HTML::renderProOnlyModal();
 
-        $html = '<a style="float:none;" class="btn btn-danger" data-pro-only="' . JText::_($label) . '">';
+        $html = '<a style="float:none;" class="btn btn-danger btn-sm" href="#" data-pro-only="' . JText::_($label) . '">';
 
         if ($isFeatureMode)
         {
-            $html .= '<span class="icon-lock" style="position:relative; top:1px;"></span> ';
+            $html .= '<span class="icon-lock mr-2" style="position:relative; top:1px;"></span> ';
         } else 
         {
-            $html .= '<span class="icon-heart" style="position:relative; top:2px; left:-1px;"></span>';
+            $html .= '<span class="icon-heart mr-2" style="position:relative; top:2px; left:-1px;"></span>';
         }
 
         $html .= JText::_($buttonText) . '</a>';

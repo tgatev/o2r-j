@@ -49,20 +49,31 @@ class JFormFieldAdnetwork extends JFormFieldList
 		// Get the databse object.
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select($db->quoteName(array('a.id','a.name'),array('id','ad_network_id_name')));
-		$query->from($db->quoteName('#__ofrs_ad_network', 'a'));
-		$query->where($db->quoteName('a.published') . ' = 1');
-		$query->order('a.name ASC');
+		// $query->select($db->quoteName(array('a.id','a.name'),array('id','ad_network_id_name')));
+		// $query->from($db->quoteName('#__ofrs_ad_network', 'a'));
+		// $query->where($db->quoteName('a.published') . ' = 1');
+		// $query->order('a.name ASC');
 		// Implement View Level Access (if set in table)
-		if (!$user->authorise('core.options', 'com_ofrs'))
-		{
-			$columns = $db->getTableColumns('#__ofrs_ad_network');
-			if(isset($columns['access']))
-			{
-				$groups = implode(',', $user->getAuthorisedViewLevels());
-				$query->where('a.access IN (' . $groups . ')');
-			}
-		}
+		// if (!$user->authorise('core.options', 'com_ofrs'))
+		// {
+		// 	$columns = $db->getTableColumns('#__ofrs_ad_network');
+		// 	if(isset($columns['access']))
+		// 	{
+		// 		$groups = implode(',', $user->getAuthorisedViewLevels());
+		// 		$query->where('a.access IN (' . $groups . ')');
+		// 	}
+		// }
+		
+		$query->select('a.id AS id,a.name AS ad_network_id_name
+						FROM jc_ofrs_ad_network AS a
+						JOIN ofrs_ad_network_summary s ON (a.id = s.ad_network_id)
+						WHERE a.published = 1
+						ORDER BY a.name ASC');
+		
+		// echo('<pre>');
+		// print_r($query->__toString());
+		// echo('</pre>');
+		// die();
 		$db->setQuery((string)$query);
 		$items = $db->loadObjectList();
 		$options = array();

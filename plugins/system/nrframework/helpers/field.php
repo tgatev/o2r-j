@@ -151,5 +151,4 @@ class NRFormField extends JFormField
 
 		return $option;
 	}
-
 }

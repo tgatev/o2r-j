@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -28,25 +28,28 @@ class ConvertFormsControllerForm extends JControllerForm
 		$validData = $model->validate('jform', $data);
 
         JPluginHelper::importPlugin('convertforms');
+        JPluginHelper::importPlugin('convertformstools');
 
 		if (!$model->save($validData))
 		{
-			$error = \JText::sprintf('JLIB_APPLICATION_ERROR_SAVE_FAILED', $model->getError());
-			header('HTTP/1.1 500 ' . $error);
+			header('HTTP/1.1 500');
+			$response = [
+				'error' => \JText::sprintf('JLIB_APPLICATION_ERROR_SAVE_FAILED', $model->getError())
+			];
+		}
+		else 
+		{
+			$id = $model->getState('form.id');
+			$isNew = $data['id'] == 0;
+	
+			$response = [
+				'id'       => $id,
+				'isNew'    => $isNew,
+				'redirect' => JRoute::_('index.php?option=com_convertforms&task=form.edit&id=' . $id)
+			];
 		}
 
-		$id = $model->getState('form.id');
-		$isNew = $data['id'] == 0;
-
-		$response = [
-			'id'       => $id,
-			'isNew'    => $isNew,
-			'redirect' => JRoute::_('index.php?option=com_convertforms&task=form.edit&id=' . $id)
-		];
-
-		echo json_encode($response, JSON_UNESCAPED_UNICODE);
-
-		jexit();
+		jexit(json_encode($response, JSON_UNESCAPED_UNICODE));
 	}
 
 	public function preview()

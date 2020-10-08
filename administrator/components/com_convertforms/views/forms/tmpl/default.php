@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -12,20 +12,39 @@
 
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Button\PublishedButton;
+
 JHtml::_('bootstrap.popover');
-JHTML::_('behavior.modal');
 
 $listOrder = $this->escape($this->state->get('list.ordering'));
 $listDirn  = $this->escape($this->state->get('list.direction'));
+
+if (!defined('nrJ4'))
+{
+    JFactory::getDocument()->addScriptDeclaration('
+        jQuery(function($) {
+            Joomla.submitbutton = function(task) {
+                if (task == "form.add") {
+                    jQuery("#cfSelectTemplate").modal("show");
+                } else {
+                    Joomla.submitform(task, document.getElementById("adminForm"));
+                }
+            }
+        });
+    ');
+}
 
 $user = JFactory::getUser();
 
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_convertforms&view=forms'); ?>" class="clearfix" method="post" name="adminForm" id="adminForm">
+    
+    <?php if (!defined('nrJ4')) { ?>
     <div id="j-sidebar-container" class="span2">
         <?php echo $this->sidebar; ?>
     </div>
+    <?php } ?>
     <div id="j-main-container">
         <?php
             echo JLayoutHelper::render('joomla.searchtools.default', array('view' => $this));
@@ -62,18 +81,30 @@ $user = JFactory::getUser();
                         <tr class="row<?php echo $i % 2; ?>">
                             <td class="text-center"><?php echo JHtml::_('grid.id', $i, $item->id); ?></td>
                             <td class="text-center">
-                                <div class="btn-group">
-                                    <?php echo JHtml::_('jgrid.published', $item->state, $i, 'forms.', $canChange); ?>
+                                <?php if (defined('nrJ4')) { ?>
                                     <?php
-                                    if ($canChange)
-                                    {
-                                        JHtml::_('actionsdropdown.' . ((int) $item->state === -2 ? 'un' : '') . 'trash', 'cb' . $i, 'forms');
-                                        JHtml::_('actionsdropdown.' . 'duplicate', 'cb' . $i, 'forms');
-                                               
-                                        echo JHtml::_('actionsdropdown.render', $this->escape($item->name));
-                                    }
+                                        $options = [
+                                            'task_prefix' => 'forms.',
+                                            'disabled' => !$canChange
+                                        ];
+
+                                        echo (new PublishedButton)->render((int) $item->state, $i, $options);
                                     ?>
-                                </div>
+                                <?php } else { ?>
+                                    <div class="btn-group">
+                                        <?php echo JHtml::_('jgrid.published', $item->state, $i, 'forms.', $canChange); ?>
+
+                                        <?php
+                                        if ($canChange && !defined('nrJ4'))
+                                        {
+                                            JHtml::_('actionsdropdown.' . ((int) $item->state === -2 ? 'un' : '') . 'trash', 'cb' . $i, 'forms');
+                                            JHtml::_('actionsdropdown.' . 'duplicate', 'cb' . $i, 'forms');
+                                                
+                                            echo JHtml::_('actionsdropdown.render', $this->escape($item->name));
+                                        }
+                                        ?>
+                                    </div>
+                                <?php } ?>
                             </td>
                             <td>
                                 <a href="<?php echo JRoute::_('index.php?option=com_convertforms&task=form.edit&id='.$item->id); ?>" title="<?php echo JText::_('JACTION_EDIT'); ?>"><?php echo $this->escape($item->name); ?>
@@ -89,12 +120,11 @@ $user = JFactory::getUser();
                             </td>
                             <td class="text-center">
                                 <?php
-                                    $badgeClass = $item->leads ? 'success' : '';
                                     $total = number_format($item->leads);
                                 
                                 ?>
                                 <a href="<?php echo $leadsURL ?>">
-                                    <span class="badge badge-<?php echo $badgeClass; ?> hasPopover" data-placement="top" data-content="<?php echo JText::sprintf("COM_CONVERTFORMS_FORM_LEADS", $total) ?>">
+                                    <span class="badge badge-info hasPopover" data-placement="top" data-content="<?php echo JText::sprintf("COM_CONVERTFORMS_FORM_LEADS", $total) ?>">
                                         <?php echo $total; ?>
                                     </span>
                                 </a>
@@ -106,14 +136,6 @@ $user = JFactory::getUser();
                                             data-placement="top"
                                             data-content="<?php echo JText::_("COM_CONVERTFORMS_VIEW_LEADS") ?>"
                                             href="<?php echo JURI::base() ?>index.php?option=com_convertforms&view=conversions&filter.form_id=<?php echo $item->id ?>&filter.state"><span class="icon icon-users"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="hasPopover" 
-                                            data-placement="top"
-                                            data-content="<?php echo JText::_("JTOOLBAR_DUPLICATE") ?>"
-                                            href="javascript://" onclick="listItemTask('cb<?php echo $i; ?>', 'forms.duplicate')">
-                                            <span class="icon icon-copy"></span>
                                         </a>
                                     </li>
                                     <li>
@@ -130,7 +152,7 @@ $user = JFactory::getUser();
                                             data-placement="top"
                                             data-content="<?php echo JText::sprintf("COM_CONVERTFORMS_FORM_CLIPBOARD_SHORTCODE", "{convertforms ".$item->id."}") ?>"
                                             href='#'>
-                                            <span class="icon icon-link"></span>
+                                            <span class="icon icon-link disable-click"></span>
                                         </a>
                                     </li>
                                 </ul>
@@ -150,10 +172,10 @@ $user = JFactory::getUser();
                     </tr>
                 <?php } ?>        
             </tbody>
-            <tfoot>
-    			<tr><td colspan="9"><?php echo $this->pagination->getListFooter(); ?></td></tr>
-            </tfoot>
         </table>
+
+        <?php echo $this->pagination->getListFooter(); ?>
+
         <div>
             <input type="hidden" name="task" value="" />
             <input type="hidden" name="boxchecked" value="0" />
@@ -162,51 +184,45 @@ $user = JFactory::getUser();
     </div>
 </form>
 
-<?php include_once(JPATH_COMPONENT_ADMINISTRATOR."/layouts/footer.php"); ?>
+<?php include_once(JPATH_COMPONENT_ADMINISTRATOR . '/layouts/footer.php'); ?>
 
 <script>
-    jQuery(function($) {
-        $(".copyToClipboard").click(function() {
-            $data = $(this).data("clipboard");
+    document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("click", function(e) {
 
-            copyTextToClipboard($data, function(success) {
+            if (!e.target.classList.contains("copyToClipboard")) {
+                return;
+            }
+
+            e.preventDefault();
+            var data = e.target.dataset.clipboard;
+            copyTextToClipboard(data, function(success) {
                 if (success)  {
-                    alert("Shortcode " + $data + " copied to clipboard");
+                    Joomla.renderMessages({"success": ["Shortcode " + data + " copied to clipboard"]});
                 }
             });
-
-            return false;
         });
+
+        function copyTextToClipboard(text, callback) {
+            var textArea = document.createElement("textarea");
+            textArea.style.position = 'fixed';
+            textArea.style.top = 0;
+            textArea.style.left = 0;
+            textArea.style.width = '2em';
+            textArea.style.height = '2em';
+            textArea.style.background = 'transparent';
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+
+            try {
+                var success = document.execCommand('copy');
+                callback(success);
+            } catch (err) {
+                callback(false);
+            }
+
+            document.body.removeChild(textArea);
+        }
     })
-
-    Joomla.submitbutton = function(task) {
-        if (task == 'form.add') {
-            url = "index.php?option=com_convertforms&view=templates&tmpl=component"
-            SqueezeBox.open(url, { handler: 'iframe', size: {x: 1100, y: 635}}); 
-        } else {
-            Joomla.submitform(task, document.getElementById('adminForm'));
-        }
-    }
-
-    function copyTextToClipboard(text, callback) {
-        var textArea = document.createElement("textarea");
-        textArea.style.position = 'fixed';
-        textArea.style.top = 0;
-        textArea.style.left = 0;
-        textArea.style.width = '2em';
-        textArea.style.height = '2em';
-        textArea.style.background = 'transparent';
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.select();
-
-        try {
-            var success = document.execCommand('copy');
-            callback(success);
-        } catch (err) {
-            callback(false);
-        }
-
-        document.body.removeChild(textArea);
-    }
 </script>

@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -30,11 +30,12 @@ $canAccessCampaigns   = Helper::authorise('convertforms.campaigns.manage');
 
 ?>
 
-<div class="row-fluid dashboard">
-	<span class="span8">
-		<div class="row-fluid">
-			<div class="clearfix">
-				<ul class="nr-icons clearfix">
+
+<div class="<?php echo defined('nrJ4') ? 'row' : 'row-fluid' ?> dashboard">
+	<span class="span8 col-md-8">
+		<div class="<?php echo defined('nrJ4') ? 'row' : 'row-fluid' ?>">
+			<div class="span12 col-md-12">
+				<ul class="nr-icons">
 					<?php if ($canAccessForms) { ?>
 					<li>
 						<a href="javascript: newForm()">
@@ -97,23 +98,23 @@ $canAccessCampaigns   = Helper::authorise('convertforms.campaigns.manage');
 			</div>
 		</div>
 		<?php if ($canAccessSubmissions) { ?>
-		<div class="row-fluid" style="margin-top:10px;">
-			<div class="span6">
-				<div class="well nr-well-white">
+		<div class="<?php echo defined('nrJ4') ? 'row' : 'row-fluid' ?>" style="margin-top:10px;">
+			<div class="span6 col-md-6">
+				<div class="nr-well-white">
 				<h3><?php echo JText::_("COM_CONVERTFORMS_SUBMISSIONS") ?></h3>
 				<?php include "panel.stats.php"; ?>
 				</div>
 			</div>
-			<div class="span6">
-				<div class="well nr-well-white">
-					<h3>Latest Submissions</h3>
+			<div class="span6 col-md-6">
+				<div class="nr-well-white">
+					<h3><?php echo JText::_('COM_CONVERTFORMS_LATEST_SUBMISSIONS') ?></h3>
 					<?php include "latest.leads.php"; ?>
 				</div>
 			</div>
 		</div>
 		<?php } ?>
 	</span>
-	<span class="span4">
+	<span class="span4 col-md-4">
 		<?php if (!$downloadKey) { ?>
 			<div class="alert alert-danger">
 				<h3><?php echo JText::_("NR_DOWNLOAD_KEY_MISSING") ?></h3>
@@ -151,12 +152,10 @@ $canAccessCampaigns   = Helper::authorise('convertforms.campaigns.manage');
 		<?php echo JHtml::_('bootstrap.endAccordion'); ?>
 	</span>
 </div>
-<hr>
 <?php include_once(JPATH_COMPONENT_ADMINISTRATOR . '/layouts/footer.php'); ?>
 
 <script>
 	function newForm() {
-        url = 'index.php?option=com_convertforms&view=templates&tmpl=component';
-        SqueezeBox.open(url, { handler: 'iframe', size: {x: 1100, y: 635}});
+        jQuery("#cfSelectTemplate").modal("show");
     }
 </script>

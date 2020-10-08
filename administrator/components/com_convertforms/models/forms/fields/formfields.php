@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -135,9 +135,6 @@ class JFormFieldFormFields extends JFormField
 
     private function addMediaFiles()
     {
-        // Choices Field
-        $choicesPath = JURI::base(true) . '/components/com_convertforms/models/forms/fields/';
-        JFactory::getDocument()->addStylesheet($choicesPath . 'choices.css');
-        JFactory::getDocument()->addScript($choicesPath . 'choices.js');
+        JHtml::script('com_convertforms/choices.js', ['relative' => true, 'version' => 'auto']);
     }
 }

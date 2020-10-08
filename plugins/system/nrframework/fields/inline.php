@@ -21,6 +21,8 @@ class JFormFieldNR_Inline extends NRFormField
 	 */
 	protected function getInput()
 	{
+		JHtml::stylesheet('plg_system_nrframework/inline-control-group.css', ['relative' => true, 'version' => 'auto']);
+
 		$start = $this->get('start', 1);
 		$end   = $this->get('end', 0);
 

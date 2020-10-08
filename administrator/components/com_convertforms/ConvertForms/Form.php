@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -28,7 +28,7 @@ class Form
      *
      * @return mixed       Null on failure, array on success
      */
-    public static function load($id, $only_inputs = false)
+    public static function load($id, $only_inputs = false, $ignore_state = false)
     {
         if (!$id)
         {
@@ -47,9 +47,13 @@ class Form
          
         $query->select('*')
             ->from($db->quoteName('#__convertforms'))
-            ->where($db->quoteName('id') . ' = '. (int) $id)
-            ->where($db->quoteName('state') . ' = 1');
-         
+            ->where($db->quoteName('id') . ' = '. (int) $id);
+        
+        if (!$ignore_state)
+        {
+            $query->where($db->quoteName('state') . ' = 1');
+        }
+
         $db->setQuery($query);
 
         if (!$form = $db->loadAssoc())
@@ -123,7 +127,7 @@ class Form
     public static function runPHPScript($form_id, $script_name, &$payload)
     {
         // Only on the front-end
-        if (\JFactory::getApplication()->isAdmin())
+        if (\JFactory::getApplication()->isClient('administrator'))
         {
             return;
         }

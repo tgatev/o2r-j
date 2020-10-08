@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -36,8 +36,8 @@ extract($displayData);
 
 				<ul class="cf-menu">
 					<li class="cf-menu-parent">
-						<a href="#" class="cf-icon-dots" data-toggle="dropdown"></a>
-						<ul>
+						<a href="#" class="cf-icon-dots cf-menu-item" data-toggle="dropdown"></a>
+						<ul class="<?php echo defined('nrJ4') ? 'dropdown-menu' : '' ?>">
 							<li>
 								<a href="#" class="copyField"><?php echo JText::_('COM_CONVERTFORMS_FIELDS_COPY') ?></a>
 							</li>

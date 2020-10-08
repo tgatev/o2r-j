@@ -1,6 +1,5 @@
 <?php
 
-
 /*----------------------------------------------------------------------------------|  www.vdm.io  |----/
 				Delta Flip 
 /-------------------------------------------------------------------------------------------------------/
@@ -220,7 +219,7 @@ if (isset($this->items) && isset($this->pagination) && isset($this->pagination->
                             <label class="-mini">COUNTRIES</label>
                         </span>
                         <?php
-                        $countries_count = substr_count($item->geo_targeting_full, ',');
+                        $countries_count = substr_count($item->geo_targeting_full, ',') + 1;
                         if ($countries_count > 5):
                             $parts = explode(',', $item->geo_targeting_full)
                             ?>
@@ -259,7 +258,8 @@ if (isset($this->items) && isset($this->pagination) && isset($this->pagination->
                         <span class="col-xs-12 col-sm-12 hidden-lg hidden-md ofrs-table-header">
                             <label class="-mini">NETWORK </label>
                         </span>
-                        <div><?= OfrsHelper::getNetworkBoxButtonLayout($item->adnet_id, $item->adnet_name, [
+                        <div><?= OfrsHelper::getNetworkBoxButtonLayout($item->adnet_id, $item->adnet_name, null,
+                        	[
                                 "adnet_text_color" => $item->adnet_text_color,
                                 "adnet_background_color" => $item->adnet_background_color,
 

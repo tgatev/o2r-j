@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -23,11 +23,11 @@ if (isset($field->inputmask) && !empty($field->inputmask))
 
 ?>
 
-<div class="cf-control-group <?php echo $cssclass; ?>" data-key="<?php echo $field->key; ?>">
+<div class="cf-control-group <?php echo $cssclass; ?>" data-key="<?php echo $field->key; ?>" data-name="<?php echo $field->name; ?>" data-type="<?php echo $field->type ?>" <?php echo (isset($field->required) && $field->required) ? 'data-required' : '' ?>>
 	<?php if (isset($field->hidelabel) && !$field->hidelabel && !empty($field->label)) { ?>
 		<div class="cf-control-label">
-			<label class="cf-label" style="<?php echo implode(";", $field->labelStyles) ?>" for="<?php echo $field->id; ?>">
-				<?php echo $field->label?>
+			<label class="cf-label" style="<?php echo implode(";", $field->labelStyles) ?>" for="<?php echo $field->input_id; ?>">
+				<?php echo $field->label ?>
 				<?php if ($form['params']->get('required_indication', true) && $field->required) { ?>
 					<span class="cf-required-label">*</span>
 				<?php } ?>

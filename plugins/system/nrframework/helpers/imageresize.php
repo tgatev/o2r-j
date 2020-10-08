@@ -274,6 +274,4 @@ class NRFrameworkImage {
         return JURI::root(true).'/cache/images/'.$this->createFilename();
 
     }
-
-
 }

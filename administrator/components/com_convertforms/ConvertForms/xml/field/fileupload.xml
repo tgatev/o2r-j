@@ -28,6 +28,10 @@
             label="COM_CONVERTFORMS_FILEUPLOAD_REMOVE_RANDOM_PREFIX"
             description="COM_CONVERTFORMS_FILEUPLOAD_REMOVE_RANDOM_PREFIX_DESC"
         />
+        <field name="allow_unsafe" type="nrtoggle"
+            label="COM_CONVERTFORMS_UPLOAD_ALLOW_UNSAFE"
+            description="COM_CONVERTFORMS_UPLOAD_ALLOW_UNSAFE_DESC"
+        />
         
         
         <field name="@limit_files" type="nr_pro"

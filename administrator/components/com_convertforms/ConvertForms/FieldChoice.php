@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -107,7 +107,7 @@ class FieldChoice extends \ConvertForms\Field
             }
 
             $label = trim($choiceValue['label']);
-            $value = $choiceValue['value'] == '' ? $label : $choiceValue['value'];
+            $value = $choiceValue['value'] == '' ? strip_tags($label) : $choiceValue['value'];
 
             $choices[] = array(
                 'label'      => $label,
@@ -123,8 +123,7 @@ class FieldChoice extends \ConvertForms\Field
             array_unshift($choices, array(
                 'label'    => trim($field->placeholder),
                 'value'    => '',
-                'selected' => true,
-                'disabled' => true
+                'selected' => true
             ));
         }
 

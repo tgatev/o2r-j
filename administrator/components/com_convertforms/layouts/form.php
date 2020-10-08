@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -16,8 +16,8 @@ extract($displayData);
 
 ?>
 
-<div <?php echo trim($boxattributes) ?>>
-	<form name="cf<?php echo $id; ?>" id="cf<?php echo $id; ?>" method="post" action="#" >
+<div <?php echo trim($boxattributes) ?> data-id="<?php echo $id ?>">
+	<form name="cf<?php echo $id; ?>" id="cf<?php echo $id; ?>" method="post" action="#">
 		<?php if ($hascontent) { ?>
 		<div class="cf-content-wrap cf-col-16 <?php echo $contentclasses ?>">
 			<div class="cf-content cf-col-16">
@@ -60,7 +60,7 @@ extract($displayData);
 		<?php 
 			echo JHtml::_('form.token'); 
 
-			if (JFactory::getApplication()->isSite())
+			if (JFactory::getApplication()->isClient('site'))
 			{
 				echo $params->get('customcode', '');
 			}
@@ -79,7 +79,7 @@ extract($displayData);
 		<?php } ?>
 	</form>
 	<?php
-		if (JFactory::getApplication()->isSite())
+		if (JFactory::getApplication()->isClient('site'))
 		{
 			JFactory::getDocument()->addStyleDeclaration($params->get('customcss'));
 		} else {

@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -22,7 +22,10 @@ if (!$class->getSiteKey() || !$class->getSecretKey())
 
 JText::script('COM_CONVERTFORMS_RECAPTCHA_NOT_LOADED');
 JHtml::_('script', 'plg_captcha_recaptcha/recaptcha.min.js', ['version' => 'auto', 'relative' => true]);
-JHtml::_('script', 'https://www.google.com/recaptcha/api.js?onload=JoomlaInitReCaptcha2&render=explicit&hl=' . JFactory::getLanguage()->getTag());
+
+$callback = defined('nrJ4') ? 'init' : 'Init'; // Why the hell did you guys rename the method?
+JHtml::_('script', 'https://www.google.com/recaptcha/api.js?onload=Joomla' . $callback . 'ReCaptcha2&render=explicit&hl=' . JFactory::getLanguage()->getTag());
+
 JHtml::_('script', 'com_convertforms/recaptcha_v2_checkbox.js', ['version' => 'auto', 'relative' => true]);
 
 ?>

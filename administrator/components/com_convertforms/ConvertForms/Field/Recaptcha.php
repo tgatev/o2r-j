@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -73,13 +73,16 @@ class Recaptcha extends \ConvertForms\Field
 	 *  Validate field value
 	 *
 	 *  @param   mixed  $value           The field's value to validate
-	 *  @param   array  $field_options   The field's options (Entered in the backend)
-	 *  @param   array  $form_data       The form submitted data
 	 *
 	 *  @return  mixed                   True on success, throws an exception on error
 	 */
-	public function validate(&$value, $field_options, $form_data)
+	public function validate(&$value)
 	{
+		if (!$this->field->get('required'))
+		{
+			return true;
+		}
+
 		// In case this is a submission via URL, skip the check.
 		if (\JFactory::getApplication()->input->get('task') == 'optin')
 		{
@@ -89,10 +92,10 @@ class Recaptcha extends \ConvertForms\Field
         jimport('recaptcha', JPATH_PLUGINS . '/system/nrframework/helpers/wrappers');
 
         $recaptcha = new \NR_ReCaptcha(
-            array('secret' => $this->getSecretKey())
+            ['secret' => $this->getSecretKey()]
         );
 
-		$response = isset($form_data['g-recaptcha-response']) ? $form_data['g-recaptcha-response'] : null;
+		$response = isset($this->data['g-recaptcha-response']) ? $this->data['g-recaptcha-response'] : null;
 
         $recaptcha->validate($response);
 

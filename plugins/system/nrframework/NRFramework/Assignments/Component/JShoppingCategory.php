@@ -37,5 +37,4 @@ class JShoppingCategory extends JShoppingBase
 	{
 		return parent::getParentIds($id, $table, $parent, $child);
 	}
-
 }

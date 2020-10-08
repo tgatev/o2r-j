@@ -81,28 +81,23 @@ class OfrsModelAdnets extends JModelList
                         a.description AS adnet_description,
                         a.adnet_text_color AS adnet_text_color,
                         a.adnet_background_color AS adnet_background_color,
-                        COUNT(b.id) AS offer_count,
-                        max(b.modified) AS adnet_modified
+                        b.offer_count AS offer_count,
+                        b.modified AS adnet_modified
                         ');
 		$query->from($db->quoteName('#__ofrs_ad_network', 'a'));
 		
         // Join to offers
- 		$query->join('LEFT OUTER', ($db->quoteName('#__ofrs_offer', 'b')) . ' ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('b.ad_network_id') . ')');
+ 		$query->join('INNER', ($db->quoteName('ofrs_ad_network_summary', 'b')) . ' ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('b.ad_network_id') . ')');
 
  		if (!is_null($f_search))
  		    $query->where("a.name LIKE '%" . $f_search . "%'");
 
- 		$query->where("b.published = 1" );
         $query->where("a.published = 1");
 		$query->group(array('a.id'));
         $ord_col = $this->getState('list.ordering', self::ORDER_MAP[$filter['sort_by']] ?? 'a.modified');
         $ord_direction = $this->getState('list.direction', 'DESC');
         $query->order($db->escape($ord_col).' '.$db->escape($ord_direction));
-        /***[/JCBGUI$$$$]***/
-//        echo $query->dump();
-//        die();
-		// return the query object
-		return $query;
+        return $query;
 	}
 
 	/**
@@ -162,16 +157,9 @@ protected function populateState($ordering = null, $direction = null) {
 
     public function getCountsOfFilterResults(){
         $query= $this->getListQuery();
-//        var_dump($query->dump());
-
         $db = JFactory::getDbo();
         $db->setQuery($query);
         $db->execute();
-//        $query->select('offrs_count')
-//        var_dump($db->getAffectedRows());
-//        var_dump($db->getNumRows());
-//        die();
         return $db->getNumRows();
     }
-
 }

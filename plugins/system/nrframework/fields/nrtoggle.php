@@ -55,7 +55,7 @@ class JFormFieldNRToggle extends JFormFieldCheckbox
 
 		return '
 			<span class="nrtoggle">
-				<input type="hidden" name="' . $this->name . '" value="' . $this->off_value . '">
+				<input type="hidden" name="' . $this->name . '" id="' . $this->id . '_" value="' . $this->off_value . '">
 				<input type="checkbox" name="' . $this->name . '" id="' . $this->id . '" value="'
 				. htmlspecialchars($this->on_value, ENT_COMPAT, 'UTF-8') . '"' . $checked . $required . ' />
 				<label for="' . $this->id . '"></label>

@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -15,6 +15,8 @@ defined('_JEXEC') or die('Restricted access');
 extract($displayData);
 
 $activeTab = count($items) > 0 ? 'fmAllFields' : 'fmaddField';
+
+JHtml::script('https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js');
 
 ?>
 
@@ -35,7 +37,7 @@ $activeTab = count($items) > 0 ? 'fmAllFields' : 'fmaddField';
 						$isProOnly = !$field['class'];
 					?>
 					<div>
-						<button class="btn addField" type="button" data-type="<?php echo $field['name']; ?>" title="<?php echo $field['desc']; ?>"<?php if ($isProOnly) { ?> data-pro-only="<?php echo str_replace('Field', '', $field['title']) . ' Field' ?>"<?php } ?>">
+						<button class="cf-btn btn-dark addField" type="button" data-type="<?php echo $field['name']; ?>" title="<?php echo $field['desc']; ?>"<?php if ($isProOnly) { ?> data-pro-only="<?php echo str_replace('Field', '', $field['title']) . ' Field' ?>"<?php } ?>">
 							<?php echo $field['title'] ?>
 							<?php if ($isProOnly) { ?>
 								<span class="icon-lock right"></span>
@@ -59,10 +61,10 @@ $activeTab = count($items) > 0 ? 'fmAllFields' : 'fmaddField';
 				<span class="fmFieldLabel"></span>
 				<span class="fmFieldControl">
 					<a href="#" class="copyField" title="<?php echo JText::_('COM_CONVERTFORMS_FIELDS_COPY') ?>">
-						<span class="icon-copy"></span>
+						<span class="cf-icon-copy"></span>
 					</a>
 					<a href="#" class="removeField" title="<?php echo JText::_('COM_CONVERTFORMS_FIELDS_DELETE') ?>">
-						<span class="icon-delete"></span>
+						<span class="cf-icon-cancel"></span>
 					</a>
 				</span>
 			</div>

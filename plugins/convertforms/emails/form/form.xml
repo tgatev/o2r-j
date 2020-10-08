@@ -16,7 +16,6 @@
             hiddenLabel="true"
             multiple="true"
             max="1"
-            buttons=" "
             showon="sendnotifications:1"
             default='{ "emails0": {} }'
         />

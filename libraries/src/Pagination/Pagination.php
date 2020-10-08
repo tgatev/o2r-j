@@ -151,7 +151,7 @@ class Pagination
 
 		// Set the pagination iteration loop values.
 		$displayedPages = 5;
-		$this->pagesStart = $this->pagesCurrent - (int) ($displayedPages / 2);
+		$this->pagesStart = $this->pagesCurrent - (int)($displayedPages / 2);
 
 		if ($this->pagesStart < 1)
 		{

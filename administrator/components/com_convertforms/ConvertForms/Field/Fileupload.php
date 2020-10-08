@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -77,7 +77,7 @@ class FileUpload extends \ConvertForms\Field
 		// Accept multiple values
 		if ((int) $field->limit_files != 1)
 		{
-			$field->name .= '[]';
+			$field->input_name .= '[]';
 		}
 
 		return $this;
@@ -87,19 +87,15 @@ class FileUpload extends \ConvertForms\Field
 	 *  Validate field value
 	 *
 	 *  @param   mixed  $value           The field's value to validate
-	 *  @param   array  $field_options   The field's options (Entered in the backend)
-	 *  @param   array  $form_data       The form submitted data
 	 *
 	 *  @return  mixed                   True on success, throws an exception on error
 	 */
-	public function validate(&$value, $field_options, $form_data)
+	public function validate(&$value)
 	{
-		$field_options = new Registry($field_options); // Move this parent class
-
-		$is_required 	   = $field_options->get('required', false);
-		$max_files_allowed = $field_options->get('limit_files', 1);
-		$allowed_types     = $field_options->get('upload_types');
-		$upload_folder     = $field_options->get('upload_folder', $this->default_upload_folder);
+		$is_required 	   = $this->field->get('required');
+		$max_files_allowed = $this->field->get('limit_files', 1);
+		$allowed_types     = $this->field->get('upload_types');
+		$upload_folder     = $this->field->get('upload_folder', $this->default_upload_folder);
 
 		// Remove null and empty values
 		$value = is_array($value) ? $value : (array) $value;
@@ -108,13 +104,13 @@ class FileUpload extends \ConvertForms\Field
 		// We expect a not empty array
 		if ($is_required && empty($value))
 		{
-			$this->throwError(\JText::_('COM_CONVERTFORMS_FIELD_REQUIRED'), $field_options);
+			$this->throwError(\JText::_('COM_CONVERTFORMS_FIELD_REQUIRED'));
 		}
 
 		// Do we have the correct number of files?
 		if ($max_files_allowed > 0 && count($value) > $max_files_allowed)
 		{
-			$this->throwError(\JText::sprintf('COM_CONVERTFORMS_UPLOAD_MAX_FILES_LIMIT', $max_files_allowed), $field_options);
+			$this->throwError(\JText::sprintf('COM_CONVERTFORMS_UPLOAD_MAX_FILES_LIMIT', $max_files_allowed));
 		}
 
 		// Validate file paths
@@ -131,14 +127,14 @@ class FileUpload extends \ConvertForms\Field
 
 			if (!\JFile::exists($file_path))
 			{	
-				$this->throwError(\JText::_('COM_CONVERTFORMS_UPLOAD_FILE_IS_MISSING'), $field_options);
+				$this->throwError(\JText::_('COM_CONVERTFORMS_UPLOAD_FILE_IS_MISSING'));
 			}
 
 			// Check file type
 			if (!UploadHelper::isInAllowedTypes($allowed_types, $file_path))
 			{
 				\JFile::delete($file_path);
-				$this->throwError(\JText::sprintf('COM_CONVERTFORMS_UPLOAD_INVALID_FILE_TYPE', $file, $allowed_types), $field_options);
+				$this->throwError(\JText::sprintf('COM_CONVERTFORMS_UPLOAD_INVALID_FILE_TYPE', $file, $allowed_types));
 			}
 
 			// Get absolute URL
@@ -216,8 +212,16 @@ class FileUpload extends \ConvertForms\Field
             $this->uploadDie('COM_CONVERTFORMS_UPLOAD_ERROR');
 		}
 		
+		// Get field settings
+		if (!$upload_field_settings = \ConvertForms\Form::getFieldSettingsByKey($form_id, $field_key))
+		{
+        	$this->uploadDie('COM_CONVERTFORMS_UPLOAD_ERROR_INVALID_FIELD');
+		}
+
+		$allow_unsafe = $upload_field_settings->get('allow_unsafe', false);
+
 		// Make sure we have a valid file passed
-        if (!$file = \JFactory::getApplication()->input->files->get('file'))
+        if (!$file = \JFactory::getApplication()->input->files->get('file', null, ($allow_unsafe ? 'raw' : null)))
         {
             $this->uploadDie('COM_CONVERTFORMS_UPLOAD_ERROR_INVALID_FILE');
 		}
@@ -229,17 +233,11 @@ class FileUpload extends \ConvertForms\Field
             $file = $first_property;
 		}
 
-		if (!$upload_field_settings = \ConvertForms\Form::getFieldSettingsByKey($form_id, $field_key))
-		{
-        	$this->uploadDie('COM_CONVERTFORMS_UPLOAD_ERROR_INVALID_FIELD');
-		}
-
 		$upload_folder = $upload_field_settings->get('upload_folder', $this->default_upload_folder);
-
 		$randomize = !$upload_field_settings->get('remove_random_prefix', false);
 
 		// Upload the file by checking if we need to add the random prefix and add the .tmp suffix.
-		if (!$uploaded_filename = UploadHelper::upload($file, $upload_folder, $randomize))
+		if (!$uploaded_filename = UploadHelper::upload($file, $upload_folder, $randomize, $allow_unsafe))
 		{
 			$this->uploadDie('COM_CONVERTFORMS_UPLOAD_ERROR_CANNOT_UPLOAD_FILE');
 		}

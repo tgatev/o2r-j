@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -34,7 +34,9 @@ class ConvertformsControllerForms extends JControllerAdmin
 	 */
 	public function import()
 	{
-		$file = JFactory::getApplication()->input->files->get("file");
+		$app = JFactory::getApplication();
+
+		$file = $app->input->files->get("file");
 
 		if (!empty($file))
 		{
@@ -47,13 +49,13 @@ class ConvertformsControllerForms extends JControllerAdmin
 			}
 			else
 			{
-				$msg = JText::_('NR_PLEASE_CHOOSE_A_VALID_FILE');
-				$this->setRedirect('index.php?option=com_convertforms&view=forms&layout=import', $msg);
+				$app->enqueueMessage(JText::_('NR_PLEASE_CHOOSE_A_VALID_FILE'), 'error');
+				$app->redirect('index.php?option=com_convertforms&view=forms&layout=import');
 			}
 		}
 		else
 		{
-			$this->setRedirect('index.php?option=com_convertforms&view=forms&layout=import');
+			$app->redirect('index.php?option=com_convertforms&view=forms&layout=import');
 		}
 	}
 
@@ -87,7 +89,7 @@ class ConvertformsControllerForms extends JControllerAdmin
             $model->copy($id);
         }
 
-        $msg = JText::sprintf('COM_CONVERTFORMS_FORM_N_ITEMS_COPIED', count($ids));
-        JFactory::getApplication()->redirect('index.php?option=com_convertforms&view=forms', $msg);
+		JFactory::getApplication(JText::sprintf('COM_CONVERTFORMS_FORM_N_ITEMS_COPIED', count($ids)));
+		JFactory::getApplication()->redirect('index.php?option=com_convertforms&view=forms');
 	}
 }

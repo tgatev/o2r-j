@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -27,8 +27,14 @@ class ConvertFormsViewConvertForms extends JViewLegacy
     	$this->config      = JComponentHelper::getParams('com_convertforms');
         $this->latestleads = ConvertForms\Helper::getLatestLeads();
 
-    	JHTML::_('behavior.modal');
-        JHtml::_('bootstrap.popover');
+        ConvertForms\Helper::renderSelectTemplateModal();
+
+        if (!defined('nrJ4'))
+        {
+            JHTML::_('behavior.modal');
+            JHtml::_('bootstrap.popover');
+        }
+        
         JHtml::stylesheet('jui/icomoon.css', array(), true);
 
         JToolBarHelper::title(JText::_('COM_CONVERTFORMS'));

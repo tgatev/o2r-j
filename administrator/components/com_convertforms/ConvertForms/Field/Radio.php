@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -36,7 +36,7 @@ class Radio extends \ConvertForms\FieldChoice
 	 *
 	 *  @return  mixed           The filtered user input
 	 */
-	protected function filterInput($input)
+	public function filterInput($input)
 	{
 		$value = parent::filterInput($input);
 

@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -25,7 +25,7 @@ class JFormFieldServiceLists extends JFormFieldText
 
         return implode(" ", array(
             parent::getInput(),
-            '<button type="button" class="btn viewLists">
+            '<button type="button" class="btn btn-secondary viewLists">
                 <span class="icon-loop"></span> Lists
             </button>
             <ul class="cflists"></ul>'
@@ -37,10 +37,7 @@ class JFormFieldServiceLists extends JFormFieldText
      */
     private function addMedia()
     {
-        $path = JURI::base(true) . '/components/com_convertforms/models/forms/fields/servicelists.';
-        $doc  = JFactory::getDocument();
-
-        $doc->addScript($path . 'js');
-        $doc->addStyleSheet($path . 'css'); 
+        JHtml::stylesheet('com_convertforms/servicelists.css', ['relative' => true, 'version' => 'auto']);
+        JHtml::script('com_convertforms/servicelists.js', ['relative' => true, 'version' => 'auto']);
     }
 }

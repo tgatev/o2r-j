@@ -2,7 +2,7 @@
 /**
   * @version   $Id: rokcandy.php 5112 2012-11-08 23:59:29Z btowles $
   * @author    RocketTheme http://www.rockettheme.com
-  * @copyright Copyright (C) 2007 - 2019 RocketTheme, LLC
+  * @copyright Copyright (C) 2007 - 2020 RocketTheme, LLC
   * @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
   */
 // no direct access
@@ -10,7 +10,9 @@ defined('_JEXEC') or die('Restricted access');
 
 // Make sure the user is authorized to view this page
 $user = JFactory::getUser();
-
+if (!$user->authorise('core.manage', 'com_rokcandy')) {
+    JError::raiseError(404, JText::_('JERROR_PAGE_NOT_FOUND'));
+}
 
 // Get the media component configuration settings
 $params =JComponentHelper::getParams('com_rokcandy');

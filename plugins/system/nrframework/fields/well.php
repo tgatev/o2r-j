@@ -45,7 +45,7 @@ class JFormFieldNR_Well extends NRFormField
      */
     protected function getInput()
     {   
-        JHtml::stylesheet('plg_system_nrframework/fields.css', false, true);
+        JHtml::stylesheet('plg_system_nrframework/fields.css', ['relative' => true, 'version' => 'auto']);
 
         $title       = $this->get('label');
         $description = $this->get('description');
@@ -76,11 +76,13 @@ class JFormFieldNR_Well extends NRFormField
 
             if ($url)
             {
-                $html[] = '
-                    <a class="btn btn-secondary wellbtn" target="_blank" href="' . $url . '">
-                        <span class="icon-info"></span>
-                    </a>
-                ';
+                if (defined('nrJ4'))
+                {
+                    $html[] = '<a class="btn btn-outline-secondary btn-sm wellbtn" target="_blank" href="' . $url . '"><span class="icon-info-circle"></span></a>';
+                } else 
+                {
+                    $html[] = '<a class="btn btn-secondary wellbtn" target="_blank" href="' . $url . '"><span class="icon-info"></span></a>';
+                }
             }
         }
 
@@ -89,60 +91,5 @@ class JFormFieldNR_Well extends NRFormField
         }
 
         return implode('', $html);
-    }
-
-    /**
-     * Method to get a control group with label and input.
-     *
-     * @param   array  $options  Options to be passed into the rendering of the field
-     *
-     * @return  string  A string containing the html for the control group
-     *
-     * @since   3.2
-     */
-    public function renderField($options = array())
-    {
-        // Return on Joomla versions => 3.5
-        if ((version_compare(JVERSION, '3.5.0', '>=')) || (method_exists(get_parent_class(),'getLayoutPaths')))
-        {
-            return parent::renderField($options);
-        }
-
-        if ($this->hidden)
-        {
-            return $this->getInput();
-        }
-        if (!isset($options['class']))
-        {
-            $options['class'] = '';
-        }
-        $options['rel'] = '';
-        if (empty($options['hiddenLabel']) && $this->getAttribute('hiddenLabel'))
-        {
-            $options['hiddenLabel'] = true;
-        }
-        if ($showonstring = $this->getAttribute('showon'))
-        {
-            $showonarr = array();
-            foreach (preg_split('%\[AND\]|\[OR\]%', $showonstring) as $showonfield)
-            {
-                $showon   = explode(':', $showonfield, 2);
-                $showonarr[] = array(
-                    'field'  => str_replace('[]', '', $this->getName($showon[0])),
-                    'values' => explode(',', $showon[1]),
-                    'op'     => (preg_match('%\[(AND|OR)\]' . $showonfield . '%', $showonstring, $matches)) ? $matches[1] : '',
-                );
-            }
-            $options['rel'] = ' data-showon=\'' . json_encode($showonarr) . '\'';
-            $options['showonEnabled'] = true;
-        }
-        $data = array(
-            'input'   => $this->getInput(),
-            'label'   => $this->getLabel(),
-            'options' => $options,
-        );
-
-        $layout = new JLayoutFile($this->renderLayout, $this->getLayoutPaths());
-        return $layout->render($data);
     }
 }

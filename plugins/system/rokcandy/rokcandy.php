@@ -2,7 +2,7 @@
 /**
  * @version $Id: rokcandy.php 25395 2015-01-14 15:34:50Z james $
  * @author RocketTheme, LLC http://www.rockettheme.com
- * @copyright Copyright (C) 2007 - 2019 RocketTheme, LLC
+ * @copyright Copyright (C) 2007 - 2020 RocketTheme, LLC
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
  */
 

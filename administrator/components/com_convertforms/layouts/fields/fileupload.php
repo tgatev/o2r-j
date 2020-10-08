@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -26,19 +26,19 @@ $border_radius 			= $form->get('inputborderradius');
 JHtml::script('com_convertforms/vendor/dropzone.js', ['relative' => true, 'version' => 'auto']);
 
 $style = '
-	#' . $field->id . ' {
+	#' . $field->input_id . ' {
 		color: ' . $text_color . ';
 		font-size: ' . $font_size . 'px;
 	}
 
-	#' . $field->id . ' .dz-message {
+	#' . $field->input_id . ' .dz-message {
 		background-color: ' . $background_color . ';
 		border-color: ' . $border_color . ';
 		border-radius: '. $border_radius .'px;
 	}
 ';
 
-if (JFactory::getApplication()->isAdmin())
+if (JFactory::getApplication()->isClient('administrator'))
 {
 	echo '<style>' . $style . '</style>';
 } else 
@@ -47,6 +47,7 @@ if (JFactory::getApplication()->isAdmin())
 }
 
 // Add language strings used by dropzone.js
+JText::script('COM_CONVERTFORMS_ERROR_WAIT_FILE_UPLOADS');
 JText::script('COM_CONVERTFORMS_UPLOAD_FILETOOBIG');
 JText::script('COM_CONVERTFORMS_UPLOAD_INVALID_FILE');
 JText::script('COM_CONVERTFORMS_UPLOAD_FALLBACK_MESSAGE');
@@ -76,8 +77,8 @@ JText::script('COM_CONVERTFORMS_UPLOAD_MAX_FILES_EXCEEDED');
 	</div>
 </div>
 
-<div id="<?php echo $field->id ?>" 
-	data-name="<?php echo $field->name ?>"
+<div id="<?php echo $field->input_id ?>" 
+	data-name="<?php echo $field->input_name ?>"
 	data-key="<?php echo $field->key ?>"
 	data-maxfilesize="<?php echo $field->max_file_size ?>"
 	data-maxfiles="<?php echo $field->limit_files ?>"

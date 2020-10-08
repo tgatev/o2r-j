@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -67,9 +67,13 @@ class ConvertFormsModelForms extends JModelList
         {
             $query->where('a.state = ' . ( int ) $filter);
         }
+        else if (is_array($filter))
+        {
+            $query->where('a.state IN (' . implode(',', $filter) . ')');
+        }
         else if ($filter == '')
         {
-            $query->where('(a.state IN ( 0,1,2 ) )');
+            $query->where('(a.state IN (0,1,2))');
         }
 
         // Filter the list over the search string if set.
@@ -107,33 +111,35 @@ class ConvertFormsModelForms extends JModelList
      * Import the selected items specified by id
      * and set Redirection to the list of items
      */
-    function import($model)
+    public function import($model)
     {
-        $file = JFactory::getApplication()->input->files->get("file");
+		$app = JFactory::getApplication();
+
+        $file = $app->input->files->get("file");
 
         if (!is_array($file) || !isset($file['name']))
         {
-            $msg = JText::_('NR_PLEASE_CHOOSE_A_VALID_FILE');
-            JFactory::getApplication()->redirect('index.php?option=com_convertforms&view=forms&layout=import', $msg);
+            $app->enqueueMessage(JText::_('NR_PLEASE_CHOOSE_A_VALID_FILE'));
+            $app->redirect('index.php?option=com_convertforms&view=forms&layout=import');
         }
 
         $ext = explode(".", $file['name']);
 
         if ($ext[count($ext) - 1] != substr($this->fileExtension, 1))
         {
-            $msg = JText::_('NR_PLEASE_CHOOSE_A_VALID_FILE');
-            JFactory::getApplication()->redirect('index.php?option=com_convertforms&view=forms&layout=import', $msg);
+            $app->enqueueMessage(JText::_('NR_PLEASE_CHOOSE_A_VALID_FILE'));
+            $app->redirect('index.php?option=com_convertforms&view=forms&layout=import');
         }
 
         jimport('joomla.filesystem.file');
-        $publish_all = JFactory::getApplication()->input->getInt('publish_all', 0);
+        $publish_all = $app->input->getInt('publish_all', 0);
 
         $data = file_get_contents($file['tmp_name']);
 
         if (empty($data))
         {
-            JFactory::getApplication()->redirect('index.php?option=com_convertforms&view=forms', JText::_('File is empty!'));
-
+            $app->enqueueMessage(JText::_('File is empty!'));
+            $app->redirect('index.php?option=com_convertforms&view=forms');
             return;
         }
         
@@ -166,14 +172,15 @@ class ConvertFormsModelForms extends JModelList
             }
         }
 
-        JFactory::getApplication()->redirect('index.php?option=com_convertforms&view=forms', $msg);
+        $app->enqueueMessage($msg);
+        $app->redirect('index.php?option=com_convertforms&view=forms');
     }
 
     /**
      * Export Method
      * Export the selected items specified by id
      */
-    function export($ids)
+    public function export($ids)
     {
         $db    = $this->getDbo();
         $query = $db->getQuery(true)

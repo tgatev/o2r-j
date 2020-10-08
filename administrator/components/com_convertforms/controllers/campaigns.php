@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -53,10 +53,10 @@ class ConvertFormsControllerCampaigns extends JControllerAdmin
   		foreach ($ids as $id)
         {
             $model->copy($id);
-        }
-
-        $msg = JText::sprintf('COM_CONVERTFORMS_CAMPAIGN_N_ITEMS_COPIED', count($ids));
-        JFactory::getApplication()->redirect('index.php?option=com_convertforms&view=campaigns', $msg);
+		}
+		
+		JFactory::getApplication(JText::sprintf('COM_CONVERTFORMS_CAMPAIGN_N_ITEMS_COPIED', count($ids)));
+		JFactory::getApplication()->redirect('index.php?option=com_convertforms&view=campaigns');
 	}
 
 	/**

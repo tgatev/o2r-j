@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -37,13 +37,6 @@ class Field
 	private $namePrefix = 'cf';
 
 	/**
-	 *  Indicates if the container will be rendered or not.
-	 *
-	 *  @var  boolean
-	 */
-	protected $hideContainer = false;
-
-	/**
 	 *  Filter user value before saving into the database. By default converts the input to a string; strips all HTML tags / attributes.
 	 *
 	 *  @var  string
@@ -72,18 +65,88 @@ class Field
 	protected $multiple = false;
 
 	/**
+	 * Indicates the default required behavior on the form
+	 *
+	 * @var bool
+	 */
+	protected $required = true; 
+
+	/**
+	 * The data submitted by the user in the form
+	 *
+	 * @var array
+	 */
+	protected $data;
+
+	/**
 	 *  Class constructor
 	 *
-	 *  @param   mixed  $field   Object or Array Field options
+	 *  @param   mixed  $field_options   Object or Array Field options
 	 *
 	 *  @return  void
 	 */
-	public function __construct($field = null)
+	public function __construct($field_options = null, $form_data = null)
 	{
-		if ($field)
+		$this->data = $form_data;
+
+		if ($field_options)
 		{
-			$this->field = $field;
+			$field_options['required'] = isset($field_options['required']) ? $field_options['required'] : $this->required;
+
+			// We should better call $this->setField() here
+			$this->field = new Registry($field_options);
 		}
+
+		// Submission overrides
+		if ($this->data && isset($this->data['overrides']))
+		{
+			$overrides = json_decode($this->data['overrides'], true);
+
+			if (isset($overrides['required']))
+			{
+				$overriddenRequired = $overrides['required'];
+
+				$key = (int) $this->field->get('key');
+	
+				if (in_array($key, array_keys($overriddenRequired)))
+				{
+					$newState = $overriddenRequired[$key] == 'false' ? false : true;
+
+					$this->field->set('required', $newState);
+				}
+			}
+		}
+	}
+
+	/**
+	 *  Set field object
+	 * 
+	 *  Rename to prepareField
+	 *
+	 *  @param  mixed  $field  Object or Array Field options
+	 */
+	public function setField($field)
+	{
+		$field = is_array($field) ? (object) $field : $field;
+
+		if (!isset($field->name) || empty($field->name))
+		{
+			$field->name = $this->getName() . '_' . $field->key;
+		}
+
+		$field->input_id   = 'form' . $field->namespace . '_' . $field->name;
+		$field->input_name = $this->namePrefix . '[' . $field->name . ']';
+
+		$field->htmlattributes = [];
+
+		// Support language strings on the following attributes
+		$field->label = isset($field->label) ? \JText::_($field->label) : '';
+		$field->description = isset($field->description) ? \JText::_($field->description) : '';
+		$field->placeholder = isset($field->placeholder) ? \JText::_($field->placeholder) : '';
+
+		$this->field = $field;
+
+		return $this;
 	}
 
 	/**
@@ -103,31 +166,6 @@ class Field
 		}
 
 		return true;
-	}
-
-	/**
-	 *  Set field object
-	 * 
-	 *  Rename to prepareField
-	 *
-	 *  @param  mixed  $field  Object or Array Field options
-	 */
-	public function setField($field)
-	{
-		$field = is_array($field) ? (object) $field : $field;
-
-		if (!isset($field->name) || empty($field->name))
-		{
-			$field->name = $this->getName() . '_' . $field->key;
-		}
-
-		$field->id   = 'form' . $field->namespace . '_' . $field->name;
-		$field->name = $this->namePrefix . '[' . $field->name . ']';
-		$field->htmlattributes = [];
-
-		$this->field = $field;
-
-		return $this;
 	}
 
 	/**
@@ -154,7 +192,7 @@ class Field
 		$layoutName = isset($this->inheritInputLayout) ? $this->inheritInputLayout : $this->getName();
 	
 		// Check if an admininistrator layout is available
-		if (\JFactory::getApplication()->isAdmin() && \JFile::exists($layoutsPath . $layoutName . '_admin.php'))
+		if (\JFactory::getApplication()->isClient('administrator') && \JFile::exists($layoutsPath . $layoutName . '_admin.php'))
 		{
 			$layoutName .= '_admin';
 		}
@@ -188,15 +226,10 @@ class Field
 
 		$this->field->input = $this->getInput();
 
-		if ($this->hideContainer)
-		{
-			return $this->field->input;
-		}
-
-		$layoutData = array(
+		$layoutData = [
 			'field' => $this->field,
 			'form'  => $this->field->form
-		);
+		];
 
     	return Helper::layoutRender('controlgroup', $layoutData);
 	}
@@ -289,15 +322,13 @@ class Field
 	 *  Validate form submitted value
 	 *
 	 *  @param   mixed  $value           The field's value to validate (Passed by reference)
-	 *  @param   array  $field_options   The field's options (Entered in the backend)
-	 *  @param   array  $form_data       The form submitted data
 	 *
 	 *  @return  mixed                   True on success, throws an exception on error
 	 */
-	public function validate(&$value, $field_options, $form_data)
+	public function validate(&$value)
 	{
 		$isEmpty = $this->isEmpty($value);
-		$isRequired = isset($field_options['required']) ? (bool) $field_options['required'] : false;
+		$isRequired = $this->field->get('required');
 
 		if ($isEmpty && $isRequired)
 		{
@@ -338,9 +369,9 @@ class Field
 	 *
 	 *  @return  mixed           The filtered user input
 	 */
-	protected function filterInput($input)
+	public function filterInput($input)
 	{
-		$filter = $this->getFieldFilter();
+		$filter = $this->field->get('filter', $this->filterInput);
 
 		// Safehtml is a special filter angd we need to initialize JFilterInput class differently
 		if ($filter == 'safehtml')
@@ -352,33 +383,15 @@ class Field
 	}
 
 	/**
-	 * Return field's user input filter
-	 *
-	 * @return string
-	 */
-	protected function getFieldFilter()
-	{
-		// Return filter set in the backend
-		if ($this->field && isset($this->field['filter']) && !empty($this->field['filter']))
-		{
-			return $this->field['filter'];
-		}
-
-		// Return default filter
-		return $this->filterInput;
-	}
-
-	/**
 	 *  Throw an error exception
 	 *
 	 *  @param   [type]  $message        [description]
-	 *  @param   [type]  $field_options  [description]
 	 *
 	 *  @return  [type]                  [description]
 	 */
-	public function throwError($message, $field_options)
+	public function throwError($message)
 	{
-		$label = isset($field_options['label']) && !empty($field_options['label']) ? $field_options['label'] : $field_options['name'];
+		$label = $this->field->get('label', $this->field->get('name', ucfirst($this->field->get('type'))));
 		throw new \Exception($label . ': ' . \JText::_($message));
 	}
 

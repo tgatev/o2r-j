@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -17,18 +17,11 @@ defined('_JEXEC') or die('Restricted access');
 class Hidden extends \ConvertForms\Field
 {
 	/**
-	 *  Indicates if the container will be rendered or not in the front-end
-	 *
-	 *  @var  boolean
-	 */
-	protected $hideContainer = true;
-
-	/**
 	 *  Remove common fields from the form rendering
 	 *
 	 *  @var  mixed
 	 */
-	protected $excludeFields = array(
+	protected $excludeFields = [
 		'label',
 		'placeholder',
 		'required',
@@ -40,7 +33,29 @@ class Hidden extends \ConvertForms\Field
 		'inputmask',
 		'readonly',
 		'inputcssclass'
-	);
+	];
+
+	/**
+	 * Indicates the default required behavior on the form
+	 *
+	 * @var bool
+	 */
+	protected $required = false; 
+
+	/**
+	 *  Set field object
+	 *
+	 *  @param  mixed  $field  Object or Array Field options
+	 */
+	public function setField($field)
+	{
+		parent::setField($field);
+
+		// Always hide the container of a hidden field
+		$this->field->cssclass = 'cf-hide';
+
+		return $this;
+	}
 }
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  *
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -37,7 +37,7 @@ class PlgButtonConvertforms extends JPlugin
 	public function onDisplay($name)
 	{
 		$component = $this->app->input->getCmd('option');
-		$basePath  = $this->app->isAdmin() ? '' : 'administrator/';
+		$basePath  = $this->app->isClient('administrator') ? '' : 'administrator/';
 		$link      = $basePath . 'index.php?option=com_convertforms&amp;view=editorbutton&amp;layout=button&amp;tmpl=component&e_name=' . $name . '&e_comp='. $component;
 
 		$button          = new JObject;

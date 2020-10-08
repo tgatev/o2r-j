@@ -57,5 +57,4 @@ class AcyMailing extends Assignment
 
 		return $db->loadColumn();
 	}
-
 }

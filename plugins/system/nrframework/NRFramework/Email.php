@@ -139,7 +139,7 @@ class Email
         );
 
         // Reply-to
-        if (isset($email['reply_to']))
+        if (isset($email['reply_to']) && !empty($email['reply_to']))
         {
             $name = (isset($email['reply_to_name']) && !empty($email['reply_to_name'])) ? $email['reply_to_name'] : '';
             $mailer->addReplyTo($email['reply_to'], $name);
@@ -150,8 +150,8 @@ class Email
             ->isHTML(true)
             ->setSubject($email['subject'])
             ->setBody($email['body']);
-        
-        $mailer->AltBody = strip_tags($email['body']);
+
+        $mailer->AltBody = strip_tags(str_ireplace(['<br />', '<br>', '<br/>'], "\r\n", $email['body']));
 
         // Attachments
         if (!empty($email['attachments']))
@@ -226,5 +226,3 @@ class Email
         return $path;
     }
 }
-
-?>

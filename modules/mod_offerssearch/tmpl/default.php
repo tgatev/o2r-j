@@ -21,7 +21,6 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-
 ?>
 
 /***[JCBGUI.joomla_module.default.1.$$$$]***/

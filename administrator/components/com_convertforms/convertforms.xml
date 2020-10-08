@@ -2,7 +2,7 @@
 <extension version="3.4" type="component" method="upgrade">
     <name>COM_CONVERTFORMS</name>
     <description>COM_CONVERTFORMS_DESC</description>
-    <version>2.6.0</version>
+    <version>2.7.2</version>
     <creationDate>September 2016</creationDate>
     <author>Tassos Marinos</author>
     <authorEmail>info@tassos.gr</authorEmail>
@@ -28,6 +28,9 @@
     <administration>
         <menu img="class:banners">COM_CONVERTFORMS</menu>
         <submenu>
+            <menu link="option=com_convertforms" view="convertforms" img="class:forms" alt="ConvertForms/Forms">
+                NR_DASHBOARD
+            </menu>
             <menu link="option=com_convertforms&amp;view=forms" view="forms" img="class:forms" alt="ConvertForms/Forms">
                 COM_CONVERTFORMS_FORMS
             </menu>

@@ -178,6 +178,7 @@ class SmartTags
 			'lastname'  => $lastname,
 			'login'     => $user->username,
 			'email'     => $user->email,
+			'registerdate' => \JHtml::_('date', $user->registerDate, \JText::_('DATE_FORMAT_LC5')),
 			'groups'    => implode(',', $user->groups),
 		];
 
@@ -255,7 +256,7 @@ class SmartTags
 		if ($menu = $this->app->getMenu()->getActive())
 		{
 			$tags = array_merge($tags, [
-				'browsertitle' => $menu->params->get('page_title')
+				'browsertitle' => $menu->getParams()->get('page_title')
 			]);
 		}
 
@@ -275,8 +276,8 @@ class SmartTags
 			'url'			=> $url->toString(),
 			'url.encoded'	=> urlencode($url->toString()),
 			'url.path'		=> $url::current(),
-			'referrer'	    => $this->app->input->server->get('HTTP_REFERER', '', 'RAW'),
-			'ip'			=> $this->app->input->server->get('REMOTE_ADDR'),
+			'referrer'	    => $this->app->input->server->get('HTTP_REFERER', '', 'STRING'),
+			'ip'			=> $this->app->input->server->get('REMOTE_ADDR', '', 'STRING'),
 			'randomid'      => bin2hex(\JCrypt::genRandomBytes(8))
 		];
 
@@ -453,5 +454,3 @@ class SmartTags
     	}
     }
 }
-
-?>

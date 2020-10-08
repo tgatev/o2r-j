@@ -33,7 +33,7 @@ class JFormFieldNRMenuItems extends NRFormField
 	 */
 	public function getMenuItems()
 	{
-		NRFrameworkFunctions::loadLanguage('com_menus', JPATH_ADMINISTRATOR);
+		NRFramework\Functions::loadLanguage('com_menus', JPATH_ADMINISTRATOR);
 		$db = $this->db;
 
 		// Prevent the "The SELECT would examine more than MAX_JOIN_SIZE rows; " MySQL error

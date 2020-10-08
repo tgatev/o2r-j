@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -29,11 +29,11 @@ class UploadHelper
 	 * @param	array	$file			The request file as posted by form
 	 * @param	string	$upload_folder	The upload folder where the file must be uploaded
 	 * @param	bool	$randomize		If is set to true, the filename will get a random prefix
-	 * @param	bool	$tmp_suffix		If is set to true, it adds the .tmp suffix to the filename
+	 * @param	bool	$allow_unsafe	Allow the upload of unsafe files. See JFilterInput::isSafeFile() method.
 	 *
 	 * @return	mixed	String on success, Null on failure
 	 */
-	public static function upload($file, $upload_folder, $randomize = true, $tmp_suffix = false)
+	public static function upload($file, $upload_folder, $randomize = true, $allow_unsafe = false)
 	{
 		// Make sure we have a valid file array
 		if (!isset($file['name']) || !isset($file['tmp_name']))
@@ -53,15 +53,9 @@ class UploadHelper
 			$filename = self::randomizeFilename($filename);
 		}
 
-		// Adds a .tmp suffix to the filename to indicate it's a temporary file.
-		if ($tmp_suffix)
-		{
-			$filename .= '.tmp';
-		}
-
 		$destination_filename = \JPath::clean(JPATH_ROOT . '/' . $upload_folder . '/' . $filename);
 
-        if (!\JFile::upload($file['tmp_name'], $destination_filename))
+        if (!\JFile::upload($file['tmp_name'], $destination_filename, false, $allow_unsafe))
         {
 			return;
 		}

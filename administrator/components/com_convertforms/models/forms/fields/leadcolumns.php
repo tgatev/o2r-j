@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -55,7 +55,6 @@ class JFormFieldLeadColumns extends JFormFieldCheckboxes
             .chooseColumnsOptions {
                 position: absolute;
                 background-color: #fff;
-                top: 30px;
                 border-radius:4px;
                 z-index:15; 
                 transition: height 0.01s;
@@ -71,7 +70,7 @@ class JFormFieldLeadColumns extends JFormFieldCheckboxes
                 border-radius:4px; 
             }
             .chooseColumnsOptions fieldset {
-                margin-bottom:5px;
+                margin:0 0 10px 0;
             }
             .chooseColumnsOptions fieldset .checkbox {
                 white-space: nowrap;
@@ -85,26 +84,23 @@ class JFormFieldLeadColumns extends JFormFieldCheckboxes
                 font-size: 11px;
                 color: #555;
             }
+            .chooseColumns .form-check {
+                display:block;
+                padding:0;
+            }
         ');
 
         $html = '
             <div class="chooseColumns">
-                <button class="btn" role="button" data-toggle="collapse" href=".chooseColumnsOptions">'
-                     . JText::_('COM_CONVERTFORMS_CHOOSE_COLUMNS') . '
-                </button>
+                <a class="btn btn-secondary" data-toggle="collapse" href="#" data-target=".chooseColumnsOptions">'
+                    . JText::_('COM_CONVERTFORMS_CHOOSE_COLUMNS') . '
+                </a>
                 <div class="collapse chooseColumnsOptions">
                     <div>
                         ' . parent::getInput() . '
                         <button class="btn btn-primary" onclick="this.form.submit();">'
                             . JText::_('JAPPLY') . 
-                        '</button>';
-
-        if (!$this->getFormID())
-        {
-            $html .= '<div class="chooseColumnsInfo">' . JText::_('COM_CONVERTFORMS_CHOOSE_COLUMNS_OPTIONS') . '</div>';
-        }
-
-        $html .= '
+                        '</button>
                     </div>
                 </div>
             </div>

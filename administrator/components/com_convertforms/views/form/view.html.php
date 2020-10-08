@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -15,9 +15,6 @@ defined('_JEXEC') or die('Restricted access');
 // import Joomla view library
 jimport('joomla.application.component.view');
 
-
-include_once JPATH_PLUGINS . "/system/nrframework/helpers/fonts.php";
- 
 /**
  * Item View
  */
@@ -48,6 +45,11 @@ class ConvertFormsViewForm extends JViewLegacy
 
         \JPluginHelper::importPlugin('convertformstools');
 		\JFactory::getApplication()->triggerEvent('onConvertFormsBackendEditorDisplay');
+
+        $title = JText::_('COM_CONVERTFORMS') . ' - ' . ($this->isnew ? JText::_("COM_CONVERTFORMS_UNTITLED_BOX") : $this->name);
+
+        JFactory::getDocument()->setTitle($title);
+        JToolbarHelper::title($title);
 
         // Display the template
         parent::display($tpl);

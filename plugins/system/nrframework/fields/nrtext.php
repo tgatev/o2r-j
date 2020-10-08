@@ -19,7 +19,7 @@ class JFormFieldNRText extends JFormFieldText
      *
      *  @return  string  
      */
-    function getInput()
+    public function getInput()
     {   
         // This line added to help us support the K2 Items and Joomla! Articles dropdown listbox array values
         $this->value = is_array($this->value) ? implode(',', $this->value) : $this->value;

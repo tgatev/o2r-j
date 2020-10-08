@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -11,14 +11,24 @@
 */
 
 defined('_JEXEC') or die('Restricted access');
-JHtml::_('behavior.formvalidation');
-JHtml::_('jquery.ui', array('core', 'sortable'));
+
+use Joomla\CMS\HTML\HTMLHelper;
+
+HTMLHelper::_('behavior.formvalidator');
+HTMLHelper::_('behavior.keepalive');
+
 JHtml::script('com_convertforms/admin.js', ['relative' => true, 'version' => 'auto']);
+JHtml::stylesheet('com_convertforms/editor.css', ['relative' => true, 'version' => 'auto']);
 
-JFactory::getDocument()->addScript(JURI::root(true) . "/media/editors/tinymce/tinymce.min.js");
-
-NRFramework\Functions::addMedia("editor.css","com_convertforms");
-NRFramework\Functions::addMedia("cookie.js", "com_convertforms");
+if (defined('nrJ4'))
+{
+    JFactory::getDocument()->addScript(JURI::root(true) . '/media/vendor/tinymce/tinymce.js');
+    JHtml::stylesheet('com_convertforms/editorj4.css', ['relative' => true, 'versioning' => 'auto']);
+} else 
+{
+    JFactory::getDocument()->addScript(JURI::root(true) . '/media/editors/tinymce/tinymce.min.js');
+    JHtml::script('com_convertforms/cookie.js', ['relative' => true, 'version' => 'auto']);
+}
 
 $fonts = new NRFonts();
 JFactory::getDocument()->addScriptDeclaration('var ConvertFormsGoogleFonts = '. json_encode($fonts->getFontGroup('google')));
@@ -29,13 +39,6 @@ $tabActive     = $tabStateParts[0];
 
 // Smart Tags Box
 echo NRFramework\HTML::smartTagsBox();
-
-JFactory::getDocument()->addStyleDeclaration('
-    .has-smarttags.is_textarea .st_trigger {
-        bottom:0;
-        top:auto;
-    }
-');
 
 
 NRFramework\HTML::renderProOnlyModal();
@@ -52,19 +55,50 @@ if (!$this->isnew) {
     <p>or you can follow the instructions from this <a target="_blank" href="https://www.tassos.gr/joomla-extensions/convert-forms/docs/how-to-display-a-form-on-the-frontend">page</a>.</p>
     ');
 }
+
+JPluginHelper::importPlugin('convertformstools');
+JFactory::getApplication()->triggerEvent('onConvertFormsEditorView');
+
+function tabSetStart($active)
+{
+    echo defined('nrJ4') ? HTMLHelper::_('uitab.startTabSet', 'sections', ['active' => $active, 'orientation' => 'vertical']) : JHtml::_('bootstrap.startTabSet', 'sections', ['active' => $active]);;
+}
+
+function tabSetEnd()
+{
+    echo defined('nrJ4') ? HTMLHelper::_('uitab.endTabSet') : JHtml::_('bootstrap.endTabSet');;
+}
+
+function tabStart($name, $title)
+{
+    echo defined('nrJ4') ? HTMLHelper::_('uitab.addTab', 'sections', $name, JText::_($title)) : JHtml::_('bootstrap.addTab', 'sections', $name, JText::_($title));
+}
+
+function tabEnd()
+{
+    echo defined('nrJ4') ? HTMLHelper::_('uitab.endTab') : JHtml::_('bootstrap.endTab');
+}
+
+if (defined('nrJ4'))
+{
+    NRFramework\HTML::fixFieldTooltips();
+}
+
 ?>
 
-<script type="text/javascript">
-    Joomla.submitbutton = function(task)
-    {
-        if (task == 'form.cancel' || document.formvalidator.isValid(document.id('adminForm')))
-        {
-            Joomla.submitform(task, document.getElementById('adminForm'));
-        }
-    }
-</script>
-
 <div class="nrEditor" data-root="<?php echo JURI::root(); ?>">
+    <?php if (defined('nrJ4')) { ?>
+    <div class="cfe-top">
+        <div>
+            <img height="18px" src="<?php echo JURI::base() ?>templates/atum/images/logo-joomla-white.svg"/>
+        </div>
+        <div>
+            <span><?php echo JVERSION ?></span>
+            <span class="pl-3"><?php echo JFactory::getApplication()->get('sitename') ?></span>
+        </div>
+    </div>
+    <?php } ?>
+
     <div class="cfe-header">
         <div class="cfe-logo">
             <img width="150px" src="<?php echo JURI::root() ?>/media/com_convertforms/img/logo.svg"/>
@@ -76,38 +110,58 @@ if (!$this->isnew) {
         <div class="cfe-toolbar">
             <ul class="cf-menu">
                 <li>
-                    <a href="#" class="save" title="Save form">
-                        <span class="cf-icon-ok up-state"><?php echo JText::_('JAPPLY') ?></span>
-                        <span class="cf-icon-spin hover-state">Saving..</span>
+                    <a href="#" class="btn btn-success save cf-menu-item saveForm" title="Save form" data-cfaction="save">
+                        <i class="cf-icon-ok up-state"><?php echo JText::_('JAPPLY') ?></i>
+                        <i class="cf-icon-spin hover-state">Saving..</i>
                     </a>
                 </li>
                 <li class="cf-menu-parent">
-                    <a href="#" class="cf-icon-dots" data-toggle="dropdown" title="View more"></a>
-                    <ul>
+                    <a href="#" class="cf-icon-dots cf-menu-item " role="button" id="dropdownMenuLink" data-toggle="dropdown" title="View more"></a>
+                    <ul class="dropdown <?php echo defined('nrJ4') ? 'dropdown-menu' : '' ?>">
                         <li>
-                            <a class="cf-icon-link <?php echo $this->isnew ? 'disabled' : '' ?>" data-toggle="modal" data-target="#embedForm" href="#"><?php echo JText::_('NR_EMBED') ?></a>
+                            <a class="<?php echo $this->isnew ? 'disabled' : '' ?>" data-toggle="modal" data-target="#embedForm" href="#">
+                                <span class="cf-icon-link"></span>
+                                <?php echo JText::_('NR_EMBED') ?>
+                            </a>
                         </li>
                         <li>
-                            <a class="cf-icon-users <?php echo $this->isnew ? 'disabled' : '' ?>" target="_blank" href="<?php echo JURI::base() ?>index.php?option=com_convertforms&view=conversions&filter.form_id=<?php echo $this->item->id ?>"><?php echo JText::_('COM_CONVERTFORMS_SUBMISSIONS')?></a>
+                            <a class="<?php echo $this->isnew ? 'disabled' : '' ?>" target="_blank" href="<?php echo JURI::base() ?>index.php?option=com_convertforms&view=conversions&filter.form_id=<?php echo $this->item->id ?>">
+                                <span class="cf-icon-users"></span>
+                                <?php echo JText::_('COM_CONVERTFORMS_SUBMISSIONS')?>
+                            </a>
                         </li>
                         <li class="separator"></li>
                         
-                        <li><a class="cf-icon-heart" href="#" data-pro-only><?php echo JText::_('NR_UPGRADE_TO_PRO') ?></a></a>
+                        <li>
+                            <a href="#" data-pro-only>
+                                <span class="cf-icon-heart"></span>
+                                <?php echo JText::_('NR_UPGRADE_TO_PRO') ?>
+                            </a>
+                        </li>
                         <li class="separator"></li>
                         
                         <li>
-                            <a class="cf-icon-thumbs-up" href="https://extensions.joomla.org/extension/convert-forms/" target="_blank"><?php echo JText::sprintf('NR_RATE', JText::_('CONVERTFORMS')) ?></a>
+                            <a href="https://extensions.joomla.org/extension/convert-forms/" target="_blank">
+                                <span class="cf-icon-thumbs-up"></span>
+                                <?php echo JText::sprintf('NR_RATE', JText::_('CONVERTFORMS')) ?>
+                            </a>
                         </li>
                         <li>
-                            <a class="cf-icon-attention" href="http://www.tassos.gr/contact?topic=Bug Report&extension=Convert Forms" target="_blank"><?php echo JText::_('NR_REPORT_ISSUE') ?></a>
+                            <a href="http://www.tassos.gr/contact?topic=Bug Report&extension=Convert Forms" target="_blank">
+                                <span class="cf-icon-attention"></span>
+                                <?php echo JText::_('NR_REPORT_ISSUE') ?>
+                            </a>
                         </li>
                         <li>
-                            <a class="cf-icon-help" href="http://www.tassos.gr/joomla-extensions/convert-forms/docs" target="_blank"><?php echo JText::_('JHELP') ?></a>
+                            <a href="http://www.tassos.gr/joomla-extensions/convert-forms/docs" target="_blank">
+                                <span class="cf-icon-help"></span>
+                                <?php echo JText::_('JHELP') ?>
+                            </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="<?php echo JRoute::_('index.php?option=com_convertforms&view=forms') ?>" class="cf-icon-cancel" title="Close and return to forms list"></a>
+                    <a href="<?php echo JRoute::_('index.php?option=com_convertforms&view=forms') ?>" class="cf-icon-cancel cf-menu-item" title="Close and return to forms list"></a>
                 </li>
             </ul>
         </div>
@@ -117,14 +171,14 @@ if (!$this->isnew) {
             <form action="<?php echo JRoute::_('index.php?option=com_convertforms&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-vertical" pk="<?php echo (int) $this->item->id ?>">
                 <div class="tabs-left">
                     <?php 
-                        echo JHtml::_('bootstrap.startTabSet', 'sections', array('active' => $tabActive));
+                        tabSetStart($tabActive);
 
                         foreach ($this->tabs as $key => $tab)
                         {
                             $tabName  = $key;
                             $tabLabel = JText::_($tab["label"]);
 
-                            echo JHtml::_('bootstrap.addTab', 'sections', $tabName, '<span data-label="' . $tabLabel . '" class="' . $tab["icon"] . '"></span>');
+                            tabStart($tabName, '<span data-label="' . $tabLabel . '" class="' . $tab["icon"] . '"></span>');
 
                             $panelActive = $tabActive == $key ? $tabState : "";
 
@@ -151,10 +205,11 @@ if (!$this->isnew) {
                             }
 
                             echo JHtml::_('bootstrap.endAccordion');
-                            echo JHtml::_('bootstrap.endTab');
+
+                            tabEnd();
                         }
 
-                        echo JHtml::_('bootstrap.endTabSet');
+                        tabSetEnd();
                     ?>
                     <input type="hidden" name="task" value="form.edit" />
                     <?php echo JHtml::_('form.token'); ?>
@@ -178,9 +233,7 @@ if (!$this->isnew) {
             <div class="nrEditorPreviewContainer"></div>
             <div class="loader"></div>
         </div>
-
     </div>
-
 </div>
 
 

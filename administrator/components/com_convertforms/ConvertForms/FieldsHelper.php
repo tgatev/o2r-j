@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -28,8 +28,8 @@ class FieldsHelper
      *
      *  @var  array
      */
-    public static $fields = array(
-        'common' => array(
+    public static $fields = [
+        'common' => [
             'text',
             'textarea',
             'dropdown',
@@ -37,27 +37,32 @@ class FieldsHelper
             'checkbox',
             'number',
             'email',
-            'divider',
+            'heading',
             'submit'
-        ),
-        'userinfo' => array(
+        ],
+        'userinfo' => [
             'tel',
             'url',
             'datetime',
             'country',
             'currency',
-        ),
-        'advanced' => array(
+        ],
+        'layout' => [
+            'html',
+            'heading',
+            'emptyspace',
+            'divider',
+        ],
+        'advanced' => [
             'hidden',
             'password',
             'fileupload',
             'recaptcha',
             'recaptchav2invisible',
-            'html',
             'termsofservice',
             'confirm'
-        )
-    );
+        ]
+    ];
 
     /**
      *  Returns a list of all available field groups and types
@@ -131,7 +136,7 @@ class FieldsHelper
      *
      *  @return  Mixed          Object on success, Null on failure
      */
-    public static function getFieldClass($name, $field_data = null)
+    public static function getFieldClass($name, $field_data = null, $form_data = null)
     {
         $class = __NAMESPACE__ . '\\Field\\' . ucfirst($name);
 
@@ -140,7 +145,7 @@ class FieldsHelper
             return false;
         }
 
-        return new $class($field_data);
+        return new $class($field_data, $form_data);
     }
 
     public static function prepare($form, $classPrefix = 'cf')

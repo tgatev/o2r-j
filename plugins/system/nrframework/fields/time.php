@@ -30,7 +30,7 @@ class JFormFieldNR_Time extends NRFormField
 	{
 		// Setup properties
 		$this->hint      = $this->get('hint', '00:00');
-		$this->class     = $this->get('class', 'input-mini');
+		$this->class     = $this->get('class', 'input-small');
 		$this->placement = $this->get('placement', 'top');
 		$this->align     = $this->get('align', 'left');
 		$this->autoclose = $this->get('autoclose', 'true');
@@ -53,23 +53,10 @@ class JFormFieldNR_Time extends NRFormField
 		if (!$run)
 		{
 			$this->doc->addScriptDeclaration('
-				document.addEventListener("mouseover", function(evt) {
-					if (evt.target.closest(".clockpicker")) {
-						var clockpicker = evt.target.closest(".clockpicker");
-						jQuery(clockpicker).clockpicker();
-					}
+				jQuery(function($) {
+					$(".clockpicker").clockpicker();
 				});
         	');
-
-			// Increase the font-size a little bit on Joomla 4
-			if (defined('nrJ4'))
-			{
-				$this->doc->addStyleDeclaration('
-			      	.clockpicker-popover {
-			        	font-size: .93rem;
-			        }
-				');	
-			}
 
 			// Fix a CSS conflict caused by the template.css on Joomla 3
 			if (!defined('nrJ4'))
@@ -86,14 +73,8 @@ class JFormFieldNR_Time extends NRFormField
 		}
 
 		return '
-			<div class="input-group input-append clockpicker" data-donetext="' . $this->donetext . '" data-default="' . $this->default . '" data-placement="' . $this->placement . '" data-align="' . $this->align . '" data-autoclose="' . $this->autoclose . '">
+			<div class="clockpicker" data-donetext="' . $this->donetext . '" data-default="' . $this->default . '" data-placement="' . $this->placement . '" data-align="' . $this->align . '" data-autoclose="' . $this->autoclose . '">
 				<input class="' . $this->class . ' form-control" placeholder="' . $this->hint . '" name="' . $this->name . '" type="text" class="form-control" value="' . $value . '">
-				
-				<span class="input-group-addon input-group-append">
-					<span class="btn btn-secondary">
-						<span class="icon-clock"></span>
-					</span>
-				</span>
 			</div>';
 	}
 

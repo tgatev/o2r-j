@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -23,9 +23,9 @@ class Url extends \ConvertForms\Field
 	 *
 	 *  @var  mixed
 	 */
-	protected $excludeFields = array(
+	protected $excludeFields = [
 		'inputmask'
-	);  
+	];  
 
 	protected $inheritInputLayout = 'text';
 	
@@ -33,14 +33,12 @@ class Url extends \ConvertForms\Field
 	 *  Validate field value
 	 *
 	 *  @param   mixed  $value           The field's value to validate
-	 *  @param   array  $field_options   The field's options (Entered in the backend)
-	 *  @param   array  $form_data       The form submitted data
 	 *
 	 *  @return  mixed                   True on success, throws an exception on error
 	 */
-	public function validate(&$value, $field_options, $form_data)
+	public function validate(&$value)
 	{
-		parent::validate($value, $field_options, $form_data);
+		parent::validate($value);
 
 		if ($this->isEmpty($value))
 		{
@@ -49,7 +47,7 @@ class Url extends \ConvertForms\Field
 
 		if (!Validate::url($value))
 		{
-			$this->throwError(\JText::sprintf('COM_CONVERTFORMS_FIELD_URL_INVALID'), $field_options);
+			$this->throwError(\JText::sprintf('COM_CONVERTFORMS_FIELD_URL_INVALID'));
 		}
 	}
 }

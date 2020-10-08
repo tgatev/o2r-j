@@ -106,7 +106,7 @@ abstract class JFormFieldAjaxify extends JFormFieldList
             'field_attributes' => $field_attributes['@attributes']
         ];
 
-        return JURI::base() . '?option=com_ajax&format=raw&plugin=nrframework&' . http_build_query($data);
+        return JURI::base() . '?option=com_ajax&format=raw&plugin=NRFramework&' . http_build_query($data);
     }
 
     /**

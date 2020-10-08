@@ -42,7 +42,7 @@ class ZooBase extends ComponentBase
         // Normally the item's id can be read by the request parameters BUT if the item 
         // is assosiated to a menu item the item_id parameter is not yet available and 
         // we can only find it out through the menu's parameters.
-        $this->request->id = (int) $this->app->input->get('item_id', $this->app->getMenu()->getActive()->params->get('item_id'));
+        $this->request->id = (int) $this->app->input->get('item_id', $this->app->getMenu()->getActive()->getParams()->get('item_id'));
     }
 
     /**

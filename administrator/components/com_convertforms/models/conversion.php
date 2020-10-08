@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -96,7 +96,8 @@ class ConvertFormsModelConversion extends JModelAdmin
                 'country'    => 'NR_Geo',
                 'checkbox'   => 'checkboxes',
                 'dropdown'   => 'list',
-                'fileupload' => 'textlist'
+                'fileupload' => 'textlist',
+                'confirm'    => $field->options->get('confirm_type')
             ];
 
             if ($type == 'fileupload')
@@ -221,7 +222,7 @@ class ConvertFormsModelConversion extends JModelAdmin
     public function validate($form, $data, $group = null)
     {
         // Validate conversion edited via the backend
-        if (JFactory::getApplication()->isAdmin())
+        if (JFactory::getApplication()->isClient('administrator'))
         {
             return parent::validate($form, $data, $group);
         }
@@ -268,11 +269,11 @@ class ConvertFormsModelConversion extends JModelAdmin
         foreach ($form['fields'] as $key => $form_field)
         {
             $field_name  = isset($form_field['name']) ? $form_field['name'] : null;
-            $field_class = FieldsHelper::getFieldClass($form_field['type'], $form_field);
+            $field_class = FieldsHelper::getFieldClass($form_field['type'], $form_field, $data);
             $user_value  = (!is_null($field_name) && isset($data['cf'][$field_name])) ? $data['cf'][$field_name] : null;
 
             // Validate and Filter user value. If an error occurs the submission aborts with an exception shown in the form
-            $field_class->validate($user_value, $form_field, $data);
+            $field_class->validate($user_value);
 
             // Skip unknown fields or fields with an empty value
             if (!$field_name || $user_value == '')
@@ -366,7 +367,7 @@ class ConvertFormsModelConversion extends JModelAdmin
         }
 
         // Note: Form may be already available in the $submission object.
-        if (!$form = Form::load($submission->form_id))
+        if (!$form = Form::load($submission->form_id, false, true))
         {
             return;
         }
@@ -392,7 +393,7 @@ class ConvertFormsModelConversion extends JModelAdmin
             $prepared_field = (object) [
                 'options'    => new Registry($field),
                 'class'      => $class,
-                'label'      => isset($field['label']) && !empty($field['label']) ? $field['label'] : $field['name'],
+                'label'      => isset($field['label']) && !empty($field['label']) ? JText::_($field['label']) : $field['name'],
                 'value'      => $class->prepareValue($submitted_value),
                 'value_html' => $class->prepareValueHTML($submitted_value),
                 'value_raw'  => $submitted_value

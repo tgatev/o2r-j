@@ -517,5 +517,3 @@ class Functions
         return Cache::set($hash, new Registry($result));
     }
 }
-
-?>

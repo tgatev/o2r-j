@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -10,10 +10,10 @@
  * @license         GNU GPLv3 <http://www.gnu.org/licenses/gpl.html> or later
 */
 defined('_JEXEC') or die('Restricted access');
- 
-// import Joomla view library
-jimport('joomla.application.component.view');
- 
+
+use Joomla\CMS\Toolbar\Toolbar;
+use Joomla\CMS\Toolbar\ToolbarHelper;
+
 /**
  * Conversions View
  */
@@ -43,7 +43,7 @@ class ConvertFormsViewConversions extends JViewLegacy
 
         // Trigger all ConvertForms plugins
         JPluginHelper::importPlugin('convertforms');
-        JEventDispatcher::getInstance()->trigger('onConvertFormsServiceName');
+        JFactory::getApplication()->triggerEvent('onConvertFormsServiceName');
 
         // Check for errors.
         if (!is_null($this->get('Errors')) && count($errors = $this->get('Errors')))
@@ -69,6 +69,46 @@ class ConvertFormsViewConversions extends JViewLegacy
         $viewLayout = JFactory::getApplication()->input->get('layout', 'default');
 
         JToolBarHelper::title(JText::_('COM_CONVERTFORMS') . ": " . JText::_('COM_CONVERTFORMS_SUBMISSIONS'), "users");
+
+        // Joomla J4
+        if (defined('nrJ4'))
+        {
+            $toolbar = Toolbar::getInstance('toolbar');
+
+            $dropdown = $toolbar->dropdownButton('status-group')
+                ->text('JTOOLBAR_CHANGE_STATUS')
+                ->toggleSplit(false)
+                ->icon('fas fa-ellipsis-h')
+                ->buttonClass('btn btn-action')
+                ->listCheck(true);
+
+            $childBar = $dropdown->getChildToolbar();
+            
+            if ($canDo->get('core.edit.state'))
+            {
+                $childBar->publish('conversions.publish')->listCheck(true);
+                $childBar->unpublish('conversions.unpublish')->listCheck(true);
+                $childBar->standardButton('export')->text('COM_CONVERTFORMS_LEADS_EXPORT')->task('conversions.export')->icon('icon-download')->listCheck(true);
+                $childBar->trash('conversions.trash')->listCheck(true);
+            }
+
+            if ($this->state->get('filter.state') == -2)
+            {
+                $toolbar->delete('conversions.delete')
+                    ->text('JTOOLBAR_EMPTY_TRASH')
+                    ->message('JGLOBAL_CONFIRM_DELETE')
+                    ->listCheck(true);
+            }
+
+            if ($canDo->get('core.admin'))
+            {
+                $toolbar->preferences('com_convertforms');
+            }
+
+            $toolbar->help('JHELP', false, 'http://www.tassos.gr/joomla-extensions/convert-forms/docs');
+
+            return;
+        }
 
         if ($canDo->get('core.edit.state') && $state->get('filter.state') != 2)
         {

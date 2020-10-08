@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -16,7 +16,7 @@ extract($displayData);
 ?>
 
 <div class="cf-select <?php echo $field->size ?>">
-	<select name="<?php echo $field->name ?>" id="<?php echo $field->id; ?>" 
+	<select name="<?php echo $field->input_name ?>" id="<?php echo $field->input_id; ?>" 
 			<?php if (isset($field->required) && $field->required) { ?>
 				required
 			<?php } ?>

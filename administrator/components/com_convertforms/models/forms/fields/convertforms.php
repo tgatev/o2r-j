@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -23,15 +23,19 @@ class JFormFieldConvertForms extends JFormFieldList
      */
     protected function getOptions()
     {
-        $model = JModelLegacy::getInstance('Forms', 'ConvertFormsModel', array('ignore_request' => true));
-        $model->setState('filter.state', 1);
+        $model = JModelLegacy::getInstance('Forms', 'ConvertFormsModel', ['ignore_request' => true]);
+
+        $state = isset($this->element['state']) ? (string) $this->element['state'] : 1;
+
+        $model->setState('filter.state', explode(',', $state));
 
         $convertforms = $model->getItems();
         $options = array();
 
         foreach ($convertforms as $key => $convertform)
         {
-            $options[] = JHTML::_('select.option', $convertform->id, $convertform->name);
+            $name = $convertform->state != 1 ? $convertform->name . ' (' . JText::_('JUNPUBLISHED') . ')' : $convertform->name;
+            $options[] = JHTML::_('select.option', $convertform->id, $name);
         }   
 
         return array_merge(parent::getOptions(), $options);

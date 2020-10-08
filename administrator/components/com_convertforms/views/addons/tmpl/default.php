@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -16,9 +16,12 @@ JHtml::_('bootstrap.popover');
 ?>
 
 <div class="row-fluid">
+    <?php if (!defined('nrJ4')) { ?>
     <div id="j-sidebar-container" class="span2">
         <?php echo $this->sidebar; ?>
     </div>
+    <?php } ?>
+
     <div id="j-main-container">
         
         <div class="cf-addons-container">

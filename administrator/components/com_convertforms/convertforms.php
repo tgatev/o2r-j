@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -30,11 +30,6 @@ if (!JFactory::getUser()->authorise('core.manage', 'com_convertforms'))
 use NRFramework\Functions;
 use NRFramework\Extension;
 
-if (version_compare(JVERSION, '4.0', 'ge'))
-{
-	define('J4', true);
-}
-
 // Load framework's and component's language files
 Functions::loadLanguage();
 Functions::loadLanguage('com_convertforms');
@@ -61,6 +56,11 @@ if (!Extension::componentIsEnabled('ajax'))
 
 // Load component's CSS/JS files
 ConvertForms\Helper::loadassets();
+
+if (defined('nrJ4'))
+{
+	JHtml::stylesheet('plg_system_nrframework/joomla4.css', ['relative' => true, 'version' => 'auto']);
+}
 
 // Perform the Request task
 $controller = JControllerLegacy::getInstance('ConvertForms');

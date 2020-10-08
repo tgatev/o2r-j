@@ -61,6 +61,12 @@ class NR_MailChimp extends NR_Wrapper
 			'status' 		=> $double_optin ? 'pending' : 'subscribed'
 		);
 
+		// add support for tags
+		if ($tags = $this->getTags($merge_fields))
+		{
+			$data['tags'] = $tags;
+		}
+
 		if (is_array($merge_fields) && count($merge_fields))
 		{
 			foreach ($merge_fields as $merge_field_key => $merge_field_value) 
@@ -87,6 +93,45 @@ class NR_MailChimp extends NR_Wrapper
 		}
 
 		return true;
+	}
+
+	/**
+	 * Find and return all unique tags
+	 * 
+	 * @param   array   $merge_fields
+	 * 
+	 * @return  array
+	 */
+	private function getTags($merge_fields)
+	{
+		$tags = [];
+
+		// ensure tags are added in the form
+		if (!isset($merge_fields['tags']))
+		{
+			return $tags;
+		}
+
+		$mergeFieldsTags = $merge_fields['tags'];
+		
+		// make string array
+		if (is_string($mergeFieldsTags))
+		{
+			$tags = explode(',', $mergeFieldsTags);
+		}
+
+		// ensure we have array to manipulate
+		if (is_array($mergeFieldsTags) || is_object($mergeFieldsTags))
+		{
+			$tags = (array) $mergeFieldsTags;
+		}
+
+		// remove empty values, keep uniques and reset keys
+		$tags = array_filter($tags);
+		$tags = array_unique($tags);
+		$tags = array_values($tags);
+
+		return $tags;
 	}
 
 	/**

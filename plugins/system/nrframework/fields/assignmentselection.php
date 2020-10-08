@@ -54,10 +54,12 @@ class JFormFieldAssignmentSelection extends JFormFieldList
     {
         $return = parent::setup($element, $value, $group);
 
+        JHtml::_('jquery.framework');
+
 		HTML::script('plg_system_nrframework/assignmentselection.js');
 		HTML::stylesheet('plg_system_nrframework/assignmentselection.css');
 
-        $this->class = 'assignmentselection input-medium chzn-color-state';
+        $this->class = 'assignmentselection chzn-color-state';
 
         return $return;
     }

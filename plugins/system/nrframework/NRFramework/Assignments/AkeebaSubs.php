@@ -68,5 +68,4 @@ class AkeebaSubs extends Assignment
 
 		return array_unique($levels);
 	}
-
 }

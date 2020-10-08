@@ -2,7 +2,7 @@
 /**
  * @version $Id: rokcandy_install.script.php 26966 2015-02-24 10:02:39Z matias $
  * @author RocketTheme http://www.rockettheme.com
- * @copyright Copyright (C) 2007 - 2019 RocketTheme, LLC
+ * @copyright Copyright (C) 2007 - 2020 RocketTheme, LLC
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
  */
 // No direct access to this file

@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -15,7 +15,7 @@ extract($displayData);
 
 ?>
 
-<input type="hidden" name="<?php echo $field->name ?>" value="<?php echo $field->value; ?>"
+<input type="hidden" name="<?php echo $field->input_name ?>" class="cf-input" value="<?php echo $field->value; ?>"
 
 <?php if (isset($field->htmlattributes) && !empty($field->htmlattributes)) { ?>
     <?php foreach ($field->htmlattributes as $key => $value) { ?>

@@ -53,9 +53,5 @@
             hint="images/myattachment.pdf"
             class="span12 show-smart-tags"
         />
-        <field name="note1" type="note"
-            description="COM_CONVERTFORMS_EMAILS_BODY_HINT"
-            class="small"
-        />
     </fieldset>
 </form>

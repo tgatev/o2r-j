@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -11,6 +11,9 @@
 */
 defined('_JEXEC') or die('Restricted access');
  
+use Joomla\CMS\Toolbar\Toolbar;
+use Joomla\CMS\Toolbar\ToolbarHelper;
+
 // import Joomla view library
 jimport('joomla.application.component.view');
  
@@ -52,6 +55,8 @@ class ConvertFormsViewForms extends JViewLegacy
         // Set the toolbar
         $this->addToolBar();
 
+        ConvertForms\Helper::renderSelectTemplateModal();
+
         // Display the template
         parent::display($tpl);
     }
@@ -61,10 +66,76 @@ class ConvertFormsViewForms extends JViewLegacy
      */
     protected function addToolBar() 
     {
-
         $canDo = ConvertForms\Helper::getActions();
         $state = $this->get('State');
         $viewLayout = JFactory::getApplication()->input->get('layout', 'default');
+
+        // Joomla J4
+        if (defined('nrJ4'))
+        {
+            $toolbar = Toolbar::getInstance('toolbar');
+
+            if ($viewLayout == 'import')
+            {
+                $title = JText::_('COM_CONVERTFORMS') . ': ' . JText::_('NR_IMPORT_ITEMS');
+
+                JFactory::getDocument()->setTitle($title);
+                JToolbarHelper::title($title);
+                JToolbarHelper::back();
+            }
+            else
+            {
+                ToolbarHelper::title(JText::_('COM_CONVERTFORMS') . ": " . JText::_('COM_CONVERTFORMS_FORMS'));
+                
+                if ($canDo->get('core.create'))
+                {
+                    $newGroup = $toolbar->dropdownButton('new-group');
+                    $newGroup->configure(
+                        function (Toolbar $childBar)
+                        {
+                            $childBar->popupButton('new')->text('New')->selector('cfSelectTemplate')->icon('icon-new')->buttonClass('btn btn-success');
+                            $childBar->addNew('form.add')->text('COM_CONVERTFORMS_TEMPLATES_BLANK');
+                            $childBar->standardButton('import')->text('NR_IMPORT')->task('forms.import')->icon('icon-upload');
+                        }
+                    );
+                }
+
+                $dropdown = $toolbar->dropdownButton('status-group')
+                    ->text('JTOOLBAR_CHANGE_STATUS')
+                    ->toggleSplit(false)
+                    ->icon('fas fa-ellipsis-h')
+                    ->buttonClass('btn btn-action')
+                    ->listCheck(true);
+
+                $childBar = $dropdown->getChildToolbar();
+                
+                if ($canDo->get('core.edit.state'))
+                {
+                    $childBar->publish('forms.publish')->listCheck(true);
+                    $childBar->unpublish('forms.unpublish')->listCheck(true);
+                    $childBar->standardButton('copy')->text('JTOOLBAR_DUPLICATE')->task('forms.duplicate')->listCheck(true);
+                    $childBar->standardButton('export')->text('NR_EXPORT')->task('forms.export')->icon('icon-download')->listCheck(true);
+                    $childBar->trash('forms.trash')->listCheck(true);
+                }
+
+                if ($this->state->get('filter.state') == -2)
+                {
+                    $toolbar->delete('forms.delete')
+                        ->text('JTOOLBAR_EMPTY_TRASH')
+                        ->message('JGLOBAL_CONFIRM_DELETE')
+                        ->listCheck(true);
+                }
+
+                if ($canDo->get('core.admin'))
+                {
+                    $toolbar->preferences('com_rstbox');
+                }
+
+                $toolbar->help('JHELP', false, "http://www.tassos.gr/joomla-extensions/responsive-scroll-triggered-box-for-joomla/docs");
+            }
+
+            return;
+        }
 
         if ($viewLayout == 'import')
         {

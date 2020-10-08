@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -69,7 +69,27 @@ class ConvertFormsModelForm extends JModelAdmin
         // Call all ConvertForms plugins
         JPluginHelper::importPlugin('convertforms');
 
+        // load translation strings
+        $this->loadTranslations();
+
         parent::preprocessForm($form, $data, $group);
+    }
+    
+    /**
+     * Enqueues translations for the back-end
+     * 
+     * @return  void
+     */
+    private function loadTranslations()
+    {
+        JText::script('COM_CONVERTFORMS_SUBMISSION_ID');
+        JText::script('COM_CONVERTFORMS_SUBMISSION_DATE');
+        JText::script('COM_CONVERTFORMS_SUBMISSION_CAMPAIGN_ID');
+        JText::script('COM_CONVERTFORMS_SUBMISSION_FORM_ID');
+        JText::script('COM_CONVERTFORMS_SUBMISSION_VISITOR_ID');
+        JText::script('COM_CONVERTFORMS_SUBMISSIONS_COUNT');
+        JText::script('COM_CONVERTFORMS_ALL_FIELDS');
+        JText::script('COM_CONVERTFORMS_ALL_FILLED_ONLY_FIELDS');
     }
 
     /**

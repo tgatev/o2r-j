@@ -218,9 +218,9 @@ class Image implements LoggerAwareInterface
 			throw new \InvalidArgumentException('The image file does not exist.');
 		}
 
-
 		// Get the image file information.
 		$info = getimagesize($path);
+
 		if (!$info)
 		{
 			// @codeCoverageIgnoreStart

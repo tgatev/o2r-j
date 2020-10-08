@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -256,8 +256,7 @@ class PlgSystemConvertForms extends JPlugin
         // Yeah! We have a service! Dispatcher call the plugins please!
         JPluginHelper::importPlugin('convertforms');
 
-        $dispatcher = JEventDispatcher::getInstance();
-        $lists = $dispatcher->trigger('onConvertFormsServiceLists', array($campaignData));
+        $lists = JFactory::getApplication()->triggerEvent('onConvertFormsServiceLists', array($campaignData));
 
         if (is_array($lists[0]))
         {
@@ -308,7 +307,7 @@ class PlgSystemConvertForms extends JPlugin
      */
     public function onContentAfterSave($context, $article, $isNew)
     {
-        if ($context != 'com_convertforms.conversion' || $this->app->isAdmin())
+        if ($context != 'com_convertforms.conversion' || $this->app->isClient('administrator'))
         {
             return;
         }
@@ -323,8 +322,7 @@ class PlgSystemConvertForms extends JPlugin
             return;
         }
 
-        $dispatcher = JEventDispatcher::getInstance();
-        $dispatcher->trigger('onConvertFormsConversionAfterSave', array($conversion, $model, $isNew));
+        JFactory::getApplication()->triggerEvent('onConvertFormsConversionAfterSave', array($conversion, $model, $isNew));
     }
 
      /**
@@ -338,7 +336,7 @@ class PlgSystemConvertForms extends JPlugin
     public function onContentPrepareForm($form, $data)
     {
         // Return if we are in frontend
-        if ($this->app->isSite())
+        if ($this->app->isClient('site'))
         {
             return true;
         }
@@ -363,35 +361,22 @@ class PlgSystemConvertForms extends JPlugin
         // Load ConvertForms plugins
         JPluginHelper::importPlugin('convertforms');
         JPluginHelper::importPlugin('convertformstools');
-        $dispatcher = JEventDispatcher::getInstance();
-        $results = array();
 
         // Campaign Forms
-        if ($form->getName() == "com_convertforms.campaign")
+        if ($form->getName() == 'com_convertforms.campaign')
         {
             if (!isset($data->service) || !$service = $data->service)
             {
                 return true;
             }
             
-            $result = $dispatcher->trigger('onConvertFormsCampaignPrepareForm', array($form, $data, $service));
+            $result = \JFactory::getApplication()->triggerEvent('onConvertFormsCampaignPrepareForm', [$form, $data, $service]);
         }
 
         // Form Editing Page
-        if ($form->getName() == "com_convertforms.form")
+        if ($form->getName() == 'com_convertforms.form')
         {
-            $result = $dispatcher->trigger('onConvertFormsFormPrepareForm', array($form, $data));
-        }
-
-        // Check for errors encountered while preparing the form.
-        if (count($results) && in_array(false, $results, true))
-        {
-            // Get the last error.
-            $error = $dispatcher->getError();
-            if (!($error instanceof Exception))
-            {
-                throw new Exception($error);
-            }
+            $result = \JFactory::getApplication()->triggerEvent('onConvertFormsFormPrepareForm', [$form, $data]);
         }
 
         return true;
@@ -464,7 +449,7 @@ class PlgSystemConvertForms extends JPlugin
         }
 
         // Return if we are not in frontend
-        if (!$this->app->isSite())
+        if (!$this->app->isClient('site'))
         {
             return false;
         }

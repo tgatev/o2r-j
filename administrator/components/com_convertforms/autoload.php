@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -13,7 +13,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 // Register Convert Form namespace
-JLoader::registerNamespace('ConvertForms', JPATH_ADMINISTRATOR . '/components/com_convertforms/');
+JLoader::registerNamespace('ConvertForms', JPATH_ADMINISTRATOR . '/components/com_convertforms/ConvertForms', false, false, 'psr4');
 
 // Ensure backwards compatibility with old class names
 JLoader::registerAlias('ConvertFormsHelper',    '\\ConvertForms\\Helper');

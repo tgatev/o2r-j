@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -30,9 +30,9 @@ defined('_JEXEC') or die('Restricted access');
 			<td><?php echo JText::_("NR_DOWNLOAD_KEY"); ?></td>
 			<td>
 				<?php if ($downloadKey) { ?>
-				<span class="label label-success"><?php echo JText::_("NR_OK"); ?></span>
+				<span class="badge badge-success label label-success"><?php echo JText::_("NR_OK"); ?></span>
 				<?php } else { ?>
-				<span class="label label-important"><?php echo JText::_("NR_MISSING"); ?></span>
+				<span class="badge badge-danger label label-important"><?php echo JText::_("NR_MISSING"); ?></span>
 				<?php } ?>
 			</td>
 		</tr>
@@ -46,7 +46,11 @@ defined('_JEXEC') or die('Restricted access');
 		</tr>
 		<tr>
 			<td><?php echo JText::_("NR_FOLLOWME"); ?></td>
-			<td><a href="#" onclick="window.open('https://twitter.com/intent/follow?screen_name=tassosm','tassos.gr','width=500,height=500');"><span class="label label-info"><?php echo JText::sprintf("NR_FOLLOW", "@mtassos") ?></span></a></td>
+			<td>
+				<a href="#" onclick="window.open('https://twitter.com/intent/follow?screen_name=tassosm','tassos.gr','width=500,height=500');">
+					<?php echo JText::sprintf("NR_FOLLOW", "@mtassos") ?>
+				</a>
+			</td>
 		</tr>
 	</tbody>
 </table>

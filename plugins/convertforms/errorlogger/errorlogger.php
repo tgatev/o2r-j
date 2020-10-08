@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -35,7 +35,7 @@ class plgConvertFormsErrorLogger extends JPlugin
     public function onConvertFormsError($error, $category, $form_id, $data = null)
     {
         // Only on front-end
-        if ($this->app->isAdmin())
+        if ($this->app->isClient('administrator'))
         {
             return;
         }

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -11,7 +11,7 @@
 
 defined('_JEXEC') or die;
 
-$params = $this->menu->get('params');
+$params = $this->menu->getParams();
 
 if ($params->get('load_css', true))
 {
@@ -75,8 +75,8 @@ if ($print_view)
 				<td><?php echo isset($this->submission->user_name) ? $this->submission->user_name : $this->submission->user_id ?></td>
 			</tr>
 			<?php
-			$dispatcher = \JEventDispatcher::getInstance();
-			$dispatcher->trigger('onConvertFormsFrontSubmissionViewInfo', array($this->submission));
+				JPluginHelper::importPlugin('convertformstools');
+				JFactory::getApplication()->triggerEvent('onConvertFormsFrontSubmissionViewInfo', array($this->submission));
 			?>
 		</table>
 	</div>

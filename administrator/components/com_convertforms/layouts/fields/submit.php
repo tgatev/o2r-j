@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -76,7 +76,7 @@ $buttonClasses = [
 
 if (isset($styles) && !empty($styles))
 {
-    if (JFactory::getApplication()->isSite())
+    if (JFactory::getApplication()->isClient('site'))
     {
         JFactory::getDocument()->addStyleDeclaration($styles);
     } else 

@@ -1399,6 +1399,7 @@ abstract class OfrsHelper
 
         $mouseover = "background-color: " . sprintf($format, $color_hue, $defaults['s'], $defaults['l']) .
             "color: white";// .sprintf($format, $color_hue, $bcg_color_data['s'], $bcg_color_data['l']) ;
+
         return ["onmouseleave" => $mouseleave, "onmouseover" => $mouseover];
     }
 
@@ -1417,7 +1418,7 @@ abstract class OfrsHelper
      * @param string $class
      * @return string
      */
-    static function getNetworkBoxButtonLayout($id, $adnet_name, $styles = array(), $class = "offer-network-box" ){
+    static function getNetworkBoxButtonLayout($id, $adnet_name, $url, $styles = array(), $class = "offer-network-box" ){
         if( (array_key_exists('adnet_text_color' , $styles) and array_key_exists('adnet_background_color' , $styles) ) and
             ($styles['adnet_text_color'] and $styles['adnet_background_color']  ) ) {
 
@@ -1431,7 +1432,10 @@ abstract class OfrsHelper
         if(!array_key_exists('onmouseleave', $styles)) $styles['onmouseleave'] = $defaults['onmouseleave'];
         if(!array_key_exists('onmouseover', $styles)) $styles['onmouseover'] = $defaults['onmouseover'];
 
-        $url =  JRoute::_("index.php?option=com_ofrs&view=adnet&id=$id&Itemid=2473" );
+		if (!$url)
+        	$url =  JRoute::_("index.php?option=com_ofrs&view=adnet&id=$id&Itemid=2473" );
+        else
+        	$moreAttrs = 'target="_blank"';
         return <<<BUTTON_BOX
 <a class="$class"
   style="${styles['onmouseleave']}" id="offer-network_$id"
@@ -1439,6 +1443,7 @@ abstract class OfrsHelper
   onmouseleave=" jQuery(this).attr('style','${styles['onmouseleave']}' ) "
   title="$adnet_name"
   href="$url"
+  $moreAttrs
 > <i class="icon om-network" aria-hidden="true" style="padding-right: 5px" ></i>$adnet_name</a>
 BUTTON_BOX;
 

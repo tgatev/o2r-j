@@ -82,7 +82,11 @@ class Assignments
         'djclassifiedssingle'                => 'Component\DJClassifiedsSingle',
         'djclassifiedscategory'              => 'Component\DJClassifiedsCategory',
         'sobiprocategory'                    => 'Component\SobiProCategory',
-        'sobiprosingle'                      => 'Component\SobiProSingle'
+        'sobiprosingle'                      => 'Component\SobiProSingle',
+        'djeventscategory'                   => 'Component\DJEventsCategory',
+        'djeventssingle'                     => 'Component\DJEventsSingle',
+        'jcalprocategory'                    => 'Component\JCalProCategory',
+        'jcalprosingle'                      => 'Component\JCalProSingle'
     );
 
     /**

@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -36,6 +36,13 @@ class Divider extends \ConvertForms\Field
 		'inputcssclass',
 		'value'
 	];
+
+	/**
+	 * Indicates the default required behavior on the form
+	 *
+	 * @var bool
+	 */
+	protected $required = false; 
 }
 
 ?>

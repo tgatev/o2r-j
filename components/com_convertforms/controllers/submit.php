@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -112,7 +112,7 @@ class ConvertFormsControllerSubmit extends JControllerForm
             switch ($response->task)
             {
                 case 'msg':
-                    $response->value     = $submission->form->successmsg;
+                    $response->value     = JText::_($submission->form->successmsg);
                     $response->hideform  = $submission->form->hideform;
                     $response->resetform = $submission->form->resetform;
                     break;

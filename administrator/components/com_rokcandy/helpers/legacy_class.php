@@ -2,7 +2,7 @@
 /**
  * @version   $Id: legacy_class.php 6335 2013-01-08 04:29:33Z steph $
  * @author    RocketTheme http://www.rockettheme.com
- * @copyright Copyright (C) 2007 - 2019 RocketTheme, LLC
+ * @copyright Copyright (C) 2007 - 2020 RocketTheme, LLC
  * @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
  */
 defined('_JEXEC') or die('Restricted access');

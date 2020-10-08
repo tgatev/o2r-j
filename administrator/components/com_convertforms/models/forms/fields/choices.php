@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -77,16 +77,16 @@ class JFormFieldNR_Choices extends NRFormField
                             value="1" '.$checked .'>
                     </div>
                     <div class="nr-choice-sort">
-	    			    <span class="icon-menu-3"></span>
+	    			    <span class="cf-icon-menu"></span>
                     </div>
 	    			<div class="nr-choice-input">
-                        <input placeholder="' . JText::_('COM_CONVERTFORMS_ENTER_LABEL') . '" class="nr-choice-label" name="' . $choiceName . '[label]" value="' . htmlspecialchars($choiceLabel) . '" type="text"/>
-                        <input '.(!$showValuesFieldChecked ? "style=\"display:none;\"" : "").' placeholder="Enter saved value" class="nr-choice-value" name="' . $choiceName . '[value]" value="'.$choiceValue.'" type="text"/>
-                        <input '.(!$showCalcValuesFieldChecked ? "style=\"display:none;\"" : "").' placeholder="Enter Calculation Value" class="nr-choice-calc-value" name="' . $choiceName . '[calc-value]" value="'.$choiceCalcValue.'" type="text"/>
+                        <input placeholder="' . JText::_('COM_CONVERTFORMS_ENTER_LABEL') . '" class="form-control nr-choice-label" name="' . $choiceName . '[label]" value="' . htmlspecialchars($choiceLabel) . '" type="text"/>
+                        <input '.(!$showValuesFieldChecked ? "style=\"display:none;\"" : "").' placeholder="Enter saved value" class="form-control nr-choice-value" name="' . $choiceName . '[value]" value="'.$choiceValue.'" type="text"/>
+                        <input '.(!$showCalcValuesFieldChecked ? "style=\"display:none;\"" : "").' placeholder="Enter Calculation Value" class="form-control nr-choice-calc-value" name="' . $choiceName . '[calc-value]" value="'.$choiceCalcValue.'" type="text"/>
                     </div>
                     <div class="nr-choice-control">
-					    <a tabindex="-1" href="#" class="nr-choice-add"><span class="icon-plus"></span></a>
-					    <a tabindex="-1" href="#" class="nr-choice-remove"><span class="icon-minus"></span></a>
+					    <a tabindex="-1" href="#" class="nr-choice-add"><span class="cf-icon-plus"></span></a>
+					    <a tabindex="-1" href="#" class="nr-choice-remove"><span class="cf-icon-minus"></span></a>
                     </div>
 	    		</div>
 	    	';
@@ -96,14 +96,14 @@ class JFormFieldNR_Choices extends NRFormField
         $html[] = '
             </div>
             <div class="nr-choice-settings">
-                <input value"1" class="showvalues" type="checkbox" id="' . $showValuesFieldName . '" name="' . $showValuesFieldName . '" '.$showValuesFieldChecked.'>
-                <label title="' . JText::_('COM_CONVERTFORMS_FIELD_OPTIONS_SHOW_VALUES_DESC') . '" for="' . $showValuesFieldName . '">' . JText::_('COM_CONVERTFORMS_FIELD_OPTIONS_SHOW_VALUES') . '</label>
-
-                <span style="padding-left:10px;">
+                <span>
+                    <input value"1" class="showvalues" type="checkbox" id="' . $showValuesFieldName . '" name="' . $showValuesFieldName . '" '.$showValuesFieldChecked.'>
+                    <label title="' . JText::_('COM_CONVERTFORMS_FIELD_OPTIONS_SHOW_VALUES_DESC') . '" for="' . $showValuesFieldName . '">' . JText::_('COM_CONVERTFORMS_FIELD_OPTIONS_SHOW_VALUES') . '</label>
+                </span>
+                <span>
                     <input value"1" class="showcalcvalues" type="checkbox" id="' . $showCalcValuesFieldName . '" name="' . $showCalcValuesFieldName . '" '.$showCalcValuesFieldChecked.'>
                     <label title="' . JText::_('COM_CONVERTFORMS_FIELD_OPTIONS_CALC_VALUES_DESC') . '" for="' . $showCalcValuesFieldName . '">' . JText::_('COM_CONVERTFORMS_FIELD_OPTIONS_CALC_VALUES') . '</label>
                 </span>
-
             </div>
         ';
 
@@ -131,12 +131,7 @@ class JFormFieldNR_Choices extends NRFormField
      */
     private function addMedia()
     {
-        JHtml::_('jquery.framework');
-        JHtml::_('jquery.ui', array('core', 'sortable'));
-
-        $path = JURI::base(true) . '/components/com_convertforms/models/forms/fields/';
-
-        JFactory::getDocument()->addScript($path . 'choices.js');
-        JFactory::getDocument()->addStyleSheet($path . 'choices.css');
+        JHtml::script('https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js');
+        JHtml::script('com_convertforms/choices.js', ['relative' => true, 'version' => 'auto']);
     }
 }

@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -11,15 +11,23 @@
 */
 
 defined('_JEXEC') or die('Restricted access');
-JHtml::_('behavior.formvalidation');
-JHtml::_('formbehavior.chosen', 'select');
+
+use Joomla\CMS\HTML\HTMLHelper;
+
+HTMLHelper::_('behavior.formvalidator');
+HTMLHelper::_('behavior.keepalive');
+
+if (!defined('nrJ4'))
+{
+    JHtml::_('formbehavior.chosen', 'select');
+}
 
 ?>
 
 <script type="text/javascript">
     Joomla.submitbutton = function(task)
     {
-        if (task == 'conversion.cancel' || document.formvalidator.isValid(document.id('adminForm')))
+        if (task == 'conversion.cancel' || document.formvalidator.isValid(document.getElementById('adminForm')))
         {
             Joomla.submitform(task, document.getElementById('adminForm'));
         }
@@ -28,12 +36,12 @@ JHtml::_('formbehavior.chosen', 'select');
 
 <div class="form-horizontal">
     <form action="<?php echo JRoute::_('index.php?option=com_convertforms&view=conversion&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm">
-        <div class="row-fluid">
-            <span class="span6">
+        <div class="<?php echo defined('nrJ4') ? 'row' : 'row-fluid' ?>">
+            <span class="span6 col-md-7">
                 <h3><?php echo JText::_('COM_CONVERTFORMS_LEAD_USER_SUBMITTED_DATA') ?></h3>
                 <?php echo $this->form->renderFieldset('params') ?>
             </span>
-            <span class="span6">
+            <span class="span6 col-md-5">
                 <h3><?php echo JText::_('COM_CONVERTFORMS_LEAD_INFO') ?></h3>
                 <?php echo $this->form->renderFieldset('main') ?>
             </span>

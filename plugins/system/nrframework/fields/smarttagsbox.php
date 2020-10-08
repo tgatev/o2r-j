@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -66,6 +66,7 @@ class JFormFieldSmartTagsBox extends JFormField
                     '{user.firstname}' => 'User First name',
                     '{user.lastname}'  => 'User Last name',
                     '{user.groups}'    => 'User Group IDs',
+                    '{user.registerdate}' => 'User Registration Date',
                 ],
                 'Visitor' => [
                     '{client.device}'    => 'Visitor Device Type',

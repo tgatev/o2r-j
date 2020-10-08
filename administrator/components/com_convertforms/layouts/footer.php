@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -13,9 +13,9 @@
 defined('_JEXEC') or die('Restricted access');
 
 ?>
-<div class="center">
+<div class="text-center pt-4">
     
-    <div class="alert alert-warning" style="padding:15px;">
+    <div style="padding:15px;">
         <p>
             <?php echo JText::sprintf("NR_USING_THE_FREE_VERSION", JText::_("COM_CONVERTFORMS")) ?>
         </p>

@@ -3,7 +3,7 @@
 /**
  * @author          Tassos.gr
  * @link            http://www.tassos.gr
- * @copyright       Copyright © 2019 Tassos Marinos All Rights Reserved
+ * @copyright       Copyright © 2020 Tassos Marinos All Rights Reserved
  * @license         GNU GPLv3 <http://www.gnu.org/licenses/gpl.html> or later
 */
 

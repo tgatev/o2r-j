@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -25,7 +25,7 @@ $choiceLayout = (isset($field->choicelayout) && !empty($field->choicelayout)) ? 
 <div class="cf-list <?php echo $choiceLayout; ?>">
 	<?php foreach ($field->choices as $choiceKey => $choice) { ?>
 		<div class="cf-checkbox-group <?php if (isset($field->required) && $field->required) { ?> cf-checkbox-group-required <?php } ?>">
-			<input type="checkbox" name="<?php echo $field->name ?>[]" id="<?php echo $field->id . "_" . $choiceKey ?>"
+			<input type="checkbox" name="<?php echo $field->input_name ?>[]" id="<?php echo $field->input_id . "_" . $choiceKey ?>"
 				value="<?php echo htmlspecialchars($choice['value']); ?>"
 				data-calc-value="<?php echo htmlspecialchars($choice['calc-value']) ?>"
 
@@ -38,7 +38,7 @@ $choiceLayout = (isset($field->choicelayout) && !empty($field->choicelayout)) ? 
 				class="<?php echo $field->class; ?>"
 				style="<?php echo $field->style; ?>"
 			>
-			<label class="cf-label" for="<?php echo $field->id . "_" . $choiceKey; ?>" style="font-size: <?php echo $form['params']->get('inputfontsize'); ?>px; color: <?php echo $form['params']->get('inputcolor'); ?>;">
+			<label class="cf-label" for="<?php echo $field->input_id . "_" . $choiceKey; ?>" style="font-size: <?php echo $form['params']->get('inputfontsize'); ?>px; color: <?php echo $form['params']->get('inputcolor'); ?>;">
 				<?php echo $choice['label'] ?>
 			</label>
 		</div>

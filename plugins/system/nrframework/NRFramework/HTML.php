@@ -19,6 +19,76 @@ use Joomla\CMS\Language\Text;
 
 class HTML
 {
+	/**
+	 * Display field help text as tooltip in Joomla 4
+	 *
+	 * @return void
+	 */
+	public static function fixFieldTooltips()
+	{
+		// Run once
+        static $run;
+
+        if ($run)
+        {
+            return;
+        }
+
+        $run = true;
+
+		$doc = \JFactory::getDocument();
+
+		$doc->addStyleDeclaration('
+			.form-text, .form-control-feedback {
+				display:none;
+			}
+			.tooltip .arrow:before {
+				border-top-color:#444;
+				border-bottom-color:#444;
+			}
+			.tooltip-inner {
+				text-align: left;
+				background-color: #444;
+				padding: 7px 9px;
+				max-width:300px;
+			}
+		');
+
+		$doc->addScriptDeclaration('
+			document.addEventListener("DOMContentLoaded", function() {
+				initPopover();
+		
+				document.addEventListener("joomla:updated", initPopover);
+		
+				function initPopover(event) {
+					var target = event && event.target ? event.target : document;
+					var fields = target.querySelectorAll(".control-group");
+		
+					fields.forEach(function(field) {
+						var desc = field.querySelector(".form-text");
+			
+						if (desc) {
+							var label = field.querySelector("label");
+			
+							if (label) {
+								label.classList.add("tTooltip");
+								label.setAttribute("title", desc.innerHTML);
+							}
+						}
+					});
+		
+					jQuery(target).find(".tTooltip").tooltip({
+						placement: "top",
+						html: true,
+						delay: {
+							show: 200
+						}
+					});
+				}
+			});
+		');
+	}
+
 	public static function updateNotification($extension)
 	{
 		$version_installed = Extension::getVersion($extension);

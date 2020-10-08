@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -12,9 +12,13 @@
 
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Button\PublishedButton;
 use ConvertForms\Helper;
 
-JHtml::_('formbehavior.chosen', 'select');
+if (!defined('nrJ4'))
+{
+    JHtml::_('formbehavior.chosen', 'select');
+}
 
 $listOrder = $this->escape($this->state->get('list.ordering'));
 $listDirn  = $this->escape($this->state->get('list.direction'));
@@ -30,18 +34,18 @@ JFactory::getDocument()->addStyleDeclaration('
         border: 1px solid #2384D3;
     }
 ');
+
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_convertforms&view=conversions'); ?>" class="clearfix" method="post" name="adminForm" id="adminForm">
-    <?php if (!empty($this->sidebar)) : ?>
+    
+    <?php if (!defined('nrJ4')) { ?>
         <div id="j-sidebar-container" class="span2">
             <?php echo $this->sidebar; ?>
         </div>
-        <div id="j-main-container" class="span10">
-    <?php else : ?>
-        <div id="j-main-container">
-    <?php endif;?>
-
+    <?php } ?>
+        
+    <div id="j-main-container">
     <?php
         echo JLayoutHelper::render('joomla.searchtools.default', array('view' => $this));
     ?>
@@ -73,18 +77,29 @@ JFactory::getDocument()->addStyleDeclaration('
                     ?>
                     <tr class="row<?php echo $i % 2; ?> <?php echo isset($item->params->sync_error) ? 'error' : '' ?>">
                         <td class="center"><?php echo JHtml::_('grid.id', $i, $item->id); ?></td>
-                        <td class="center">
-                            <div class="btn-group">
-                                <?php 
-                                    echo JHtml::_('jgrid.published', $item->state, $i, 'conversions.', $canChange); 
-                               
-                                    if ($canChange)
+                        <td class="text-center">
+                            <?php if (defined('nrJ4')) { ?>
+                                <?php
+                                    $options = [
+                                        'task_prefix' => 'conversions.',
+                                        'disabled' => !$canChange
+                                    ];
+
+                                    echo (new PublishedButton)->render((int) $item->state, $i, $options);
+                                ?>
+                            <?php } else { ?>
+                                <div class="btn-group">
+                                    <?php echo JHtml::_('jgrid.published', $item->state, $i, 'conversions.', $canChange); ?>
+
+                                    <?php
+                                    if ($canChange && !defined('nrJ4'))
                                     {
                                         JHtml::_('actionsdropdown.' . ((int) $item->state === -2 ? 'un' : '') . 'trash', 'cb' . $i, 'conversions');
                                         echo JHtml::_('actionsdropdown.render', $this->escape($item->id));
                                     }
-                                ?>
-                            </div>
+                                    ?>
+                                </div>
+                            <?php } ?>
                         </td>
                         <?php $i = 0; foreach ($columns as $key => $column) { 
                                 // Convert to lower case to always match the field in case it has been renamed.

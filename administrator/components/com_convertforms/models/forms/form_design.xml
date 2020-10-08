@@ -287,6 +287,7 @@
     </fieldset>
     <fieldset name="fields" label="COM_CONVERTFORMS_FIELDS" tab="fields">
         <field name="fields" type="formfields"
+            hiddenLabel="true"
             default='{
                 "fields0": {
                     "key": "0",
@@ -324,6 +325,13 @@
             addon="px"
             class="input-mini"
         />
+        <field name="labelposition" type="list" 
+            label="COM_CONVERTFORMS_LABEL_POSITION"
+            description="COM_CONVERTFORMS_LABEL_POSITION_DESC"
+            default="top">
+                <option value="top">Top Aligned</option>
+                <option value="left">Left Aligned</option>
+        </field>
         <field name="required_indication" type="nrtoggle" 
             label="COM_CONVERTFORMS_REQUIRED_INDICATION"
             description="COM_CONVERTFORMS_REQUIRED_INDICATION_DESC"

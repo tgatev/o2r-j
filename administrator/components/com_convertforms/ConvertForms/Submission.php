@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -71,7 +71,7 @@ class Submission
             $data['field'][$field_name . '.raw'] = $field->value_raw;   // The raw value as saved in the database.
             $data['field'][$field_name . '.html'] = $field->value_html; // The value as transformed to be shown in HTML.
 
-            $all_fields_item = '<div><strong>' . $field->label . '</strong>: ' . $field->value_html . '</div>';
+            $all_fields_item = '<strong>' . $field->label . '</strong>: ' . $field->value_html . '<br>';
             $all_fields .= $all_fields_item;
             $all_fields_filled .= $field->value_html ? $all_fields_item : '';
         }
@@ -79,6 +79,7 @@ class Submission
         $data['']['all_fields'] = $all_fields;
         $data['']['all_fields_filled'] = $all_fields_filled;
 
+        \JPluginHelper::importPlugin('convertformstools');
         \JFactory::getApplication()->triggerEvent('onConvertFormsGetSubmissionSmartTags', [$submission, &$data]);
 
         return $data;

@@ -24,17 +24,14 @@ class CacheManager
 	 */
     protected $cache = [];
 
-
     /**
      *  Cache mechanism object
      *  @var object
      */
     protected $cache_mechanism = null;
-
-
     
     /**
-     *  ctor
+     *  Construct
      */
     protected function __construct($cache_mechanism)
     {
@@ -45,9 +42,11 @@ class CacheManager
     {
         static $instance = null;
 
-        if ($instance === null) {
+		if ($instance === null)
+		{
             $instance = new CacheManager($cache_mechanism);
-        }
+		}
+		
         return $instance;
     }
 

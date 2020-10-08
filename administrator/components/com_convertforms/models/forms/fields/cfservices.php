@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -24,10 +24,9 @@ class JFormFieldCFServices extends JFormFieldList
     {
         // Trigger all ConvertForms plugins
         JPluginHelper::importPlugin('convertforms');
-        $dispatcher = JEventDispatcher::getInstance();
 
         // Get a list with all available services
-        $services = $dispatcher->trigger('onConvertFormsServiceName');
+        $services = JFactory::getApplication()->triggerEvent('onConvertFormsServiceName');
 
         $options[] = JHTML::_('select.option', '0', JText::_('JDISABLED'));
 

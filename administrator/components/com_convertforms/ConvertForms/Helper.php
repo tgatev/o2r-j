@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -129,7 +129,7 @@ class Helper
      */
     public static function renderSelectTemplateModal()
     {
-        echo JHtml::_('bootstrap.renderModal', 'cfSelectTemplate', array(
+        echo \JHtml::_('bootstrap.renderModal', 'cfSelectTemplate', array(
             'url'         => 'index.php?option=com_convertforms&view=templates&tmpl=component',
             'title'       => \JText::_('COM_CONVERTFORMS_TEMPLATES_SELECT'),
             'closeButton' => true,
@@ -384,7 +384,8 @@ class Helper
             $params->get("hidetext", false) ? $classPrefix . "-success-hidetext" : null,
             !$params->get("hidelabels", false) ? $classPrefix . "-hasLabels" : null,
             $params->get("centerform", false) ? $classPrefix . "-isCentered" : null,
-            $params->get("classsuffix", null)
+            $params->get("classsuffix", null),
+            $classPrefix . '-labelpos-' . $params->get('labelposition', 'top'),
         );
 
         /* Box Styles */
@@ -518,6 +519,9 @@ class Helper
         \JPluginHelper::importPlugin('convertforms');
         \JPluginHelper::importPlugin('convertformstools');
 
+        // load translation strings
+        self::loadTranslations();
+
         // Let user manipulate the form's settings by running their own PHP script
         $payload_1 = ['form' => &$data];
         Form::runPHPScript($data['id'], 'formprepare', $payload_1);
@@ -536,6 +540,18 @@ class Helper
         \JFactory::getApplication()->triggerEvent('onConvertFormsAfterDisplay', [$data, $html]);
 
         return $html;
+    }
+    
+    /**
+     * Enqueues translations for the front-end
+     * 
+     * @return  void
+     */
+    private static function loadTranslations()
+    {
+        \JText::script('COM_CONVERTFORMS_INVALID_RESPONSE');
+        \JText::script('COM_CONVERTFORMS_INVALID_TASK');
+        \JText::script('COM_CONVERTFORMS_ERROR_INPUTMASK_INCOMPLETE');
     }
 
     /**
@@ -574,6 +590,7 @@ class Helper
         {
             // Load core.js as we need getOptions() and Text() methods.
             \JHtml::_('behavior.core');
+            \JHtml::_('behavior.keepalive');
 			\JHtml::script('com_convertforms/site.js', ['relative' => true, 'version' => 'auto']);
 
             $params = self::getComponentParams();
@@ -650,7 +667,7 @@ class Helper
             return [];
         }
 
-        $fields = Form::load($form_id, true);
+        $fields = Form::load($form_id, true, true);
 
         if (!is_array($fields) || !is_array($fields['fields']))
         {

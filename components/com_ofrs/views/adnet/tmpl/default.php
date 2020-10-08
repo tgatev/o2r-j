@@ -91,7 +91,9 @@ JFactory::getDocument()->setTitle($this->item->name);
         </div>
 
         <div id="adnet-join-button" class="text-center" style="margin-top: 5rem">
-            <?= OfrsHelper::getNetworkBoxButtonLayout($this->item->id, 'Join Network', [
+            <?= OfrsHelper::getNetworkBoxButtonLayout($this->item->id, 'Join Network', 
+            	$this->item->join_url,
+            	[
                         "adnet_text_color" => $this->item->adnet_text_color,
                         "adnet_background_color" => $this->item->adnet_background_color,
 

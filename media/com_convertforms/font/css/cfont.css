@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'cfont';
-  src: url('../font/cfont.eot?62708700');
-  src: url('../font/cfont.eot?62708700#iefix') format('embedded-opentype'),
-       url('../font/cfont.woff2?62708700') format('woff2'),
-       url('../font/cfont.woff?62708700') format('woff'),
-       url('../font/cfont.ttf?62708700') format('truetype'),
-       url('../font/cfont.svg?62708700#cfont') format('svg');
+  src: url('../font/cfont.eot?92131453');
+  src: url('../font/cfont.eot?92131453#iefix') format('embedded-opentype'),
+       url('../font/cfont.woff2?92131453') format('woff2'),
+       url('../font/cfont.woff?92131453') format('woff'),
+       url('../font/cfont.ttf?92131453') format('truetype'),
+       url('../font/cfont.svg?92131453#cfont') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'cfont';
-    src: url('../font/cfont.svg?62708700#cfont') format('svg');
+    src: url('../font/cfont.svg?92131453#cfont') format('svg');
   }
 }
 */
@@ -24,7 +24,7 @@
   font-family: "cfont";
   font-style: normal;
   font-weight: normal;
-  speak: none;
+  speak: never;
  
   display: inline-block;
   text-decoration: inherit;
@@ -59,11 +59,19 @@
 .cf-icon-ok:before { content: '\e801'; } /* '' */
 .cf-icon-dots:before { content: '\e802'; } /* '' */
 .cf-icon-cancel:before { content: '\e803'; } /* '' */
+.cf-icon-plus-1:before { content: '\e804'; } /* '' */
+.cf-icon-unhappy:before { content: '\e805'; } /* '' */
 .cf-icon-users:before { content: '\e806'; } /* '' */
 .cf-icon-thumbs-up:before { content: '\e807'; } /* '' */
+.cf-icon-left-dir:before { content: '\e808'; } /* '' */
 .cf-icon-heart:before { content: '\e809'; } /* '' */
+.cf-icon-minus:before { content: '\e80a'; } /* '' */
+.cf-icon-plus:before { content: '\e80c'; } /* '' */
+.cf-icon-down-open:before { content: '\e80d'; } /* '' */
+.cf-icon-up-open:before { content: '\e810'; } /* '' */
 .cf-icon-attention:before { content: '\e817'; } /* '' */
 .cf-icon-link:before { content: '\e818'; } /* '' */
 .cf-icon-spin:before { content: '\e838'; } /* '' */
 .cf-icon-copy:before { content: '\f0c5'; } /* '' */
+.cf-icon-menu:before { content: '\f0c9'; } /* '' */
 .cf-icon-help:before { content: '\f128'; } /* '' */

@@ -3,14 +3,14 @@
 /**
  * @author          Tassos.gr
  * @link            http://www.tassos.gr
- * @copyright       Copyright © 2018 Tassos Marinos All Rights Reserved
+ * @copyright       Copyright © 2020 Tassos Marinos All Rights Reserved
  * @license         GNU GPLv3 <http://www.gnu.org/licenses/gpl.html> or later
 */
 
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 // Registers framework's namespace
-JLoader::registerNamespace('NRFramework', __DIR__ );
+JLoader::registerNamespace('NRFramework', __DIR__ . '/NRFramework/', false, false, 'psr4');
 
 // Assignment related class aliases
 JLoader::registerAlias('NRFrameworkFunctions',               '\\NRFramework\\Functions');

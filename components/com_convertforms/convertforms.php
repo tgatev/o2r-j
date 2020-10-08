@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -23,6 +23,9 @@ if (!@include_once(JPATH_ADMINISTRATOR . '/components/com_convertforms/autoload.
 {
 	throw new RuntimeException('Convert Forms component is not properly installed', 500);
 }
+
+// Load component's language files
+NRFramework\Functions::loadLanguage('com_convertforms');
 
 // Set default controller
 $input = JFactory::getApplication()->input;

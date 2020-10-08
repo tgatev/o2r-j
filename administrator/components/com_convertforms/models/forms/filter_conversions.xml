@@ -8,6 +8,7 @@
         <field name="form_id" type="convertforms"
             label="COM_CONVERTFORMS_FORM"
             description="COM_CONVERTFORMS_FORM"
+			state="0,1"
             onchange="this.form.submit();">
             <option disabled="disabled">COM_CONVERTFORMS_FORM_SELECT</option>
 		</field>

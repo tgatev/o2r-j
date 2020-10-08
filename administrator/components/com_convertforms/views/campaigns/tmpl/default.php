@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -11,6 +11,8 @@
 */
 
 defined('_JEXEC') or die('Restricted access');
+
+use Joomla\CMS\Button\PublishedButton;
 
 JHtml::_('bootstrap.popover');
 
@@ -22,15 +24,13 @@ $user = JFactory::getUser();
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_convertforms&view=campaigns'); ?>" class="clearfix" method="post" name="adminForm" id="adminForm">
-    <?php if (!empty($this->sidebar)) : ?>
+    <?php if (!defined('nrJ4')) { ?>
         <div id="j-sidebar-container" class="span2">
             <?php echo $this->sidebar; ?>
         </div>
-        <div id="j-main-container" class="span10">
-    <?php else : ?>
-        <div id="j-main-container">
-    <?php endif;?>
+    <?php } ?>
 
+    <div id="j-main-container">
     <?php
         echo JLayoutHelper::render('joomla.searchtools.default', array('view' => $this));
     ?>
@@ -48,7 +48,6 @@ $user = JFactory::getUser();
                 <th width="15%" class="text-center">
                     <?php echo JHtml::_('searchtools.sort', 'COM_CONVERTFORMS_CAMPAIGN_SYNC', 'a.service', $listDirn, $listOrder); ?>
                 </th>
-                <th width="15%" class="text-center"><?php echo JText::_("COM_CONVERTFORMS_ACTIONS"); ?></th>
                 <th width="5%" class="text-center nowrap hidden-phone">
                     <?php echo JHtml::_('searchtools.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
                 </th>
@@ -63,19 +62,31 @@ $user = JFactory::getUser();
                     ?>
                     <tr class="row<?php echo $i % 2; ?>">
                         <td class="center"><?php echo JHtml::_('grid.id', $i, $item->id); ?></td>
-                        <td class="center">
-                            <div class="btn-group">
-                                <?php echo JHtml::_('jgrid.published', $item->state, $i, 'campaigns.', $canChange); ?>
+                        <td class="text-center">
+                            <?php if (defined('nrJ4')) { ?>
                                 <?php
-                                if ($canChange)
-                                {
-                                    JHtml::_('actionsdropdown.' . ((int) $item->state === -2 ? 'un' : '') . 'trash', 'cb' . $i, 'campaigns');
-                                    JHtml::_('actionsdropdown.' . 'duplicate', 'cb' . $i, 'campaigns');
-                                           
-                                    echo JHtml::_('actionsdropdown.render', $this->escape($item->name));
-                                }
+                                    $options = [
+                                        'task_prefix' => 'forms.',
+                                        'disabled' => !$canChange
+                                    ];
+
+                                    echo (new PublishedButton)->render((int) $item->state, $i, $options);
                                 ?>
-                            </div>
+                            <?php } else { ?>
+                                <div class="btn-group">
+                                    <?php echo JHtml::_('jgrid.published', $item->state, $i, 'campaigns.', $canChange); ?>
+
+                                    <?php
+                                    if ($canChange && !defined('nrJ4'))
+                                    {
+                                        JHtml::_('actionsdropdown.' . ((int) $item->state === -2 ? 'un' : '') . 'trash', 'cb' . $i, 'campaigns');
+                                        JHtml::_('actionsdropdown.' . 'duplicate', 'cb' . $i, 'campaigns');
+                                            
+                                        echo JHtml::_('actionsdropdown.render', $this->escape($item->name));
+                                    }
+                                    ?>
+                                </div>
+                            <?php } ?>
                         </td>
                         <td>
                             <a href="<?php echo JRoute::_('index.php?option=com_convertforms&task=campaign.edit&id='.$item->id); ?>" title="<?php echo JText::_('JACTION_EDIT'); ?>">
@@ -89,26 +100,6 @@ $user = JFactory::getUser();
                                     echo JText::_("PLG_CONVERTFORMS_" . strtoupper($item->service) . "_ALIAS"); 
                                 }
                             ?>
-                        </td>
-                        <td class="text-center">
-                            <ul class="item-icons">
-                                <li>
-                                    <a class="hasPopover" 
-                                        data-placement="top"
-                                        data-content="<?php echo JText::_("JTOOLBAR_DUPLICATE") ?>"
-                                        href="javascript://" onclick="listItemTask('cb<?php echo $i; ?>', 'campaigns.duplicate')">
-                                        <span class="icon icon-copy"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="hasPopover <?php echo ($item->leads == 0) ? "disabled" : "" ?>" 
-                                        data-placement="top"
-                                        data-content="<?php echo JText::_("COM_CONVERTFORMS_LEADS_EXPORT") ?>"
-                                        href="javascript://" onclick="listItemTask('cb<?php echo $i; ?>', 'campaigns.export')">
-                                        <span class="icon icon-download"></span>
-                                    </a>
-                                </li>
-                            </ul>
                         </td>
                         <td class="text-center"><?php echo $item->id ?></td>
                     </tr>
@@ -125,16 +116,15 @@ $user = JFactory::getUser();
                 </tr>
             <?php } ?>        
         </tbody>
-        <tfoot>
-			<tr><td colspan="9"><?php echo $this->pagination->getListFooter(); ?></td></tr>
-        </tfoot>
     </table>
+
+    <?php echo $this->pagination->getListFooter(); ?>
+
     <div>
         <input type="hidden" name="task" value="" />
         <input type="hidden" name="boxchecked" value="0" />
         <?php echo JHtml::_('form.token'); ?>
     </div>
-    </div>
 </form>
 
-<?php include_once(JPATH_COMPONENT_ADMINISTRATOR."/layouts/footer.php"); ?>
+<?php include_once(JPATH_COMPONENT_ADMINISTRATOR . '/layouts/footer.php'); ?>

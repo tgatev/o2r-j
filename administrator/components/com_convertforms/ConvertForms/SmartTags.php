@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.6.0 Free
+ * @version         2.7.2 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -71,11 +71,10 @@ class SmartTags
      */
     private static function fixDuplicateSiteURL($subject)
     {
-        $base_url = \JURI::root();
-
-        if (is_string($subject))
+        if (is_string($subject) && strpos($subject, 'http') !== false)
         {
-            return str_replace($base_url . $base_url, $base_url, $subject);
+            $domain = \JFactory::getApplication()->input->server->get('HTTP_HOST', '', 'STRING');
+            return preg_replace('#http(s)?:\/\/(.*?)' . $domain . '(.*?)\/http#', 'http', $subject);
         }
 
         if (is_array($subject))
@@ -87,7 +86,7 @@ class SmartTags
                     continue;
                 }
     
-                $item = str_replace($base_url . $base_url, $base_url, $item);
+                $item = self::fixDuplicateSiteURL($item);
             }
         }
 
