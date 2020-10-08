@@ -62,7 +62,11 @@ if (strlen($this->item->preview_url) < 3) {
             <div class="row">
                 <div class="col-xs-6 col-no-gutters ofrs-content-normal">Network:</div>
                 <div class="col-xs-6 col-no-gutters" id="ofr-network-btn">
-                    <?= OfrsHelper::getNetworkBoxButtonLayout($this->item->adnet_id,$this->item->ad_network_name , null, $this->item->adnet_display_properties, 'offer-network-box offer-view')?>
+                    <?= OfrsHelper::getNetworkBoxButtonLayout($this->item->adnet_id,$this->item->ad_network_name ,
+                        JRoute::_('/index.php?option=com_ofrs&view=adnet&id='.$this->item->adnet_id.'&Itemid=2473'), [
+                        "adnet_text_color" => $this->item->adnet_text_color,
+                        "adnet_background_color" => $this->item->adnet_background_color,
+                    ], 'offer-network-box offer-view')?>
                 </div>
             </div>
             <section class="row">

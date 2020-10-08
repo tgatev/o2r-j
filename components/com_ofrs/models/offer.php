@@ -114,19 +114,18 @@ class OfrsModelOffer extends JModelItem
 				$query->from($db->quoteName('#__ofrs_offer', 'a'));
 				
 				// Get from #__ofrs_ad_network as b
-				$query->select('b.name AS ad_network_name,b.join_url AS ad_network_join_url, b.id as adnet_id, b.display_properties as adnet_display_properties');
+				$query->select('b.name AS ad_network_name,b.join_url AS ad_network_join_url, b.id as adnet_id, b.adnet_text_color as adnet_text_color, b.adnet_background_color as adnet_background_color ');
 				$query->join('INNER', ($db->quoteName('#__ofrs_ad_network', 'b')) . ' ON (' . $db->quoteName('a.ad_network_id') . ' = ' . $db->quoteName('b.id') . ')');
 				
 				// Get from #__ofrs_offer as c
 				$query->select('COUNT(b.id) AS offer_cnt');
 				$query->join('INNER', ($db->quoteName('#__ofrs_offer', 'c')) . ' ON (' . $db->quoteName('a.ad_network_id') . ' = ' . $db->quoteName('c.ad_network_id') . ')');
 
-
 				// Get from #__ofrs_offer_payout as d
 				$query->select('d.type AS ofrs_offer_payout_payout_type,d.payout_eur AS ofrs_offer_payout_payout_eur,d.payout_usd AS ofrs_offer_payout_payout_usd,d.display AS ofrs_offer_payout_payout_display');
 				$query->join('LEFT', ($db->quoteName('#__ofrs_offer_payout', 'd')) . ' ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('d.offer_id') . ')');
 
-//				// Get from #__ofrs_payout_type as e
+				// Get from #__ofrs_payout_type as e
 				$query->select('e.name AS ofrs_payout_type_name');
 				$query->join('LEFT', ($db->quoteName('#__ofrs_payout_type', 'e')) . ' ON (' . $db->quoteName('d.type') . ' = ' . $db->quoteName('e.id') . ')');
 
