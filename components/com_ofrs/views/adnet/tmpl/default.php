@@ -68,12 +68,6 @@ JFactory::getDocument()->setTitle($this->item->name);
     <section class="col-xs-12 col-sm-4 text-center " id="adnet-logo-box" style="margin-top: 24px; float: right">
         <div class="adnet-logo">
         <?php
-        /** MOCK Image
-        $this->item->adnet_logo = 1;
-        $this->item->logo_url = "/images/logo-offer-monster-2.svg";
-        $this->item->logo_url = "/images/TEST.png";
-        $this->item->logo_url = "/images/fav-01.png";
-         */
 
         if ($this->item->adnet_logo) { ?>
 
