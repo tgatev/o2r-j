@@ -25,6 +25,10 @@ switch ($view){
         $name = ModOfrsItemName::getAdnetName( $input->get('id'));
         break;
     }
+    case 'profile' : {
+        $name = "Test-User-Profile-HEADER";
+        break;
+    }
     case 'article' : {
 
 //      http://134.122.77.73/index.php?option=com_content&view=article&id=6&Itemid=1118
