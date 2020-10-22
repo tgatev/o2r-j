@@ -46,20 +46,24 @@ foreach ($this->verticalsMonitored as $vertical):
 <br/><br/>
 
 
-<section><a>New offers for saved searches:</a></section>
-<article id="ss_list"></article>
+<!--<section><a>New offers for saved searches:</a></section>-->
+<!--<article id="ss_list"></article>-->
 <?php
-foreach ($this->savedSearchesMonitored as $savedSearch):
-?> 
-        	<section class="col-xs-12 col-sm-8 col-md-3 col-no-gutters vertical-center-sm"><a><?= $savedSearch->ss_name ?></a></section>
-        	<section><img id="smr<?= $savedSearch->ss_id ?>" class="smr" src="/images/icons/delete_button.png"></section>
-<?php 
-    endforeach;
-?>
-</article>
-<div id="addsspnl">
-	<a id="addsslnk" href="#" onclick="ssList.add(); return false;">Add saved search ...</a>
-	<?= $this->savedSearchesSelect; ?>
-	<a id="savesslnk" href="#" onclick="ssList.save(); return false;" style="display: none;">Save</a>
-</div>
+//foreach ($this->savedSearchesMonitored as $savedSearch):
+//?><!-- -->
+<!--        	<section class="col-xs-12 col-sm-8 col-md-3 col-no-gutters vertical-center-sm"><a>-->
+    <?php // echo $savedSearch->ss_name ?>
+    <!--</a></section>-->
+<!--        	<section><img id="smr-->
+    <?php // echo $savedSearch->ss_id ?><!--" class="smr" src="/images/icons/delete_button.png"></section>-->
+<?php //
+//    endforeach;
+//?>
+<!--</article>-->
+<!--<div id="addsspnl">-->
+<!--	<a id="addsslnk" href="#" onclick="ssList.add(); return false;">Add saved search ...</a>-->
+<!--	-->
+    <?php // echo $this->savedSearchesSelect; ?>
+<!--	<a id="savesslnk" href="#" onclick="ssList.save(); return false;" style="display: none;">Save</a>-->
+<!--</div>-->
 <br/><br/>
