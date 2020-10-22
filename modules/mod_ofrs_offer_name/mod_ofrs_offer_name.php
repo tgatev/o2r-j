@@ -26,11 +26,18 @@ switch ($view){
         break;
     }
     case 'profile' : {
-        $name = "Test-User-Profile-HEADER";
+        $name = "Edit Profile";
+        break;
+    }
+    case 'offeralerts' : {
+        $name = "Offer Alerts";
+        break;
+    }
+    case 'subscriptions' : {
+        $name = "Subscriptions";
         break;
     }
     case 'article' : {
-
 //      http://134.122.77.73/index.php?option=com_content&view=article&id=6&Itemid=1118
         $name = ModOfrsItemName::getArticleName( $input->get('id'));
 
