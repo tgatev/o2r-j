@@ -292,7 +292,6 @@ if (isset($this->items) && isset($this->pagination) && isset($this->pagination->
     <!--[/JCBGUI$$$$]-->
 
     <div class="row" style="margin: 0 -3rem 0 -3rem;">
-
         <div class="col-xs-12 col-md-6 col-md-offset-6 col-lg-6  col-lg-offset-6 col-no-gutters pagination-align">
             <?= ($pagination_html) ? $pagination_html : "" ?>
         </div>

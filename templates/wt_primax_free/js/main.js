@@ -24,6 +24,12 @@ jQuery(function ($) {
         sp_offanimation = 'default';
     }
 
+    // attach toggle button
+    let container_width = $('#sp-header > .container').width();
+    if(container_width < 970 ) {
+        $('.menu-item-user-profile.icon.om-account').attr('id', 'offcanvas-toggler');
+    }
+
     if (sp_offanimation == 'default') {
         $('#offcanvas-toggler').on('click', function (event) {
             event.preventDefault();

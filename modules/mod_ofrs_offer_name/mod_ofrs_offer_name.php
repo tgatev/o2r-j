@@ -37,6 +37,18 @@ switch ($view){
         $name = "Subscriptions";
         break;
     }
+    case 'login' : {
+        $name = "Log In";
+        break;
+    }
+    case 'registration' : {
+        $name = "Registration";
+        break;
+    }
+    case 'reset' : {
+        $name = "Reset Password";
+        break;
+    }
     case 'article' : {
 //      http://134.122.77.73/index.php?option=com_content&view=article&id=6&Itemid=1118
         $name = ModOfrsItemName::getArticleName( $input->get('id'));

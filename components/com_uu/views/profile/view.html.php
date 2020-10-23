@@ -102,6 +102,7 @@ class UuViewProfile extends JViewLegacy
 			$doc->addScript(JURI::root().'/components/com_uu/assets/js/jquery.form-validator.min.js');
 			$doc->addScript(JURI::root().'/components/com_uu/assets/js/security.js');
 			$doc->addScript(JURI::root().'/components/com_uu/assets/js/date.js');
+			$doc->addScript(JURI::root().'/components/com_uu/assets/js/menu.js');
 		}
 
 		// Because the application sets a default page title,

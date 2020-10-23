@@ -28,6 +28,10 @@ if (!$conf->get('enable_user_registration')) {
     $app->redirect('index.php',JText::_('COM_UU_USER_REGISTRATION_NOT_ENABLED'));
     jexit();
 }
+// Set the component css/js
+$document = JFactory::getDocument();
+//$document->addStyleSheet('components/com_uu/assets/css/site.css');
+$document->addScript('components/com_uu/assets/js/site.js');
 
 // Execute the task.
 $controller	= JControllerLegacy::getInstance('Uu');

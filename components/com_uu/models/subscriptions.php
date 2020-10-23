@@ -108,7 +108,7 @@ class UuModelSubscriptions extends JModelList {
      */
     public function getAdnetsMonitored() {
         return $this->getItems("n.id AS adnet_id, n.name AS adnet_name
-                        FROM jc_ofrs_ad_network n, ofrs_network_monitor nm
+                        FROM jc_ofrs_ad_network n, ofrs_ad_network_monitor nm
                         WHERE n.id = nm.ad_network_id");
         return $items;
     }

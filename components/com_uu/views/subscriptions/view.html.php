@@ -36,5 +36,6 @@ class UuViewSubscriptions extends JViewLegacy
     {
         JHtml::_('jquery.framework');
         $this->document->addScript("components/com_uu/assets/js/ofrs_subscriptions.js");
+        $this->document->addScript("components/com_uu/assets/js/menu.js");
     }
 }

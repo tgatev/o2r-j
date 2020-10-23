@@ -31,7 +31,7 @@ class UuController extends JControllerLegacy
         $vName	 = JRequest::getCmd('view', 'login');
         $vFormat = $document->getType();
         $lName	 = JRequest::getCmd('layout', 'default');
-
+        $itemId = JRequest::getInt('Itemid');
         if ($view = $this->getView($vName, $vFormat)) {
             // Do any specific processing by view.
             switch ($vName) {
@@ -70,7 +70,12 @@ class UuController extends JControllerLegacy
 
                 // Handle the default views.
                 case 'login':
-                    $model = $this->getModel($vName);
+                    if(!$itemId){
+                        $this->setRedirect(JRoute::_('index.php?option=com_uu&view=login&Itemid=1114', false));
+                        return;
+                    }else {
+                        $model = $this->getModel($vName);
+                    }
                     break;
 
                 case 'reset':

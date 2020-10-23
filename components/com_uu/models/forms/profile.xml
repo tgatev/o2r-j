@@ -14,6 +14,7 @@
 			message="COM_USERS_PROFILE_NAME_MESSAGE"
 			required="true"
 			size="30"
+			hint="Enter your name."
 		/>
 
 		<field name="username" type="text"
@@ -25,6 +26,7 @@
 			required="true"
 			size="30"
 			validate="username"
+			hint="Enter your username."
 		/>
 
 		<field name="password1" type="password"
@@ -37,6 +39,7 @@
 			message="COM_USERS_PROFILE_PASSWORD1_MESSAGE"
 			size="30"
 			validate="equals"
+			hint="Enter your new password."
 		/>
 
 		<field name="password2" type="password"
@@ -47,6 +50,7 @@
 			label="COM_USERS_PROFILE_PASSWORD2_LABEL"
 			message="COM_USERS_PROFILE_PASSWORD2_MESSAGE"
 			size="30"
+			hint="Enter your new password again."
 		/>
 
 		<field name="email1" type="email"
@@ -58,6 +62,7 @@
 			size="30"
 			unique="true"
 			validate="email"
+			hint="Enter your email."
 		/>
 
 		<field name="email2" type="email"
@@ -69,6 +74,7 @@
 			required="true"
 			size="30"
 			validate="equals"
+		   hint="Enter your email again."
 		/>
 	</fieldset>
 </form>

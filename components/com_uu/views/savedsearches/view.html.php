@@ -22,5 +22,6 @@ class UuViewSavedSearches extends JViewLegacy {
     {
         JHtml::_('jquery.framework');
         $this->document->addScript("components/com_uu/assets/js/ofrs_savedsearches.js");
+        $this->document->addScript("components/com_uu/assets/js/menu.js");
     }
 }

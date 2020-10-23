@@ -28,5 +28,7 @@ class UuViewOfferAlerts extends JViewLegacy
     protected function _prepareDocument() {
         JHtml::_('jquery.framework');
         $this->document->addScript("components/com_uu/assets/js/ofrs_user_profile.js");
+        $this->document->addScript("components/com_uu/assets/js/menu.js");
+
     }
 }

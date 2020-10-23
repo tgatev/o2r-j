@@ -16,8 +16,11 @@ JHTML::_('behavior.modal', 'a.modal', array('handler' => 'iframe'));
 
 $conf = new UuConfig();
 $required	= false;
+jimport('joomla.application.module.helper');
+// this is where you want to load your module position
 
 
+//echo '<pre>'. print_r($this->registrationFields, true). '</pre>';
 //load recaptcha api if captca field is present (our onload callback function must be defined before the reCAPTCHA API loads)
 foreach ($this->registrationFields as $key => $field) {
     if ($field->type == 'captcha') {
@@ -31,7 +34,18 @@ foreach ($this->registrationFields as $key => $field) {
 }
 
 ?>
-<div id="uu-wrap" class="form-validate form-horizontal registration<?php echo $this->pageclass_sfx?>"
+<script  type="text/javaScript">
+
+    jQuery(document).ready(function () {
+        dropdownGenerator( 'jform_cf_iam',  {
+            enableFiltering: false,
+            enableClickableOptGroups: false,
+            enableCaseInsensitiveFiltering: false,
+            includeResetOption: false,
+        } );
+    });
+</script>
+<div id="uu-wrap" class="form-validate form-horizontal registration<?php echo $this->pageclass_sfx?> col-xs-12 col-md-6 col-md-offset-3"
      xmlns="http://www.w3.org/1999/html">
     <?php if ($this->params->get('show_page_heading')) : ?>
     <div class="page-header">
@@ -73,21 +87,35 @@ foreach ($this->registrationFields as $key => $field) {
             if ($conf->get('email_as_username') && $field->fieldcode == 'username') {continue;}
 
             if ($field->type != 'group') {
+                if($field->type != 'checkbox' ) {
             ?>
-                    <div class="control-group">
-                        <div class="control-label" id="lblfield<?php echo $field->id;?>" for="jform_<?php echo $field->fieldcode;?>">
+                    <div class="control-group row">
+                        <div class="col-xs-12 col-md-12" id="lblfield<?php echo $field->id;?>" for="jform_<?php echo $field->fieldcode;?>">
 	                        <?php if($field->required > 0) echo '*'; ?><?php echo JText::_($field->name); ?>
                         </div>
-                        <div class="controls">
-                            <?php echo $field->html; ?>
+                        <div class="col-xs-12 col-md-12">
+
+                            <?php echo str_ireplace(['title','class="'] , ['placeholder','class="col-xs-12'], $field->html) ;?>
+                        </div>
+                    </div>
+                <?php }else{ // when we have a checkbox ?>
+                    <div class="control-group row">
+
+                        <div class="col-xs-12">
+                            <?php echo str_ireplace(['title','class="'] , ['placeholder','class="col-xs-12'], $field->html) ;?>
+                            &nbsp;<span class="checkbox-text" id="lblfield<?php echo $field->id;?>" for="jform_<?php echo $field->fieldcode;?>">
+                                <?php if($field->required > 0) echo '*'; ?><?php echo JText::_($field->name); ?>
+                            </span>
                         </div>
                     </div>
                 <?php
+
+                }
             }
 
             ?>
 
-        <?php endforeach;?>
+                <?php endforeach;?>
                 </fieldset>
         <fieldset>
             <?php

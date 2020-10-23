@@ -1,3 +1,10 @@
+.view-registration div#uu-wrap.registration,
+.com-uu.view-profile article.user-profile-edit,
+.com-uu.view-profile #sp-left {
+    margin-top: 20px;
+}
+
+/*** OLD CSS **/
 /*input[type=checkbox].invalid {*/
 /*    outline: 1px solid #ff0000;*/
 /*}*/

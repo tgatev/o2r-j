@@ -4,7 +4,7 @@
 		label="COM_UU_LOGIN_DEFAULT_LABEL"	>
 
 		<field name="username" type="text"
-			class="validate-username"
+			class="validate-username col-xs-12"
 			filter="username"
 			label="COM_UU_LOGIN_USERNAME_LABEL"
 			size="25"
@@ -12,7 +12,7 @@
 		/>
 
 		<field name="password" type="password"
-			class="validate-password"
+			class="validate-password col-xs-12"
 			filter="raw"
 			label="JGLOBAL_PASSWORD"			
 			size="25"

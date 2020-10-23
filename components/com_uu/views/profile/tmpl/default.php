@@ -17,7 +17,22 @@ $conf = new UuConfig();
 $required = false;
 
 ?>
-<div id="uu-wrap" class="form-horizontal  profile<?php echo $this->pageclass_sfx?>" xmlns="http://www.w3.org/1999/html">
+
+<script  type="text/javaScript">
+
+    jQuery(document).ready(function () {
+        dropdownGenerator( 'jform_cf_iam',  {
+            enableFiltering: false,
+            enableClickableOptGroups: false,
+            enableCaseInsensitiveFiltering: false,
+            includeResetOption: false,
+        } );
+        jQuery("button#ddb_jform_cf_iam > span").removeClass('col-xs-11') ;
+        jQuery("button#ddb_jform_cf_iam > span").addClass('col-xs-10') ;
+    });
+</script>
+<div id="uu-wrap" class="form-horizontal  profile<?php echo $this->pageclass_sfx?> col-xs-12 col-md-6 col-md-offset-3" xmlns="http://www.w3.org/1999/html">
+
 <?php if ($this->params->get('show_page_heading')) : ?>
     <div class="page-header">
         <h1><?php echo $this->escape($this->params->get('page_heading')); ?></h1>
@@ -78,4 +93,3 @@ $required = false;
 	<?php endif; ?>
 
 </div>
-
