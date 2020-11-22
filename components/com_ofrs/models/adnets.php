@@ -29,7 +29,7 @@ class OfrsModelAdnets extends JModelList
     CONST ORDER_MAP = [
         "43" => "a.name",            //    <option value="43">Network</option>
         "24" => 'offer_count',
-        "49" => "a.modified",            //    <option value="49">Updated</option>
+        "49" => "b.modified",            //    <option value="49">Updated</option>
     ];
 	/**
 	 * Model user data.
@@ -72,9 +72,6 @@ class OfrsModelAdnets extends JModelList
 		// Create a new query object.
 		$query = $db->getQuery(true);
 
-		// [Prepare Query to ] Get data
-
-/***[JCBGUI.dynamic_get.php_custom_get.40.$$$$]***/
 		// Get from #__ofrs_ad_network as a
 		$query->select('a.id AS adnet_id,
                         a.name AS adnet_name,
@@ -94,7 +91,7 @@ class OfrsModelAdnets extends JModelList
 
         $query->where("a.published = 1");
 		$query->group(array('a.id'));
-        $ord_col = $this->getState('list.ordering', self::ORDER_MAP[$filter['sort_by']] ?? 'a.modified');
+        $ord_col = $this->getState('list.ordering', self::ORDER_MAP[$filter['sort_by']] ?? 'b.modified');
         $ord_direction = $this->getState('list.direction', 'DESC');
         $query->order($db->escape($ord_col).' '.$db->escape($ord_direction));
         return $query;
@@ -129,7 +126,6 @@ class OfrsModelAdnets extends JModelList
 	}
 
 
-/***[JCBGUI.site_view.php_model.26.$$$$]***/
 protected function populateState($ordering = null, $direction = null) {
 	    parent::populateState('a.name', 'ASC');
 
@@ -138,7 +134,7 @@ protected function populateState($ordering = null, $direction = null) {
         $offset = $app->getUserStateFromRequest('list.start', 'limitstart', 0);
 
         if(is_integer((int) $filter['sort_by'])){ // Only simple Types
-            $this->setState('list.ordering', self::ORDER_MAP[$filter['sort_by']] ?? 'a.modified'  );
+            $this->setState('list.ordering', self::ORDER_MAP[$filter['sort_by']] ?? 'b.modified'  );
             $this->setState('list.direction', $filter['sort_direction'] ?? 'DESC'  );
         }else{
             // implement custom optional values like: <int|string>.(asc|desc)
@@ -153,7 +149,7 @@ protected function populateState($ordering = null, $direction = null) {
 	{
 	    $config['filter_fields'] = array('a.name','offer_count');
 	    parent::__construct($config);
-	}/***[/JCBGUI$$$$]***/
+	}
 
     public function getCountsOfFilterResults(){
         $query= $this->getListQuery();

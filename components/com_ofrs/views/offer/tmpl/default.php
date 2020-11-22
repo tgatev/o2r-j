@@ -47,7 +47,7 @@ if (strlen($this->item->preview_url) < 3) {
             </div>
             <div class="row">
                 <div class="col-xs-6 col-no-gutters ofrs-content-normal">Payout:</div>
-                <div class="col-xs-6 col-no-gutters"><?= $this->item->ofrs_offer_payout_payout_display . ' ' . $this->item->ofrs_payout_type_name; ?></div>
+                <div class="col-xs-6 col-no-gutters"><?= $this->item->payout_display . ' ' . $this->item->ofrs_payout_type_name; ?></div>
             </div>
             <div class="row">
                 <div class="col-xs-6 col-no-gutters ofrs-content-normal">Verticals:</div>

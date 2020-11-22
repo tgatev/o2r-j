@@ -30,7 +30,8 @@ class OfrsModelOffers extends JModelList
     CONST ORDER_MAP = [
         "45" => "a.name",            //    <option value="45">Offer name</option>
         "43" => "b.name",            //    <option value="43">Network</option>
-        "22" => "c.display",            //    <option value="22">Payout</option>
+        // "22" => "a.payout_display",            //    <option value="22">Payout</option>
+        "22" => "a.ordering,a.payout_value",            //    <option value="22">Payout</option>
         "23" => "d.name",            //    <option value="23">Type</option>
         "49" => "a.modified",            //    <option value="49">Updated</option>
     ];
@@ -78,8 +79,6 @@ class OfrsModelOffers extends JModelList
 		// Get a db connection.
 		$db = JFactory::getDbo();
 
-		// [Prepare Query to ] Get data
-/***[JCBGUI.dynamic_get.php_custom_get.41.$$$$]***/
 		// Create a new query object.
 		$query = $db->getQuery(true);
 
@@ -101,13 +100,12 @@ class OfrsModelOffers extends JModelList
                         b.adnet_text_color as adnet_text_color,
                         b.adnet_background_color as adnet_background_color,
                         d.name AS payout_type,
-                        c.display,
+                        a.payout_display AS display,
                         a.have_lp_thumbnail as lp_thumbnail');
 
 		$query->from($db->quoteName('#__ofrs_offer', 'a'));
 		$query->join('', ($db->quoteName('#__ofrs_ad_network', 'b')) . ' ON (' . $db->quoteName('a.ad_network_id') . ' = ' . $db->quoteName('b.id') . ')');
-        $query->join('LEFT', ($db->quoteName('#__ofrs_offer_payout', 'c')) . 'ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('c.offer_id') . ')');
-        $query->join('LEFT', ($db->quoteName('#__ofrs_payout_type', 'd')) . 'ON (' . $db->quoteName('c.type') . ' = ' . $db->quoteName('d.id') . ')');
+        $query->join('LEFT', ($db->quoteName('#__ofrs_payout_type', 'd')) . 'ON (' . $db->quoteName('a.payout_type') . ' = ' . $db->quoteName('d.id') . ')');
         $query->join('LEFT', ($db->quoteName('#__ofrs_offer_vertical', 'e')) . 'ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('e.offer_id') . ')');
         $query->join('LEFT', ($db->quoteName('#__ofrs_offer_country', 'f')) . 'ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('f.offer_id') . ')');
         $query->join('LEFT', ($db->quoteName('#__ofrs_vertical', 'g')) . 'ON (' . $db->quoteName('e.vertical_id') . ' = ' . $db->quoteName('g.id') . ')');
@@ -131,17 +129,12 @@ class OfrsModelOffers extends JModelList
         if (isset($f_verticals)) $query->where("e.vertical_id IN ('" . implode("','", $f_verticals) . "')");
 
             // filter on payout type
-        if (isset($f_payout_type) && count($f_payout_type)) $query->where('c.type IN (\'' . implode("','",$f_payout_type) . '\')');
+        if (isset($f_payout_type) && count($f_payout_type)) $query->where('a.payout_type IN (\'' . implode("','",$f_payout_type) . '\')');
 //
         if($ordering = $this->getState('list.ordering', 'a.modified')){
             $query->order($db->escape($ordering).' '.$db->escape($this->getState('list.direction', 'DESC')));
         }
-//		$query->group('a.id,a.ad_network_id,a.name,a.description,a.published,a.modified,b.name,d.name,c.payout,c.display');
-		$query->group('a.id,d.name,c.display');
-//
-//        echo $query->dump();
-//        die();
-        // return the query object
+		$query->group('a.id, a.ad_network_id, a.name, a.preview_url, a.modified, b.name, b.id, b.adnet_text_color, b.adnet_background_color, a.payout_display, a.have_lp_thumbnail');
 		return $query;
 	}
 
@@ -171,13 +164,10 @@ class OfrsModelOffers extends JModelList
         // Create a new query object.
         $query = $db->getQuery(true);
 
-        // [Prepare Query to ] Get data
-        /***[JCBGUI.dynamic_get.php_custom_get.41.$$$$]***/
         // Create a new query object.
         $query = $db->getQuery(true);
 
         // Get from #__ofrs_offer as a
-        // b.display_properties as display_properties,
         $query->select('id, `name`')->from('jc_ofrs_vertical');
         $db->setQuery($query);
         $db->execute();
@@ -218,7 +208,6 @@ class OfrsModelOffers extends JModelList
 	}
 
 
-/***[JCBGUI.site_view.php_model.27.$$$$]***/
     protected function populateState($ordering = 'a.modified', $direction = null) {
         // get filter values
 	    parent::populateState($ordering, 'DESC');
@@ -257,7 +246,7 @@ class OfrsModelOffers extends JModelList
 	
 	public function __construct($config = array())
 	{
-	    $config['filter_fields'] = array('a.name','b.name','c.display','d.name','a.modified');
+	    $config['filter_fields'] = array('a.name','b.name','a.payout_display','d.name','a.modified');
 	    parent::__construct($config);
 	}
 

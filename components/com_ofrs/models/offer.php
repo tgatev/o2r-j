@@ -110,7 +110,7 @@ class OfrsModelOffer extends JModelItem
 				$query = $db->getQuery(true);
 
 				// Get from #__ofrs_offer as a
-				$query->select('a.id AS id,a.ad_network_id AS ad_network_id,a.name AS name,a.description AS description, a.preview_url AS preview_url,a.published AS published,a.modified AS modified');
+				$query->select('a.id AS id,a.ad_network_id AS ad_network_id,a.name AS name,a.description AS description, a.preview_url AS preview_url,a.published AS published,a.modified AS modified,a.payout_display');
 				$query->from($db->quoteName('#__ofrs_offer', 'a'));
 				
 				// Get from #__ofrs_ad_network as b
@@ -121,13 +121,10 @@ class OfrsModelOffer extends JModelItem
 				$query->select('COUNT(b.id) AS offer_cnt');
 				$query->join('INNER', ($db->quoteName('#__ofrs_offer', 'c')) . ' ON (' . $db->quoteName('a.ad_network_id') . ' = ' . $db->quoteName('c.ad_network_id') . ')');
 
-				// Get from #__ofrs_offer_payout as d
-				$query->select('d.type AS ofrs_offer_payout_payout_type,d.payout_eur AS ofrs_offer_payout_payout_eur,d.payout_usd AS ofrs_offer_payout_payout_usd,d.display AS ofrs_offer_payout_payout_display');
-				$query->join('LEFT', ($db->quoteName('#__ofrs_offer_payout', 'd')) . ' ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('d.offer_id') . ')');
-
 				// Get from #__ofrs_payout_type as e
 				$query->select('e.name AS ofrs_payout_type_name');
-				$query->join('LEFT', ($db->quoteName('#__ofrs_payout_type', 'e')) . ' ON (' . $db->quoteName('d.type') . ' = ' . $db->quoteName('e.id') . ')');
+				$query->join('LEFT', ($db->quoteName('#__ofrs_payout_type', 'e')) . ' ON (' . $db->quoteName('a.payout_type') . ' = ' . $db->quoteName('e.id') . ')');
+				//$query->join('LEFT', ($db->quoteName('#__ofrs_payout_type', 'e')) . ' ON (' . $db->quoteName('d.type') . ' = ' . $db->quoteName('e.id') . ')');
 
 				// Add countries for the offer
                 $query->select('GROUP_CONCAT(DISTINCT(h.code) SEPARATOR \', \') AS geo_targeting');

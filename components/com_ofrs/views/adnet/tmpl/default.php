@@ -77,7 +77,7 @@ JFactory::getDocument()->setTitle($this->item->name);
 
         if ($this->item->adnet_logo) { ?>
 
-                <a href="<?=$this->item->join_url?>" target="_blank">
+                <a href="<?= $this->item->home_url != null ? $this->item->home_url : $this->item->join_url ?>" target="_blank">
                     <img id="<?= $this->item->id ?>" src="<?= $this->escape($this->item->logo_url); ?>"
                      alt="Landing Page"
                      onerror="jQuery('img#<?= $this->item->id ?>').replaceWith(`<?= htmlspecialchars(OfrsHelper::getPreviewNotFound()) ?>`);" align="middle" style="display: inline">
