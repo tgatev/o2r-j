@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -16,15 +16,6 @@ defined('_JEXEC') or die('Restricted access');
 
 class Number extends \ConvertForms\Field
 {
-	/**
-	 *  Remove common fields from the form rendering
-	 *
-	 *  @var  mixed
-	 */
-	protected $excludeFields = array(
-		'inputmask'
-	);
-
 	/**
 	 *  Filter user value before saving into the database
 	 *

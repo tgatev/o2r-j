@@ -1,0 +1,237 @@
+.view-registration div#uu-wrap.registration,
+.com-uu.view-profile article.user-profile-edit,
+.com-uu.view-profile #sp-left {
+    margin-top: 20px;
+}
+
+/*** OLD CSS **/
+/*input[type=checkbox].invalid {*/
+/*    outline: 1px solid #ff0000;*/
+/*}*/
+/*input[type=checkbox].invalid {*/
+/*    outline-color: #ff0000 !important;*/
+/*}*/
+
+/*#uu-wrap {*/
+/*    display: inline-block;*/
+/*    min-height: 450px;*/
+/*    min-width: 650px;*/
+/*    position: relative;*/
+/*    text-align: left;*/
+/*    width: 100%;*/
+/*    word-wrap: break-word;*/
+/*}*/
+
+/*#uu-wrap .componentheading {*/
+/*    font-size: 24px;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*#uu-wrap form, #uu-wrap .cForm {*/
+/*    background: none repeat scroll 0 0 transparent;*/
+/*    border: 0 none;*/
+/*    clear: none;*/
+/*    display: block;*/
+/*    float: none;*/
+/*    height: auto;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    position: static;*/
+/*    width: auto;*/
+/*}*/
+
+/*#uu-wrap .cFormList {*/
+/*    margin-bottom: 25px;*/
+/*}*/
+/*#uu-wrap .cResetList, #uu-wrap .cResetList li {*/
+/*    background: none repeat scroll 0 0 transparent;*/
+/*    border: 0 none;*/
+/*    clear: none;*/
+/*    display: block;*/
+/*    float: none;*/
+/*    height: auto;*/
+/*    line-height: inherit;*/
+/*    list-style: none outside none;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    position: static;*/
+/*    width: auto;*/
+/*}*/
+
+/*#uu-wrap .cFormList > li {*/
+/*    display: inline-block;*/
+/*    position: relative;*/
+/*    width: 100%;*/
+/*}*/
+/*#uu-wrap .cFormList > li + li {*/
+/*    margin: 15px 0 0;*/
+/*}*/
+/*#uu-wrap .cResetList, #uu-wrap .cResetList li {*/
+/*    background: none repeat scroll 0 0 transparent;*/
+/*    border: 0 none;*/
+/*    clear: none;*/
+/*    display: block;*/
+/*    float: none;*/
+/*    height: auto;*/
+/*    line-height: inherit;*/
+/*    list-style: none outside none;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    position: static;*/
+/*    width: auto;*/
+/*}*/
+
+/*#uu-wrap .cFormList > li.has-seperator {*/
+/*    border-top: 1px solid #EEEEEE;*/
+/*    padding-top: 15px;*/
+/*}*/
+
+
+/*#uu-wrap .cFormList.cFormHorizontal .form-label {*/
+/*    float: left;*/
+/*    line-height: inherit;*/
+/*    padding: 7px 0 0;*/
+/*    text-align: right;*/
+/*    width: 160px;*/
+/*}*/
+/*#uu-wrap label {*/
+/*    background: none repeat scroll 0 0 transparent;*/
+/*    border: 0 none;*/
+/*    color: inherit;*/
+/*    padding: 6px 0;*/
+/*}*/
+/*#uu-wrap input[type="text"], #uu-wrap input[type="password"], #uu-wrap select {*/
+/*    height: auto !important;*/
+/*}*/
+/*#uu-wrap label, #uu-wrap input[type="text"], #uu-wrap input[type="password"], #uu-wrap select, #uu-wrap textarea, #uu-wrap .button, #uu-wrap .cButton, #uu-wrap .uneditable-input {*/
+/*    display: inline-block;*/
+/*    font-family: inherit;*/
+/*    font-size: inherit;*/
+/*    font-weight: normal;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    vertical-align: middle;*/
+/*}*/
+
+/*#uu-wrap input[type="text"].readonly, #uu-wrap  input[type="password"].readonly, #uu-wrap textarea.readonly  {*/
+/*    border: none;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*#uu-wrap select.readonly{*/
+/*    font-weight: bold;*/
+/*}*/
+
+
+/*#uu-wrap label, #uu-wrap input[type="text"], #uu-wrap input[type="password"], #uu-wrap .uneditable-input, #uu-wrap select, #uu-wrap textarea {*/
+/*    background: none repeat scroll 0 0 #FFFFFF;*/
+/*    border: 1px solid #CCCCCC;*/
+/*    border-radius: 2px 2px 2px 2px;*/
+/*    color: #666666;*/
+/*    line-height: inherit !important;*/
+/*    padding: 6px;*/
+/*    vertical-align: middle;*/
+/*    width: auto;*/
+/*}*/
+
+
+/*#uu-wrap .cFormList.cFormHorizontal .form-field {*/
+/*    margin: 0 0 0 175px;*/
+/*}*/
+/*#uu-wrap .cFormList .form-field {*/
+/*    position: relative;*/
+/*}*/
+
+
+/*#uu-wrap select {*/
+/*    padding: 5px;*/
+/*}*/
+/*#uu-wrap input[type="text"], #uu-wrap input[type="password"], #uu-wrap select {*/
+/*    height: auto !important;*/
+/*}*/
+
+/*#uu-wrap label {*/
+/*    background: none repeat scroll 0 0 transparent;*/
+/*    border: 0 none;*/
+/*    color: inherit;*/
+/*}*/
+
+/*#uu-wrap .cButton, #uu-wrap .cButton:hover, #uu-wrap .cButton:focus {*/
+/*    -moz-border-bottom-colors: none;*/
+/*    -moz-border-left-colors: none;*/
+/*    -moz-border-right-colors: none;*/
+/*    -moz-border-top-colors: none;*/
+/*    background-color: #F9F9F9;*/
+/*    background-image: linear-gradient(to bottom, #FFFFFF, #F0F0F0);*/
+/*    background-repeat: repeat-x;*/
+/*    border-color: #CCCCCC #CCCCCC #AAAAAA;*/
+/*    border-image: none;*/
+/*    border-style: solid;*/
+/*    border-width: 1px;*/
+/*    color: #444444;*/
+/*}*/
+/*#uu-wrap .cButton {*/
+/*    border-radius: 3px 3px 3px 3px;*/
+/*    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.15) inset;*/
+/*    cursor: pointer;*/
+/*    font-weight: bold;*/
+/*    height: auto;*/
+/*    line-height: 20px;*/
+/*    padding: 5px 12px;*/
+/*    text-decoration: none !important;*/
+/*}*/
+
+
+/*#uu-wrap  .form-helper {*/
+/*    color: #999999;*/
+/*    display: block;*/
+/*    float: none;*/
+/*    font-size: 11px;*/
+/*    margin: 5px 0 0;*/
+/*}*/
+
+/*#uu-wrap #cwin-wait,#uu-wrap .loading{display:none;width:16px;height:11px;background:url(../img/mini-loader.gif);}*/
+
+/*#uu-wrap .jsPasswordStrength {*/
+/*    margin-left: 10px;*/
+/*    padding: 2px 5px;*/
+/*    display: inline-block;*/
+/*    color: #000;*/
+/*}*/
+/*#uu-wrap .jsPasswordStrength_1 {*/
+/*    background-color: #FCB6B1;*/
+/*}*/
+/*#uu-wrap .jsPasswordStrength_2 {*/
+/*    background-color: #FCCAB1;*/
+/*}*/
+/*#uu-wrap .jsPasswordStrength_3 {*/
+/*    background-color: #FCFBB1;*/
+/*}*/
+/*#uu-wrap .jsPasswordStrength_4 {*/
+/*    background-color: #DAFCB1;*/
+/*}*/
+/*#uu-wrap .jsPasswordStrength_5 {*/
+/*    background-color: #BCFCB1;*/
+/*}*/
+
+/*.invalid, #uu-wrap .invalid {*/
+/*    border-color: red;*/
+/*    border-color: red !important;*/
+/*}*/
+
+
+/*#uu-wrap .form-horizontal .help-block {*/
+/*    margin-bottom: 0;*/
+/*}*/
+/*#uu-wrap .form-error {*/
+/*    display: block;*/
+/*    color: #b94a48;*/
+/*    margin-top: 5px;*/
+/*    margin-bottom: 10px;*/
+/*    line-height: 140%;*/
+/*}*/
+/*#uu-wrap .help-block {*/
+/*    display: block;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+

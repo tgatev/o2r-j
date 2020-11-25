@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -25,12 +25,12 @@ defined('_JEXEC') or die;
         <tr>
             <td><a href="<?php echo $submission->link ?>"><?php echo $submission->id ?></a></td>
             <td><?php echo $submission->created ?></td>
-            <td class="text-center">
-                <span class="badge badge-<?php echo ($submission->state == '1' ? 'success' : 'important') ?>">
+            <td>
+                <span class="badge badge-<?php echo ($submission->state == '1' ? 'success' : (defined('nrJ4') ? 'danger' : 'important')) ?>">
 					<?php echo JText::_(($submission->state == '1' ? 'COM_CONVERTFORMS_SUBMISSION_CONFIRMED' : 'COM_CONVERTFORMS_SUBMISSION_UNCONFIRMED')) ?>
 				</span>
             </td>
-            <td><a class="btn btn-small" href="<?php echo $submission->link ?>">View</a></td>  
+            <td><a class="btn btn-secondary btn-small" href="<?php echo $submission->link ?>">View</a></td>  
         </tr>
     <?php } ?> 
 </table>

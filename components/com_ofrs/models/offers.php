@@ -30,8 +30,7 @@ class OfrsModelOffers extends JModelList
     CONST ORDER_MAP = [
         "45" => "a.name",            //    <option value="45">Offer name</option>
         "43" => "b.name",            //    <option value="43">Network</option>
-        // "22" => "a.payout_display",            //    <option value="22">Payout</option>
-        "22" => "a.ordering,a.payout_value",            //    <option value="22">Payout</option>
+        "22" => [ "a.ordering", "a.payout_value" ] ,            //    <option value="22">Payout</option>
         "23" => "d.name",            //    <option value="23">Type</option>
         "49" => "a.modified",            //    <option value="49">Updated</option>
     ];
@@ -49,6 +48,7 @@ class OfrsModelOffers extends JModelList
 	protected $app;
 	protected $input;
 	protected $uikitComp;
+	public $filterStr;
 
 	/**
 	 * Method to build an SQL query to load the list data.
@@ -81,6 +81,10 @@ class OfrsModelOffers extends JModelList
 
 		// Create a new query object.
 		$query = $db->getQuery(true);
+		
+		// Get logged user
+		$user = JFactory::getUser();
+		$user_id = $user->id;
 
         // Get from #__ofrs_offer as a
 		$query->select('a.id AS id,
@@ -97,44 +101,94 @@ class OfrsModelOffers extends JModelList
                         a.modified AS modified,
                         b.name AS adnet_name,
                         b.id AS adnet_id,
-                        b.adnet_text_color as adnet_text_color,
-                        b.adnet_background_color as adnet_background_color,
+                        b.name_text_color as name_text_color,
+                        b.name_background_color as name_background_color,
                         d.name AS payout_type,
                         a.payout_display AS display,
-                        a.have_lp_thumbnail as lp_thumbnail');
+                        a.have_lp_thumbnail as lp_thumbnail'.
+                        (($user_id)? ', om.offer_id as is_monitored' : '')
+        );
 
 		$query->from($db->quoteName('#__ofrs_offer', 'a'));
 		$query->join('', ($db->quoteName('#__ofrs_ad_network', 'b')) . ' ON (' . $db->quoteName('a.ad_network_id') . ' = ' . $db->quoteName('b.id') . ')');
-        $query->join('LEFT', ($db->quoteName('#__ofrs_payout_type', 'd')) . 'ON (' . $db->quoteName('a.payout_type') . ' = ' . $db->quoteName('d.id') . ')');
+        $query->join('LEFT', ($db->quoteName('ofrs_payout_type', 'd')) . 'ON (' . $db->quoteName('a.payout_type') . ' = ' . $db->quoteName('d.id') . ')');
         $query->join('LEFT', ($db->quoteName('#__ofrs_offer_vertical', 'e')) . 'ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('e.offer_id') . ')');
         $query->join('LEFT', ($db->quoteName('#__ofrs_offer_country', 'f')) . 'ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('f.offer_id') . ')');
         $query->join('LEFT', ($db->quoteName('#__ofrs_vertical', 'g')) . 'ON (' . $db->quoteName('e.vertical_id') . ' = ' . $db->quoteName('g.id') . ')');
         $query->join('LEFT', ($db->quoteName('#__ofrs_country', 'h')) . 'ON (' . $db->quoteName('f.country_id') . ' = ' . $db->quoteName('h.id') . ')');
+        
+        // 
+        if ($user_id)
+            $query->join('LEFT', $db->quoteName('ofrs_offer_monitor', 'om').' ON ('
+                .$db->quoteName('a.id' ).' = '.$db->quoteName('om.offer_id').' AND '.$db->quoteName('om.user_id').' = ' . $user_id . ')');
 
         
 		// published only
 		$query->where('a.published = 1');
-
+		
+		$filterStr = '{';
             // filter on general word
-		if (strlen($f_search)) $query->where("(a.name LIKE '%" . $f_search . "%' OR g.name LIKE '%" . $f_search . "%')");
+		if (strlen($f_search)) {
+		    $query->where("(a.name LIKE '%" . $f_search . "%' OR g.name LIKE '%" . $f_search . "%')");
+		    $filterStr .= '"search_phrase":"'.$f_search.'"';
+		}
 
 		    // filter on network
-		if (isset($f_network_id) && count($f_network_id)) $query->where("a.ad_network_id IN ('" . implode("','", $f_network_id) . "')");
+		if (isset($f_network_id) && count($f_network_id)) {
+		    $query->where("a.ad_network_id IN ('" . implode("','", $f_network_id) . "')");
+		    if (strlen($filterStr) > 1) $filterStr .= ', ';
+		    $filterStr .= '"ad_network_id":"' . implode(",", $f_network_id) . '"';
+		}
 		    
 				
 		    // filter on country
-        if (isset($f_geo) && count($f_geo)) $query->where("f.country_id IN ('516','" . implode("','", $f_geo) . "')");
+		if (isset($f_geo) && count($f_geo)) {
+		    $query->where("f.country_id IN ('516','" . implode("','", $f_geo) . "')");
+		    if (strlen($filterStr) > 1) $filterStr .= ', ';
+		    $filterStr .= '"country_id":"'. implode(",", $f_geo) .'"';
+		}
 		
             // filter on vertical
-        if (isset($f_verticals)) $query->where("e.vertical_id IN ('" . implode("','", $f_verticals) . "')");
+		if (isset($f_verticals)) {
+		    $query->where("e.vertical_id IN ('" . implode("','", $f_verticals) . "')");
+		    if (strlen($filterStr) > 1) $filterStr .= ', ';
+		    $filterStr .= '"vertical_id":"' . implode(",", $f_verticals) . '"';
+		}
 
             // filter on payout type
         if (isset($f_payout_type) && count($f_payout_type)) $query->where('a.payout_type IN (\'' . implode("','",$f_payout_type) . '\')');
-//
-        if($ordering = $this->getState('list.ordering', 'a.modified')){
-            $query->order($db->escape($ordering).' '.$db->escape($this->getState('list.direction', 'DESC')));
-        }
-		$query->group('a.id, a.ad_network_id, a.name, a.preview_url, a.modified, b.name, b.id, b.adnet_text_color, b.adnet_background_color, a.payout_display, a.have_lp_thumbnail');
+        
+        // GA: долния код да се прегледа и редактира/изхвърли
+        /*
+        if (isset($f_payout_type) && count($f_payout_type)) {
+                   $query->where('c.type IN (\'' . implode("','",$f_payout_type) . '\')');
+                   if (strlen($filterStr) > 1) $filterStr .= ', ';
+                   $filterStr .= '"payout_type":"' . implode(",", $f_payout_type) . '"';
+               }
+         $filterStr .= '}';
+         $this->filterStr = $filterStr;
+         */
+		
+		$ordering = $this->getState('list.ordering', 'a.modified');
+		$direction = $this->getState('list.direction', 'DESC');
+		
+		if (is_array($ordering)) {
+			foreach ($ordering as $ord) {
+				if (strlen($ordStr) > 0)
+					$ordStr .= ', ';
+				$ordStr .= $ord.' '.$direction;
+			}
+			$query->order($ordStr);
+		} else
+			$query->order($db->escape($ordering).' '.$db->escape($direction));
+		$query->group('a.id, a.ad_network_id, a.name, a.preview_url, a.modified, b.name, b.id, b.name_text_color, b.name_background_color, a.payout_display, a.have_lp_thumbnail');
+		
+// 		echo("<pre>");
+// 		print_r($query->__toString());
+		// print_r($ordering);
+		// print_r($this->getState('list.direction', 'DESC'));
+// 		echo("</pre>");
+// 		die();
 		return $query;
 	}
 
@@ -257,5 +311,4 @@ class OfrsModelOffers extends JModelList
         $db->execute();
         return $db->getNumRows();
     }
-/***[/JCBGUI$$$$]***/
 }

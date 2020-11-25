@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -90,7 +90,7 @@ if (defined('nrJ4'))
     <?php if (defined('nrJ4')) { ?>
     <div class="cfe-top">
         <div>
-            <img height="18px" src="<?php echo JURI::base() ?>templates/atum/images/logo-joomla-white.svg"/>
+            <img height="18px" src="<?php echo JURI::base() ?>templates/atum/images/logo<?php echo defined('nrJ4') ? 's/brand-small' : '-joomla-white' ?>.svg"/>
         </div>
         <div>
             <span><?php echo JVERSION ?></span>

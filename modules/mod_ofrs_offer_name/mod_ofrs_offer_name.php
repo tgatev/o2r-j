@@ -25,8 +25,31 @@ switch ($view){
         $name = ModOfrsItemName::getAdnetName( $input->get('id'));
         break;
     }
+    case 'profile' : {
+        $name = "Edit Profile";
+        break;
+    }
+    case 'offeralerts' : {
+        $name = "Offer Alerts";
+        break;
+    }
+    case 'subscriptions' : {
+        $name = "Subscriptions";
+        break;
+    }
+    case 'login' : {
+        $name = "Log In";
+        break;
+    }
+    case 'registration' : {
+        $name = "Sign Up";
+        break;
+    }
+    case 'reset' : {
+        $name = "Reset Password";
+        break;
+    }
     case 'article' : {
-
 //      http://134.122.77.73/index.php?option=com_content&view=article&id=6&Itemid=1118
         $name = ModOfrsItemName::getArticleName( $input->get('id'));
 

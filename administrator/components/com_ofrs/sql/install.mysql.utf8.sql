@@ -244,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `#__ofrs_ad_network` (
 	`account_created` CHAR(1) NOT NULL DEFAULT '',
 	`account_login` VARCHAR(100) NULL DEFAULT '',
 	`account_password` VARCHAR(100) NULL DEFAULT '',
-	`adnet_logo` VARCHAR(2048) NULL DEFAULT '',
+	`logo` VARCHAR(2048) NULL DEFAULT '',
 	`api_params` TEXT NULL,
 	`currency_id` INT NOT NULL DEFAULT 0,
 	`description` TEXT NOT NULL,

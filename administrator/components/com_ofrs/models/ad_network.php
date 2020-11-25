@@ -44,7 +44,7 @@ class OfrsModelAd_network extends JModelAdmin
 				'description',
 				'payment_method',
 				'min_payment_amt',
-				'adnet_logo',
+				'logo',
 				'display_properties',
 				'import_setup',
 				'payment_frequency',

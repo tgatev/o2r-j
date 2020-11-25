@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -38,6 +38,14 @@ extract($displayData);
 
 	<?php if (isset($field->readonly) && $field->readonly == '1') { ?>
 		readonly
+	<?php } ?>
+
+	<?php if (isset($field->minchars) && $field->minchars > 0) { ?>
+		minlength="<?php echo $field->minchars; ?>"
+	<?php } ?>
+
+	<?php if (isset($field->maxchars) && $field->maxchars > 0) { ?>
+		maxlength="<?php echo $field->maxchars; ?>"
 	<?php } ?>
 
 	<?php if (isset($field->htmlattributes) && !empty($field->htmlattributes)) { ?>

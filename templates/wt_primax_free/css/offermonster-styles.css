@@ -4,12 +4,11 @@
   font-family: "offermonster";
   src:url("../fonts/offermonster.eot");
   src:url("../fonts/offermonster.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/offermonster.woff") format("woff"),
-    url("../fonts/offermonster.ttf") format("truetype"),
-    url("../fonts/offermonster.svg#offermonster") format("svg");
+  url("../fonts/offermonster.woff") format("woff"),
+  url("../fonts/offermonster.ttf") format("truetype"),
+  url("../fonts/offermonster.svg#offermonster") format("svg");
   font-weight: normal;
   font-style: normal;
-
 }
 
 [data-icon]:before {
@@ -27,6 +26,7 @@
 
 [class^="om-"]:before,
 [class*=" om-"]:before {
+  cursor: pointer;
   font-family: "offermonster" !important;
   font-style: normal !important;
   font-weight: normal !important;
@@ -43,7 +43,6 @@
 }
 .om-eye-invisible:before {
   content: "\65";
-  color: #757f89;
 }
 .om-dollar2:before {
   content: "\66";
@@ -62,5 +61,7 @@
 }
 .om-network:before {
   content: "\67";
-  vertical-align: -20%;
+}
+.om-delete:before {
+  content: "\69";
 }

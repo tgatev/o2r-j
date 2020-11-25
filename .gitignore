@@ -1,11 +1,13 @@
 .ptp-sync
+.ptp-sync-folder
 .project
 *.ptp-sync/*
+*.ptp-sync-folder/*
 .settings/
 .idea/*
 
 images/lp_thumbnails/
-configuration.php
+/configuration.php
 administrator/cache/*
 administrator/logs/*
 cache/*

@@ -64,8 +64,8 @@ if (strlen($this->item->preview_url) < 3) {
                 <div class="col-xs-6 col-no-gutters" id="ofr-network-btn">
                     <?= OfrsHelper::getNetworkBoxButtonLayout($this->item->adnet_id,$this->item->ad_network_name ,
                         JRoute::_('/index.php?option=com_ofrs&view=adnet&id='.$this->item->adnet_id.'&Itemid=2473'), [
-                        "adnet_text_color" => $this->item->adnet_text_color,
-                        "adnet_background_color" => $this->item->adnet_background_color,
+                        "name_text_color" => $this->item->name_text_color,
+                        "name_background_color" => $this->item->name_background_color,
                     ], 'offer-network-box offer-view')?>
                 </div>
             </div>
@@ -79,8 +79,7 @@ if (strlen($this->item->preview_url) < 3) {
     </div>
     <div id="preview-box" class="col-xs-12 col-sm-4 text-center">
         <div id="preview-btn" class="landing-page-link">
-            <?php
-            if ($this->item->preview_url and $this->item->thumbnail_url) : ?>  <a href="<?= $this->item->preview_url ?>" target="<?= $target ?>" style="font-weight: bold">Go To Landing Page</a>
+            <?php if ($this->item->preview_url and $this->item->thumbnail_url) : ?>  <a href="<?= $this->item->preview_url ?>" target="<?= $target ?>" style="font-weight: bold">Go To Landing Page</a>
             <?php else:?> &nbsp;
             <?php endif; ?>
         </div>

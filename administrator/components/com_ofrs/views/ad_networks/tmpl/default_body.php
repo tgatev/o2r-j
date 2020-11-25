@@ -115,7 +115,7 @@ $edit = "index.php?option=com_ofrs&view=ad_networks&task=ad_network.edit";
 			<?php echo $this->escape($item->min_payment_amt); ?>
 		</td>
 		<td class="hidden-phone">
-			<?php echo $this->escape($item->adnet_logo); ?>
+			<?php echo $this->escape($item->logo); ?>
 		</td>
 		<td class="hidden-phone">
 			<?php echo $this->escape($item->display_properties); ?>

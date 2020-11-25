@@ -20,7 +20,6 @@
 /* JS Document */
 /* sort buttons functionality */
 jQuery(document).ready(function () {
-    setMenuIcons()
     // trigegr sort
     jQuery('.sort-btn').on('click', function () {
         let el = jQuery(this);
@@ -31,13 +30,5 @@ jQuery(document).ready(function () {
         jQuery('input#sort_direction[type=hidden]').val(dir);
         jQuery('input#sort_direction[type=hidden]')[0].form.submit();
     });
+
 });
-
-function setMenuIcons(){
-    let s_offers_icon = 'li.sp-menu-item i.fa.fa-external-link-square' ;
-    let s_networks_icon = 'li.sp-menu-item i.fa.fa-external-link' ;
-
-    jQuery(s_offers_icon).replaceWith("<img class='menu-custom-icon' src='/images/Offers.png' style='padding: 5px 5px 5px 0;'>");
-    jQuery(s_networks_icon).replaceWith("<img class='menu-custom-icon' src='/images/Networks.png' style='padding: 5px 5px 5px 0;' >");
-
-}

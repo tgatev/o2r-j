@@ -110,21 +110,21 @@ class OfrsModelOffer extends JModelItem
 				$query = $db->getQuery(true);
 
 				// Get from #__ofrs_offer as a
-				$query->select('a.id AS id,a.ad_network_id AS ad_network_id,a.name AS name,a.description AS description, a.preview_url AS preview_url,a.published AS published,a.modified AS modified,a.payout_display');
+				$query->select('a.id AS id,a.ad_network_id AS ad_network_id,a.name AS name,a.description AS description, a.preview_url AS preview_url, a.published AS published, a.modified AS modified, a.payout_display');
 				$query->from($db->quoteName('#__ofrs_offer', 'a'));
 				
 				// Get from #__ofrs_ad_network as b
-				$query->select('b.name AS ad_network_name,b.join_url AS ad_network_join_url, b.id as adnet_id, b.adnet_text_color as adnet_text_color, b.adnet_background_color as adnet_background_color ');
+				$query->select('b.name AS ad_network_name,b.join_url AS ad_network_join_url, b.id as adnet_id, b.name_text_color as name_text_color, b.name_background_color as name_background_color ');
+
 				$query->join('INNER', ($db->quoteName('#__ofrs_ad_network', 'b')) . ' ON (' . $db->quoteName('a.ad_network_id') . ' = ' . $db->quoteName('b.id') . ')');
 				
 				// Get from #__ofrs_offer as c
 				$query->select('COUNT(b.id) AS offer_cnt');
 				$query->join('INNER', ($db->quoteName('#__ofrs_offer', 'c')) . ' ON (' . $db->quoteName('a.ad_network_id') . ' = ' . $db->quoteName('c.ad_network_id') . ')');
 
-				// Get from #__ofrs_payout_type as e
+				// Get from ofrs_payout_type as e
 				$query->select('e.name AS ofrs_payout_type_name');
-				$query->join('LEFT', ($db->quoteName('#__ofrs_payout_type', 'e')) . ' ON (' . $db->quoteName('a.payout_type') . ' = ' . $db->quoteName('e.id') . ')');
-				//$query->join('LEFT', ($db->quoteName('#__ofrs_payout_type', 'e')) . ' ON (' . $db->quoteName('d.type') . ' = ' . $db->quoteName('e.id') . ')');
+				$query->join('LEFT', ($db->quoteName('ofrs_payout_type', 'e')) . ' ON (' . $db->quoteName('a.payout_type') . ' = ' . $db->quoteName('e.id') . ')');
 
 				// Add countries for the offer
                 $query->select('GROUP_CONCAT(DISTINCT(h.code) SEPARATOR \', \') AS geo_targeting');
@@ -138,10 +138,23 @@ class OfrsModelOffer extends JModelItem
                 // Add image to Query result
                 $query->select('OCTET_LENGTH(lp_thumbnail) as image_octet_len ');
                 $query->join('LEFT', ($db->quoteName('#__ofrs_offer_preview', 'preview')) . 'ON (' . $db->quoteName('a.id') . ' = ' . $db->quoteName('preview.offer_id') . ')');
+                
+                // Get logged user
+                $user = JFactory::getUser();
+                $user_id = $user->id;
+                if ($user_id) {
+                    $query->select('NOT ISNULL(om.offer_id) AS is_monitored');
+                    $query->join('LEFT', 'ofrs_offer_monitor om ON (a.id = om.offer_id AND om.user_id = ' . $user_id . ')');
+                } else {
+                    $query->select('0 AS is_monitored');
+                }
 
 
                 $query->where('a.id = ' . (int) $pk);
                 $query->group('a.id');
+                
+//                 echo $query->dump();
+//                 die();
 
                 // Reset the query using our newly populated query object.
 				$db->setQuery($query);

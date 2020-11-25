@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -128,7 +128,7 @@ class ConvertFormsViewForms extends JViewLegacy
 
                 if ($canDo->get('core.admin'))
                 {
-                    $toolbar->preferences('com_rstbox');
+                    $toolbar->preferences('com_convertforms');
                 }
 
                 $toolbar->help('JHELP', false, "http://www.tassos.gr/joomla-extensions/responsive-scroll-triggered-box-for-joomla/docs");

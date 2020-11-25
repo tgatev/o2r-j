@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -14,16 +14,8 @@ namespace ConvertForms\Field;
 
 defined('_JEXEC') or die('Restricted access');
 
-class Textarea extends \ConvertForms\Field
+class Textarea extends \ConvertForms\Field\Text
 {
-    /**
-	 *  Remove common fields from the form rendering
-	 *
-	 *  @var  mixed
-	 */
-	protected $excludeFields = array(
-		'inputmask'
-	);  
 }
 
 ?>

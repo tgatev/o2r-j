@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -102,6 +102,7 @@ class Submission
 
     public static function route($submission_id)
     {
-        return \JRoute::_('index.php?option=com_convertforms&view=submission&id=' . $submission_id);
+        $itemId = \JFactory::getApplication()->input->get('Itemid');
+        return \JRoute::_('index.php?Itemid=' . $itemId . '&option=com_convertforms&view=submission&id=' . $submission_id);
     }
 }

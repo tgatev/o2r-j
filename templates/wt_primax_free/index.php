@@ -231,7 +231,30 @@ $doc->addStyleSheet(JURI::root(true) . "/assets/css/bootstrap-multiselect.css");
                     <?php if ($this->params->get('goto_top')) { ?>
                         <a href="javascript:void(0)" class="scrollup" aria-label="<?php echo JText::_('HELIX_GOTO_TOP'); ?>">&nbsp;</a>
                     <?php } ?>
-
+                    <!-- Button trigger modal -->
+                    <button id="error-modal-trigger" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#error-modal" style="display: none">
+                        Trigger error msg
+                    </button>
+                    <div id="error-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h3 class="modal-title" id="gridSystemModalLabel"></h3>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <section class="col-xs-12">
+                                            <p id="modal-error-msg-box"></p>
+                                        </section>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+<!--                                    Footer here with buttons -->
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
                 </body>
                 </html>
 

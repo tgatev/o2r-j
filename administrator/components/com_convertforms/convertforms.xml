@@ -2,7 +2,7 @@
 <extension version="3.4" type="component" method="upgrade">
     <name>COM_CONVERTFORMS</name>
     <description>COM_CONVERTFORMS_DESC</description>
-    <version>2.7.2</version>
+    <version>2.7.4</version>
     <creationDate>September 2016</creationDate>
     <author>Tassos Marinos</author>
     <authorEmail>info@tassos.gr</authorEmail>

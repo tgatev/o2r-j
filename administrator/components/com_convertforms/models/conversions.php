@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -284,7 +284,7 @@ class ConvertFormsModelConversions extends JModelList
      *
      *  @return  void
      */
-    public function export($ids = array(), $campaign_ids = array())
+    public function export($ids = array(), $campaign_ids = array(), $save_to = null)
     {
         // Increase memory size and execution time to prevent PHP errors on datasets > 20K
         set_time_limit(300); // 5 Minutes
@@ -316,13 +316,11 @@ class ConvertFormsModelConversions extends JModelList
 
         $columns = array_keys($rows[0]);
 
-        // Create the downloadable file
-        $this->downloadFile('ConvertForms_Submissions_' . $filename . '_' . date('Y-m-d') . '.csv');
+        $filename = 'ConvertForms_Submissions_' . $filename . '_' . date('Y-m-d') . '.csv';
         
-        $excel_security = (bool) JComponentHelper::getParams('com_convertforms')->get('excel_security', true);
-        echo $this->createCSV($rows, $columns, $excel_security);
+        $excel_security = (bool) ConvertForms\Helper::getComponentParams()->get('excel_security', true);
 
-        die();
+        return $this->createCSV($rows, $columns, $excel_security, $filename, $save_to);
     }
 
     /**
@@ -395,13 +393,21 @@ class ConvertFormsModelConversions extends JModelList
      *
      *  @return  mixed
      */
-    public function createCSV($rows, $columns, $excel_security = true)
+    public function createCSV($rows, $columns, $excel_security = true, $filename, $save_to = null)
     {
-        ob_start();
-        $output = fopen('php://output', 'w');
+        $csvPath = is_null($save_to) ? 'php://output' : $save_to . $filename;
+
+        if (!$save_to)
+        {
+            // Create the downloadable file
+            $this->downloadFile($filename);
+            ob_start();
+        }
+
+        $output = fopen($csvPath, 'w');
 
         // Support UTF-8 on Microsoft Excel
-        fputs( $output, "\xEF\xBB\xBF" );
+        fputs($output, "\xEF\xBB\xBF");
 
         fputcsv($output, $columns);
 
@@ -426,7 +432,14 @@ class ConvertFormsModelConversions extends JModelList
         }
 
         fclose($output);
-        return ob_get_clean();
+
+        if ($save_to)
+        {
+            return $csvPath;
+        }
+
+        echo ob_get_clean();
+        die();
     }
 
     /**

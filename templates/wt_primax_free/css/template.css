@@ -803,13 +803,17 @@ dl.article-info dd.hits span[class*=" icon-"] {
   position: relative;
   vertical-align: middle;
 }
+.nav.menu > li,
 .sp-megamenu-parent >li{
   cursor: pointer;
-  display: inline-block;
   position: relative;
+  border-radius: 4px;
+}
+
+.sp-megamenu-parent >li {
   padding: 0px 20px;
   margin-top: 17px;
-  border-radius: 4px;
+  display: inline-block;
 }
 .sp-megamenu-parent >li.menu-justify {
   position: static;
@@ -932,14 +936,14 @@ dl.article-info dd.hits span[class*=" icon-"] {
   -webkit-animation: spMenuZoom 400ms;
   animation: spMenuZoom 400ms;
 }
-#offcanvas-toggler {
-  float: right;
-  line-height: 1;
-  margin-left: 15px;
-  font-size: 20px;
-  margin-top: 25px;
-  margin-right: 15px;
-}
+/*#offcanvas-toggler {*/
+/*  float: right;*/
+/*  line-height: 1;*/
+/*  margin-left: 15px;*/
+/*  font-size: 20px;*/
+/*  margin-top: 25px;*/
+/*  margin-right: 15px;*/
+/*}*/
 #offcanvas-toggler >i {
   -webkit-transition: color 400ms, background-color 400ms;
   -o-transition: color 400ms, background-color 400ms;
@@ -2045,30 +2049,43 @@ form textarea.sppb-form-control {
 }
 button[type="submit"],
 input[type="submit"] {
-  background: #f4f8f9;
-  /*border: 1px solid #a96d01;*/
-  color: #224160;
-  box-shadow: none;
-  outline: none;
-  padding: 8px 30px;
-  border-radius: 0;
-  font-family: "Montserrat script=all rev=1", sans-serif;
-  font-weight: 500;
-  font-style: normal;
+  text-transform: uppercase;
+  border-radius: 5px;
+  padding: 3px 20px;
   font-size: 14px;
+  font-style: normal;
+  color: #ffffff;
+  background: #f03b5d;
+  border: 1px solid #f03b5d;
 }
+
+button[type="submit"]:active,
 button[type="submit"]:hover,
 button[type="submit"]:focus,
+button[type="submit"]:active:focus,
 input[type="submit"]:hover,
+input[type="submit"]:active,
+input[type="submit"]:active:focus,
 input[type="submit"]:focus {
-  background: #e7ebee;
-  box-shadow: none;
-  color: #224160;
-  font-family: "Montserrat script=all rev=1", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 14px;
+  border: 1px solid #f5607c;
+  background-color: #f5607c;
+  background: #f5607c;
 }
+
+button[type='submit'].btn-white-grey {
+  color: #757f8a;
+  background: #ffffff;
+  border: 1px solid #757f8a;
+}
+button[type='submit'].btn-white-grey:active,
+button[type='submit'].btn-white-grey:hover,
+button[type='submit'].btn-white-grey:focus,
+button[type='submit'].btn-white-grey:active:focus {
+  color: #ffffff;
+  background: #757f8a;
+  border: 1px solid #ffffff;
+}
+
 button[type="submit"]:after,
 input[type="submit"]:after {
   -webkit-background-image: radial-gradient(circle,#fff 10%,transparent 10.01%);
@@ -2076,6 +2093,28 @@ input[type="submit"]:after {
   -o-background-image: radial-gradient(circle,#fff 10%,transparent 10.01%);
   background-image: radial-gradient(circle,#fff 10%,transparent 10.01%);
 }
+
+
+/* Contact Form button */
+button.cf-btn[type="submit"] {
+  border-radius: 5px !important;
+  padding: 5px 10px !important;
+  font-size: 14px !important;
+  font-style: normal !important;
+  color: #ffffff !important;
+  background: #f03b5d !important;
+  border: 0px solid #ffffff !important;
+}
+
+button.cf-btn[type="submit"]:active,
+button.cf-btn[type="submit"]:hover,
+button.cf-btn[type="submit"]:focus,
+button.cf-btn[type="submit"]:active:focus {
+  border: 0px solid #ffffff;
+  background-color: #f5607c;
+  background: #f5607c;
+}
+/* END Contact form submit button*/
 .scrollup {
   position: fixed;
   bottom: 15px;
@@ -2265,12 +2304,15 @@ ul.social-icons >li a {
   height: 33px;
 }
 
-#sp-header.menu-fixed #offcanvas-toggler {
-  margin-top: 33px;
+#sp-header.menu-fixed #offcanvas-toggler,
+#sp-header.menu-fixed-out #offcanvas-toggler{
+  margin-top: 30px;
+  margin-right: 20px;
+  float: right;
 }
-#sp-header.menu-fixed-out #offcanvas-toggler {
-  margin-top: 33px;
-}
+/*#sp-header.menu-fixed-out #offcanvas-toggler {*/
+/*  margin-top: 33px;*/
+/*}*/
 #sp-header.menu-fixed li.sp-menu-item {
   margin-top: 25px;
 }
@@ -2337,6 +2379,10 @@ img.sp-retina-logo {
 
 /* XS Definitions */
 @media (max-width: 767px) {
+
+  #offcanvas-toggler {
+    margin-right: 0px;
+  }
 
   #sp-breadcrumb,
   #sp-breadcrumb .sp-module-content > .container section {
@@ -2647,7 +2693,7 @@ img.sp-retina-logo {
 .sp-module ul >li >a {
   display: block;
   /* padding: 5px 0; */
-  line-height: 36px;
+  /*line-height: 36px;*/
   /* padding: 2px 0; */
   -webkit-transition: 300ms;
   transition: 300ms;
@@ -2658,7 +2704,7 @@ img.sp-retina-logo {
 }
 
 .sp-module ul >li >a:before {
- /* 
+ /*
  font-family: FontAwesome;
  */
   /*content: "\00a0";*/
@@ -2770,15 +2816,31 @@ img.sp-retina-logo {
 .com-users #sp-main-body {
   background: #ebebeb;
 }
-.view-profile #sp-main-body,
-.view-registration #sp-main-body,
-.view-login #sp-main-body {
-  padding: 60px 0;
+.com-uu.view-profile #sp-main-body,
+.com-uu.view-registration #sp-main-body,
+.com-uu.view-offeralerts #sp-main-body,
+.com-uu.view-subscriptions #sp-main-body,
+.com-uu.view-reset #sp-main-body,
+.com-uu.view-login #sp-main-body {
+  padding: 10px 0;
 }
+.com-uu.view-profile #sp-main-body .container > .row,
+.com-uu.view-registration #sp-main-body .container > .row,
+.com-uu.view-offeralerts #sp-main-body .container > .row,
+.com-uu.view-subscriptions #sp-main-body .container > .row,
+.com-uu.view-reset #sp-main-body .container > .row,
+.com-uu.view-login #sp-main-body .container > .row {
+  background-color: white;
+  border-radius: 5px;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
 .view-profile #sp-main-body .alert,
 .view-registration #sp-main-body .alert,
 .view-login #sp-main-body .alert {
-  margin-bottom: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .view-profile #sp-main-body .alert.alert-error,
 .view-registration #sp-main-body .alert.alert-error,
@@ -3590,6 +3652,11 @@ a.readon span {
   #offcanvas-toggler i:focus {
     color: #ee405c;
   }
+  /* !* user profile -> offer alerts *!*/
+  /*.offer-alerts-body .om-delete:before,*/
+  /*.subscriptions-body .om-delete:before {*/
+  /*     vertical-align: middle;*/
+  /*}*/
 }
 .sp-pre-loader {
   background: #ff9900;
@@ -4168,6 +4235,9 @@ a.readon span {
   .form-horizontal .controls textarea {
     width: 100%;
   }
+  .form-horizontal .controls input[type=submit] {
+    width: auto;
+  }
   .form-horizontal .controls textarea {
     height: 131px;
   }
@@ -4204,8 +4274,13 @@ a.readon span {
 .layout-edit input[type="tel"],
 .layout-edit input[type="color"],
 .layout-edit .uneditable-input {
-  border: 1px solid #ccc;
+  border: 1px solid #d2d8df;
+  border-radius: 5px;
   height: inherit;
+  padding: 15px 17px;
+  font-size: 12px;
+  color: #757f89;
+  background-color: #fff;
 }
 .layout-edit #editor-xtd-buttons .btn,
 .layout-edit #editor-xtd-buttons .sppb-btn {
@@ -4234,4 +4309,14 @@ a.readon span {
 ::-webkit-validation-bubble-top-inner-arrow,
 ::-webkit-validation-bubble-message {
   color: red
+}
+
+input {
+    text-align:left;
+    color:#555555;
+    background-color:#ffffff;
+    border-color:#d2d8df;
+    border-radius:5px;
+    font-size:14px;
+    padding:15px 15px
 }

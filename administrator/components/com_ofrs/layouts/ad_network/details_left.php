@@ -43,7 +43,7 @@ $fields = $displayData->get($fields_tab_layout) ?: array(
 	'description',
 	'payment_method',
 	'min_payment_amt',
-	'adnet_logo',
+	'logo',
 	'display_properties',
 	'import_setup',
 	'payment_frequency',

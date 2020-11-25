@@ -43,12 +43,6 @@
 	    	description="COM_CONVERTFORMS_FIELD_VALUE_DESC"
 	    	class="span12 show-smart-tags"
 	    />
-	    <field name="inputmask" type="text"
-	    	label="COM_CONVERTFORMS_INPUT_MASK"
-	    	description="COM_CONVERTFORMS_INPUT_MASK_DESC"
-			hint="(999) 999-9999"
-	    	class="span12"
-	    />
 	    <field name="placeholder" type="text"
 	    	label="COM_CONVERTFORMS_PLACEHOLDER_NAME"
 	    	description="COM_CONVERTFORMS_PLACEHOLDER_NAME_DESC"
@@ -67,10 +61,6 @@
         <field name="hidelabel" type="nrtoggle" 
             label="COM_CONVERTFORMS_HIDE_LABELS"
             description="COM_CONVERTFORMS_HIDE_LABELS_DESC"
-		/>
-        <field name="readonly" type="nrtoggle" 
-            label="COM_CONVERTFORMS_READONLY"
-            description="COM_CONVERTFORMS_READONLY_DESC"
 		/>
         <field name="browserautocomplete" type="nrtoggle" 
             label="COM_CONVERTFORMS_DISABLE_BROWSER_AUTOCOMPLETE"

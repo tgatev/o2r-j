@@ -10,6 +10,40 @@
         	class="input-mini"
         />
     </fieldset>
+	<fieldset name="restrictions">
+        <field name="readonly" type="nrtoggle" 
+            label="COM_CONVERTFORMS_READONLY"
+            description="COM_CONVERTFORMS_READONLY_DESC"
+		/>
+        <field name="minchars" type="nrnumber"
+        	label="COM_CONVERTFORMS_MIN_CHARS"
+        	description="COM_CONVERTFORMS_MIN_CHARS_DESC"
+        	default="0"
+        	min="0"
+	    	class="span12"
+        />
+        <field name="maxchars" type="nrnumber"
+        	label="COM_CONVERTFORMS_MAX_CHARS"
+        	description="COM_CONVERTFORMS_MAX_CHARS_DESC"
+        	default="0"
+        	min="0"
+	    	class="span12"
+        />
+        <field name="minwords" type="nrnumber"
+        	label="COM_CONVERTFORMS_MIN_WORDS"
+        	description="COM_CONVERTFORMS_MIN_WORDS_DESC"
+        	default="0"
+        	min="0"
+	    	class="span12"
+        />
+        <field name="maxwords" type="nrnumber"
+        	label="COM_CONVERTFORMS_MAX_WORDS"
+        	description="COM_CONVERTFORMS_MAX_WORDS_DESC"
+        	default="0"
+        	min="0"
+	    	class="span12"
+        />
+	</fieldset>
 	<fieldset name="advanced">
         <field name="filter" type="list"
             label="COM_CONVERTFORMS_FIELD_FILTER"

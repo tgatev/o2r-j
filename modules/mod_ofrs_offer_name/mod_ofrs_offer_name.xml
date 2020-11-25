@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.9.0" client="site" method="upgrade">
-    <name>Offer Monster offer name Area</name>
+    <name>Offer Monster Page Name</name>
     <author>DeltaFlip Ltd</author>
     <version>1.0.6</version>
     <description>Display Offer name.</description>

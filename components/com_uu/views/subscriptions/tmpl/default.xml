@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="Subscriptions">
+        <message>
+            Weekly emails с някое от следните:
+New offers from selected networks;
+New offers from selected verticals (any network)
+New offers for saved searches: всички нови оферти, които отговарят на филтрите на конкретен Saved search.
+        </message>
+    </layout>
+</metadata>

@@ -36,9 +36,9 @@ class Factory
         return \JFactory::getDocument();
     }
 
-    public function getUser($user = null)
+    public function getUser($id = null)
     {
-        return \JFactory::getUser($user);
+        return \NRFramework\User::get($id);
     }
 
     public function getCache()

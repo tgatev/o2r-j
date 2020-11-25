@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -18,15 +18,6 @@ use ConvertForms\Validate;
 
 class Url extends \ConvertForms\Field
 {
-    /**
-	 *  Remove common fields from the form rendering
-	 *
-	 *  @var  mixed
-	 */
-	protected $excludeFields = [
-		'inputmask'
-	];  
-
 	protected $inheritInputLayout = 'text';
 	
 	/**

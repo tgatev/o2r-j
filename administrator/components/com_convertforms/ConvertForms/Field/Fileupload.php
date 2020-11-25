@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -20,7 +20,8 @@ jimport('joomla.filesystem.path');
 
 use ConvertForms\Helper;
 use ConvertForms\Validate;
-use ConvertForms\UploadHelper;
+use Joomla\CMS\Filesystem\File as JFile;
+use NRFramework\File;
 use Joomla\Registry\Registry;
 
 class FileUpload extends \ConvertForms\Field
@@ -30,29 +31,20 @@ class FileUpload extends \ConvertForms\Field
 	 *
 	 * @var string
 	 */
-	protected $default_upload_folder = '/media/com_convertforms/uploads';
-
-	/**
-	 * If enabled, the AJAX response with the uploaded filename will be returned encrypted
-	 *
-	 * @var bool
-	 */
-	private $encrypt_filename = true;
+	protected $default_upload_folder = '/media/com_convertforms/uploads/{randomid}_{file.basename}';
 
 	/**
 	 *  Remove common fields from the form rendering
 	 *
 	 *  @var  mixed
 	 */
-	protected $excludeFields = array(
-		'inputmask',
+	protected $excludeFields = [
 		'size',
 		'value',
 		'browserautocomplete',
 		'placeholder',
-		'readonly',
 		'inputcssclass'
-	);
+	];
 
 	/**
 	 *  Set field object
@@ -62,6 +54,7 @@ class FileUpload extends \ConvertForms\Field
 	public function setField($field)
 	{
 		parent::setField($field);
+
 		$field = $this->field;
 
 		if (!isset($field->limit_files)) 
@@ -79,7 +72,7 @@ class FileUpload extends \ConvertForms\Field
 		{
 			$field->input_name .= '[]';
 		}
-
+	
 		return $this;
 	}
 
@@ -95,7 +88,7 @@ class FileUpload extends \ConvertForms\Field
 		$is_required 	   = $this->field->get('required');
 		$max_files_allowed = $this->field->get('limit_files', 1);
 		$allowed_types     = $this->field->get('upload_types');
-		$upload_folder     = $this->field->get('upload_folder', $this->default_upload_folder);
+		$upload_folder     = $this->field->get('upload_folder_type', 'auto') == 'auto' ? $this->default_upload_folder : $this->field->get('upload_folder', $this->default_upload_folder);
 
 		// Remove null and empty values
 		$value = is_array($value) ? $value : (array) $value;
@@ -114,66 +107,65 @@ class FileUpload extends \ConvertForms\Field
 		}
 
 		// Validate file paths
-		foreach ($value as &$file)
+		foreach ($value as $key => &$source_file)
 		{
-			// Decrypt file first
-			if ($this->encrypt_filename)
-			{
-				$file = UploadHelper::getCrypt()->decrypt($file);
-			}
+			$source_file_info = File::pathinfo($source_file);
+			$source_basename = $source_file_info['basename'];
 
-			// Check if the file really uploaded
-			$file_path = JPATH_ROOT . '/' . $upload_folder . '/' . $file;
-
-			if (!\JFile::exists($file_path))
+			if (!JFile::exists($source_file))
 			{	
-				$this->throwError(\JText::_('COM_CONVERTFORMS_UPLOAD_FILE_IS_MISSING'));
+				$this->throwError(\JText::sprintf('COM_CONVERTFORMS_UPLOAD_FILE_IS_MISSING', $source_basename));
 			}
 
-			// Check file type
-			if (!UploadHelper::isInAllowedTypes($allowed_types, $file_path))
+			// Is the file type allowed?
+			if (!File::isInAllowedTypes($allowed_types, $source_file))
 			{
-				\JFile::delete($file_path);
-				$this->throwError(\JText::sprintf('COM_CONVERTFORMS_UPLOAD_INVALID_FILE_TYPE', $file, $allowed_types));
+				JFile::delete($source_file);
+				$this->throwError(\JText::sprintf('NR_UPLOAD_INVALID_FILE_TYPE', $source_basename, $allowed_types));
 			}
 
-			// Get absolute URL
-			$file = UploadHelper::absURL($file_path);
+			// Remove the random ID added to file's name during upload process
+			$source_file_info['filename'] = preg_replace('#cf_(.*?)_(.*?)#', '', $source_file_info['filename']);
+			$source_file_info['basename'] = preg_replace('#cf_(.*?)_(.*?)#', '', $source_basename);
+			$source_file_info['index'] = $key + 1;
+
+			// Replace Smart Tags in the upload folder value
+			$SmartTags = new \NRFramework\SmartTags();
+			$SmartTags->add($source_file_info, 'file.');
+			$destination_file = JPATH_ROOT . DIRECTORY_SEPARATOR . $SmartTags->replace($upload_folder);
+
+			// Validate destination file
+			$destination_file_info = File::pathinfo($destination_file);
+			if (!isset($destination_file_info['extension']))
+			{
+				$destination_file = implode(DIRECTORY_SEPARATOR, [$destination_file_info['dirname'], $destination_file_info['basename'], $source_basename]);
+			}
+
+			// Move uploaded file to the destination folder after the form passes all validation checks.
+			// Thus, if an error is triggered by another field, the file will remain in the temp folder and the user will be able to re-submit the form.
+			$this->app->registerEvent('onConvertFormsSubmissionBeforeSave', function(&$data) use ($key, $source_file, $destination_file)
+			{
+				try
+				{
+					// Move uploaded file from the temp folder to the destination folder.
+					$destination_file = File::move($source_file, $destination_file);
+
+					// Give a chance to manipulate the file with a hook.
+					// We can move the file to another folder, rename it, resize it or even uploaded it to a cloud storage service.
+					$this->app->triggerEvent('onConvertFormsFileUpload', [&$destination_file, $data]);
+					
+					// Always save the relative path to the database.
+					$destination_file = Helper::pathTorelative($destination_file);
+
+					// Set back the new value to $data object
+					$data['params'][$this->field->get('name')][$key] = $destination_file;
+
+				} catch (\Throwable $th)
+				{
+					$this->throwError($th->getMessage());
+				}
+			});
 		}
-
-		// If we expect a single file, save it as a string instead of array.
-		if (!empty($value) && $max_files_allowed == 1 && isset($value[0]))
-		{
-			$value = $value[0];
-		}
-	}
-
-	/**
-	 * Event fired during form saving in the backend to help us validate user options.
-	 *
-	 * @param  object	$model			The Form Model
-	 * @param  array	$form_data		The form data to be saved
-	 * @param  array	$field_options	The field data
-	 *
-	 * @return bool
-	 */
-	public function onBeforeFormSave($model, $form_data, &$field_options)
-	{
-		if (empty($field_options['upload_folder']))
-		{
-			$field_options['upload_folder'] = $this->default_upload_folder;
-		}
-
-		// Validate Upload Folder
-		$upload_folder = JPATH_ROOT . '/' . $field_options['upload_folder'];
-
-		if (!UploadHelper::folderExistsAndWritable($upload_folder))
-		{
-			$model->setError(\JText::sprintf('COM_CONVERTFORMS_UPLOAD_FOLDER_INVALID', $upload_folder));
-			return false;
-		}
-
-		return parent::onBeforeFormSave($model, $form_data, $field_options);
 	}
 
 	/**
@@ -211,7 +203,7 @@ class FileUpload extends \ConvertForms\Field
         {
             $this->uploadDie('COM_CONVERTFORMS_UPLOAD_ERROR');
 		}
-		
+
 		// Get field settings
 		if (!$upload_field_settings = \ConvertForms\Form::getFieldSettingsByKey($form_id, $field_key))
 		{
@@ -221,7 +213,7 @@ class FileUpload extends \ConvertForms\Field
 		$allow_unsafe = $upload_field_settings->get('allow_unsafe', false);
 
 		// Make sure we have a valid file passed
-        if (!$file = \JFactory::getApplication()->input->files->get('file', null, ($allow_unsafe ? 'raw' : null)))
+        if (!$file = $this->app->input->files->get('file', null, ($allow_unsafe ? 'raw' : null)))
         {
             $this->uploadDie('COM_CONVERTFORMS_UPLOAD_ERROR_INVALID_FILE');
 		}
@@ -233,23 +225,19 @@ class FileUpload extends \ConvertForms\Field
             $file = $first_property;
 		}
 
-		$upload_folder = $upload_field_settings->get('upload_folder', $this->default_upload_folder);
-		$randomize = !$upload_field_settings->get('remove_random_prefix', false);
+		// Upload temporarily to the default upload folder
+		$allowed_types = $upload_field_settings->get('upload_types');
 
-		// Upload the file by checking if we need to add the random prefix and add the .tmp suffix.
-		if (!$uploaded_filename = UploadHelper::upload($file, $upload_folder, $randomize, $allow_unsafe))
+		try {
+			$uploaded_filename = File::upload($file, null, $allowed_types, $allow_unsafe, 'cf_');
+
+			return [
+				'file' => $uploaded_filename,
+			];
+		} catch (\Throwable $th)
 		{
-			$this->uploadDie('COM_CONVERTFORMS_UPLOAD_ERROR_CANNOT_UPLOAD_FILE');
+			$this->uploadDie($th->getMessage());
 		}
-
-		if ($this->encrypt_filename)
-		{
-			$uploaded_filename = UploadHelper::getCrypt()->encrypt($uploaded_filename);
-		}
-
-		return [
-			'file' => $uploaded_filename,
-		];
 	}
 
 	/**
@@ -266,6 +254,30 @@ class FileUpload extends \ConvertForms\Field
 	}
 
 	/**
+	 * Prepare value to be displayed to the user as plain text
+	 *
+	 * @param  mixed $value
+	 *
+	 * @return string
+	 */
+	public function prepareValue($value)
+	{
+		if (!$value)
+		{
+			return;
+		}
+
+		$value = (array) $value;
+
+		foreach ($value as &$link)
+		{
+			$link = Helper::absURL($link);
+		}
+
+		return implode(', ', $value);
+	}
+
+	/**
 	 * Prepare value to be displayed to the user as HTML/text
 	 *
 	 * @param  mixed $value
@@ -279,18 +291,34 @@ class FileUpload extends \ConvertForms\Field
 			return;
 		}
 
-		$links = is_array($value) ? $value : (array) $value;
+		$links = (array) $value;
 		$value = '';
 
 		foreach ($links as $link)
 		{
-			$pathinfo = pathinfo($link);
-			$value .= '<div><a download href="' . $link . '">' . $pathinfo['basename'] . '</a></div>';
+			$link = Helper::absURL($link);
+			$value .= '<div><a download href="' . $link . '">' . File::pathinfo($link)['basename'] . '</a></div>';
 		}
 
 		return '<div class="cf-links">' . $value . '</div>';
 	}
+
+	/**
+	 *  Display a text before the form options
+	 *
+	 *  @return  string  The text to display
+	 */
+	protected function getOptionsFormHeader()
+	{
+		$temp_folder = File::getTempFolder();
+
+		if (!@is_writable($temp_folder))
+		{
+			return '
+				<div class="alert alert-danger">
+					' . \JText::sprintf('COM_CONVERTFORMS_FILEUPLOAD_TEMP_FOLDER_NOT_WRITABLE', $temp_folder) . '
+				</div>
+			';
+		}
+	}
 }
-
-
-?>

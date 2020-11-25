@@ -50,13 +50,13 @@ class JFormFieldPayouttype extends JFormFieldList
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
 		$query->select($db->quoteName(array('a.id','a.name'),array('id','payout_type_name')));
-		$query->from($db->quoteName('#__ofrs_payout_type', 'a'));
+		$query->from($db->quoteName('ofrs_payout_type', 'a'));
 		$query->where($db->quoteName('a.published') . ' = 1');
 		$query->order('a.name ASC');
 		// Implement View Level Access (if set in table)
 		if (!$user->authorise('core.options', 'com_ofrs'))
 		{
-			$columns = $db->getTableColumns('#__ofrs_payout_type');
+			$columns = $db->getTableColumns('ofrs_payout_type');
 			if(isset($columns['access']))
 			{
 				$groups = implode(',', $user->getAuthorisedViewLevels());

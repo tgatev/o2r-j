@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -588,9 +588,10 @@ class Helper
         // Front-end media files
         if ($frontend)
         {
-            // Load core.js as we need getOptions() and Text() methods.
+            // Load core.js needed by keepalive script. 
             \JHtml::_('behavior.core');
             \JHtml::_('behavior.keepalive');
+
 			\JHtml::script('com_convertforms/site.js', ['relative' => true, 'version' => 'auto']);
 
             $params = self::getComponentParams();
@@ -600,13 +601,15 @@ class Helper
                 \JHtml::stylesheet('com_convertforms/convertforms.css', ['relative' => true, 'version' => 'auto']);
             }
 
-            // @deprecated - Use Joomla JSON-LD option instead.
-            \JFactory::getDocument()->addScriptDeclaration('
-                var ConvertFormsConfig = {
-                    "token" : "' . \JSession::getFormToken() . '",
-                    "debug" : ' . $params->get("debug", "false") . '
-                };
-            ');
+            $doc = \JFactory::getDocument();
+            $options = $doc->getScriptOptions('com_convertforms');
+            $options = is_array($options) ? $options : [];
+
+            $options = [
+                'debug' => (bool) $params->get('debug', false)
+            ];
+
+            $doc->addScriptOptions('com_convertforms', $options);
 
             return;
         }
@@ -695,4 +698,37 @@ class Helper
 
         return $columns;
     }
+
+	/**
+	 * Return absolute full URL of a path
+	 *
+	 * @param	string	$path
+	 *
+	 * @return	string
+	 */
+	public static function pathTorelative($path)
+	{
+		return str_replace([JPATH_SITE, JPATH_ROOT], '', $path);
+	}
+
+	/**
+	 * Return absolute full URL of a path
+	 *
+	 * @param	string	$path
+	 *
+	 * @return	string
+	 */
+	public static function absURL($path)
+	{
+		$path = str_replace([JPATH_SITE, JPATH_ROOT, \JURI::root()], '', $path);
+		$path = \JPath::clean($path);
+
+		// Convert Windows Path to Unix
+		$path = str_replace('\\','/',$path);
+
+		$path = ltrim($path, '/');
+		$path = \JURI::root() . $path;
+
+		return $path;
+	}
 }

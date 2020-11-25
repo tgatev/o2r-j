@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -33,8 +33,6 @@ class Heading extends \ConvertForms\Field
 		'placeholder',
 		'browserautocomplete',
 		'size',
-		'inputmask',
-		'readonly',
 		'required',
 		'hidelabel',
 		'inputcssclass',

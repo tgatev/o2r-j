@@ -1399,7 +1399,6 @@ abstract class OfrsHelper
 
         $mouseover = "background-color: " . sprintf($format, $color_hue, $defaults['s'], $defaults['l']) .
             "color: white";// .sprintf($format, $color_hue, $bcg_color_data['s'], $bcg_color_data['l']) ;
-
         return ["onmouseleave" => $mouseleave, "onmouseover" => $mouseover];
     }
 
@@ -1419,11 +1418,11 @@ abstract class OfrsHelper
      * @return string
      */
     static function getNetworkBoxButtonLayout($id, $adnet_name, $url, $styles = array(), $class = "offer-network-box" ){
-        if( (array_key_exists('adnet_text_color' , $styles) and array_key_exists('adnet_background_color' , $styles) ) and
-            ($styles['adnet_text_color'] and $styles['adnet_background_color']  ) ) {
+        if( (array_key_exists('name_text_color' , $styles) and array_key_exists('name_background_color' , $styles) ) and
+            ($styles['name_text_color'] and $styles['name_background_color']  ) ) {
 
-            $styles['onmouseleave'] = "color: ". $styles['adnet_text_color']. "; background-color: " .$styles['adnet_background_color'].";";
-            $styles['onmouseover'] = "color: white; background-color: " .$styles['adnet_text_color'].";";
+            $styles['onmouseleave'] = "color: ". $styles['name_text_color']. "; background-color: " .$styles['name_background_color'].";";
+            $styles['onmouseover'] = "color: white; background-color: " .$styles['name_text_color'].";";
         }
         // Parse Json
 //        if(is_string($styles)) $styles = OfrsHelper::parseDisplayProperties($styles, 'NetworkBoxButtonColors');

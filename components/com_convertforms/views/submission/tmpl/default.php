@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -48,7 +48,7 @@ if ($print_view)
 			<tr class="cfs-state">
 				<th><?php echo JText::_('JSTATUS') ?></th>
 				<td>
-					<span class="badge badge-<?php echo ($this->submission->state == '1' ? 'success' : 'important') ?>">
+					<span class="badge badge-<?php echo ($this->submission->state == '1' ? 'success' : (defined('nrJ4') ? 'danger' : 'important')) ?>">
 						<?php echo JText::_(($this->submission->state == '1' ? 'COM_CONVERTFORMS_SUBMISSION_CONFIRMED' : 'COM_CONVERTFORMS_SUBMISSION_UNCONFIRMED')) ?>
 					</span>
 					<?php 

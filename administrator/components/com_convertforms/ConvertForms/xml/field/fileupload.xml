@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
     <fieldset name="basic">
+        <field name="upload_folder_type" type="list"
+            label="COM_CONVERTFORMS_FILEUPLOAD_FOLDER_TYPE"
+            description="COM_CONVERTFORMS_FILEUPLOAD_FOLDER_TYPE_DESC"
+            default="auto">
+                <option value="auto">NR_AUTO</option>
+                <option value="custom">NR_CUSTOM</option>
+        </field>
         <field name="upload_folder" type="text"
             label="COM_CONVERTFORMS_FILEUPLOAD_FOLDER"
             description="COM_CONVERTFORMS_FILEUPLOAD_FOLDER_DESC"
             hint="media/com_convertforms/uploads"
-            default="media/com_convertforms/uploads"
-            class="span12"
+            class="span12 show-smart-tags"
+            showon="upload_folder_type:custom"
         />
         
         <field name="max_file_size" type="nrnumber"
@@ -23,10 +30,6 @@
             hint=".jpg, .png, .gif"
             default=".jpg, .png, .gif"
             class="span12"
-        />
-        <field name="remove_random_prefix" type="nrtoggle"
-            label="COM_CONVERTFORMS_FILEUPLOAD_REMOVE_RANDOM_PREFIX"
-            description="COM_CONVERTFORMS_FILEUPLOAD_REMOVE_RANDOM_PREFIX_DESC"
         />
         <field name="allow_unsafe" type="nrtoggle"
             label="COM_CONVERTFORMS_UPLOAD_ALLOW_UNSAFE"

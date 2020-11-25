@@ -51,7 +51,7 @@ class ContentViewArticle extends JViewLegacy
 
 			return false;
 		}
-
+		
 		// Create a shortcut for $item.
 		$item            = $this->item;
 		$item->tagLayout = new JLayoutFile('joomla.content.tags');
@@ -69,7 +69,7 @@ class ContentViewArticle extends JViewLegacy
 
 		// TODO: Change based on shownoauth
 		$item->readmore_link = JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catid, $item->language));
-
+		
 		// Merge article params. If this is single-article view, menu params override article params
 		// Otherwise, article params override menu item params
 		$this->params = $this->state->get('params');

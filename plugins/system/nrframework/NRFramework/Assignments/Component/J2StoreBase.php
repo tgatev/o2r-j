@@ -37,7 +37,7 @@ class J2StoreBase extends ComponentBase
      */
     protected function isSinglePage()
     {
-        return ($this->request->view == 'products' && $this->request->task == 'view');
+        return (in_array($this->request->view, ['products', 'producttags']) && $this->request->task == 'view');
     }
 
     /**

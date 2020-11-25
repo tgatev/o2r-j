@@ -1,11 +1,13 @@
 
-a {
+a,
+.dark-blue {
   /* color: #a96d01; */
   color: #22405f;
 }
 
 a:hover,
-a.hovered {
+a.hovered,
+.red {
   /* color: #764c01; */
   color: #f03b5d;
 }
@@ -17,29 +19,46 @@ a[href^="mailto"]{
 a[href^="mailto"]:hover {
   color: #f03b5d;
 }
+
+/* User Profile registration, view and edit styles */
+#dropdown_jform_cf_iam {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
 /* Main menu */
 .sp-megamenu-parent >li.active>a,
 .sp-megamenu-parent >li:hover>a {
   /* color: #a96d01; */
   color: #224160;
 }
-.sp-megamenu-parent .sp-dropdown li.sp-menu-item >a:hover {
-  color: #a96d01;
-}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item >a:hover,
 .sp-megamenu-parent .sp-dropdown li.sp-menu-item.active>a {
-  color: #a96d01;
+  color: #e7ebee;
 }
+
 .sp-menu-item:hover,
-.sp-menu-item.current-item.active,
+.sp-menu-item.active,
+#sp-left ul.nav.menu > li:hover,
+#sp-left ul.nav.menu > li.active,
 .contacts-btn-send:hover
 {
   background-color: #e7ebee !important;
   -webkit-transition: all 0.5s cubic-bezier(0.63, 0.28, 0.46, 0.88);
   transition: all 0.5s cubic-bezier(0.63, 0.28, 0.46, 0.88);
 }
+#sp-left .nav.menu > li {
+  border-radius: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 12px;
+  text-align: center;
+  max-width: 135px;
+  line-height: 30px;
+}
 
-.nav>li>a {
-  padding: 10px 30px 10px 0px;
+.nav > li > a {
+  padding: 0 20px;
   margin: unset;
 }
 
@@ -51,62 +70,12 @@ a[href^="mailto"]:hover {
 }
 
 
-.btn-primary,
-.sppb-btn-primary {
-  border-color: #8b5901;
-  background-color: #a96d01;
-}
-.btn-primary:hover,
-.sppb-btn-primary:hover {
-  border-color: #5d3c01;
-  background-color: #764c01;
-}
-ul.social-icons >li a:hover {
-  color: #a96d01;
-}
 .layout-boxed .body-innerwrapper {
   background: #ffffff;
 }
 
 .sp-module .latestnews >div >a {
   color: #777777;
-}
-.sp-module .latestnews >div >a:hover {
-  color: #a96d01;
-}
-.sp-module .tagscloud .tag-name:hover {
-  background: #a96d01;
-}
-.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li.active > a,
-.sp-simpleportfolio .sp-simpleportfolio-filter > ul > li > a:hover {
-  background: #a96d01;
-}
-.search .btn-toolbar button {
-  background: #a96d01;
-}
-.post-format {
-  background: #a96d01;
-}
-.voting-symbol span.star.active:before {
-  color: #a96d01;
-}
-.sp-rating span.star:hover:before,
-.sp-rating span.star:hover ~ span.star:before {
-  color: #764c01;
-}
-.entry-link,
-.entry-quote {
-  background: #a96d01;
-}
-blockquote {
-  border-color: #a96d01;
-}
-.carousel-left:hover,
-.carousel-right:hover {
-  background: #a96d01;
-}
-.sp-comingsoon body {
-  background-color: #a96d01;
 }
 .pagination>li>a,
 .pagination>li>span {
@@ -153,8 +122,84 @@ ul.multiselect-container.dropdown-menu > li.multiselect-reset a {
   font-weight: bolder;
 }
 
+.has-error .checkbox,
+.has-error .checkbox-inline,
+.has-error .control-label,
+.has-error .help-block,
+.has-error .radio,
+.has-error .radio-inline,
+.has-error.checkbox label,
+.has-error.checkbox-inline label,
+.has-error.radio label,
+.has-error.radio-inline label
+{
+  color: #f03b5d;
+}
+.has-error input{
+  border-color: #f03b5d !important;
+}
 
 
+/** Network box view **/
+.offer-network-box {
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: inline-flex;
+  margin-left: 15px;
+}
+/** Error messages **/
+#error-modal .modal-footer button {
+  margin: 0 5px;
+}
+
+
+/** User Profile -> Offer Alerts : styles  **/
+.offer-alerts-body article {
+  margin: 10px 0px;
+}
+.offer-alerts-body .offer-name {
+  line-height: 16px;
+}
+.offer-alerts-body .om-delete:before,
+.subscriptions-body .om-delete:before {
+  vertical-align: middle;
+}
+
+.offer-alerts-head,
+.subscriptions-body{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.save-btn {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+/** User Profile -> Subscriptions : styles  **/
+.addnetwork-btn-box,
+.addvertical-btn-box {
+  padding: 15px;
+}
+.subscriptions-body .list-add-network.row,
+.subscriptions-body .list-add-vertical.row {
+ margin-top: 5px;
+ margin-bottom: 5px;
+}
+.subscriptions-body .list-add-vertical.row {
+  padding: 0 20px;
+}
+.nmr.om-delete,
+.vmr.om-delete {
+  margin-left: 10px;
+}
+/**
+    -> drop downs
+ */
+#dropdown_jform_adnetlist,
+#dropdown_jform_vertlist {
+  display: none;
+  padding: 0;
+}
 /** Mobile Definitions */
 @media (max-width: 767px) {
   /** logo mobile max sizing */
@@ -261,11 +306,5 @@ ul.multiselect-container.dropdown-menu > li.multiselect-reset a {
   #sp-bottom1 {
     margin-bottom: unset;
   }
-}
 
-/** xs Definitions */
-@media (min-width: 768px){
-  #offcanvas-toggler {
-    margin-right: 0px;
-  }
 }

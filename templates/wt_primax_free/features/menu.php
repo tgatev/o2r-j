@@ -31,7 +31,7 @@ class Helix3FeatureMenu {
 		<?php } else if ($menu_type == 'mega') { ?>
 			<div class='sp-megamenu-wrapper'  style="z-index: 10000;">
 				<a id="offcanvas-toggler" class="visible-sm visible-xs"  style="z-index: 10000;" href="#"><i class="fa fa-bars"></i></a>
-				<?php $this->helix3->loadMegaMenu('hidden-sm hidden-xs'); ?>
+				<?php $this->helix3->loadMegaMenu('hidden-sm hidden-xs'); //?>
 			</div>
 		<?php } else { ?>
 			<a id="offcanvas-toggler" href="#"><i class="fa fa-bars"></i></a>

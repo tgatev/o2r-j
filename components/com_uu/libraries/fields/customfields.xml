@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fields>
+<field>
+    <type>text</type>
+    <name>Textbox</name>
+</field>
+<field>
+    <type>captcha</type>
+    <name>Captcha</name>
+</field>
+<field>
+	<type>sql</type>
+	<name>SQL</name>
+</field>
+<field>
+	<type>select</type>
+	<name>Select</name>
+</field>
+<field>
+	<type>checkbox</type>
+	<name>Checkbox</name>
+</field>
+<field>
+	<type>oml</type>
+	<name>Monitored Offer List</name>
+</field>
+</fields>

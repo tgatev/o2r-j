@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -116,6 +116,8 @@ class Field
 				}
 			}
 		}
+
+		$this->app = \JFactory::getApplication();
 	}
 
 	/**
@@ -192,7 +194,7 @@ class Field
 		$layoutName = isset($this->inheritInputLayout) ? $this->inheritInputLayout : $this->getName();
 	
 		// Check if an admininistrator layout is available
-		if (\JFactory::getApplication()->isClient('administrator') && \JFile::exists($layoutsPath . $layoutName . '_admin.php'))
+		if ($this->app->isClient('administrator') && \JFile::exists($layoutsPath . $layoutName . '_admin.php'))
 		{
 			$layoutName .= '_admin';
 		}
@@ -222,7 +224,7 @@ class Field
 	public function getControlGroup()
 	{
 		\JPluginHelper::importPlugin('convertformstools');
-		\JFactory::getApplication()->triggerEvent('onConvertFormsFieldBeforeRender', [&$this->field]);
+		$this->app->triggerEvent('onConvertFormsFieldBeforeRender', [&$this->field]);
 
 		$this->field->input = $this->getInput();
 
@@ -286,7 +288,7 @@ class Field
 		$form->loadFile(JPATH_COMPONENT_ADMINISTRATOR . '/ConvertForms/xml/field/' . $this->getName() . '.xml');
 
         \JPluginHelper::importPlugin('convertformstools');
-		\JFactory::getApplication()->triggerEvent('onConvertFormsBackendRenderOptionsForm', [&$form, $this->getName()]);
+		$this->app->triggerEvent('onConvertFormsBackendRenderOptionsForm', [&$form, $this->getName()]);
 
 		// Bind Data
 		$form->bind($loadData);

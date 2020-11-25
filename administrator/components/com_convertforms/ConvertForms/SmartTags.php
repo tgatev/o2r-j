@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -63,7 +63,11 @@ class SmartTags
      *  http://www.site.com/http://www.site.com/images/uploaded_file.png
      *   
      *  The line below is a temporary and dirty solution to our problem.
+     * 
      *  We may need to consider storing just the path of the uploaded file to the database instead. Eg: images/path/file.png
+     * 
+     *  Update: Since v2.7.4, even though we now store only the relative path in the database, this issue is not resolved as the relative path
+     *  is transformed into an absolute URL by the prepareValue() method before the value arrives in this method.
      *
      * @param  string $string
      *

@@ -76,8 +76,8 @@ class OfrsModelAdnets extends JModelList
 		$query->select('a.id AS adnet_id,
                         a.name AS adnet_name,
                         a.description AS adnet_description,
-                        a.adnet_text_color AS adnet_text_color,
-                        a.adnet_background_color AS adnet_background_color,
+                        a.name_text_color AS name_text_color,
+                        a.name_background_color AS name_background_color,
                         b.offer_count AS offer_count,
                         b.modified AS adnet_modified
                         ');
@@ -95,6 +95,7 @@ class OfrsModelAdnets extends JModelList
         $ord_direction = $this->getState('list.direction', 'DESC');
         $query->order($db->escape($ord_col).' '.$db->escape($ord_direction));
         return $query;
+
 	}
 
 	/**
@@ -153,9 +154,16 @@ protected function populateState($ordering = null, $direction = null) {
 
     public function getCountsOfFilterResults(){
         $query= $this->getListQuery();
+//        var_dump($query->dump());
+
         $db = JFactory::getDbo();
         $db->setQuery($query);
         $db->execute();
+//        $query->select('offrs_count')
+//        var_dump($db->getAffectedRows());
+//        var_dump($db->getNumRows());
+//        die();
         return $db->getNumRows();
     }
+
 }

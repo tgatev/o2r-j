@@ -373,14 +373,6 @@ strong {
     color: #f4f8f9;
 }
 
-.offer-network-box {
-    padding: 5px 10px;
-    border-radius: 4px;
-    display: inline-flex;
-    margin-left: 15px;
-}
-
-
 #adnet-join-button .offer-network-box {
     display: block;
     width: 100%;

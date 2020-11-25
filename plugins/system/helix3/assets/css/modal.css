@@ -490,7 +490,7 @@ fieldset[disabled] .sppb-btn-warning.active {
 }
 .sppb-btn-danger {
   color: #ffffff;
-  background-color: #d9534f;
+  background-color: #f03b5d;
   border-color: #d43f3a;
 }
 .sppb-btn-danger:hover,
@@ -522,11 +522,11 @@ fieldset[disabled] .sppb-btn-danger:active,
 .sppb-btn-danger.disabled.active,
 .sppb-btn-danger[disabled].active,
 fieldset[disabled] .sppb-btn-danger.active {
-  background-color: #d9534f;
+  background-color: #f03b5d;
   border-color: #d43f3a;
 }
 .sppb-btn-danger .badge {
-  color: #d9534f;
+  color: #f03b5d;
   background-color: #ffffff;
 }
 .sppb-btn-link {

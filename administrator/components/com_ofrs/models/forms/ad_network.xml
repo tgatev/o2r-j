@@ -182,7 +182,7 @@
 		<!-- Adnet_logo Field. Type: Media. (joomla) -->
 		<field
 			type="media"
-			name="adnet_logo"
+			name="logo"
 			label="COM_OFRS_AD_NETWORK_ADNET_LOGO_LABEL"
 			directory=""
 			preview="true"

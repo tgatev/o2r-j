@@ -24,6 +24,12 @@ jQuery(function ($) {
         sp_offanimation = 'default';
     }
 
+    // attach toggle button
+    let container_width = $('#sp-header > .container').width();
+    if(container_width < 970 ) {
+        $('.menu-item-user-profile.icon.om-account').attr('id', 'offcanvas-toggler');
+    }
+
     if (sp_offanimation == 'default') {
         $('#offcanvas-toggler').on('click', function (event) {
             event.preventDefault();
@@ -390,6 +396,8 @@ function setContentMinHeight() {
 
 /*
 	Generate dropdown USES http://davidstutz.de/bootstrap-multiselect/#templates
+	NEW DOCUMENTATION LINK : http://davidstutz.github.io/bootstrap-multiselect/
+
  */
 function dropdownGenerator(dropdown_id, definitions) {
     let defaults = {
@@ -426,7 +434,7 @@ function dropdownGenerator(dropdown_id, definitions) {
             filterClearBtn: '',
             button: '<button type="button" id="ddb_' + dropdown_id + '" class="multiselect dropdown-toggle btn btn-white" data-toggle="dropdown" ' +
                 'title="None selected" aria-expanded="false" style=" overflow: hidden; text-overflow: ellipsis;">' +
-                '<span class="multiselect-selected-text col-xs-11 col-no-gutters" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis"> Non Selected Text</span> <b class="fa fa-angle-down col-xs-1 col-no-gutters dropdown-arrows" style="max-width: 1rem;  font-size: 17px"></b>' +
+                '<span class="multiselect-selected-text col-no-gutters" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis"> Non Selected Text</span> <b class="fa fa-angle-down col-no-gutters dropdown-arrows" style="text-align: right;  font-size: 17px"></b>' +
                 '</button>',
             resetButton: '<li class="multiselect-reset text-right"  style="order: 0"><div class="reset-button-row"><a class="filter-btns clear col-xs-3 col-xs-offset-6 col-sm-offset-9" ></a></div></li>',
 
@@ -577,3 +585,70 @@ function boldManager(dropdown_id) {
 
 }
 
+
+function triggerErrorMessage(){
+    jQuery('button#error-modal-trigger').click();
+}
+
+function  throwMessage(message, buttons = [], title = null){
+    jQuery('#error-modal p#modal-error-msg-box').html(message);
+
+    if(!title){
+        jQuery('#error-modal h3.modal-title').css('display', 'none');
+    }else {
+        jQuery('#error-modal h3.modal-title').html(title);
+    }
+
+    if(buttons && Array.isArray(buttons)) {
+        jQuery('#error-modal .modal-footer').html('');
+        for(button of buttons){
+            jQuery('#error-modal .modal-footer').append(jQuery('<button />', button));
+        }
+    }
+    triggerErrorMessage();
+}
+
+
+function attachDeleteConfirmation(elements_selector, message , url ){
+    jQuery(elements_selector ).on( "click", function() {
+        let element_id = jQuery( this ).attr('id');
+        throwMessage(message, [
+            {
+                id: 'yes',
+                text: 'Yes', //set text
+                class: '', // set classes
+                type: 'submit',
+                click: function () {
+                    jQuery.ajax({
+                        url: url,
+                        type: "post",
+                        data: { 'elementId': element_id}, // event.target.id
+
+                        success : function(response){
+                            response = JSON.parse(response);
+                            // console.log(response.status);
+                            if(response.status == "Y") {
+                                jQuery('#'+element_id).closest('article').css('display', 'none');
+                                jQuery('button.close').click();
+                            }
+                            // location.reload();// not need, we can remove the item
+                        },
+
+                        error: function(jqXhr, textStatus, errorMessage) { // error callback
+                            //							        $('p').append('Error: ' + errorMessage);
+                            console.log('error ');
+                            console.log(errorMessage);
+                        }
+                    });
+                }
+            },
+            { // Close like
+                text: 'No', //set text
+                class: 'btn-white-grey', // set classes
+                type: 'submit',
+                'data-dismiss': 'modal',
+                'aria-label': 'Close',
+            },
+        ])
+    });
+}

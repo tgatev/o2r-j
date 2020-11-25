@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -284,11 +284,6 @@ class ConvertFormsModelConversion extends JModelAdmin
             $newData['params'][$field_name] = $user_value;
         }
 
-        // JSON_UNESCAPED_UNICODE encodes multibyte unicode characters literally. 
-        // Without: Τάσος => \u03a4\u03ac\u03c3\u03bf\u03c2
-        // With:    Τάσος => Τάσος
-        $newData['params'] = json_encode($newData['params'], JSON_UNESCAPED_UNICODE);
-
         return $newData;
     }
 
@@ -296,15 +291,20 @@ class ConvertFormsModelConversion extends JModelAdmin
      *  Create a new conversion based on the post data.
      *
      *  @return  object     The new conversion row object
-     */
+     */ 
     public function createConversion($data)
     {
         // Validate data
         $data = $this->validate(null, $data);
 
-        // Log debug message
-        $debugData = urldecode(http_build_query($data, '', ', '));
-        Helper::log('New Lead: ' . $debugData);
+        // This event is rather useful when we want to modify a field's value only after the submission passes all validation checks.
+        // We may support this event in the PHP Scripts section too.
+        JFactory::getApplication()->triggerEvent('onConvertFormsSubmissionBeforeSave', [&$data]);
+
+        // JSON_UNESCAPED_UNICODE encodes multibyte unicode characters literally. 
+        // Without: Τάσος => \u03a4\u03ac\u03c3\u03bf\u03c2
+        // With:    Τάσος => Τάσος
+        $data['params'] = json_encode($data['params'], JSON_UNESCAPED_UNICODE);
 
         // Everything seems fine. Let's save data to the database.
         if (!$this->save($data))

@@ -68,14 +68,8 @@ JFactory::getDocument()->setTitle($this->item->name);
     <section class="col-xs-12 col-sm-4 text-center " id="adnet-logo-box" style="margin-top: 24px; float: right">
         <div class="adnet-logo">
         <?php
-        /** MOCK Image
-        $this->item->adnet_logo = 1;
-        $this->item->logo_url = "/images/logo-offer-monster-2.svg";
-        $this->item->logo_url = "/images/TEST.png";
-        $this->item->logo_url = "/images/fav-01.png";
-         */
 
-        if ($this->item->adnet_logo) { ?>
+        if ($this->item->logo) { ?>
 
                 <a href="<?= $this->item->home_url != null ? $this->item->home_url : $this->item->join_url ?>" target="_blank">
                     <img id="<?= $this->item->id ?>" src="<?= $this->escape($this->item->logo_url); ?>"
@@ -94,8 +88,8 @@ JFactory::getDocument()->setTitle($this->item->name);
             <?= OfrsHelper::getNetworkBoxButtonLayout($this->item->id, 'Join Network', 
             	$this->item->join_url,
             	[
-                        "adnet_text_color" => $this->item->adnet_text_color,
-                        "adnet_background_color" => $this->item->adnet_background_color,
+                        "name_text_color" => $this->item->name_text_color,
+                        "name_background_color" => $this->item->name_background_color,
 
                 ]);?>
         </div>

@@ -143,7 +143,7 @@ class OfrsModelOffer_payouts extends JModelList
 
 		// From the ofrs_payout_type table.
 		$query->select($db->quoteName('g.name','payout_type_name'));
-		$query->join('LEFT', $db->quoteName('#__ofrs_payout_type', 'g') . ' ON (' . $db->quoteName('a.payout_type') . ' = ' . $db->quoteName('g.id') . ')');
+		$query->join('LEFT', $db->quoteName('ofrs_payout_type', 'g') . ' ON (' . $db->quoteName('a.payout_type') . ' = ' . $db->quoteName('g.id') . ')');
 
 		// From the ofrs_currency table.
 		$query->select($db->quoteName('h.name','currency_id_name'));

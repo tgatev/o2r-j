@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+        <field name="type"
+               type="text"
+               class="inputbox readonly"
+               label="COM_UU_FORM_LBL_FIELD_TYPE"
+               description="COM_UU_FORM_DESC_FIELD_TYPE"
+               required="true"
+               readonly="readonly"
+                />
+
+    </fieldset>
+
+    <fields name="params">
+        <fieldset name="options">
+            <field name="style" type="text"
+                   description=""
+                   label="Style"
+                    />
+        </fieldset>
+    </fields>
+
+</form>

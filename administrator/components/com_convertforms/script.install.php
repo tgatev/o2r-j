@@ -2,7 +2,7 @@
 
 /**
  * @package         Convert Forms
- * @version         2.7.2 Free
+ * @version         2.7.4 Free
  * 
  * @author          Tassos Marinos <info@tassos.gr>
  * @link            http://www.tassos.gr
@@ -22,25 +22,24 @@ class Com_ConvertFormsInstallerScript extends Com_ConvertFormsInstallerScriptHel
 
 	public function onAfterInstall()
 	{
-		require_once __DIR__ . '/autoload.php';
-
 		$this->moveFrontEndImages();
-		
-		if ($this->install_type == 'update')
-        {
-			// Migrate v1 to v2
-			if (version_compare($this->installedVersion, '2.0.0', '<='))
-	 	    {
-				$migrator = new \ConvertForms\Migrator();
-				$migrator->start();
+
+		if ($this->install_type == 'update') 
+		{
+			require_once __DIR__ . '/autoload.php';
+
+			try {
+				(new ConvertForms\Migrator($this->installedVersion))->start();
+			} catch (\Throwable $th)
+			{
 			}
 
 			$this->dropIndex('convertforms_conversions', 'email_campaign_id');
 
 			// Remove convertforms field from the framework
 			$this->deleteFiles([JPATH_SITE . '/plugins/system/nrframework/fields/convertforms.php']);
-		}
-	}
+        }
+    }
 
 	/**
 	 *  Moves front-end based images from /media/ folder to /images/
@@ -65,4 +64,3 @@ class Com_ConvertFormsInstallerScript extends Com_ConvertFormsInstallerScriptHel
 		JFolder::delete($source);
 	}
 }
-

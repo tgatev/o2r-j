@@ -626,7 +626,7 @@ class BaseController extends \JObject
 			// Push the model into the view (as default)
 			$view->setModel($model, true);
 		}
-
+		
 		$view->document = $document;
 
 		// Display the view

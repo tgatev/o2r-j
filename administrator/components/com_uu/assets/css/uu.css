@@ -1,0 +1,99 @@
+.icon-48-users {
+      background-image: url(../images/icon-48-users.png);
+      padding-left:60px!important;
+}
+
+.icon-48-user {
+      background-image: url(../images/icon-48-users.png);
+      padding-left:60px!important;
+}
+
+.icon-48-fields{
+    background-image: url(../images/icon-48-fields.png);
+}
+
+.icon-32-csv{
+    background-image:url(../images/icon-48-csv.png);
+}
+table.adminlist tbody tr.row-group td {
+    background-color: #eeeeee;
+    vertical-align: middle;
+    padding: 7px;;
+}
+
+table.adminlist tbody tr.row-field td {
+    background-color: #ffffff;
+    vertical-align: middle;
+}
+
+table.adminlist tbody tr.row-field td.field-name {
+    padding-left: 20px;
+}
+
+fieldset#jform_params_readonly.radio.btn-group{
+    padding-top: 0;
+}
+
+div#uuusersgroupschart{
+    padding-right: 200px;
+    position: relative;
+    width: 250px;
+}
+
+.canvasholder {
+    padding: 4px 0;
+    margin: 20px 0;
+    position: relative;
+}
+#chartusersgroupslegend{
+    position: absolute;
+    right: 8px;
+    top:0;
+}
+
+ul.pie-legend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    margin-top : 20px;
+}
+
+ul.pie-legend li span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+input[type=checkbox].invalid {
+    outline: 1px solid #ff0000;
+}
+input[type=checkbox].invalid {
+    outline-color: #ff0000 !important;
+}
+
+.invalid {
+    border-color: red !important;
+}
+
+#user-form .form-horizontal .help-block {
+    margin-bottom: 0;
+}
+#user-form .form-error {
+    display: block;
+    color: #b94a48;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    line-height: 140%;
+}
+#user-form .help-block {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/*add espace with ascending/descending indicator image*/
+tr.sortable th img {
+    margin-left: 5px;
+}
+
